@@ -24,17 +24,30 @@ Video: TODO
 
 ## How the agent decides
 
+```mermaid
+flowchart TD
+    IN([Student input: grade-sheet photo and/or voice message]) --> AGENT
+
+    subgraph LOOP [Agent loop - max 10 steps]
+        AGENT{{"Muse Spark 1.3<br/>chooses next action"}}
+        AGENT -->|audio received| T1[transcribe_voice<br/>Muse Voice Transcribe]
+        AGENT -->|image received| T2[read_grade_sheet<br/>Muse Spark vision]
+        AGENT -->|profile complete| T3[lookup_filieres<br/>data/filieres.csv]
+        T1 --> OBS[Observation]
+        T2 --> OBS
+        T3 --> OBS
+        OBS --> CHECK{Usable result?}
+        CHECK -->|"unreadable / low confidence / missing grade"| ASK[Ask the student to resend or confirm]
+        ASK --> AGENT
+        CHECK -->|yes| AGENT
+    end
+
+    AGENT -->|enough verified info| T4[build_report<br/>every recommendation cites its source]
+    AGENT -->|step limit reached| STOP([Stop: no report])
+    T4 --> OUT([Sourced orientation report])
 ```
-input (text / photo / voice)
-        │
-        ▼
- model picks a tool ◄──────────┐
-        │                      │
-   run tool → observation ─────┘
-        │ (enough info, or step limit)
-        ▼
-   build_report (cites sources)
-```
+
+Design intent (the loop is a skeleton and has not been run end to end yet).
 
 Tools:
 
