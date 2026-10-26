@@ -45,5 +45,5 @@ Limite de pas : 10 (`MAX_STEPS`). Si une entrée est illisible ou une note manqu
 
 ## Points à confirmer
 
-- **Appel d'outils (function calling) de Muse Spark 1.3 : NON VÉRIFIÉ.** https://dev.meta.ai/docs/models n'était pas accessible depuis l'environnement de création (erreur DNS). `src/agent/loop.py` suppose le format OpenAI `tools`/`tool_calls` ; à confirmer. Plan B si non supporté : sortie JSON structurée et dispatch manuel.
-- Identifiants exacts des modèles (Muse Spark 1.3, Muse Voice Transcribe) et format d'envoi des images/audio : à confirmer.
+- **Appel d'outils (function calling) de Muse Spark 1.3 : observé, non documenté.** La documentation officielle n'a pas pu être consultée depuis l'environnement de création. En revanche, `scripts/test_muse_tool_call.py` (rapport : `docs/muse-spark-tool-call-results.md`) montre 5 réussites sur 5 : avec un seul outil `lookup_filieres`, le modèle `muse-spark-1.3` renvoie `finish_reason = tool_calls` avec `{"moyenne": 13.5}`. Limites : un seul outil, une seule question, 5 essais ; ni le choix entre plusieurs outils, ni les appels enchaînés, ni la vision ne sont testés. Résultats rapportés, non rejoués par nous.
+- Identifiant de Muse Voice Transcribe (`muse-spark-1.3` est celui utilisé dans le test) et format d'envoi des images/audio : à confirmer.

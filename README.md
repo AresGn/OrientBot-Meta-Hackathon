@@ -68,7 +68,7 @@ If an input is unreadable or a grade is missing, the agent is designed to ask ra
 | Grade-sheet reading | Muse Spark 1.3 (vision) | Extract grades from photos |
 | Voice message transcription | Muse Voice Transcribe | Speech to text |
 
-Tool calling support in Muse Spark 1.3 is **not yet confirmed** (see `docs/architecture.md`). There is no text-to-speech.
+Tool calling in Muse Spark 1.3 was observed working in a small test (1 tool, 5/5 runs, see `docs/muse-spark-tool-call-results.md`); multi-tool choice and vision are not tested yet. There is no text-to-speech.
 
 ## Quick start
 
