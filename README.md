@@ -76,7 +76,10 @@ Tool calling support in Muse Spark 1.3 is **not yet confirmed** (see `docs/archi
 pip install -r requirements.txt
 cp .env.example .env   # then set MUSE_API_KEY
 python -m src.main     # currently exits: not implemented
+uvicorn src.api.server:app --reload --port 8000   # demo UI at http://127.0.0.1:8000/
 ```
+
+Tool-calling check (Muse Spark 1.3): `python scripts/test_muse_tool_call.py` — see `docs/muse-spark-tool-call-results.md`.
 
 ## Evaluation
 
