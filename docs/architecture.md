@@ -33,14 +33,14 @@ Limite de pas : 10 (`MAX_STEPS`). Si une entrée est illisible ou une note manqu
 |---|---|---|
 | `transcribe_voice` | Transcription (Muse Voice Transcribe) | non implémenté |
 | `read_grade_sheet` | Lecture d'un relevé (Muse Spark, vision) | non implémenté |
-| `lookup_filieres` | Lecture de `data/filieres.csv` (lignes non vérifiées exclues) | implémenté (données TODO) |
+| `lookup_filieres` | Lecture de `data/filieres.csv` : seules les lignes `source_status = verifie` sont retournées | implémenté (données TODO) |
 | `build_report` | Rapport citant ses sources | implémenté (squelette) |
 
 ## Décisions
 
 - Python, SDK OpenAI pointé sur `https://api.meta.ai/v1`.
 - Pas de synthèse vocale (l'API Meta n'en propose pas).
-- Aucune recommandation sans ligne sourcée dans `data/filieres.csv`.
+- Aucune recommandation sans ligne sourcée dans `data/filieres.csv` (règle « rien sans source »), et demander plutôt que deviner. Détail : `docs/prd.md` et `docs/v1-reuse.md`.
 - Aucune donnée réelle d'élève ; relevés fictifs uniquement.
 
 ## Points à confirmer
