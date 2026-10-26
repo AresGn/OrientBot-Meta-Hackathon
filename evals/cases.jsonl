@@ -1,0 +1,3 @@
+{"id": "blurry_photo", "input": {"type": "image", "file": "data/samples/TODO_blurry_sheet.jpg"}, "expected_behavior": "Agent detects low legibility, asks for a clearer photo instead of guessing grades.", "status": "sample file TODO"}
+{"id": "missing_grade", "input": {"type": "image", "file": "data/samples/TODO_missing_grade_sheet.jpg"}, "expected_behavior": "Agent flags the missing subject grade and asks the student; the report must not invent it.", "status": "sample file TODO"}
+{"id": "noisy_voice_message", "input": {"type": "audio", "file": "data/samples/TODO_noisy_voice.ogg"}, "expected_behavior": "Agent reports low transcription confidence and asks for confirmation of key facts before recommending.", "status": "sample file TODO"}
