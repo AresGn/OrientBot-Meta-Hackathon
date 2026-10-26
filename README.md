@@ -2,7 +2,7 @@
 
 An agent that takes a post-BAC student's grade-sheet photo and voice message, chooses its own tools step by step, and produces a sourced orientation report for Benin.
 
-> **Status: early scaffold.** The agent loop and two tools are skeletons; model-calling tools are not implemented yet.
+> **Status: early scaffold (build period 26 Oct - 3 Nov 2026).** The agent loop is a skeleton; `read_grade_sheet` and `transcribe_voice` are not implemented yet. The only tested part is a small tool-calling check (see below).
 
 ## Problem
 
@@ -16,7 +16,14 @@ OrientBot already exists as a separate project. **No code from it is copied here
 - the tools in `src/tools/`,
 - the Meta API client,
 - the evaluation cases in `evals/`,
+- the demo web page and API stub (`web/`, `src/api/`),
 - the sourced programs dataset (`data/filieres.csv`, currently empty/TODO).
+
+Only business *rules* are re-specified from the earlier project (MESRS coefficient table to be re-typed by hand from the official source, subject-name normalization, "nothing without a source", "ask rather than guess"). No file or code is copied, and the earlier project's guides are not republished. See `docs/v1-reuse.md`.
+
+Project documents: `docs/prd.md` (scope, requirements, 9-day plan), `docs/architecture.md`, `docs/impact.md`, `docs/demo-script.md`.
+
+Out of scope for this event: WhatsApp, payment, landing page, database, text-to-speech, parents' report, scholarship calculation, full RIASEC questionnaire.
 
 ## Demo
 
@@ -55,7 +62,7 @@ Tools:
 |---|---|---|
 | `transcribe_voice` | Transcribe a voice message | not implemented |
 | `read_grade_sheet` | Read grades from a sheet photo | not implemented |
-| `lookup_filieres` | Look up verified programs in `data/filieres.csv` | implemented, dataset TODO |
+| `lookup_filieres` | Look up programs in `data/filieres.csv` (only `source_status = verifie` rows) | implemented, dataset TODO |
 | `build_report` | Report where each recommendation cites its source | skeleton |
 
 If an input is unreadable or a grade is missing, the agent is designed to ask rather than guess (not yet evaluated).
@@ -83,15 +90,16 @@ Tool-calling check (Muse Spark 1.3): `python scripts/test_muse_tool_call.py` —
 
 ## Evaluation
 
-Cases in `evals/cases.jsonl`: blurry photo, missing grade, noisy voice message. Sample files are not created yet. Results: TODO (nothing measured).
+Five cases in `evals/cases.jsonl`: blurry photo, missing grade, noisy voice message, clear sheet (series C), no matching program. Target: 4 of 5 compliant and zero invented grades or programs. Sample files are not created yet. Results (to be committed in `evals/results/`): TODO (nothing measured).
 
 ## Limitations
 
 - Agent is not functional end to end yet.
-- Tool calling in Muse Spark 1.3 unverified.
-- `data/filieres.csv` has no verified entries yet, so no recommendation can be produced.
+- Tool calling was only checked on one tool and one question (5/5 runs); multi-tool choice and vision are untested.
+- `data/filieres.csv` has no verified entries yet, so no recommendation can be produced. The target is about 15 verified programs for series C and D, to illustrate the loop. It will not be a national database.
 - Only fictional sample data; no real-student testing.
 - No voice output.
+- Handwritten grade sheets will likely be unreliable; the first tests use printed fictional sheets.
 
 ## Team
 
