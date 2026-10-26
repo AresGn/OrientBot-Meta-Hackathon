@@ -9,6 +9,13 @@ function setStatus(message, isError = false) {
   statusEl.className = isError ? "error" : "muted";
 }
 
+function escapeHtml(value) {
+  return String(value ?? "").replace(
+    /[&<>"']/g,
+    (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]
+  );
+}
+
 function renderSteps(steps) {
   if (!steps || steps.length === 0) {
     stepsEl.innerHTML =
@@ -18,7 +25,7 @@ function renderSteps(steps) {
   const items = steps
     .map(
       (s) =>
-        `<li><strong>${s.tool || "étape"}</strong> — ${s.summary || ""}</li>`
+        `<li><strong>${escapeHtml(s.tool || "étape")}</strong> — ${escapeHtml(s.summary)}</li>`
     )
     .join("");
   stepsEl.innerHTML = `<ol>${items}</ol>`;
@@ -30,7 +37,7 @@ function renderReport(report) {
       '<p class="muted">Le rapport apparaîtra ici.</p>';
     return;
   }
-  reportEl.innerHTML = `<pre>${JSON.stringify(report, null, 2)}</pre>`;
+  reportEl.innerHTML = `<pre>${escapeHtml(JSON.stringify(report, null, 2))}</pre>`;
 }
 
 form.addEventListener("submit", async (event) => {

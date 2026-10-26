@@ -17,7 +17,7 @@ MAX_STEPS = 10
 
 
 def run(client, model: str, tool_schemas: list[dict], user_input: str) -> str:
-    """Untested skeleton. Assumes the API supports tool calling (TO CONFIRM)."""
+    """Untested skeleton. Tool calling was observed on a single-tool test only (see docs/)."""
     messages = [{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": user_input}]
     for _ in range(MAX_STEPS):
         msg = client.chat.completions.create(model=model, messages=messages, tools=tool_schemas).choices[0].message
