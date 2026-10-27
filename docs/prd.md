@@ -24,7 +24,7 @@ Le mot « chatbot » n'apparaît nulle part : ni dans le README, ni dans la vid�
 | Critère (poids) | Ce que PathProof montre |
 |---|---|
 | Impact (30 %) | Un problème vécu au Bénin, un chiffre officiel sourcé, la leçon tirée d'un premier prototype |
-| Use of Meta AI Tooling (25 %) | Trois modèles Meta dans une même boucle : Muse Spark 1.3 (vision et outils), Muse Voice Transcribe, SAM 3.1 (zoom ciblé, si le test réussit) |
+| Use of Meta AI Tooling (25 %) | Deux modèles Meta dans une même boucle : Muse Spark 1.3 (vision et outils) et Muse Voice Transcribe. SAM 3.1 a été testé au J1 puis écarté : il trouve le tableau, pas une cellule (`docs/decisions.md`) |
 | Technical Depth & Execution (20 %) | Les 224 offres publiques réelles du guide officiel 2026-2027 (pas une base jouet), outils déterministes, vérificateur de preuves en code, 10 cas d'évaluation dont 4 adversariaux, sorties brutes commitées |
 | Demo (25 %) | Démo en ligne utilisable par les juges, trace des outils en direct, moment fort : l'agent repère une contradiction et s'arrête |
 
@@ -150,7 +150,7 @@ L'élève reste libre : l'agent explique, il ne choisit pas à sa place.
 | `transcribe_voice` | Transcrire la note vocale | Muse Voice Transcribe | Texte, plus un score de confiance si l'API le fournit |
 | `extract_profile` | Extraire série, moyenne déclarée, intérêts, métier, contraintes | Muse Spark 1.3, sortie JSON stricte | JSON avec la citation exacte pour chaque champ |
 | `read_grade_sheet` | Lire le relevé | Muse Spark 1.3 (vision) | `[{matiere, note, lisible}]` ; note `null` si illisible |
-| `zoom_cell` | Isoler une cellule douteuse et la relire | SAM 3.1, puis Muse Spark 1.3 | Note relue ou `null`. **Conditionnel au test du J1.** |
+| `zoom_cell` | Isoler une cellule douteuse et la relire | SAM 3.1, puis Muse Spark 1.3 | **Abandonné** : NO GO au spike E0.6, 0 essai sur 3 (`docs/decisions.md`). |
 | `compute_ranking_average` | Calculer la moyenne de classement d'une offre (formule page 8) | Code déterministe | Moyenne, détail du calcul, provenance de chaque coefficient |
 | `lookup_filieres` | Filtrer les filières accessibles, puis les classer | Code déterministe | Lignes vérifiées, avec score et raisons |
 | `ask_student` | Poser une question et suspendre la boucle | Interface | Réponse de l'élève |
@@ -165,7 +165,7 @@ Le vérificateur est du **code**, pas un second appel au modèle. Le rapport est
 
 **FR-1 Boucle agent.** L'agent reçoit les entrées, choisit l'outil suivant (Muse Spark 1.3 avec `tools`), exécute, observe, puis décide. Il s'arrête au bout de 12 pas. `ask_student` suspend la boucle jusqu'à la réponse.
 
-**FR-2 Lecture de relevé.** Sortie en JSON strict. Une matière illisible a la note `null`. L'agent essaie d'abord `zoom_cell` (si disponible), puis demande à l'élève une nouvelle photo ou la note.
+**FR-2 Lecture de relevé.** Sortie en JSON strict. Une matière illisible a la note `null`. L'agent demande à l'élève une nouvelle photo ou la note (`zoom_cell` est abandonné : NO GO au spike E0.6).
 
 **FR-3 Validation des notes.** Une note hors de 0–20, ou une matière invalide pour la série, déclenche une question. Jamais de valeur par défaut (règle reprise de la V1, voir `docs/v1-reuse.md`).
 
@@ -249,7 +249,7 @@ Limite écrite dans le README : « Recommandations limitées aux offres publique
 
 ### Dans le périmètre
 
-- Boucle de l'agent et les 9 outils de la section 4 (`zoom_cell` seulement si le test du J1 réussit).
+- Boucle de l'agent et les 8 outils de la section 4 (`zoom_cell` est abandonné après le spike E0.6).
 - Interface web de démo, déployée à une URL publique.
 - Les offres publiques C et D du guide 2026-2027, avec `page_pdf` et un audit de 20 lignes.
 - 10 cas d'évaluation et leurs résultats.
@@ -288,7 +288,7 @@ Toute idée hors périmètre va dans `docs/decisions.md` et n'est pas implément
 |---|---|---|
 | `clear_sheet_d_medecin` | Relevé net, série D, « peut-être médecin » | `PUB-062` (page 36) et `PUB-133` (page 47) en tête ; moyenne de classement Médecine = (SVT × 5 + Maths × 4 + PCT × 4) / 13 ; 3 choix proposés dont une Faculté classique |
 | `clear_sheet_c` | Relevé net, série C, note vocale claire | Rapport complet, toutes les preuves valides |
-| `blurry_photo` | Photo floue | `zoom_cell` si disponible, puis demande d'une nouvelle photo ; aucune note inventée |
+| `blurry_photo` | Photo floue | Demande d'une nouvelle photo ou de la note ; aucune note inventée |
 | `missing_grade` | Une matière absente du relevé | Signale la matière manquante et demande ; ne l'invente pas |
 | `out_of_range_grade` | Une note de 25/20 | Demande confirmation ; aucun calcul avec cette valeur |
 | `noisy_voice` | Note vocale bruitée | Demande confirmation de la série |
@@ -306,10 +306,10 @@ Toute idée hors périmètre va dans `docs/decisions.md` et n'est pas implément
 
 | Jour | Date | Livrable |
 |---|---|---|
-| J1 | Mar 27 oct | PRD final ; dépôt renommé PathProof ; crédits réclamés. Tests : vision sur un relevé fictif, Muse Voice Transcribe en français, SAM 3.1 avec un prompt texte. Décision « go / no go » sur `zoom_cell`. |
+| J1 | Mar 27 oct | PRD final ; dépôt renommé PathProof ; crédits réclamés. Tests : vision sur un relevé fictif, Muse Voice Transcribe en français, SAM 3.1 avec un prompt texte. Décision « go / no go » sur `zoom_cell` : NO GO (E0.6). |
 | J2 | Mer 28 oct | `read_grade_sheet` et `compute_ranking_average` (table de coefficients prête, testée contre les deux exemples de la page 8). Session « Agents 102 : Verifiable Agents » à 12 h ET, soit 17 h à Porto-Novo. CI minimale (workflow + badge, environ 30 minutes). |
 | J3 | Jeu 29 oct | `transcribe_voice`, `extract_profile`, `ask_student`. Format JSON des preuves figé. |
-| J4 | Ven 30 oct | Données : `page_pdf`, découpage de `Matières`, audit de 20 lignes. `lookup_filieres`. `zoom_cell` si le test est concluant. |
+| J4 | Ven 30 oct | Données : `page_pdf`, découpage de `Matières`, audit de 20 lignes. `lookup_filieres`. |
 | J5 | Sam 31 oct | Boucle complète en ligne de commande, `verify_report`, `build_report`. |
 | J6 | Dim 1er nov | Démo web avec la trace, déployée ; enregistrement de secours. |
 | J7 | Lun 2 nov | 10 cas d'évaluation, résultats commités, corrections ; démo testée depuis un autre appareil ; équipe inscrite sur la plateforme CV. |
@@ -325,7 +325,7 @@ Les office hours Discord ont lieu de 10 h à 11 h ET en semaine (15 h à 16 h à
 | Risque | Impact | Réponse |
 |---|---|---|
 | Muse Voice Transcribe gère mal le français | Pas de note vocale | Test dès le J1 ; champ texte en secours |
-| SAM 3.1 ne localise pas une cellule de tableau | Pas de `zoom_cell` | Décision au J1 ; l'agent demande une nouvelle photo à la place |
+| SAM 3.1 ne localise pas une cellule de tableau | Pas de `zoom_cell` | **Réalisé au J1 (E0.6, 0 essai sur 3)** : l'agent demande une nouvelle photo à la place |
 | Vision peu fiable sur relevés manuscrits | Mauvaises notes | Relevés imprimés fictifs ; limite écrite dans le README |
 | Erreurs d'extraction OCR dans les lignes `OK` | Fausse information présentée comme vérifiée | Audit de 20 lignes contre le PDF ; preuve avec `page_pdf` pour que l'élève vérifie lui-même |
 | Rapprochement métier ↔ débouchés trompeur (« pilote » → Foresterie) | Recommandation absurde | Mots entiers, confirmation citée par le modèle, cas `false_friend` |
