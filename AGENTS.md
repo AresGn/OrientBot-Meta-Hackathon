@@ -22,6 +22,7 @@ En cas de conflit entre le code et le PRD, on ne tranche pas en silence : on le 
 ## Structure
 ```
 src/agent/     boucle (loop.py) et prompt système ; ne contient AUCUNE logique métier
+src/domain/    règles métier pures (coefficients, normalisation des matières, preuves) ; aucun réseau, aucun SDK
 src/tools/     un outil = un module = une fonction publique (même nom que l'outil)
 src/clients/   accès à l'API Meta ; seul endroit qui connaît le SDK et les paramètres du modèle
 src/api/       serveur de démo (FastAPI) ; aucune logique métier
@@ -31,7 +32,7 @@ tests/         un fichier test_<module>.py par module de src/
 evals/         cas d'évaluation et résultats bruts ; lancés à la main
 ```
 - Un outil prend et renvoie des **données** (dict, liste, dataclass), il n'affiche rien et n'écrit rien.
-- Les outils déterministes (`compute_ranking_average`, `lookup_filieres`, `verify_report`, `build_report`) n'importent ni le SDK ni le réseau.
+- Les outils déterministes (`compute_ranking_average`, `lookup_filieres`, `verify_report`, `build_report`) n'importent ni le SDK ni le réseau ; ils s'appuient sur `src/domain/`.
 - La boucle ne fait que : demander un outil au modèle, l'exécuter, renvoyer le résultat. Une erreur d'outil devient une observation, pas un plantage.
 - Entrées/sorties (fichiers, réseau, console) aux bords ; logique pure au centre.
 

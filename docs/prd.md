@@ -277,7 +277,7 @@ Toute idée hors périmètre va dans `docs/decisions.md` et n'est pas implément
 - **Coût :** les tests et la démo publique restent sous les 150 $ de crédits. Limite d'usage sur la démo publique ; alerte de dépense activée dans Billing.
 - **Accessibilité du dépôt :** dépôt public, README lisible sans connexion, aucun lien vers un dépôt privé.
 - **Tests et CI minimale :** un seul workflow GitHub Actions (`.github/workflows/tests.yml`) lance `python -m pytest` à chaque push ; badge dans le README. Il ne teste que du code déterministe (`compute_ranking_average` avec les deux exemples de la page 8, découpage des matières, `lookup_filieres`, `verify_report`), sans clé ni appel à l'API. Les 10 évaluations ne tournent **jamais** en CI : elles consomment les crédits, elles se lancent à la main et leurs résultats sont commités dans `evals/results/`.
-- **Déploiement :** celui de l'hébergeur choisi, déclenché par un push sur `main`. À partir du J7, aucun push sur `main` sans tests locaux verts ; aucun déploiement après le gel du 3 novembre au soir. Pas de staging, pas de Docker.
+- **Déploiement :** Vercel (compte déjà lié à GitHub), redéployé à chaque push sur `main`. À partir du J7, aucun push sur `main` sans tests locaux verts ; aucun déploiement après le gel du 3 novembre au soir. Pas de staging, pas de Docker.
 - **Règles de code :** `AGENTS.md` à la racine (nommage, structure, tests, git).
 
 ---
