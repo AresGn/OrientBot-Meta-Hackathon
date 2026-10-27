@@ -83,5 +83,5 @@ Le PDF du guide n'est pas versionné (`data/source/`, ignoré par git).
 ## Points à confirmer
 
 - **Appel d'outils (function calling) de Muse Spark 1.3 : observé, non documenté.** `scripts/test_muse_tool_call.py` (rapport : `docs/muse-spark-tool-call-results.md`) montre 5 réussites sur 5 avec un seul outil `lookup_filieres` et une seule question. Ni le choix entre plusieurs outils, ni les appels enchaînés, ni la vision ne sont testés. Résultats rapportés, non rejoués par nous.
-- Identifiant et format d'envoi de **Muse Voice Transcribe** (audio, français), et format d'envoi des images : à confirmer dans la documentation officielle (J1).
+- **Muse Voice Transcribe** : relevé dans la doc officielle et testé en français (spike E0.5, voir `docs/decisions.md`). `muse-voice-transcribe-1.0`, `POST https://api.meta.ai/v1/asr/transcribe` en `multipart/form-data` (parties `request` JSON et `audio`), WAV mono PCM 16 bits à 16 ou 24 kHz uniquement, 10 min et 32 Mo au plus, aucun score de confiance. Format d'envoi des images : à confirmer dans la documentation officielle.
 - **SAM 3.1** : localise-t-il une cellule de tableau avec un prompt texte ? Décision go / no go sur `zoom_cell` au J1.

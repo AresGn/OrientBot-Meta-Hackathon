@@ -37,7 +37,7 @@ E1.4 format des preuves ─► E2.4 verify_report ──────────
   *Acceptation :* 5 fichiers dans `data/samples/`, `data/samples/README.md` à jour, aucune donnée réelle.
 - [x] **E0.4 (S)** [#6](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/6) Spike vision : relevé D → JSON, trois exécutions.
   *Acceptation :* les 3 JSON sont identiques (`diff`) ; résultat noté dans `docs/decisions.md`. *Dép. :* E0.3.
-- [ ] **E0.5 (S)** [#7](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/7) Spike voix : identifiant du modèle et format audio relevés dans la documentation officielle ; transcription française de la note vocale.
+- [x] **E0.5 (S)** [#7](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/7) Spike voix : identifiant du modèle et format audio relevés dans la documentation officielle ; transcription française de la note vocale.
   *Acceptation :* URL de la doc citée ; texte transcrit ; présence ou non d'un score de confiance notée. *Dép. :* E0.3.
 - [ ] **E0.6 (S)** [#8](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/8) Spike SAM 3.1 : localiser une cellule de tableau avec un prompt texte.
   *Acceptation :* décision **go / no go** pour `zoom_cell` écrite dans `docs/decisions.md`. *Dép. :* E0.3.

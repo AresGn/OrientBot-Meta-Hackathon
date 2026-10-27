@@ -1,0 +1,658 @@
+{
+  "model": "muse-voice-transcribe-1.0",
+  "endpoint": "POST https://api.meta.ai/v1/asr/transcribe",
+  "audio_format": "WAV mono pcm_s16le 24000 Hz",
+  "language_bias": [
+    "French"
+  ],
+  "noise_amplitudes": {
+    "moderee": 0.01,
+    "forte": 0.08
+  },
+  "mp3_unconverted_status": 400,
+  "cases": [
+    {
+      "run": 1,
+      "case": "contradictoire",
+      "status": 200,
+      "wav_bytes": 1899284,
+      "keywords": null,
+      "response_fields": [
+        "audioDurationMs",
+        "sessionId",
+        "transcript",
+        "turns"
+      ],
+      "word_diff": [
+        {
+          "op": "replace",
+          "expected": "euh",
+          "heard": "you"
+        },
+        {
+          "op": "replace",
+          "expected": "en série d",
+          "heard": "un ceriseau"
+        },
+        {
+          "op": "replace",
+          "expected": "14",
+          "heard": "quatorze"
+        },
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "svt"
+        },
+        {
+          "op": "replace",
+          "expected": "j'aurai",
+          "heard": "j'aurais"
+        },
+        {
+          "op": "delete",
+          "expected": "hein",
+          "heard": ""
+        }
+      ],
+      "word_count_expected": 81
+    },
+    {
+      "run": 1,
+      "case": "contradictoire_mots_cles",
+      "status": 200,
+      "wav_bytes": 1899284,
+      "keywords": [
+        "série D",
+        "SVT",
+        "Cotonou"
+      ],
+      "response_fields": [
+        "audioDurationMs",
+        "sessionId",
+        "transcript",
+        "turns"
+      ],
+      "word_diff": [
+        {
+          "op": "replace",
+          "expected": "euh",
+          "heard": "you"
+        },
+        {
+          "op": "replace",
+          "expected": "14",
+          "heard": "quatorze"
+        },
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "beaucoup"
+        },
+        {
+          "op": "replace",
+          "expected": "svt",
+          "heard": "svtt"
+        },
+        {
+          "op": "replace",
+          "expected": "j'aurai",
+          "heard": "j'aurais"
+        },
+        {
+          "op": "delete",
+          "expected": "hein",
+          "heard": ""
+        }
+      ],
+      "word_count_expected": 81
+    },
+    {
+      "run": 1,
+      "case": "coherente",
+      "status": 200,
+      "wav_bytes": 2133342,
+      "keywords": null,
+      "response_fields": [
+        "audioDurationMs",
+        "sessionId",
+        "transcript",
+        "turns"
+      ],
+      "word_diff": [
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "euh"
+        },
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "ma"
+        },
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "et mon"
+        },
+        {
+          "op": "replace",
+          "expected": "j'aurai",
+          "heard": "j'aurais"
+        },
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "euh ça coûte"
+        },
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "hein"
+        }
+      ],
+      "word_count_expected": 90
+    },
+    {
+      "run": 1,
+      "case": "contradictoire_bruit_moderee",
+      "status": 200,
+      "wav_bytes": 1899284,
+      "keywords": null,
+      "response_fields": [
+        "audioDurationMs",
+        "sessionId",
+        "transcript",
+        "turns"
+      ],
+      "word_diff": [
+        {
+          "op": "delete",
+          "expected": "euh",
+          "heard": ""
+        },
+        {
+          "op": "replace",
+          "expected": "en série d",
+          "heard": "un serviteur"
+        },
+        {
+          "op": "replace",
+          "expected": "14 de moyenne",
+          "heard": "quatorze moyennes"
+        },
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "travailler"
+        },
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "svt"
+        },
+        {
+          "op": "replace",
+          "expected": "cotonou",
+          "heard": "canton"
+        },
+        {
+          "op": "replace",
+          "expected": "j'aurai",
+          "heard": "j'aurais"
+        },
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "vous"
+        },
+        {
+          "op": "delete",
+          "expected": "hein",
+          "heard": ""
+        }
+      ],
+      "word_count_expected": 81
+    },
+    {
+      "run": 1,
+      "case": "contradictoire_bruit_moderee_mots_cles",
+      "status": 200,
+      "wav_bytes": 1899284,
+      "keywords": [
+        "série D",
+        "SVT",
+        "Cotonou"
+      ],
+      "response_fields": [
+        "audioDurationMs",
+        "sessionId",
+        "transcript",
+        "turns"
+      ],
+      "word_diff": [
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "série d"
+        },
+        {
+          "op": "replace",
+          "expected": "14",
+          "heard": "quatorze"
+        },
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "à"
+        },
+        {
+          "op": "delete",
+          "expected": "hein",
+          "heard": ""
+        }
+      ],
+      "word_count_expected": 81
+    },
+    {
+      "run": 1,
+      "case": "contradictoire_bruit_forte",
+      "status": 200,
+      "wav_bytes": 1899284,
+      "keywords": null,
+      "response_fields": [
+        "audioDurationMs",
+        "sessionId",
+        "transcript",
+        "turns"
+      ],
+      "word_diff": [
+        {
+          "op": "delete",
+          "expected": "euh",
+          "heard": ""
+        },
+        {
+          "op": "replace",
+          "expected": "bonjour bonjour",
+          "heard": "avec ledonc"
+        },
+        {
+          "op": "replace",
+          "expected": "suis en série d j'ai eu 14 de moyenne voilà j'aime beaucoup la biologie et j'aimerais travailler dans la santé peut être médecin au lycée ce",
+          "heard": "pense"
+        },
+        {
+          "op": "replace",
+          "expected": "je préférais c'était les travaux pratiques en svt avec le microscope je préfère rester à cotonou et j'aurai besoin d'une bourse mes parents m'ont dit de bien chercher les filières où il y a des bourses donc euh je compte sur vous pour m'aider à choisir",
+          "heard": "c'est mieux"
+        },
+        {
+          "op": "delete",
+          "expected": "beaucoup hein",
+          "heard": ""
+        }
+      ],
+      "word_count_expected": 81
+    },
+    {
+      "run": 1,
+      "case": "contradictoire_bruit_forte_mots_cles",
+      "status": 200,
+      "wav_bytes": 1899284,
+      "keywords": [
+        "série D",
+        "SVT",
+        "Cotonou"
+      ],
+      "response_fields": [
+        "audioDurationMs",
+        "sessionId",
+        "transcript",
+        "turns"
+      ],
+      "word_diff": [
+        {
+          "op": "delete",
+          "expected": "euh oui bonjour bonjour je suis en série d j'ai eu 14 de moyenne voilà j'aime beaucoup la biologie et j'aimerais travailler dans la santé peut être médecin au lycée ce que je préférais c'était les travaux pratiques en svt",
+          "heard": ""
+        },
+        {
+          "op": "delete",
+          "expected": "microscope je préfère rester à cotonou et j'aurai besoin d'une bourse mes parents m'ont dit de bien chercher les filières où il y a des bourses",
+          "heard": ""
+        },
+        {
+          "op": "replace",
+          "expected": "compte sur vous pour m'aider à choisir",
+          "heard": "pense que c'est"
+        },
+        {
+          "op": "delete",
+          "expected": "beaucoup hein",
+          "heard": ""
+        }
+      ],
+      "word_count_expected": 81
+    },
+    {
+      "run": 2,
+      "case": "contradictoire",
+      "status": 200,
+      "wav_bytes": 1899284,
+      "keywords": null,
+      "response_fields": [
+        "audioDurationMs",
+        "sessionId",
+        "transcript",
+        "turns"
+      ],
+      "word_diff": [
+        {
+          "op": "replace",
+          "expected": "euh",
+          "heard": "you"
+        },
+        {
+          "op": "replace",
+          "expected": "en série d",
+          "heard": "un ceriseau"
+        },
+        {
+          "op": "replace",
+          "expected": "14",
+          "heard": "quatorze"
+        },
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "moyenne"
+        },
+        {
+          "op": "delete",
+          "expected": "hein",
+          "heard": ""
+        }
+      ],
+      "word_count_expected": 81
+    },
+    {
+      "run": 2,
+      "case": "contradictoire_mots_cles",
+      "status": 200,
+      "wav_bytes": 1899284,
+      "keywords": [
+        "série D",
+        "SVT",
+        "Cotonou"
+      ],
+      "response_fields": [
+        "audioDurationMs",
+        "sessionId",
+        "transcript",
+        "turns"
+      ],
+      "word_diff": [
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "série d"
+        },
+        {
+          "op": "replace",
+          "expected": "14",
+          "heard": "quatorze de quatorze"
+        },
+        {
+          "op": "replace",
+          "expected": "j'aimerais",
+          "heard": "j'aimerais'aimerais"
+        },
+        {
+          "op": "replace",
+          "expected": "j'aurai",
+          "heard": "j'aurais"
+        },
+        {
+          "op": "delete",
+          "expected": "hein",
+          "heard": ""
+        }
+      ],
+      "word_count_expected": 81
+    },
+    {
+      "run": 2,
+      "case": "coherente",
+      "status": 200,
+      "wav_bytes": 2133342,
+      "keywords": null,
+      "response_fields": [
+        "audioDurationMs",
+        "sessionId",
+        "transcript",
+        "turns"
+      ],
+      "word_diff": [
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "euh"
+        },
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "c'est ma"
+        },
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "tard"
+        },
+        {
+          "op": "replace",
+          "expected": "j'aurai",
+          "heard": "j'aurais"
+        },
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "euh"
+        },
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "hein"
+        }
+      ],
+      "word_count_expected": 90
+    },
+    {
+      "run": 2,
+      "case": "contradictoire_bruit_moderee",
+      "status": 200,
+      "wav_bytes": 1899284,
+      "keywords": null,
+      "response_fields": [
+        "audioDurationMs",
+        "sessionId",
+        "transcript",
+        "turns"
+      ],
+      "word_diff": [
+        {
+          "op": "delete",
+          "expected": "euh",
+          "heard": ""
+        },
+        {
+          "op": "replace",
+          "expected": "série d",
+          "heard": "service"
+        },
+        {
+          "op": "replace",
+          "expected": "14",
+          "heard": "quatorze"
+        },
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "moyenne"
+        },
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "travailler"
+        },
+        {
+          "op": "replace",
+          "expected": "cotonou",
+          "heard": "canton"
+        },
+        {
+          "op": "replace",
+          "expected": "j'aurai",
+          "heard": "j'aurais"
+        },
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "sur vous"
+        },
+        {
+          "op": "delete",
+          "expected": "hein",
+          "heard": ""
+        }
+      ],
+      "word_count_expected": 81
+    },
+    {
+      "run": 2,
+      "case": "contradictoire_bruit_moderee_mots_cles",
+      "status": 200,
+      "wav_bytes": 1899284,
+      "keywords": [
+        "série D",
+        "SVT",
+        "Cotonou"
+      ],
+      "response_fields": [
+        "audioDurationMs",
+        "sessionId",
+        "transcript",
+        "turns"
+      ],
+      "word_diff": [
+        {
+          "op": "replace",
+          "expected": "14",
+          "heard": "quatorze"
+        },
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "j'aime"
+        },
+        {
+          "op": "insert",
+          "expected": "",
+          "heard": "préférais"
+        },
+        {
+          "op": "replace",
+          "expected": "j'aurai",
+          "heard": "j'aurais"
+        },
+        {
+          "op": "delete",
+          "expected": "hein",
+          "heard": ""
+        }
+      ],
+      "word_count_expected": 81
+    },
+    {
+      "run": 2,
+      "case": "contradictoire_bruit_forte",
+      "status": 200,
+      "wav_bytes": 1899284,
+      "keywords": null,
+      "response_fields": [
+        "audioDurationMs",
+        "sessionId",
+        "transcript",
+        "turns"
+      ],
+      "word_diff": [
+        {
+          "op": "delete",
+          "expected": "euh",
+          "heard": ""
+        },
+        {
+          "op": "replace",
+          "expected": "bonjour bonjour je suis en série d j'ai eu 14 de moyenne voilà j'aime beaucoup la biologie et j'aimerais travailler",
+          "heard": "donc travaillé"
+        },
+        {
+          "op": "replace",
+          "expected": "la santé peut être médecin au lycée ce que je préférais c'était les travaux pratiques en svt avec le microscope je préfère rester à cotonou et j'aurai besoin d'une bourse mes parents m'ont dit de bien chercher les filières où il y a des bourses donc",
+          "heard": "ma avecdonc"
+        },
+        {
+          "op": "replace",
+          "expected": "compte sur vous pour m'aider à choisir",
+          "heard": "pense que"
+        },
+        {
+          "op": "delete",
+          "expected": "hein",
+          "heard": ""
+        }
+      ],
+      "word_count_expected": 81
+    },
+    {
+      "run": 2,
+      "case": "contradictoire_bruit_forte_mots_cles",
+      "status": 200,
+      "wav_bytes": 1899284,
+      "keywords": [
+        "série D",
+        "SVT",
+        "Cotonou"
+      ],
+      "response_fields": [
+        "audioDurationMs",
+        "sessionId",
+        "transcript",
+        "turns"
+      ],
+      "word_diff": [
+        {
+          "op": "delete",
+          "expected": "euh oui bonjour bonjour je suis en série d j'ai eu 14 de moyenne voilà j'aime beaucoup la biologie et j'aimerais travailler dans la santé peut être médecin au lycée ce que je préférais c'était les travaux pratiques en svt",
+          "heard": ""
+        },
+        {
+          "op": "replace",
+          "expected": "microscope",
+          "heard": "merci donc"
+        },
+        {
+          "op": "replace",
+          "expected": "préfère rester à cotonou et j'aurai besoin d'une bourse mes parents m'ont dit de bien chercher les filières où il y a des bourses donc euh je compte sur vous pour m'aider à choisir",
+          "heard": "pense que c'est"
+        },
+        {
+          "op": "delete",
+          "expected": "hein",
+          "heard": ""
+        }
+      ],
+      "word_count_expected": 81
+    }
+  ]
+}
