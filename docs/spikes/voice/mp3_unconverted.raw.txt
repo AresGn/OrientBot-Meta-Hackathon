@@ -1,0 +1,2 @@
+HTTP 400
+{"sessionId":"voyager/transcribe/D3614E96F67447D4AE6EDD9ADF9A1430","error":{"code":null,"param":"audio","type":"invalid_request_error","message":"The 'audio' part must be a mono 16-bit PCM WAV at 16 or 24 kHz"}}
