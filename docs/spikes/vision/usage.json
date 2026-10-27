@@ -1,0 +1,93 @@
+{
+  "model": "muse-spark-1.3",
+  "max_tokens": 8000,
+  "image": "releve_serie_d.jpg",
+  "image_bytes": 248356,
+  "image_format": "data URL base64 image/jpeg",
+  "runs": [
+    {
+      "run": 1,
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 916,
+        "prompt_tokens": 2894,
+        "total_tokens": 3810,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 635,
+          "rejected_prediction_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "image_tokens": null,
+          "text_tokens": null
+        }
+      },
+      "expected_notes_ok": {
+        "SCIENCES DE LA VIE ET DE LA TERRE": true,
+        "MATHEMATIQUES": true,
+        "PHYSIQUE, CHIMIE ET TECHNOLOGIE": true
+      }
+    },
+    {
+      "run": 2,
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 882,
+        "prompt_tokens": 2894,
+        "total_tokens": 3776,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 660,
+          "rejected_prediction_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "image_tokens": null,
+          "text_tokens": null
+        }
+      },
+      "expected_notes_ok": {
+        "SCIENCES DE LA VIE ET DE LA TERRE": true,
+        "MATHEMATIQUES": true,
+        "PHYSIQUE, CHIMIE ET TECHNOLOGIE": true
+      }
+    },
+    {
+      "run": 3,
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 1052,
+        "prompt_tokens": 2894,
+        "total_tokens": 3946,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 830,
+          "rejected_prediction_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 2787,
+          "image_tokens": null,
+          "text_tokens": null
+        }
+      },
+      "expected_notes_ok": {
+        "SCIENCES DE LA VIE ET DE LA TERRE": true,
+        "MATHEMATIQUES": true,
+        "PHYSIQUE, CHIMIE ET TECHNOLOGIE": true
+      }
+    }
+  ]
+}

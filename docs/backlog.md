@@ -35,7 +35,7 @@ E1.4 format des preuves ─► E2.4 verify_report ──────────
   *Acceptation :* la page Billing affiche les crédits et l'alerte.
 - [x] **E0.3 (M)** [#5](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/5) Jeu d'exemples fictifs : relevé net série D (moyenne générale 11,2 ; SVT 15, Maths 12, PCT 12), relevé net série C, relevé flou, deux notes vocales (une cohérente avec le relevé D, « peut-être médecin » ; une contradictoire, « 14 de moyenne »).
   *Acceptation :* 5 fichiers dans `data/samples/`, `data/samples/README.md` à jour, aucune donnée réelle.
-- [ ] **E0.4 (S)** [#6](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/6) Spike vision : relevé D → JSON, trois exécutions.
+- [x] **E0.4 (S)** [#6](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/6) Spike vision : relevé D → JSON, trois exécutions.
   *Acceptation :* les 3 JSON sont identiques (`diff`) ; résultat noté dans `docs/decisions.md`. *Dép. :* E0.3.
 - [ ] **E0.5 (S)** [#7](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/7) Spike voix : identifiant du modèle et format audio relevés dans la documentation officielle ; transcription française de la note vocale.
   *Acceptation :* URL de la doc citée ; texte transcrit ; présence ou non d'un score de confiance notée. *Dép. :* E0.3.
