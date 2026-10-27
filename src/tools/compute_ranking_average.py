@@ -11,12 +11,14 @@ def compute_ranking_average(serie: str, offer_subjects: list[str], grades: list[
     """Ranking average of one offer: M = Σ(mi·ci) / Σci over the offer's subjects.
 
     `grades` is [{"matiere": str, "note": float | None}]. Anything missing or invalid yields
-    {"status": "non calculé", "reason": ...}: no default value is ever substituted.
+    {"status": "non calculé", "reason": ...}: no default value is ever substituted. An entry
+    with `lisible` false counts as unreadable even if it carries a note.
     """
     try:
         coefficients = load_coefficients(serie)
-        details = [_subject_detail(serie, raw, coefficients, grades) for raw in offer_subjects]
-    except (ValueError, KeyError) as error:
+        subjects = _normalize_offer_subjects(offer_subjects)
+        details = [_subject_detail(serie, subject, coefficients, grades) for subject in subjects]
+    except (ValueError, KeyError, TypeError) as error:
         return _not_computed(str(error.args[0]))
     if not details:
         return _not_computed("no subject for this offer")
@@ -31,8 +33,15 @@ def compute_ranking_average(serie: str, offer_subjects: list[str], grades: list[
     }
 
 
-def _subject_detail(serie: str, raw_subject: str, coefficients: dict[str, int], grades: list[dict]) -> dict:
-    subject = normalize_subject(raw_subject)
+def _normalize_offer_subjects(offer_subjects: list[str]) -> list[str]:
+    subjects = [normalize_subject(raw) for raw in offer_subjects]
+    for subject in subjects:
+        if subjects.count(subject) > 1:
+            raise ValueError(f"matière en double: {subject}")
+    return subjects
+
+
+def _subject_detail(serie: str, subject: str, coefficients: dict[str, int], grades: list[dict]) -> dict:
     if subject not in coefficients:
         raise KeyError(f"coefficient manquant: {subject} en série {serie}")
     return {
@@ -46,9 +55,11 @@ def _subject_detail(serie: str, raw_subject: str, coefficients: dict[str, int], 
 def _find_grade(subject: str, grades: list[dict]) -> float:
     notes = []
     for entry in grades:
+        if not isinstance(entry, dict) or "matiere" not in entry:
+            raise ValueError("entrée de note invalide: clé matiere absente")
         try:
             if normalize_subject(entry["matiere"]) == subject:
-                notes.append(entry.get("note"))
+                notes.append(entry.get("note") if entry.get("lisible", True) else None)
         except UnknownSubjectError:
             continue  # a sheet line for another subject is not this offer's concern
     if not notes:

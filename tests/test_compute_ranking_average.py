@@ -68,3 +68,22 @@ def test_unsupported_serie_and_unknown_subject_are_not_computed():
 
 def test_offer_without_subjects_is_not_computed():
     assert compute_ranking_average("D", [], grades(15, 12, 12))["status"] == "non calculé"
+
+
+@pytest.mark.parametrize("subjects", [["SVT", "SVT", "Maths", "PCT"], ["SVT", "Maths", "Mathématiques", "PCT"]])
+def test_duplicate_offer_subject_is_not_computed(subjects):
+    result = compute_ranking_average("D", subjects, grades(15, 12, 12))
+    assert result["status"] == "non calculé"
+    assert result["reason"].startswith("matière en double")
+
+
+def test_grade_flagged_unreadable_is_not_computed_even_with_a_note():
+    sheet = grades(15, 12, 12)
+    sheet[0]["lisible"] = False
+    assert compute_ranking_average("D", MEDECINE_SUBJECTS, sheet) == {
+        "status": "non calculé", "reason": "note illisible: SVT"}
+
+
+@pytest.mark.parametrize("sheet", [None, [None], [{"note": 12}]])
+def test_malformed_grades_are_not_computed(sheet):
+    assert compute_ranking_average("D", MEDECINE_SUBJECTS, sheet)["status"] == "non calculé"
