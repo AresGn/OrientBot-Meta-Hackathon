@@ -9,3 +9,8 @@ __pycache__/
 data/real/
 data/private/
 *.local.*
+
+# Secrets: the key file may be named env or .env, never commit either
+env
+# Official guide PDF ("Vente interdite"): kept locally for page checks, not republished (see docs/prd.md section 6)
+data/source/

@@ -1,0 +1,898 @@
+﻿Série,Offre_ID,Groupe,Établissement,Filière,Bourse,Aide_FPP,Total_allocations,Mode_entrée,Bac_original,Statut_qualité
+C,PUB-001,Université d'Abomey-Calavi,Centre de Formation et de Recherche en matière de Population (CEFORP),Dynamique de Population et Planification Régionale,5,100,105,Classement,"C, D",OK
+D,PUB-001,Université d'Abomey-Calavi,Centre de Formation et de Recherche en matière de Population (CEFORP),Dynamique de Population et Planification Régionale,5,100,105,Classement,"C, D",OK
+A1,PUB-002,Université d'Abomey-Calavi,Centre Inter Facultaire de Formation et de Recherche en Environnement pour le Développement Durable (CIFRED),"Environnement, Hygiène et Santé publique",31,5,36,Classement,"A1, A2, B, C, D, EA",OK
+A2,PUB-002,Université d'Abomey-Calavi,Centre Inter Facultaire de Formation et de Recherche en Environnement pour le Développement Durable (CIFRED),"Environnement, Hygiène et Santé publique",31,5,36,Classement,"A1, A2, B, C, D, EA",OK
+B,PUB-002,Université d'Abomey-Calavi,Centre Inter Facultaire de Formation et de Recherche en Environnement pour le Développement Durable (CIFRED),"Environnement, Hygiène et Santé publique",31,5,36,Classement,"A1, A2, B, C, D, EA",OK
+C,PUB-002,Université d'Abomey-Calavi,Centre Inter Facultaire de Formation et de Recherche en Environnement pour le Développement Durable (CIFRED),"Environnement, Hygiène et Santé publique",31,5,36,Classement,"A1, A2, B, C, D, EA",OK
+D,PUB-002,Université d'Abomey-Calavi,Centre Inter Facultaire de Formation et de Recherche en Environnement pour le Développement Durable (CIFRED),"Environnement, Hygiène et Santé publique",31,5,36,Classement,"A1, A2, B, C, D, EA",OK
+EA,PUB-002,Université d'Abomey-Calavi,Centre Inter Facultaire de Formation et de Recherche en Environnement pour le Développement Durable (CIFRED),"Environnement, Hygiène et Santé publique",31,5,36,Classement,"A1, A2, B, C, D, EA",OK
+A1,PUB-003,Université d'Abomey-Calavi,École du Patrimoine Africain (EPA),Gestion du patrimoine culturel,37,15,52,Classement,"A1, A2, B, C, D, G1, G2, G3, DT",OK
+A2,PUB-003,Université d'Abomey-Calavi,École du Patrimoine Africain (EPA),Gestion du patrimoine culturel,37,15,52,Classement,"A1, A2, B, C, D, G1, G2, G3, DT",OK
+B,PUB-003,Université d'Abomey-Calavi,École du Patrimoine Africain (EPA),Gestion du patrimoine culturel,37,15,52,Classement,"A1, A2, B, C, D, G1, G2, G3, DT",OK
+C,PUB-003,Université d'Abomey-Calavi,École du Patrimoine Africain (EPA),Gestion du patrimoine culturel,37,15,52,Classement,"A1, A2, B, C, D, G1, G2, G3, DT",OK
+D,PUB-003,Université d'Abomey-Calavi,École du Patrimoine Africain (EPA),Gestion du patrimoine culturel,37,15,52,Classement,"A1, A2, B, C, D, G1, G2, G3, DT",OK
+G1,PUB-003,Université d'Abomey-Calavi,École du Patrimoine Africain (EPA),Gestion du patrimoine culturel,37,15,52,Classement,"A1, A2, B, C, D, G1, G2, G3, DT",OK
+G2,PUB-003,Université d'Abomey-Calavi,École du Patrimoine Africain (EPA),Gestion du patrimoine culturel,37,15,52,Classement,"A1, A2, B, C, D, G1, G2, G3, DT",OK
+G3,PUB-003,Université d'Abomey-Calavi,École du Patrimoine Africain (EPA),Gestion du patrimoine culturel,37,15,52,Classement,"A1, A2, B, C, D, G1, G2, G3, DT",OK
+DT,PUB-003,Université d'Abomey-Calavi,École du Patrimoine Africain (EPA),Gestion du patrimoine culturel,37,15,52,Classement,"A1, A2, B, C, D, G1, G2, G3, DT",OK
+C,PUB-004,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Administration des Finances,10,25,35,Classement,"C, D, G2, G3",OK
+D,PUB-004,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Administration des Finances,10,25,35,Classement,"C, D, G2, G3",OK
+G2,PUB-004,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Administration des Finances,10,25,35,Classement,"C, D, G2, G3",OK
+G3,PUB-004,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Administration des Finances,10,25,35,Classement,"C, D, G2, G3",OK
+A1,PUB-005,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Administration Générale,10,25,35,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+A2,PUB-005,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Administration Générale,10,25,35,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+B,PUB-005,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Administration Générale,10,25,35,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+C,PUB-005,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Administration Générale,10,25,35,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+D,PUB-005,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Administration Générale,10,25,35,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+G1,PUB-005,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Administration Générale,10,25,35,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+G2,PUB-005,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Administration Générale,10,25,35,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+G3,PUB-005,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Administration Générale,10,25,35,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+A1,PUB-006,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Sciences et Techniques de l'Information documentaire,0,15,15,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+A2,PUB-006,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Sciences et Techniques de l'Information documentaire,0,15,15,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+B,PUB-006,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Sciences et Techniques de l'Information documentaire,0,15,15,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+C,PUB-006,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Sciences et Techniques de l'Information documentaire,0,15,15,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+D,PUB-006,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Sciences et Techniques de l'Information documentaire,0,15,15,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+G1,PUB-006,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Sciences et Techniques de l'Information documentaire,0,15,15,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+G2,PUB-006,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Sciences et Techniques de l'Information documentaire,0,15,15,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+G3,PUB-006,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Sciences et Techniques de l'Information documentaire,0,15,15,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+A1,PUB-007,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Secrétariat de Gestion,0,15,15,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+A2,PUB-007,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Secrétariat de Gestion,0,15,15,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+B,PUB-007,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Secrétariat de Gestion,0,15,15,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+C,PUB-007,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Secrétariat de Gestion,0,15,15,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+D,PUB-007,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Secrétariat de Gestion,0,15,15,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+G1,PUB-007,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Secrétariat de Gestion,0,15,15,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+G2,PUB-007,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Secrétariat de Gestion,0,15,15,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+G3,PUB-007,Université d'Abomey-Calavi,Ecole Nationale d'Administration (Ex. Ecole Nationale d'Administration et de Magistrature-ENAM),Secrétariat de Gestion,0,15,15,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+C,PUB-008,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Administration des Réseaux informatiques,77,5,82,Classement,"C, D, DT",OK
+D,PUB-008,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Administration des Réseaux informatiques,77,5,82,Classement,"C, D, DT",OK
+DT,PUB-008,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Administration des Réseaux informatiques,77,5,82,Classement,"C, D, DT",OK
+C,PUB-009,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Analyse Informatique et Programmation,69,5,74,Classement,"C, D, DT",OK
+D,PUB-009,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Analyse Informatique et Programmation,69,5,74,Classement,"C, D, DT",OK
+DT,PUB-009,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Analyse Informatique et Programmation,69,5,74,Classement,"C, D, DT",OK
+C,PUB-010,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Assurance,2,5,7,Classement,"C, D, G2, G3",OK
+D,PUB-010,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Assurance,2,5,7,Classement,"C, D, G2, G3",OK
+G2,PUB-010,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Assurance,2,5,7,Classement,"C, D, G2, G3",OK
+G3,PUB-010,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Assurance,2,5,7,Classement,"C, D, G2, G3",OK
+C,PUB-011,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Banque et Finance de Marché,4,5,9,Classement,"C, D, G2, G3",OK
+D,PUB-011,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Banque et Finance de Marché,4,5,9,Classement,"C, D, G2, G3",OK
+G2,PUB-011,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Banque et Finance de Marché,4,5,9,Classement,"C, D, G2, G3",OK
+G3,PUB-011,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Banque et Finance de Marché,4,5,9,Classement,"C, D, G2, G3",OK
+C,PUB-012,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Banque et Institutions des Micro finances,4,5,9,Classement,"C, D, G2, G3",OK
+D,PUB-012,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Banque et Institutions des Micro finances,4,5,9,Classement,"C, D, G2, G3",OK
+G2,PUB-012,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Banque et Institutions des Micro finances,4,5,9,Classement,"C, D, G2, G3",OK
+G3,PUB-012,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Banque et Institutions des Micro finances,4,5,9,Classement,"C, D, G2, G3",OK
+C,PUB-013,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Développement Local et Régional,3,5,8,Classement,"C, D",OK
+D,PUB-013,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Développement Local et Régional,3,5,8,Classement,"C, D",OK
+C,PUB-014,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Gestion de Logistique,3,5,8,Classement,"C, D, G2, G3",OK
+D,PUB-014,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Gestion de Logistique,3,5,8,Classement,"C, D, G2, G3",OK
+G2,PUB-014,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Gestion de Logistique,3,5,8,Classement,"C, D, G2, G3",OK
+G3,PUB-014,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Gestion de Logistique,3,5,8,Classement,"C, D, G2, G3",OK
+B,PUB-015,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Gestion des Ressources Humaines,4,10,14,Classement,"B, C, D, G2, G3",OK
+C,PUB-015,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Gestion des Ressources Humaines,4,10,14,Classement,"B, C, D, G2, G3",OK
+D,PUB-015,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Gestion des Ressources Humaines,4,10,14,Classement,"B, C, D, G2, G3",OK
+G2,PUB-015,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Gestion des Ressources Humaines,4,10,14,Classement,"B, C, D, G2, G3",OK
+G3,PUB-015,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Gestion des Ressources Humaines,4,10,14,Classement,"B, C, D, G2, G3",OK
+C,PUB-016,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Gestion des Transports,3,5,8,Classement,"C, D, G2, G3",OK
+D,PUB-016,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Gestion des Transports,3,5,8,Classement,"C, D, G2, G3",OK
+G2,PUB-016,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Gestion des Transports,3,5,8,Classement,"C, D, G2, G3",OK
+G3,PUB-016,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Gestion des Transports,3,5,8,Classement,"C, D, G2, G3",OK
+C,PUB-017,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Gestion Financière et Comptable,5,20,25,Classement,"C, D, G2",OK
+D,PUB-017,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Gestion Financière et Comptable,5,20,25,Classement,"C, D, G2",OK
+G2,PUB-017,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Gestion Financière et Comptable,5,20,25,Classement,"C, D, G2",OK
+B,PUB-018,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Marketing,0,10,10,Classement,"B, C, D, G2, G3, DT",Texte continué
+C,PUB-018,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Marketing,0,10,10,Classement,"B, C, D, G2, G3, DT",Texte continué
+D,PUB-018,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Marketing,0,10,10,Classement,"B, C, D, G2, G3, DT",Texte continué
+G2,PUB-018,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Marketing,0,10,10,Classement,"B, C, D, G2, G3, DT",Texte continué
+G3,PUB-018,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Marketing,0,10,10,Classement,"B, C, D, G2, G3, DT",Texte continué
+DT,PUB-018,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Marketing,0,10,10,Classement,"B, C, D, G2, G3, DT",Texte continué
+C,PUB-019,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Planification et Economie du Développement Durable,3,5,8,Classement,"C, D",OK
+D,PUB-019,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Planification et Economie du Développement Durable,3,5,8,Classement,"C, D",OK
+C,PUB-020,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Planification et Gestion des Projets,20,10,30,Classement,"C, D",OK
+D,PUB-020,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Planification et Gestion des Projets,20,10,30,Classement,"C, D",OK
+C,PUB-021,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Statistique Démographique et Sociale,20,0,20,Concours,"C, D",OK
+D,PUB-021,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Statistique Démographique et Sociale,20,0,20,Concours,"C, D",OK
+C,PUB-022,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Statistique Economique et Sectorielle,20,0,20,Concours,"C, D",OK
+D,PUB-022,Université d'Abomey-Calavi,Ecole Nationale d'Economie Appliquée et de Management (ENEAM),Statistique Economique et Sectorielle,20,0,20,Concours,"C, D",OK
+A1,PUB-023,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Journalisme,15,0,15,Concours,"A1, A2, B, C, D, G1, G2, G3",OK
+A2,PUB-023,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Journalisme,15,0,15,Concours,"A1, A2, B, C, D, G1, G2, G3",OK
+B,PUB-023,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Journalisme,15,0,15,Concours,"A1, A2, B, C, D, G1, G2, G3",OK
+C,PUB-023,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Journalisme,15,0,15,Concours,"A1, A2, B, C, D, G1, G2, G3",OK
+D,PUB-023,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Journalisme,15,0,15,Concours,"A1, A2, B, C, D, G1, G2, G3",OK
+G1,PUB-023,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Journalisme,15,0,15,Concours,"A1, A2, B, C, D, G1, G2, G3",OK
+G2,PUB-023,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Journalisme,15,0,15,Concours,"A1, A2, B, C, D, G1, G2, G3",OK
+G3,PUB-023,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Journalisme,15,0,15,Concours,"A1, A2, B, C, D, G1, G2, G3",OK
+A1,PUB-024,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Métiers de l'Audiovisuel et du Multimédia,15,0,15,Concours,"A1, A2, B, C, D, G1, G2, G3",OK
+A2,PUB-024,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Métiers de l'Audiovisuel et du Multimédia,15,0,15,Concours,"A1, A2, B, C, D, G1, G2, G3",OK
+B,PUB-024,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Métiers de l'Audiovisuel et du Multimédia,15,0,15,Concours,"A1, A2, B, C, D, G1, G2, G3",OK
+C,PUB-024,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Métiers de l'Audiovisuel et du Multimédia,15,0,15,Concours,"A1, A2, B, C, D, G1, G2, G3",OK
+D,PUB-024,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Métiers de l'Audiovisuel et du Multimédia,15,0,15,Concours,"A1, A2, B, C, D, G1, G2, G3",OK
+G1,PUB-024,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Métiers de l'Audiovisuel et du Multimédia,15,0,15,Concours,"A1, A2, B, C, D, G1, G2, G3",OK
+G2,PUB-024,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Métiers de l'Audiovisuel et du Multimédia,15,0,15,Concours,"A1, A2, B, C, D, G1, G2, G3",OK
+G3,PUB-024,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Métiers de l'Audiovisuel et du Multimédia,15,0,15,Concours,"A1, A2, B, C, D, G1, G2, G3",OK
+A1,PUB-025,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Allemand,5,0,5,Concours,"A1, A2, B, C, D",OK
+A2,PUB-025,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Allemand,5,0,5,Concours,"A1, A2, B, C, D",OK
+B,PUB-025,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Allemand,5,0,5,Concours,"A1, A2, B, C, D",OK
+C,PUB-025,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Allemand,5,0,5,Concours,"A1, A2, B, C, D",OK
+D,PUB-025,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Allemand,5,0,5,Concours,"A1, A2, B, C, D",OK
+A1,PUB-026,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Anglais,15,0,15,Concours,"A1, A2, B, C, D",OK
+A2,PUB-026,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Anglais,15,0,15,Concours,"A1, A2, B, C, D",OK
+B,PUB-026,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Anglais,15,0,15,Concours,"A1, A2, B, C, D",OK
+C,PUB-026,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Anglais,15,0,15,Concours,"A1, A2, B, C, D",OK
+D,PUB-026,Université d'Abomey-Calavi,Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC),Anglais,15,0,15,Concours,"A1, A2, B, C, D",OK
+A1,PUB-027,Université d'Abomey-Calavi,Ecole Normale Supérieure /Porto-Novo,Espagnol,5,0,5,Concours,"A1, A2, B, C, D",OK
+A2,PUB-027,Université d'Abomey-Calavi,Ecole Normale Supérieure /Porto-Novo,Espagnol,5,0,5,Concours,"A1, A2, B, C, D",OK
+B,PUB-027,Université d'Abomey-Calavi,Ecole Normale Supérieure /Porto-Novo,Espagnol,5,0,5,Concours,"A1, A2, B, C, D",OK
+C,PUB-027,Université d'Abomey-Calavi,Ecole Normale Supérieure /Porto-Novo,Espagnol,5,0,5,Concours,"A1, A2, B, C, D",OK
+D,PUB-027,Université d'Abomey-Calavi,Ecole Normale Supérieure /Porto-Novo,Espagnol,5,0,5,Concours,"A1, A2, B, C, D",OK
+A1,PUB-028,Université d'Abomey-Calavi,Ecole Normale Supérieure /Porto-Novo,Français,15,0,15,Concours,"A1, A2, B, C, D",OK
+A2,PUB-028,Université d'Abomey-Calavi,Ecole Normale Supérieure /Porto-Novo,Français,15,0,15,Concours,"A1, A2, B, C, D",OK
+B,PUB-028,Université d'Abomey-Calavi,Ecole Normale Supérieure /Porto-Novo,Français,15,0,15,Concours,"A1, A2, B, C, D",OK
+C,PUB-028,Université d'Abomey-Calavi,Ecole Normale Supérieure /Porto-Novo,Français,15,0,15,Concours,"A1, A2, B, C, D",OK
+D,PUB-028,Université d'Abomey-Calavi,Ecole Normale Supérieure /Porto-Novo,Français,15,0,15,Concours,"A1, A2, B, C, D",OK
+A1,PUB-029,Université d'Abomey-Calavi,Ecole Normale Supérieure /Porto-Novo,Histoire et Géographie,5,0,5,Concours,"A1, A2, B, C, D",OK
+A2,PUB-029,Université d'Abomey-Calavi,Ecole Normale Supérieure /Porto-Novo,Histoire et Géographie,5,0,5,Concours,"A1, A2, B, C, D",OK
+B,PUB-029,Université d'Abomey-Calavi,Ecole Normale Supérieure /Porto-Novo,Histoire et Géographie,5,0,5,Concours,"A1, A2, B, C, D",OK
+C,PUB-029,Université d'Abomey-Calavi,Ecole Normale Supérieure /Porto-Novo,Histoire et Géographie,5,0,5,Concours,"A1, A2, B, C, D",OK
+D,PUB-029,Université d'Abomey-Calavi,Ecole Normale Supérieure /Porto-Novo,Histoire et Géographie,5,0,5,Concours,"A1, A2, B, C, D",OK
+A1,PUB-030,Université d'Abomey-Calavi,Ecole Normale Supérieure /Porto-Novo,Philosophie,5,0,5,Concours,"A1, A2, B, C, D",OK
+A2,PUB-030,Université d'Abomey-Calavi,Ecole Normale Supérieure /Porto-Novo,Philosophie,5,0,5,Concours,"A1, A2, B, C, D",OK
+B,PUB-030,Université d'Abomey-Calavi,Ecole Normale Supérieure /Porto-Novo,Philosophie,5,0,5,Concours,"A1, A2, B, C, D",OK
+C,PUB-030,Université d'Abomey-Calavi,Ecole Normale Supérieure /Porto-Novo,Philosophie,5,0,5,Concours,"A1, A2, B, C, D",OK
+D,PUB-030,Université d'Abomey-Calavi,Ecole Normale Supérieure /Porto-Novo,Philosophie,5,0,5,Concours,"A1, A2, B, C, D",OK
+C,PUB-031,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Analyse Biomédicale,20,5,25,Classement,"C, D",OK
+D,PUB-031,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Analyse Biomédicale,20,5,25,Classement,"C, D",OK
+C,PUB-032,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Biomédical (Maintenance Biomédicale et Hospitalière),20,3,23,Classement,"C, D, E, F2, F3",OK
+D,PUB-032,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Biomédical (Maintenance Biomédicale et Hospitalière),20,3,23,Classement,"C, D, E, F2, F3",OK
+E,PUB-032,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Biomédical (Maintenance Biomédicale et Hospitalière),20,3,23,Classement,"C, D, E, F2, F3",OK
+F2,PUB-032,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Biomédical (Maintenance Biomédicale et Hospitalière),20,3,23,Classement,"C, D, E, F2, F3",OK
+F3,PUB-032,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Biomédical (Maintenance Biomédicale et Hospitalière),20,3,23,Classement,"C, D, E, F2, F3",OK
+C,PUB-033,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Chimique procédés,17,4,21,Classement,"C, D, E",OK
+D,PUB-033,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Chimique procédés,17,4,21,Classement,"C, D, E",OK
+E,PUB-033,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Chimique procédés,17,4,21,Classement,"C, D, E",OK
+C,PUB-034,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Civil,40,5,45,Classement,"C, D, E, F4, DT",OK
+D,PUB-034,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Civil,40,5,45,Classement,"C, D, E, F4, DT",OK
+E,PUB-034,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Civil,40,5,45,Classement,"C, D, E, F4, DT",OK
+F4,PUB-034,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Civil,40,5,45,Classement,"C, D, E, F4, DT",OK
+DT,PUB-034,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Civil,40,5,45,Classement,"C, D, E, F4, DT",OK
+C,PUB-035,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie d'Imagerie médicale et de Radiobiologie,20,6,26,Classement,"C, D",OK
+D,PUB-035,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie d'Imagerie médicale et de Radiobiologie,20,6,26,Classement,"C, D",OK
+C,PUB-036,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie de l'Environnement,27,6,33,Classement,"C, D, DEAT",OK
+D,PUB-036,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie de l'Environnement,27,6,33,Classement,"C, D, DEAT",OK
+DEAT,PUB-036,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie de l'Environnement,27,6,33,Classement,"C, D, DEAT",OK
+C,PUB-037,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie de Technologie Alimentaire,19,5,24,Classement,"C, D, DEAT",OK
+D,PUB-037,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie de Technologie Alimentaire,19,5,24,Classement,"C, D, DEAT",OK
+DEAT,PUB-037,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie de Technologie Alimentaire,19,5,24,Classement,"C, D, DEAT",OK
+C,PUB-038,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Electrique,28,7,35,Classement,"C, D, E, F2, F3",OK
+D,PUB-038,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Electrique,28,7,35,Classement,"C, D, E, F2, F3",OK
+E,PUB-038,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Electrique,28,7,35,Classement,"C, D, E, F2, F3",OK
+F2,PUB-038,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Electrique,28,7,35,Classement,"C, D, E, F2, F3",OK
+F3,PUB-038,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Electrique,28,7,35,Classement,"C, D, E, F2, F3",OK
+C,PUB-039,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Informatique et Télécom,30,5,35,Classement,"C, D, E, F2",OK
+D,PUB-039,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Informatique et Télécom,30,5,35,Classement,"C, D, E, F2",OK
+E,PUB-039,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Informatique et Télécom,30,5,35,Classement,"C, D, E, F2",OK
+F2,PUB-039,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Informatique et Télécom,30,5,35,Classement,"C, D, E, F2",OK
+C,PUB-040,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Mécanique et Energétique,27,7,34,Classement,"C, D, E, F1",OK
+D,PUB-040,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Mécanique et Energétique,27,7,34,Classement,"C, D, E, F1",OK
+E,PUB-040,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Mécanique et Energétique,27,7,34,Classement,"C, D, E, F1",OK
+F1,PUB-040,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Génie Mécanique et Energétique,27,7,34,Classement,"C, D, E, F1",OK
+C,PUB-041,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Machinisme Agricole,21,3,24,Classement,"C, D, E, F3,DEAT",OK
+D,PUB-041,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Machinisme Agricole,21,3,24,Classement,"C, D, E, F3,DEAT",OK
+E,PUB-041,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Machinisme Agricole,21,3,24,Classement,"C, D, E, F3,DEAT",OK
+F3,PUB-041,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Machinisme Agricole,21,3,24,Classement,"C, D, E, F3,DEAT",OK
+DEAT,PUB-041,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Machinisme Agricole,21,3,24,Classement,"C, D, E, F3,DEAT",OK
+C,PUB-042,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Production et Santé animales,35,4,39,Classement,"C, D, DEAT",OK
+D,PUB-042,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Production et Santé animales,35,4,39,Classement,"C, D, DEAT",OK
+DEAT,PUB-042,Université d'Abomey-Calavi,Ecole Polytechnique d'Abomey-Calavi (EPAC),Production et Santé animales,35,4,39,Classement,"C, D, DEAT",OK
+A1,PUB-043,Université d'Abomey-Calavi,Faculté de Droit et de Science Politique (FADESP),Droit,0,500,500,Classement,"A1, A2, B, C, D, G2",OK
+A2,PUB-043,Université d'Abomey-Calavi,Faculté de Droit et de Science Politique (FADESP),Droit,0,500,500,Classement,"A1, A2, B, C, D, G2",OK
+B,PUB-043,Université d'Abomey-Calavi,Faculté de Droit et de Science Politique (FADESP),Droit,0,500,500,Classement,"A1, A2, B, C, D, G2",OK
+C,PUB-043,Université d'Abomey-Calavi,Faculté de Droit et de Science Politique (FADESP),Droit,0,500,500,Classement,"A1, A2, B, C, D, G2",OK
+D,PUB-043,Université d'Abomey-Calavi,Faculté de Droit et de Science Politique (FADESP),Droit,0,500,500,Classement,"A1, A2, B, C, D, G2",OK
+G2,PUB-043,Université d'Abomey-Calavi,Faculté de Droit et de Science Politique (FADESP),Droit,0,500,500,Classement,"A1, A2, B, C, D, G2",OK
+A1,PUB-044,Université d'Abomey-Calavi,Faculté de Droit et de Science Politique (FADESP),Sciences Politiques,0,90,90,Classement,"A1, A2, B, C, D, G2",OK
+A2,PUB-044,Université d'Abomey-Calavi,Faculté de Droit et de Science Politique (FADESP),Sciences Politiques,0,90,90,Classement,"A1, A2, B, C, D, G2",OK
+B,PUB-044,Université d'Abomey-Calavi,Faculté de Droit et de Science Politique (FADESP),Sciences Politiques,0,90,90,Classement,"A1, A2, B, C, D, G2",OK
+C,PUB-044,Université d'Abomey-Calavi,Faculté de Droit et de Science Politique (FADESP),Sciences Politiques,0,90,90,Classement,"A1, A2, B, C, D, G2",OK
+D,PUB-044,Université d'Abomey-Calavi,Faculté de Droit et de Science Politique (FADESP),Sciences Politiques,0,90,90,Classement,"A1, A2, B, C, D, G2",OK
+G2,PUB-044,Université d'Abomey-Calavi,Faculté de Droit et de Science Politique (FADESP),Sciences Politiques,0,90,90,Classement,"A1, A2, B, C, D, G2",OK
+A1,PUB-045,Université d'Abomey-Calavi,Faculté de Droit et de Science Politique (FADESP),Anglais,10,330,340,Classement,"A1, A2, B, C, D, DT, DEAT",OK
+A2,PUB-045,Université d'Abomey-Calavi,Faculté de Droit et de Science Politique (FADESP),Anglais,10,330,340,Classement,"A1, A2, B, C, D, DT, DEAT",OK
+B,PUB-045,Université d'Abomey-Calavi,Faculté de Droit et de Science Politique (FADESP),Anglais,10,330,340,Classement,"A1, A2, B, C, D, DT, DEAT",OK
+C,PUB-045,Université d'Abomey-Calavi,Faculté de Droit et de Science Politique (FADESP),Anglais,10,330,340,Classement,"A1, A2, B, C, D, DT, DEAT",OK
+D,PUB-045,Université d'Abomey-Calavi,Faculté de Droit et de Science Politique (FADESP),Anglais,10,330,340,Classement,"A1, A2, B, C, D, DT, DEAT",OK
+DT,PUB-045,Université d'Abomey-Calavi,Faculté de Droit et de Science Politique (FADESP),Anglais,10,330,340,Classement,"A1, A2, B, C, D, DT, DEAT",OK
+DEAT,PUB-045,Université d'Abomey-Calavi,Faculté de Droit et de Science Politique (FADESP),Anglais,10,330,340,Classement,"A1, A2, B, C, D, DT, DEAT",OK
+A1,PUB-046,Université d'Abomey-Calavi,"Faculté des Lettres, Arts et Sciences Humaines-Adjarra (FLASH-Adjarra)",Géographie et Aménagement du Territoire,0,170,170,Classement,"A1, A2, B, C, D, DT, DEAT",OK
+A2,PUB-046,Université d'Abomey-Calavi,"Faculté des Lettres, Arts et Sciences Humaines-Adjarra (FLASH-Adjarra)",Géographie et Aménagement du Territoire,0,170,170,Classement,"A1, A2, B, C, D, DT, DEAT",OK
+B,PUB-046,Université d'Abomey-Calavi,"Faculté des Lettres, Arts et Sciences Humaines-Adjarra (FLASH-Adjarra)",Géographie et Aménagement du Territoire,0,170,170,Classement,"A1, A2, B, C, D, DT, DEAT",OK
+C,PUB-046,Université d'Abomey-Calavi,"Faculté des Lettres, Arts et Sciences Humaines-Adjarra (FLASH-Adjarra)",Géographie et Aménagement du Territoire,0,170,170,Classement,"A1, A2, B, C, D, DT, DEAT",OK
+D,PUB-046,Université d'Abomey-Calavi,"Faculté des Lettres, Arts et Sciences Humaines-Adjarra (FLASH-Adjarra)",Géographie et Aménagement du Territoire,0,170,170,Classement,"A1, A2, B, C, D, DT, DEAT",OK
+DT,PUB-046,Université d'Abomey-Calavi,"Faculté des Lettres, Arts et Sciences Humaines-Adjarra (FLASH-Adjarra)",Géographie et Aménagement du Territoire,0,170,170,Classement,"A1, A2, B, C, D, DT, DEAT",OK
+DEAT,PUB-046,Université d'Abomey-Calavi,"Faculté des Lettres, Arts et Sciences Humaines-Adjarra (FLASH-Adjarra)",Géographie et Aménagement du Territoire,0,170,170,Classement,"A1, A2, B, C, D, DT, DEAT",OK
+A1,PUB-047,Université d'Abomey-Calavi,"Faculté des Lettres, Arts et Sciences Humaines-Adjarra (FLASH-Adjarra)",Socio-Anthropologie,0,160,160,Classement,"A1, A2, B, C, D, DT, DEAT",OK
+A2,PUB-047,Université d'Abomey-Calavi,"Faculté des Lettres, Arts et Sciences Humaines-Adjarra (FLASH-Adjarra)",Socio-Anthropologie,0,160,160,Classement,"A1, A2, B, C, D, DT, DEAT",OK
+B,PUB-047,Université d'Abomey-Calavi,"Faculté des Lettres, Arts et Sciences Humaines-Adjarra (FLASH-Adjarra)",Socio-Anthropologie,0,160,160,Classement,"A1, A2, B, C, D, DT, DEAT",OK
+C,PUB-047,Université d'Abomey-Calavi,"Faculté des Lettres, Arts et Sciences Humaines-Adjarra (FLASH-Adjarra)",Socio-Anthropologie,0,160,160,Classement,"A1, A2, B, C, D, DT, DEAT",OK
+D,PUB-047,Université d'Abomey-Calavi,"Faculté des Lettres, Arts et Sciences Humaines-Adjarra (FLASH-Adjarra)",Socio-Anthropologie,0,160,160,Classement,"A1, A2, B, C, D, DT, DEAT",OK
+DT,PUB-047,Université d'Abomey-Calavi,"Faculté des Lettres, Arts et Sciences Humaines-Adjarra (FLASH-Adjarra)",Socio-Anthropologie,0,160,160,Classement,"A1, A2, B, C, D, DT, DEAT",OK
+DEAT,PUB-047,Université d'Abomey-Calavi,"Faculté des Lettres, Arts et Sciences Humaines-Adjarra (FLASH-Adjarra)",Socio-Anthropologie,0,160,160,Classement,"A1, A2, B, C, D, DT, DEAT",OK
+A1,PUB-048,Université d'Abomey-Calavi,"Faculté des Lettres, Arts et Sciences Humaines-Adjarra (FLASH-Adjarra)",Allemand,0,35,35,Classement,"A1, A2, B",OK
+A2,PUB-048,Université d'Abomey-Calavi,"Faculté des Lettres, Arts et Sciences Humaines-Adjarra (FLASH-Adjarra)",Allemand,0,35,35,Classement,"A1, A2, B",OK
+B,PUB-048,Université d'Abomey-Calavi,"Faculté des Lettres, Arts et Sciences Humaines-Adjarra (FLASH-Adjarra)",Allemand,0,35,35,Classement,"A1, A2, B",OK
+A1,PUB-049,Université d'Abomey-Calavi,"Faculté des Lettres, Arts et Sciences Humaines-Adjarra (FLASH-Adjarra)",Anglais,5,320,325,Classement,"A1, A2, B, C, D",OK
+A2,PUB-049,Université d'Abomey-Calavi,"Faculté des Lettres, Arts et Sciences Humaines-Adjarra (FLASH-Adjarra)",Anglais,5,320,325,Classement,"A1, A2, B, C, D",OK
+B,PUB-049,Université d'Abomey-Calavi,"Faculté des Lettres, Arts et Sciences Humaines-Adjarra (FLASH-Adjarra)",Anglais,5,320,325,Classement,"A1, A2, B, C, D",OK
+C,PUB-049,Université d'Abomey-Calavi,"Faculté des Lettres, Arts et Sciences Humaines-Adjarra (FLASH-Adjarra)",Anglais,5,320,325,Classement,"A1, A2, B, C, D",OK
+D,PUB-049,Université d'Abomey-Calavi,"Faculté des Lettres, Arts et Sciences Humaines-Adjarra (FLASH-Adjarra)",Anglais,5,320,325,Classement,"A1, A2, B, C, D",OK
+A1,PUB-050,Université d'Abomey-Calavi,"Faculté des Lettres, Langues, Arts et Communications (FLLAC)",Espagnol,0,35,35,Classement,"A1, A2, B",OK
+A2,PUB-050,Université d'Abomey-Calavi,"Faculté des Lettres, Langues, Arts et Communications (FLLAC)",Espagnol,0,35,35,Classement,"A1, A2, B",OK
+B,PUB-050,Université d'Abomey-Calavi,"Faculté des Lettres, Langues, Arts et Communications (FLLAC)",Espagnol,0,35,35,Classement,"A1, A2, B",OK
+A1,PUB-051,Université d'Abomey-Calavi,"Faculté des Lettres, Langues, Arts et Communications (FLLAC)",Lettres Modernes,15,30,45,Classement,"A1, A2, B, C, D",OK
+A2,PUB-051,Université d'Abomey-Calavi,"Faculté des Lettres, Langues, Arts et Communications (FLLAC)",Lettres Modernes,15,30,45,Classement,"A1, A2, B, C, D",OK
+B,PUB-051,Université d'Abomey-Calavi,"Faculté des Lettres, Langues, Arts et Communications (FLLAC)",Lettres Modernes,15,30,45,Classement,"A1, A2, B, C, D",OK
+C,PUB-051,Université d'Abomey-Calavi,"Faculté des Lettres, Langues, Arts et Communications (FLLAC)",Lettres Modernes,15,30,45,Classement,"A1, A2, B, C, D",OK
+D,PUB-051,Université d'Abomey-Calavi,"Faculté des Lettres, Langues, Arts et Communications (FLLAC)",Lettres Modernes,15,30,45,Classement,"A1, A2, B, C, D",OK
+A1,PUB-052,Université d'Abomey-Calavi,"Faculté des Lettres, Langues, Arts et Communications (FLLAC)",Sciences du Langage et de la Communication,0,155,155,Classement,"A1, A2, B, C, D, G1, G3",OK
+A2,PUB-052,Université d'Abomey-Calavi,"Faculté des Lettres, Langues, Arts et Communications (FLLAC)",Sciences du Langage et de la Communication,0,155,155,Classement,"A1, A2, B, C, D, G1, G3",OK
+B,PUB-052,Université d'Abomey-Calavi,"Faculté des Lettres, Langues, Arts et Communications (FLLAC)",Sciences du Langage et de la Communication,0,155,155,Classement,"A1, A2, B, C, D, G1, G3",OK
+C,PUB-052,Université d'Abomey-Calavi,"Faculté des Lettres, Langues, Arts et Communications (FLLAC)",Sciences du Langage et de la Communication,0,155,155,Classement,"A1, A2, B, C, D, G1, G3",OK
+D,PUB-052,Université d'Abomey-Calavi,"Faculté des Lettres, Langues, Arts et Communications (FLLAC)",Sciences du Langage et de la Communication,0,155,155,Classement,"A1, A2, B, C, D, G1, G3",OK
+G1,PUB-052,Université d'Abomey-Calavi,"Faculté des Lettres, Langues, Arts et Communications (FLLAC)",Sciences du Langage et de la Communication,0,155,155,Classement,"A1, A2, B, C, D, G1, G3",OK
+G3,PUB-052,Université d'Abomey-Calavi,"Faculté des Lettres, Langues, Arts et Communications (FLLAC)",Sciences du Langage et de la Communication,0,155,155,Classement,"A1, A2, B, C, D, G1, G3",OK
+C,PUB-053,Université d'Abomey-Calavi,"Faculté des Lettres, Langues, Arts et Communications (FLLAC)","Agroéconomie, Sociologie et Vulgarisation Rurales",25,2,27,Classement,"C, D",OK
+D,PUB-053,Université d'Abomey-Calavi,"Faculté des Lettres, Langues, Arts et Communications (FLLAC)","Agroéconomie, Sociologie et Vulgarisation Rurales",25,2,27,Classement,"C, D",OK
+C,PUB-054,Université d'Abomey-Calavi,"Faculté des Lettres, Langues, Arts et Communications (FLLAC)",Aménagement et Gestion des Forêts et Parcours Naturels,23,5,28,Classement,"C, D, DEAT",OK
+D,PUB-054,Université d'Abomey-Calavi,"Faculté des Lettres, Langues, Arts et Communications (FLLAC)",Aménagement et Gestion des Forêts et Parcours Naturels,23,5,28,Classement,"C, D, DEAT",OK
+DEAT,PUB-054,Université d'Abomey-Calavi,"Faculté des Lettres, Langues, Arts et Communications (FLLAC)",Aménagement et Gestion des Forêts et Parcours Naturels,23,5,28,Classement,"C, D, DEAT",OK
+C,PUB-055,Université d'Abomey-Calavi,"Faculté des Lettres, Langues, Arts et Communications (FLLAC)",Entreprenariat Agricole,25,5,30,Classement,"C, D",OK
+D,PUB-055,Université d'Abomey-Calavi,"Faculté des Lettres, Langues, Arts et Communications (FLLAC)",Entreprenariat Agricole,25,5,30,Classement,"C, D",OK
+C,PUB-056,Université d'Abomey-Calavi,Faculté des Sciences Agronomiques (FSA),"Génie Rural, Mécanisation Agricole, Pêche et Aquaculture",23,6,29,Classement,"C, D, DEAT",OK
+D,PUB-056,Université d'Abomey-Calavi,Faculté des Sciences Agronomiques (FSA),"Génie Rural, Mécanisation Agricole, Pêche et Aquaculture",23,6,29,Classement,"C, D, DEAT",OK
+DEAT,PUB-056,Université d'Abomey-Calavi,Faculté des Sciences Agronomiques (FSA),"Génie Rural, Mécanisation Agricole, Pêche et Aquaculture",23,6,29,Classement,"C, D, DEAT",OK
+C,PUB-057,Université d'Abomey-Calavi,Faculté des Sciences Agronomiques (FSA),Nutrition et Technologie Alimentaires,23,4,27,Classement,"C, D, DEAT",OK
+D,PUB-057,Université d'Abomey-Calavi,Faculté des Sciences Agronomiques (FSA),Nutrition et Technologie Alimentaires,23,4,27,Classement,"C, D, DEAT",OK
+DEAT,PUB-057,Université d'Abomey-Calavi,Faculté des Sciences Agronomiques (FSA),Nutrition et Technologie Alimentaires,23,4,27,Classement,"C, D, DEAT",OK
+C,PUB-058,Université d'Abomey-Calavi,Faculté des Sciences Agronomiques (FSA),Sciences et Techniques de Production Animale,24,3,27,Classement,"C, D, DEAT",OK
+D,PUB-058,Université d'Abomey-Calavi,Faculté des Sciences Agronomiques (FSA),Sciences et Techniques de Production Animale,24,3,27,Classement,"C, D, DEAT",OK
+DEAT,PUB-058,Université d'Abomey-Calavi,Faculté des Sciences Agronomiques (FSA),Sciences et Techniques de Production Animale,24,3,27,Classement,"C, D, DEAT",OK
+C,PUB-059,Université d'Abomey-Calavi,Faculté des Sciences Agronomiques (FSA),Sciences et Techniques de Production Végétale,24,3,27,Classement,"C, D, DEAT",OK
+D,PUB-059,Université d'Abomey-Calavi,Faculté des Sciences Agronomiques (FSA),Sciences et Techniques de Production Végétale,24,3,27,Classement,"C, D, DEAT",OK
+DEAT,PUB-059,Université d'Abomey-Calavi,Faculté des Sciences Agronomiques (FSA),Sciences et Techniques de Production Végétale,24,3,27,Classement,"C, D, DEAT",OK
+A1,PUB-060,Université d'Abomey-Calavi,Faculté des Sciences de la Santé (FSS),Assistance sociale,25,20,45,Classement,"A1, A2, B, D",OK
+A2,PUB-060,Université d'Abomey-Calavi,Faculté des Sciences de la Santé (FSS),Assistance sociale,25,20,45,Classement,"A1, A2, B, D",OK
+B,PUB-060,Université d'Abomey-Calavi,Faculté des Sciences de la Santé (FSS),Assistance sociale,25,20,45,Classement,"A1, A2, B, D",OK
+D,PUB-060,Université d'Abomey-Calavi,Faculté des Sciences de la Santé (FSS),Assistance sociale,25,20,45,Classement,"A1, A2, B, D",OK
+C,PUB-061,Université d'Abomey-Calavi,Faculté des Sciences de la Santé (FSS),Kinésithérapie,20,15,35,Classement,"C, D",OK
+D,PUB-061,Université d'Abomey-Calavi,Faculté des Sciences de la Santé (FSS),Kinésithérapie,20,15,35,Classement,"C, D",OK
+C,PUB-062,Université d'Abomey-Calavi,Faculté des Sciences de la Santé (FSS),Médecine Générale,95,20,115,Classement,"C, D",OK
+D,PUB-062,Université d'Abomey-Calavi,Faculté des Sciences de la Santé (FSS),Médecine Générale,95,20,115,Classement,"C, D",OK
+C,PUB-063,Université d'Abomey-Calavi,Faculté des Sciences de la Santé (FSS),Nutrition et Diététique,17,15,32,Classement,"C, D",OK
+D,PUB-063,Université d'Abomey-Calavi,Faculté des Sciences de la Santé (FSS),Nutrition et Diététique,17,15,32,Classement,"C, D",OK
+C,PUB-064,Université d'Abomey-Calavi,Faculté des Sciences de la Santé (FSS),Pharmacie,18,10,28,Classement,"C, D",Réparé - fusion OCR
+D,PUB-064,Université d'Abomey-Calavi,Faculté des Sciences de la Santé (FSS),Pharmacie,18,10,28,Classement,"C, D",Réparé - fusion OCR
+C,PUB-065,Université d'Abomey-Calavi,Faculté des Sciences Economiques et de Gestion (FASEG),Econométrie et Statistiques Appliquées,10,5,15,Classement,"C, D",Réparé - fusion OCR
+D,PUB-065,Université d'Abomey-Calavi,Faculté des Sciences Economiques et de Gestion (FASEG),Econométrie et Statistiques Appliquées,10,5,15,Classement,"C, D",Réparé - fusion OCR
+B,PUB-066,Université d'Abomey-Calavi,Faculté des Sciences Economiques et de Gestion (FASEG),Sciences Economiques et de Gestion (Tronc commun),10,700,710,Classement,"B, C, D, G2, G3, DT",OK
+C,PUB-066,Université d'Abomey-Calavi,Faculté des Sciences Economiques et de Gestion (FASEG),Sciences Economiques et de Gestion (Tronc commun),10,700,710,Classement,"B, C, D, G2, G3, DT",OK
+D,PUB-066,Université d'Abomey-Calavi,Faculté des Sciences Economiques et de Gestion (FASEG),Sciences Economiques et de Gestion (Tronc commun),10,700,710,Classement,"B, C, D, G2, G3, DT",OK
+G2,PUB-066,Université d'Abomey-Calavi,Faculté des Sciences Economiques et de Gestion (FASEG),Sciences Economiques et de Gestion (Tronc commun),10,700,710,Classement,"B, C, D, G2, G3, DT",OK
+G3,PUB-066,Université d'Abomey-Calavi,Faculté des Sciences Economiques et de Gestion (FASEG),Sciences Economiques et de Gestion (Tronc commun),10,700,710,Classement,"B, C, D, G2, G3, DT",OK
+DT,PUB-066,Université d'Abomey-Calavi,Faculté des Sciences Economiques et de Gestion (FASEG),Sciences Economiques et de Gestion (Tronc commun),10,700,710,Classement,"B, C, D, G2, G3, DT",OK
+B,PUB-067,Université d'Abomey-Calavi,Faculté des Sciences Economiques et de Gestion (FASEG),Sciences et Techniques Comptables et Financières (STCF),10,5,15,Classement,"B, C, D, G2, G3",OK
+C,PUB-067,Université d'Abomey-Calavi,Faculté des Sciences Economiques et de Gestion (FASEG),Sciences et Techniques Comptables et Financières (STCF),10,5,15,Classement,"B, C, D, G2, G3",OK
+D,PUB-067,Université d'Abomey-Calavi,Faculté des Sciences Economiques et de Gestion (FASEG),Sciences et Techniques Comptables et Financières (STCF),10,5,15,Classement,"B, C, D, G2, G3",OK
+G2,PUB-067,Université d'Abomey-Calavi,Faculté des Sciences Economiques et de Gestion (FASEG),Sciences et Techniques Comptables et Financières (STCF),10,5,15,Classement,"B, C, D, G2, G3",OK
+G3,PUB-067,Université d'Abomey-Calavi,Faculté des Sciences Economiques et de Gestion (FASEG),Sciences et Techniques Comptables et Financières (STCF),10,5,15,Classement,"B, C, D, G2, G3",OK
+A1,PUB-068,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Géographie et Aménagement du Territoire,0,330,330,Classement,"A1, A2, B, C, D,DEAT",OK
+A2,PUB-068,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Géographie et Aménagement du Territoire,0,330,330,Classement,"A1, A2, B, C, D,DEAT",OK
+B,PUB-068,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Géographie et Aménagement du Territoire,0,330,330,Classement,"A1, A2, B, C, D,DEAT",OK
+C,PUB-068,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Géographie et Aménagement du Territoire,0,330,330,Classement,"A1, A2, B, C, D,DEAT",OK
+D,PUB-068,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Géographie et Aménagement du Territoire,0,330,330,Classement,"A1, A2, B, C, D,DEAT",OK
+DEAT,PUB-068,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Géographie et Aménagement du Territoire,0,330,330,Classement,"A1, A2, B, C, D,DEAT",OK
+A1,PUB-069,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Histoire et Archéologie,0,75,75,Classement,"A1, A2, B, C, D",OK
+A2,PUB-069,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Histoire et Archéologie,0,75,75,Classement,"A1, A2, B, C, D",OK
+B,PUB-069,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Histoire et Archéologie,0,75,75,Classement,"A1, A2, B, C, D",OK
+C,PUB-069,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Histoire et Archéologie,0,75,75,Classement,"A1, A2, B, C, D",OK
+D,PUB-069,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Histoire et Archéologie,0,75,75,Classement,"A1, A2, B, C, D",OK
+A1,PUB-070,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Philosophie,0,85,85,Classement,"A1, A2, B, C, D",OK
+A2,PUB-070,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Philosophie,0,85,85,Classement,"A1, A2, B, C, D",OK
+B,PUB-070,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Philosophie,0,85,85,Classement,"A1, A2, B, C, D",OK
+C,PUB-070,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Philosophie,0,85,85,Classement,"A1, A2, B, C, D",OK
+D,PUB-070,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Philosophie,0,85,85,Classement,"A1, A2, B, C, D",OK
+A1,PUB-071,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Psychologie,15,125,140,Classement,"A1, A2, B, D",OK
+A2,PUB-071,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Psychologie,15,125,140,Classement,"A1, A2, B, D",OK
+B,PUB-071,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Psychologie,15,125,140,Classement,"A1, A2, B, D",OK
+D,PUB-071,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Psychologie,15,125,140,Classement,"A1, A2, B, D",OK
+A1,PUB-072,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Psychologie du travail et des Organisations,5,0,5,Classement,"A1, A2, B, C, D",OK
+A2,PUB-072,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Psychologie du travail et des Organisations,5,0,5,Classement,"A1, A2, B, C, D",OK
+B,PUB-072,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Psychologie du travail et des Organisations,5,0,5,Classement,"A1, A2, B, C, D",OK
+C,PUB-072,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Psychologie du travail et des Organisations,5,0,5,Classement,"A1, A2, B, C, D",OK
+D,PUB-072,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Psychologie du travail et des Organisations,5,0,5,Classement,"A1, A2, B, C, D",OK
+A1,PUB-073,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Sciences de l’Education et de la Formation,0,90,90,Classement,"A1, A2, C, D",OK
+A2,PUB-073,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Sciences de l’Education et de la Formation,0,90,90,Classement,"A1, A2, C, D",OK
+C,PUB-073,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Sciences de l’Education et de la Formation,0,90,90,Classement,"A1, A2, C, D",OK
+D,PUB-073,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Sciences de l’Education et de la Formation,0,90,90,Classement,"A1, A2, C, D",OK
+A1,PUB-074,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Socio-Anthropologie,0,320,320,Classement,"A1, A2, B, C, D, G1, G2, G3",Réparé - fusion OCR
+A2,PUB-074,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Socio-Anthropologie,0,320,320,Classement,"A1, A2, B, C, D, G1, G2, G3",Réparé - fusion OCR
+B,PUB-074,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Socio-Anthropologie,0,320,320,Classement,"A1, A2, B, C, D, G1, G2, G3",Réparé - fusion OCR
+C,PUB-074,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Socio-Anthropologie,0,320,320,Classement,"A1, A2, B, C, D, G1, G2, G3",Réparé - fusion OCR
+D,PUB-074,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Socio-Anthropologie,0,320,320,Classement,"A1, A2, B, C, D, G1, G2, G3",Réparé - fusion OCR
+G1,PUB-074,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Socio-Anthropologie,0,320,320,Classement,"A1, A2, B, C, D, G1, G2, G3",Réparé - fusion OCR
+G2,PUB-074,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Socio-Anthropologie,0,320,320,Classement,"A1, A2, B, C, D, G1, G2, G3",Réparé - fusion OCR
+G3,PUB-074,Université d'Abomey-Calavi,Faculté des Sciences Humaines et Sociales (FASHS Calavi),Socio-Anthropologie,0,320,320,Classement,"A1, A2, B, C, D, G1, G2, G3",Réparé - fusion OCR
+C,PUB-075,Université d'Abomey-Calavi,Faculté des Sciences Techniques (FAST),Energies Renouvelables et Systèmes Energétiques,100,20,120,Classement,"C, D, F2, F3",Réparé - fusion OCR
+D,PUB-075,Université d'Abomey-Calavi,Faculté des Sciences Techniques (FAST),Energies Renouvelables et Systèmes Energétiques,100,20,120,Classement,"C, D, F2, F3",Réparé - fusion OCR
+F2,PUB-075,Université d'Abomey-Calavi,Faculté des Sciences Techniques (FAST),Energies Renouvelables et Systèmes Energétiques,100,20,120,Classement,"C, D, F2, F3",Réparé - fusion OCR
+F3,PUB-075,Université d'Abomey-Calavi,Faculté des Sciences Techniques (FAST),Energies Renouvelables et Systèmes Energétiques,100,20,120,Classement,"C, D, F2, F3",Réparé - fusion OCR
+C,PUB-076,Université d'Abomey-Calavi,Faculté des Sciences Techniques (FAST),"Génétique, Biotechnologies et Ressources Biologiques",51,10,61,Classement,"C, D",OK
+D,PUB-076,Université d'Abomey-Calavi,Faculté des Sciences Techniques (FAST),"Génétique, Biotechnologies et Ressources Biologiques",51,10,61,Classement,"C, D",OK
+C,PUB-077,Université d'Abomey-Calavi,Faculté des Sciences Techniques (FAST),Hydrobiologie Appliquée,51,10,61,Classement,"C, D, DEAT",OK
+D,PUB-077,Université d'Abomey-Calavi,Faculté des Sciences Techniques (FAST),Hydrobiologie Appliquée,51,10,61,Classement,"C, D, DEAT",OK
+DEAT,PUB-077,Université d'Abomey-Calavi,Faculté des Sciences Techniques (FAST),Hydrobiologie Appliquée,51,10,61,Classement,"C, D, DEAT",OK
+C,PUB-078,Université d'Abomey-Calavi,Faculté des Sciences Techniques (FAST),Mathématiques Informatique et Applications,200,119,319,Classement,C,OK
+C,PUB-079,Université d'Abomey-Calavi,Faculté des Sciences Techniques (FAST),Microbiologie et Biotechnologie Alimentaire,50,20,70,Classement,"C, D, DEAT",OK
+D,PUB-079,Université d'Abomey-Calavi,Faculté des Sciences Techniques (FAST),Microbiologie et Biotechnologie Alimentaire,50,20,70,Classement,"C, D, DEAT",OK
+DEAT,PUB-079,Université d'Abomey-Calavi,Faculté des Sciences Techniques (FAST),Microbiologie et Biotechnologie Alimentaire,50,20,70,Classement,"C, D, DEAT",OK
+C,PUB-080,Université d'Abomey-Calavi,Faculté des Sciences Techniques (FAST),Physique-Chimie,233,405,638,Classement,"C, D",OK
+D,PUB-080,Université d'Abomey-Calavi,Faculté des Sciences Techniques (FAST),Physique-Chimie,233,405,638,Classement,"C, D",OK
+C,PUB-081,Université d'Abomey-Calavi,Faculté des Sciences Techniques (FAST),Sciences de la Vie et de la Terre,50,120,170,Classement,"C, D",OK
+D,PUB-081,Université d'Abomey-Calavi,Faculté des Sciences Techniques (FAST),Sciences de la Vie et de la Terre,50,120,170,Classement,"C, D",OK
+B,PUB-082,Université d'Abomey-Calavi,Haute Ecole Régionale de Commerce International (HERCI),Commerce International,10,3,13,Classement,"B, C, D, G2, G3",OK
+C,PUB-082,Université d'Abomey-Calavi,Haute Ecole Régionale de Commerce International (HERCI),Commerce International,10,3,13,Classement,"B, C, D, G2, G3",OK
+D,PUB-082,Université d'Abomey-Calavi,Haute Ecole Régionale de Commerce International (HERCI),Commerce International,10,3,13,Classement,"B, C, D, G2, G3",OK
+G2,PUB-082,Université d'Abomey-Calavi,Haute Ecole Régionale de Commerce International (HERCI),Commerce International,10,3,13,Classement,"B, C, D, G2, G3",OK
+G3,PUB-082,Université d'Abomey-Calavi,Haute Ecole Régionale de Commerce International (HERCI),Commerce International,10,3,13,Classement,"B, C, D, G2, G3",OK
+B,PUB-083,Université d'Abomey-Calavi,Haute Ecole Régionale de Commerce International (HERCI),Gestion des Relations Maritimes Internationales,10,3,13,Classement,"B, C, D, G2, G3",OK
+C,PUB-083,Université d'Abomey-Calavi,Haute Ecole Régionale de Commerce International (HERCI),Gestion des Relations Maritimes Internationales,10,3,13,Classement,"B, C, D, G2, G3",OK
+D,PUB-083,Université d'Abomey-Calavi,Haute Ecole Régionale de Commerce International (HERCI),Gestion des Relations Maritimes Internationales,10,3,13,Classement,"B, C, D, G2, G3",OK
+G2,PUB-083,Université d'Abomey-Calavi,Haute Ecole Régionale de Commerce International (HERCI),Gestion des Relations Maritimes Internationales,10,3,13,Classement,"B, C, D, G2, G3",OK
+G3,PUB-083,Université d'Abomey-Calavi,Haute Ecole Régionale de Commerce International (HERCI),Gestion des Relations Maritimes Internationales,10,3,13,Classement,"B, C, D, G2, G3",OK
+B,PUB-084,Université d'Abomey-Calavi,Haute Ecole Régionale de Commerce International (HERCI),Négoce International,10,4,14,Classement,"B, C, D, G2, G3",OK
+C,PUB-084,Université d'Abomey-Calavi,Haute Ecole Régionale de Commerce International (HERCI),Négoce International,10,4,14,Classement,"B, C, D, G2, G3",OK
+D,PUB-084,Université d'Abomey-Calavi,Haute Ecole Régionale de Commerce International (HERCI),Négoce International,10,4,14,Classement,"B, C, D, G2, G3",OK
+G2,PUB-084,Université d'Abomey-Calavi,Haute Ecole Régionale de Commerce International (HERCI),Négoce International,10,4,14,Classement,"B, C, D, G2, G3",OK
+G3,PUB-084,Université d'Abomey-Calavi,Haute Ecole Régionale de Commerce International (HERCI),Négoce International,10,4,14,Classement,"B, C, D, G2, G3",OK
+A1,PUB-085,Université d'Abomey-Calavi,Institut Confucius,Didactique du Chinois,0,0,0,Classement,"A1, A2, B, C, D",OK
+A2,PUB-085,Université d'Abomey-Calavi,Institut Confucius,Didactique du Chinois,0,0,0,Classement,"A1, A2, B, C, D",OK
+B,PUB-085,Université d'Abomey-Calavi,Institut Confucius,Didactique du Chinois,0,0,0,Classement,"A1, A2, B, C, D",OK
+C,PUB-085,Université d'Abomey-Calavi,Institut Confucius,Didactique du Chinois,0,0,0,Classement,"A1, A2, B, C, D",OK
+D,PUB-085,Université d'Abomey-Calavi,Institut Confucius,Didactique du Chinois,0,0,0,Classement,"A1, A2, B, C, D",OK
+A1,PUB-086,Université d'Abomey-Calavi,Institut Confucius,Langue Chinoise,0,0,0,Classement,"A1, A2, B, C, D",OK
+A2,PUB-086,Université d'Abomey-Calavi,Institut Confucius,Langue Chinoise,0,0,0,Classement,"A1, A2, B, C, D",OK
+B,PUB-086,Université d'Abomey-Calavi,Institut Confucius,Langue Chinoise,0,0,0,Classement,"A1, A2, B, C, D",OK
+C,PUB-086,Université d'Abomey-Calavi,Institut Confucius,Langue Chinoise,0,0,0,Classement,"A1, A2, B, C, D",OK
+D,PUB-086,Université d'Abomey-Calavi,Institut Confucius,Langue Chinoise,0,0,0,Classement,"A1, A2, B, C, D",OK
+C,PUB-087,Université d'Abomey-Calavi,Institut de Cadre de Vie (Ex. Institut de Géographie de l'Aménagement du Territoire et de l'Environnement-IGATE),Géomatique et Environnement,23,12,35,Classement,"C, D",OK
+D,PUB-087,Université d'Abomey-Calavi,Institut de Cadre de Vie (Ex. Institut de Géographie de l'Aménagement du Territoire et de l'Environnement-IGATE),Géomatique et Environnement,23,12,35,Classement,"C, D",OK
+C,PUB-088,Université d'Abomey-Calavi,Institut de Cadre de Vie (Ex. Institut de Géographie de l'Aménagement du Territoire et de l'Environnement-IGATE),Gestion des changements climatiques et des écosystèmes,18,8,26,Classement,"C, D, EA",OK
+D,PUB-088,Université d'Abomey-Calavi,Institut de Cadre de Vie (Ex. Institut de Géographie de l'Aménagement du Territoire et de l'Environnement-IGATE),Gestion des changements climatiques et des écosystèmes,18,8,26,Classement,"C, D, EA",OK
+EA,PUB-088,Université d'Abomey-Calavi,Institut de Cadre de Vie (Ex. Institut de Géographie de l'Aménagement du Territoire et de l'Environnement-IGATE),Gestion des changements climatiques et des écosystèmes,18,8,26,Classement,"C, D, EA",OK
+A1,PUB-089,Université d'Abomey-Calavi,Institut de Cadre de Vie (Ex. Institut de Géographie de l'Aménagement du Territoire et de l'Environnement-IGATE),Gestion du cadre de vie,50,12,62,Classement,"A1, A2, B, C, D",OK
+A2,PUB-089,Université d'Abomey-Calavi,Institut de Cadre de Vie (Ex. Institut de Géographie de l'Aménagement du Territoire et de l'Environnement-IGATE),Gestion du cadre de vie,50,12,62,Classement,"A1, A2, B, C, D",OK
+B,PUB-089,Université d'Abomey-Calavi,Institut de Cadre de Vie (Ex. Institut de Géographie de l'Aménagement du Territoire et de l'Environnement-IGATE),Gestion du cadre de vie,50,12,62,Classement,"A1, A2, B, C, D",OK
+C,PUB-089,Université d'Abomey-Calavi,Institut de Cadre de Vie (Ex. Institut de Géographie de l'Aménagement du Territoire et de l'Environnement-IGATE),Gestion du cadre de vie,50,12,62,Classement,"A1, A2, B, C, D",OK
+D,PUB-089,Université d'Abomey-Calavi,Institut de Cadre de Vie (Ex. Institut de Géographie de l'Aménagement du Territoire et de l'Environnement-IGATE),Gestion du cadre de vie,50,12,62,Classement,"A1, A2, B, C, D",OK
+A1,PUB-090,Université d'Abomey-Calavi,Institut de Cadre de Vie (Ex. Institut de Géographie de l'Aménagement du Territoire et de l'Environnement-IGATE),Planification et Gestion des espaces urbains et ruraux,30,8,38,Classement,"A1, A2, B, C, D",Réparé - fusion OCR
+A2,PUB-090,Université d'Abomey-Calavi,Institut de Cadre de Vie (Ex. Institut de Géographie de l'Aménagement du Territoire et de l'Environnement-IGATE),Planification et Gestion des espaces urbains et ruraux,30,8,38,Classement,"A1, A2, B, C, D",Réparé - fusion OCR
+B,PUB-090,Université d'Abomey-Calavi,Institut de Cadre de Vie (Ex. Institut de Géographie de l'Aménagement du Territoire et de l'Environnement-IGATE),Planification et Gestion des espaces urbains et ruraux,30,8,38,Classement,"A1, A2, B, C, D",Réparé - fusion OCR
+C,PUB-090,Université d'Abomey-Calavi,Institut de Cadre de Vie (Ex. Institut de Géographie de l'Aménagement du Territoire et de l'Environnement-IGATE),Planification et Gestion des espaces urbains et ruraux,30,8,38,Classement,"A1, A2, B, C, D",Réparé - fusion OCR
+D,PUB-090,Université d'Abomey-Calavi,Institut de Cadre de Vie (Ex. Institut de Géographie de l'Aménagement du Territoire et de l'Environnement-IGATE),Planification et Gestion des espaces urbains et ruraux,30,8,38,Classement,"A1, A2, B, C, D",Réparé - fusion OCR
+C,PUB-091,Université d'Abomey-Calavi,Institut de Formation et de Recherche en Informatique (IFRI),Génie Logiciel,23,5,28,Classement,"C, D, E, DT",Réparé - fusion OCR
+D,PUB-091,Université d'Abomey-Calavi,Institut de Formation et de Recherche en Informatique (IFRI),Génie Logiciel,23,5,28,Classement,"C, D, E, DT",Réparé - fusion OCR
+E,PUB-091,Université d'Abomey-Calavi,Institut de Formation et de Recherche en Informatique (IFRI),Génie Logiciel,23,5,28,Classement,"C, D, E, DT",Réparé - fusion OCR
+DT,PUB-091,Université d'Abomey-Calavi,Institut de Formation et de Recherche en Informatique (IFRI),Génie Logiciel,23,5,28,Classement,"C, D, E, DT",Réparé - fusion OCR
+C,PUB-092,Université d'Abomey-Calavi,Institut de Formation et de Recherche en Informatique (IFRI),Intelligence artificielle (IA),25,5,30,Classement,"C, D, E",OK
+D,PUB-092,Université d'Abomey-Calavi,Institut de Formation et de Recherche en Informatique (IFRI),Intelligence artificielle (IA),25,5,30,Classement,"C, D, E",OK
+E,PUB-092,Université d'Abomey-Calavi,Institut de Formation et de Recherche en Informatique (IFRI),Intelligence artificielle (IA),25,5,30,Classement,"C, D, E",OK
+C,PUB-093,Université d'Abomey-Calavi,Institut de Formation et de Recherche en Informatique (IFRI),Internet et Multimédia,15,3,18,Classement,"C, D, E, DT",OK
+D,PUB-093,Université d'Abomey-Calavi,Institut de Formation et de Recherche en Informatique (IFRI),Internet et Multimédia,15,3,18,Classement,"C, D, E, DT",OK
+E,PUB-093,Université d'Abomey-Calavi,Institut de Formation et de Recherche en Informatique (IFRI),Internet et Multimédia,15,3,18,Classement,"C, D, E, DT",OK
+DT,PUB-093,Université d'Abomey-Calavi,Institut de Formation et de Recherche en Informatique (IFRI),Internet et Multimédia,15,3,18,Classement,"C, D, E, DT",OK
+C,PUB-094,Université d'Abomey-Calavi,Institut de Formation et de Recherche en Informatique (IFRI),Sécurité Informatique,20,3,23,Classement,"C, D, E, DT",OK
+D,PUB-094,Université d'Abomey-Calavi,Institut de Formation et de Recherche en Informatique (IFRI),Sécurité Informatique,20,3,23,Classement,"C, D, E, DT",OK
+E,PUB-094,Université d'Abomey-Calavi,Institut de Formation et de Recherche en Informatique (IFRI),Sécurité Informatique,20,3,23,Classement,"C, D, E, DT",OK
+DT,PUB-094,Université d'Abomey-Calavi,Institut de Formation et de Recherche en Informatique (IFRI),Sécurité Informatique,20,3,23,Classement,"C, D, E, DT",OK
+C,PUB-095,Université d'Abomey-Calavi,Institut de Formation et de Recherche en Informatique (IFRI),Systèmes embarqués et Internet des Objets (SEIoT),15,4,19,Classement,"C, D, E, DT",OK
+D,PUB-095,Université d'Abomey-Calavi,Institut de Formation et de Recherche en Informatique (IFRI),Systèmes embarqués et Internet des Objets (SEIoT),15,4,19,Classement,"C, D, E, DT",OK
+E,PUB-095,Université d'Abomey-Calavi,Institut de Formation et de Recherche en Informatique (IFRI),Systèmes embarqués et Internet des Objets (SEIoT),15,4,19,Classement,"C, D, E, DT",OK
+DT,PUB-095,Université d'Abomey-Calavi,Institut de Formation et de Recherche en Informatique (IFRI),Systèmes embarqués et Internet des Objets (SEIoT),15,4,19,Classement,"C, D, E, DT",OK
+Toutes séries,PUB-096,Université d'Abomey-Calavi,Institut de Langue Arabe et Culture Islamique (ILACI),Culture Islamique,0,0,0,Classement,Toutes séries,OK
+Toutes séries,PUB-097,Université d'Abomey-Calavi,Institut de Langue Arabe et Culture Islamique (ILACI),Finance Islamique,0,0,0,Classement,Toutes séries,OK
+Toutes séries,PUB-098,Université d'Abomey-Calavi,Institut de Langue Arabe et Culture Islamique (ILACI),Langue Arabe,0,0,0,Classement,Toutes séries,OK
+Toutes séries,PUB-099,Université d'Abomey-Calavi,Institut de Langue Arabe et Culture Islamique (ILACI),Traduction arabe-français,0,0,0,Classement,Toutes séries,OK
+C,PUB-100,Université d'Abomey-Calavi,Institut de Mathématiques et de Sciences Physiques (IMSP),"Classes préparatoires Mathématiques, Physiques et Science de l'Ingénieur (MPSI) et Physique-Chimie et Science de l'Ingénieur (PCSI)",100,15,115,Classement,"C, D, E, F1, F2, F3, F4",OK
+D,PUB-100,Université d'Abomey-Calavi,Institut de Mathématiques et de Sciences Physiques (IMSP),"Classes préparatoires Mathématiques, Physiques et Science de l'Ingénieur (MPSI) et Physique-Chimie et Science de l'Ingénieur (PCSI)",100,15,115,Classement,"C, D, E, F1, F2, F3, F4",OK
+E,PUB-100,Université d'Abomey-Calavi,Institut de Mathématiques et de Sciences Physiques (IMSP),"Classes préparatoires Mathématiques, Physiques et Science de l'Ingénieur (MPSI) et Physique-Chimie et Science de l'Ingénieur (PCSI)",100,15,115,Classement,"C, D, E, F1, F2, F3, F4",OK
+F1,PUB-100,Université d'Abomey-Calavi,Institut de Mathématiques et de Sciences Physiques (IMSP),"Classes préparatoires Mathématiques, Physiques et Science de l'Ingénieur (MPSI) et Physique-Chimie et Science de l'Ingénieur (PCSI)",100,15,115,Classement,"C, D, E, F1, F2, F3, F4",OK
+F2,PUB-100,Université d'Abomey-Calavi,Institut de Mathématiques et de Sciences Physiques (IMSP),"Classes préparatoires Mathématiques, Physiques et Science de l'Ingénieur (MPSI) et Physique-Chimie et Science de l'Ingénieur (PCSI)",100,15,115,Classement,"C, D, E, F1, F2, F3, F4",OK
+F3,PUB-100,Université d'Abomey-Calavi,Institut de Mathématiques et de Sciences Physiques (IMSP),"Classes préparatoires Mathématiques, Physiques et Science de l'Ingénieur (MPSI) et Physique-Chimie et Science de l'Ingénieur (PCSI)",100,15,115,Classement,"C, D, E, F1, F2, F3, F4",OK
+F4,PUB-100,Université d'Abomey-Calavi,Institut de Mathématiques et de Sciences Physiques (IMSP),"Classes préparatoires Mathématiques, Physiques et Science de l'Ingénieur (MPSI) et Physique-Chimie et Science de l'Ingénieur (PCSI)",100,15,115,Classement,"C, D, E, F1, F2, F3, F4",OK
+C,PUB-101,Université d'Abomey-Calavi,Institut National de l'Eau (INE),Eau Hygiène et Assainissement(EHA),50,10,60,Classement,"C, D, EA, DEAT",OK
+D,PUB-101,Université d'Abomey-Calavi,Institut National de l'Eau (INE),Eau Hygiène et Assainissement(EHA),50,10,60,Classement,"C, D, EA, DEAT",OK
+EA,PUB-101,Université d'Abomey-Calavi,Institut National de l'Eau (INE),Eau Hygiène et Assainissement(EHA),50,10,60,Classement,"C, D, EA, DEAT",OK
+DEAT,PUB-101,Université d'Abomey-Calavi,Institut National de l'Eau (INE),Eau Hygiène et Assainissement(EHA),50,10,60,Classement,"C, D, EA, DEAT",OK
+C,PUB-102,Université d'Abomey-Calavi,Institut National de l'Eau (INE),Ecohydrologie et Gestion intégrée des Ressources,21,5,26,Classement,"C, D",OK
+D,PUB-102,Université d'Abomey-Calavi,Institut National de l'Eau (INE),Ecohydrologie et Gestion intégrée des Ressources,21,5,26,Classement,"C, D",OK
+C,PUB-103,Université d'Abomey-Calavi,Institut National de l'Eau (INE),Génie rural et Maîtrise de l'Eau,20,5,25,Classement,"C, D, EA, DEAT",OK
+D,PUB-103,Université d'Abomey-Calavi,Institut National de l'Eau (INE),Génie rural et Maîtrise de l'Eau,20,5,25,Classement,"C, D, EA, DEAT",OK
+EA,PUB-103,Université d'Abomey-Calavi,Institut National de l'Eau (INE),Génie rural et Maîtrise de l'Eau,20,5,25,Classement,"C, D, EA, DEAT",OK
+DEAT,PUB-103,Université d'Abomey-Calavi,Institut National de l'Eau (INE),Génie rural et Maîtrise de l'Eau,20,5,25,Classement,"C, D, EA, DEAT",OK
+C,PUB-104,Université d'Abomey-Calavi,Institut National de l'Eau (INE),Gestion des crises et risques liés à l'eau et au climat,35,9,44,Classement,"C, D, EA, DEAT",OK
+D,PUB-104,Université d'Abomey-Calavi,Institut National de l'Eau (INE),Gestion des crises et risques liés à l'eau et au climat,35,9,44,Classement,"C, D, EA, DEAT",OK
+EA,PUB-104,Université d'Abomey-Calavi,Institut National de l'Eau (INE),Gestion des crises et risques liés à l'eau et au climat,35,9,44,Classement,"C, D, EA, DEAT",OK
+DEAT,PUB-104,Université d'Abomey-Calavi,Institut National de l'Eau (INE),Gestion des crises et risques liés à l'eau et au climat,35,9,44,Classement,"C, D, EA, DEAT",OK
+C,PUB-105,Université d'Abomey-Calavi,Institut National de l'Eau (INE),Hydraulique et Assainissement,52,10,62,Classement,"C, D, EA",OK
+D,PUB-105,Université d'Abomey-Calavi,Institut National de l'Eau (INE),Hydraulique et Assainissement,52,10,62,Classement,"C, D, EA",OK
+EA,PUB-105,Université d'Abomey-Calavi,Institut National de l'Eau (INE),Hydraulique et Assainissement,52,10,62,Classement,"C, D, EA",OK
+C,PUB-106,Université d'Abomey-Calavi,Institut National de l'Eau (INE),Hydrogéologie et Gestion intégrée des Ressources,25,6,31,Classement,"C, D",OK
+D,PUB-106,Université d'Abomey-Calavi,Institut National de l'Eau (INE),Hydrogéologie et Gestion intégrée des Ressources,25,6,31,Classement,"C, D",OK
+C,PUB-107,Université d'Abomey-Calavi,Institut National de l'Eau (INE),Hydrologie quantitative et Gestion intégrée des Ressources,30,5,35,Classement,"C, D",OK
+D,PUB-107,Université d'Abomey-Calavi,Institut National de l'Eau (INE),Hydrologie quantitative et Gestion intégrée des Ressources,30,5,35,Classement,"C, D",OK
+A1,PUB-108,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Andragogie,5,3,8,Classement,"A1, A2, B, C, D",OK
+A2,PUB-108,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Andragogie,5,3,8,Classement,"A1, A2, B, C, D",OK
+B,PUB-108,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Andragogie,5,3,8,Classement,"A1, A2, B, C, D",OK
+C,PUB-108,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Andragogie,5,3,8,Classement,"A1, A2, B, C, D",OK
+D,PUB-108,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Andragogie,5,3,8,Classement,"A1, A2, B, C, D",OK
+A1,PUB-109,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Développement communautaire,5,3,8,Classement,"A1, A2, B, C, D",OK
+A2,PUB-109,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Développement communautaire,5,3,8,Classement,"A1, A2, B, C, D",OK
+B,PUB-109,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Développement communautaire,5,3,8,Classement,"A1, A2, B, C, D",OK
+C,PUB-109,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Développement communautaire,5,3,8,Classement,"A1, A2, B, C, D",OK
+D,PUB-109,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Développement communautaire,5,3,8,Classement,"A1, A2, B, C, D",OK
+A1,PUB-110,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Education Physique et Sportive,35,0,35,Concours,"A1, A2, B, C, D",OK
+A2,PUB-110,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Education Physique et Sportive,35,0,35,Concours,"A1, A2, B, C, D",OK
+B,PUB-110,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Education Physique et Sportive,35,0,35,Concours,"A1, A2, B, C, D",OK
+C,PUB-110,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Education Physique et Sportive,35,0,35,Concours,"A1, A2, B, C, D",OK
+D,PUB-110,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Education Physique et Sportive,35,0,35,Concours,"A1, A2, B, C, D",OK
+A1,PUB-111,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Entrainement Sportif,25,0,25,Concours,"A1, A2, B, C, D",OK
+A2,PUB-111,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Entrainement Sportif,25,0,25,Concours,"A1, A2, B, C, D",OK
+B,PUB-111,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Entrainement Sportif,25,0,25,Concours,"A1, A2, B, C, D",OK
+C,PUB-111,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Entrainement Sportif,25,0,25,Concours,"A1, A2, B, C, D",OK
+D,PUB-111,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Entrainement Sportif,25,0,25,Concours,"A1, A2, B, C, D",OK
+A1,PUB-112,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Entrepreneuriat social,5,3,8,Classement,"A1, A2, B, C, D",OK
+A2,PUB-112,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Entrepreneuriat social,5,3,8,Classement,"A1, A2, B, C, D",OK
+B,PUB-112,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Entrepreneuriat social,5,3,8,Classement,"A1, A2, B, C, D",OK
+C,PUB-112,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Entrepreneuriat social,5,3,8,Classement,"A1, A2, B, C, D",OK
+D,PUB-112,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Entrepreneuriat social,5,3,8,Classement,"A1, A2, B, C, D",OK
+A1,PUB-113,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Récréologie,10,0,10,Classement,"A1, A2, B, C, D",OK
+A2,PUB-113,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Récréologie,10,0,10,Classement,"A1, A2, B, C, D",OK
+B,PUB-113,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Récréologie,10,0,10,Classement,"A1, A2, B, C, D",OK
+C,PUB-113,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Récréologie,10,0,10,Classement,"A1, A2, B, C, D",OK
+D,PUB-113,Université d'Abomey-Calavi,Institut National de l’Education Physique et Sportive (Ex. Institut National de la Jeunesse de l’Education Physique et Sportive-INJEPS),Récréologie,10,0,10,Classement,"A1, A2, B, C, D",OK
+A1,PUB-114,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Administration Culturelle,5,20,25,Classement,"A1, A2, B, C, D",OK
+A2,PUB-114,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Administration Culturelle,5,20,25,Classement,"A1, A2, B, C, D",OK
+B,PUB-114,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Administration Culturelle,5,20,25,Classement,"A1, A2, B, C, D",OK
+C,PUB-114,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Administration Culturelle,5,20,25,Classement,"A1, A2, B, C, D",OK
+D,PUB-114,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Administration Culturelle,5,20,25,Classement,"A1, A2, B, C, D",OK
+A1,PUB-115,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Arts dramatiques,5,10,15,Classement,"A1, A2, B, C, D",OK
+A2,PUB-115,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Arts dramatiques,5,10,15,Classement,"A1, A2, B, C, D",OK
+B,PUB-115,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Arts dramatiques,5,10,15,Classement,"A1, A2, B, C, D",OK
+C,PUB-115,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Arts dramatiques,5,10,15,Classement,"A1, A2, B, C, D",OK
+D,PUB-115,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Arts dramatiques,5,10,15,Classement,"A1, A2, B, C, D",OK
+A1,PUB-116,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Arts Plastiques,5,10,15,Classement,"A1, A2, B, C, D, DT",OK
+A2,PUB-116,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Arts Plastiques,5,10,15,Classement,"A1, A2, B, C, D, DT",OK
+B,PUB-116,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Arts Plastiques,5,10,15,Classement,"A1, A2, B, C, D, DT",OK
+C,PUB-116,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Arts Plastiques,5,10,15,Classement,"A1, A2, B, C, D, DT",OK
+D,PUB-116,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Arts Plastiques,5,10,15,Classement,"A1, A2, B, C, D, DT",OK
+DT,PUB-116,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Arts Plastiques,5,10,15,Classement,"A1, A2, B, C, D, DT",OK
+A1,PUB-117,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Cinéma et Audiovisuel,5,10,15,Classement,"A1, A2, B, C, D",OK
+A2,PUB-117,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Cinéma et Audiovisuel,5,10,15,Classement,"A1, A2, B, C, D",OK
+B,PUB-117,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Cinéma et Audiovisuel,5,10,15,Classement,"A1, A2, B, C, D",OK
+C,PUB-117,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Cinéma et Audiovisuel,5,10,15,Classement,"A1, A2, B, C, D",OK
+D,PUB-117,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Cinéma et Audiovisuel,5,10,15,Classement,"A1, A2, B, C, D",OK
+A1,PUB-118,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Musique et Musicologie,5,10,15,Classement,"A1, A2, B, C, D, DT",OK
+A2,PUB-118,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Musique et Musicologie,5,10,15,Classement,"A1, A2, B, C, D, DT",OK
+B,PUB-118,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Musique et Musicologie,5,10,15,Classement,"A1, A2, B, C, D, DT",OK
+C,PUB-118,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Musique et Musicologie,5,10,15,Classement,"A1, A2, B, C, D, DT",OK
+D,PUB-118,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Musique et Musicologie,5,10,15,Classement,"A1, A2, B, C, D, DT",OK
+DT,PUB-118,Université d'Abomey-Calavi,"Institut National des Métiers d'Arts, d'Archéologie et de la Culture (INMAAC)",Musique et Musicologie,5,10,15,Classement,"A1, A2, B, C, D, DT",OK
+C,PUB-119,Université d'Abomey-Calavi,Institut National Médico-Sanitaire (INMeS),Sciences Infirmières,40,0,40,Concours,"C, D",OK
+D,PUB-119,Université d'Abomey-Calavi,Institut National Médico-Sanitaire (INMeS),Sciences Infirmières,40,0,40,Concours,"C, D",OK
+C,PUB-120,Université d'Abomey-Calavi,Institut National Médico-Sanitaire (INMeS),Sciences Obstétricales,40,0,40,Concours,"C, D",OK
+D,PUB-120,Université d'Abomey-Calavi,Institut National Médico-Sanitaire (INMeS),Sciences Obstétricales,40,0,40,Concours,"C, D",OK
+C,PUB-121,Université d'Abomey-Calavi,Institut Régional de Santé Publique (IRSP),Santé publique polyvalente,50,7,57,Classement,"C, D",OK
+D,PUB-121,Université d'Abomey-Calavi,Institut Régional de Santé Publique (IRSP),Santé publique polyvalente,50,7,57,Classement,"C, D",OK
+C,PUB-122,Université de Parakou,Ecole Nationale de formation des Techniciens Supérieurs en Santé Publique et Surveillance Epidémiologique (ENATSE),Santé publique et surveillance épidémiologique,54,25,79,Classement,"C, D",OK
+D,PUB-122,Université de Parakou,Ecole Nationale de formation des Techniciens Supérieurs en Santé Publique et Surveillance Epidémiologique (ENATSE),Santé publique et surveillance épidémiologique,54,25,79,Classement,"C, D",OK
+C,PUB-123,Université de Parakou,"Ecole Nationale de Statistique, de Planification et de Démographie (ENSPD)",Planification et Suivi Evaluation,20,0,20,Concours,"C, D",OK
+D,PUB-123,Université de Parakou,"Ecole Nationale de Statistique, de Planification et de Démographie (ENSPD)",Planification et Suivi Evaluation,20,0,20,Concours,"C, D",OK
+C,PUB-124,Université de Parakou,"Ecole Nationale de Statistique, de Planification et de Démographie (ENSPD)",Statistiques Appliquées,15,0,15,Concours,"C, D",OK
+D,PUB-124,Université de Parakou,"Ecole Nationale de Statistique, de Planification et de Démographie (ENSPD)",Statistiques Appliquées,15,0,15,Concours,"C, D",OK
+C,PUB-125,Université de Parakou,"Ecole Nationale de Statistique, de Planification et de Démographie (ENSPD)",Aménagement et Gestion des Ressources Naturelles,31,5,36,Classement,"C, D, DEAT",OK
+D,PUB-125,Université de Parakou,"Ecole Nationale de Statistique, de Planification et de Démographie (ENSPD)",Aménagement et Gestion des Ressources Naturelles,31,5,36,Classement,"C, D, DEAT",OK
+DEAT,PUB-125,Université de Parakou,"Ecole Nationale de Statistique, de Planification et de Démographie (ENSPD)",Aménagement et Gestion des Ressources Naturelles,31,5,36,Classement,"C, D, DEAT",OK
+C,PUB-126,Université de Parakou,"Ecole Nationale de Statistique, de Planification et de Démographie (ENSPD)",Nutrition et Sciences Agro-alimentaires,33,5,38,Classement,"C, D, DEAT",OK
+D,PUB-126,Université de Parakou,"Ecole Nationale de Statistique, de Planification et de Démographie (ENSPD)",Nutrition et Sciences Agro-alimentaires,33,5,38,Classement,"C, D, DEAT",OK
+DEAT,PUB-126,Université de Parakou,"Ecole Nationale de Statistique, de Planification et de Démographie (ENSPD)",Nutrition et Sciences Agro-alimentaires,33,5,38,Classement,"C, D, DEAT",OK
+C,PUB-127,Université de Parakou,Faculté d'Agronomie(FA),Sciences et Techniques de Production Animale et Halieutique,31,10,41,Classement,"C, D, DEAT",OK
+D,PUB-127,Université de Parakou,Faculté d'Agronomie(FA),Sciences et Techniques de Production Animale et Halieutique,31,10,41,Classement,"C, D, DEAT",OK
+DEAT,PUB-127,Université de Parakou,Faculté d'Agronomie(FA),Sciences et Techniques de Production Animale et Halieutique,31,10,41,Classement,"C, D, DEAT",OK
+C,PUB-128,Université de Parakou,Faculté d'Agronomie(FA),Sciences et Techniques de Production Végétale,30,10,40,Classement,"C, D, DEAT",OK
+D,PUB-128,Université de Parakou,Faculté d'Agronomie(FA),Sciences et Techniques de Production Végétale,30,10,40,Classement,"C, D, DEAT",OK
+DEAT,PUB-128,Université de Parakou,Faculté d'Agronomie(FA),Sciences et Techniques de Production Végétale,30,10,40,Classement,"C, D, DEAT",OK
+C,PUB-129,Université de Parakou,Faculté d'Agronomie(FA),Sociologie et Economie Rurales,31,10,41,Classement,"C, D, DEAT",OK
+D,PUB-129,Université de Parakou,Faculté d'Agronomie(FA),Sociologie et Economie Rurales,31,10,41,Classement,"C, D, DEAT",OK
+DEAT,PUB-129,Université de Parakou,Faculté d'Agronomie(FA),Sociologie et Economie Rurales,31,10,41,Classement,"C, D, DEAT",OK
+A1,PUB-130,Université de Parakou,Faculté d'Agronomie(FA),Droit Privé,0,270,270,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+A2,PUB-130,Université de Parakou,Faculté d'Agronomie(FA),Droit Privé,0,270,270,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+B,PUB-130,Université de Parakou,Faculté d'Agronomie(FA),Droit Privé,0,270,270,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+C,PUB-130,Université de Parakou,Faculté d'Agronomie(FA),Droit Privé,0,270,270,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+D,PUB-130,Université de Parakou,Faculté d'Agronomie(FA),Droit Privé,0,270,270,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+G1,PUB-130,Université de Parakou,Faculté d'Agronomie(FA),Droit Privé,0,270,270,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+G2,PUB-130,Université de Parakou,Faculté d'Agronomie(FA),Droit Privé,0,270,270,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+G3,PUB-130,Université de Parakou,Faculté d'Agronomie(FA),Droit Privé,0,270,270,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+A1,PUB-131,Université de Parakou,Faculté de Droit et Sciences Politiques (FDSP),Droit Public,0,170,170,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+A2,PUB-131,Université de Parakou,Faculté de Droit et Sciences Politiques (FDSP),Droit Public,0,170,170,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+B,PUB-131,Université de Parakou,Faculté de Droit et Sciences Politiques (FDSP),Droit Public,0,170,170,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+C,PUB-131,Université de Parakou,Faculté de Droit et Sciences Politiques (FDSP),Droit Public,0,170,170,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+D,PUB-131,Université de Parakou,Faculté de Droit et Sciences Politiques (FDSP),Droit Public,0,170,170,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+G1,PUB-131,Université de Parakou,Faculté de Droit et Sciences Politiques (FDSP),Droit Public,0,170,170,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+G2,PUB-131,Université de Parakou,Faculté de Droit et Sciences Politiques (FDSP),Droit Public,0,170,170,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+G3,PUB-131,Université de Parakou,Faculté de Droit et Sciences Politiques (FDSP),Droit Public,0,170,170,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+A1,PUB-132,Université de Parakou,Faculté de Droit et Sciences Politiques (FDSP),Sciences Politiques et Relations Internationales,0,60,60,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+A2,PUB-132,Université de Parakou,Faculté de Droit et Sciences Politiques (FDSP),Sciences Politiques et Relations Internationales,0,60,60,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+B,PUB-132,Université de Parakou,Faculté de Droit et Sciences Politiques (FDSP),Sciences Politiques et Relations Internationales,0,60,60,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+C,PUB-132,Université de Parakou,Faculté de Droit et Sciences Politiques (FDSP),Sciences Politiques et Relations Internationales,0,60,60,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+D,PUB-132,Université de Parakou,Faculté de Droit et Sciences Politiques (FDSP),Sciences Politiques et Relations Internationales,0,60,60,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+G1,PUB-132,Université de Parakou,Faculté de Droit et Sciences Politiques (FDSP),Sciences Politiques et Relations Internationales,0,60,60,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+G2,PUB-132,Université de Parakou,Faculté de Droit et Sciences Politiques (FDSP),Sciences Politiques et Relations Internationales,0,60,60,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+G3,PUB-132,Université de Parakou,Faculté de Droit et Sciences Politiques (FDSP),Sciences Politiques et Relations Internationales,0,60,60,Classement,"A1, A2, B, C, D, G1, G2, G3",OK
+C,PUB-133,Université de Parakou,Faculté de Médecine (FM),Médecine Humaine,100,30,130,Classement,"C, D",OK
+D,PUB-133,Université de Parakou,Faculté de Médecine (FM),Médecine Humaine,100,30,130,Classement,"C, D",OK
+B,PUB-134,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Analyse et Politique Economiques (APE),2,20,22,Classement,"B, C, D, G2, G3",OK
+C,PUB-134,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Analyse et Politique Economiques (APE),2,20,22,Classement,"B, C, D, G2, G3",OK
+D,PUB-134,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Analyse et Politique Economiques (APE),2,20,22,Classement,"B, C, D, G2, G3",OK
+G2,PUB-134,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Analyse et Politique Economiques (APE),2,20,22,Classement,"B, C, D, G2, G3",OK
+G3,PUB-134,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Analyse et Politique Economiques (APE),2,20,22,Classement,"B, C, D, G2, G3",OK
+B,PUB-135,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Economie Agricole (EA),5,45,50,Classement,"B, C, D, G2, G3",OK
+C,PUB-135,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Economie Agricole (EA),5,45,50,Classement,"B, C, D, G2, G3",OK
+D,PUB-135,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Economie Agricole (EA),5,45,50,Classement,"B, C, D, G2, G3",OK
+G2,PUB-135,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Economie Agricole (EA),5,45,50,Classement,"B, C, D, G2, G3",OK
+G3,PUB-135,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Economie Agricole (EA),5,45,50,Classement,"B, C, D, G2, G3",OK
+B,PUB-136,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Economie et Finance des Collectivités Locales (EFCL),2,20,22,Classement,"B, C, D, G2, G3",OK
+C,PUB-136,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Economie et Finance des Collectivités Locales (EFCL),2,20,22,Classement,"B, C, D, G2, G3",OK
+D,PUB-136,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Economie et Finance des Collectivités Locales (EFCL),2,20,22,Classement,"B, C, D, G2, G3",OK
+G2,PUB-136,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Economie et Finance des Collectivités Locales (EFCL),2,20,22,Classement,"B, C, D, G2, G3",OK
+G3,PUB-136,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Economie et Finance des Collectivités Locales (EFCL),2,20,22,Classement,"B, C, D, G2, G3",OK
+B,PUB-137,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Economie et Finance Internationales (EFI),3,40,43,Classement,"B, C, D, G2, G3",OK
+C,PUB-137,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Economie et Finance Internationales (EFI),3,40,43,Classement,"B, C, D, G2, G3",OK
+D,PUB-137,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Economie et Finance Internationales (EFI),3,40,43,Classement,"B, C, D, G2, G3",OK
+G2,PUB-137,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Economie et Finance Internationales (EFI),3,40,43,Classement,"B, C, D, G2, G3",OK
+G3,PUB-137,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Economie et Finance Internationales (EFI),3,40,43,Classement,"B, C, D, G2, G3",OK
+B,PUB-138,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Entrepreneuriat et Gestion des Entreprises (EGE),2,25,27,Classement,"B, C, D, G2, G3",OK
+C,PUB-138,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Entrepreneuriat et Gestion des Entreprises (EGE),2,25,27,Classement,"B, C, D, G2, G3",OK
+D,PUB-138,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Entrepreneuriat et Gestion des Entreprises (EGE),2,25,27,Classement,"B, C, D, G2, G3",OK
+G2,PUB-138,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Entrepreneuriat et Gestion des Entreprises (EGE),2,25,27,Classement,"B, C, D, G2, G3",OK
+G3,PUB-138,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Entrepreneuriat et Gestion des Entreprises (EGE),2,25,27,Classement,"B, C, D, G2, G3",OK
+B,PUB-139,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Finance et Comptabilité (FC),10,120,130,Classement,"B, C, D, G2, G3",OK
+C,PUB-139,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Finance et Comptabilité (FC),10,120,130,Classement,"B, C, D, G2, G3",OK
+D,PUB-139,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Finance et Comptabilité (FC),10,120,130,Classement,"B, C, D, G2, G3",OK
+G2,PUB-139,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Finance et Comptabilité (FC),10,120,130,Classement,"B, C, D, G2, G3",OK
+G3,PUB-139,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Finance et Comptabilité (FC),10,120,130,Classement,"B, C, D, G2, G3",OK
+B,PUB-140,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Marketing et Management des Organisations (MMO),2,15,17,Classement,"B, C, D, G2, G3, DT",Texte continué
+C,PUB-140,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Marketing et Management des Organisations (MMO),2,15,17,Classement,"B, C, D, G2, G3, DT",Texte continué
+D,PUB-140,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Marketing et Management des Organisations (MMO),2,15,17,Classement,"B, C, D, G2, G3, DT",Texte continué
+G2,PUB-140,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Marketing et Management des Organisations (MMO),2,15,17,Classement,"B, C, D, G2, G3, DT",Texte continué
+G3,PUB-140,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Marketing et Management des Organisations (MMO),2,15,17,Classement,"B, C, D, G2, G3, DT",Texte continué
+DT,PUB-140,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Marketing et Management des Organisations (MMO),2,15,17,Classement,"B, C, D, G2, G3, DT",Texte continué
+A1,PUB-141,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Allemand,0,95,95,Classement,"A1, A2, B",OK
+A2,PUB-141,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Allemand,0,95,95,Classement,"A1, A2, B",OK
+B,PUB-141,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Allemand,0,95,95,Classement,"A1, A2, B",OK
+A1,PUB-142,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Anglais,5,210,215,Classement,"A1, A2, B, C, D, DEAT",OK
+A2,PUB-142,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Anglais,5,210,215,Classement,"A1, A2, B, C, D, DEAT",OK
+B,PUB-142,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Anglais,5,210,215,Classement,"A1, A2, B, C, D, DEAT",OK
+C,PUB-142,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Anglais,5,210,215,Classement,"A1, A2, B, C, D, DEAT",OK
+D,PUB-142,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Anglais,5,210,215,Classement,"A1, A2, B, C, D, DEAT",OK
+DEAT,PUB-142,Université de Parakou,Faculté de Sciences Economiques et de Gestion (FASEG),Anglais,5,210,215,Classement,"A1, A2, B, C, D, DEAT",OK
+A1,PUB-143,Université de Parakou,"Faculté des Lettres, Arts et Sciences Humaines (FLASH)",Espagnol,0,220,220,Classement,"A1, A2, B",OK
+A2,PUB-143,Université de Parakou,"Faculté des Lettres, Arts et Sciences Humaines (FLASH)",Espagnol,0,220,220,Classement,"A1, A2, B",OK
+B,PUB-143,Université de Parakou,"Faculté des Lettres, Arts et Sciences Humaines (FLASH)",Espagnol,0,220,220,Classement,"A1, A2, B",OK
+A1,PUB-144,Université de Parakou,"Faculté des Lettres, Arts et Sciences Humaines (FLASH)",Géographie et Aménagement du Territoire,0,215,215,Classement,"A1, A2, B, C, D, DEAT",OK
+A2,PUB-144,Université de Parakou,"Faculté des Lettres, Arts et Sciences Humaines (FLASH)",Géographie et Aménagement du Territoire,0,215,215,Classement,"A1, A2, B, C, D, DEAT",OK
+B,PUB-144,Université de Parakou,"Faculté des Lettres, Arts et Sciences Humaines (FLASH)",Géographie et Aménagement du Territoire,0,215,215,Classement,"A1, A2, B, C, D, DEAT",OK
+C,PUB-144,Université de Parakou,"Faculté des Lettres, Arts et Sciences Humaines (FLASH)",Géographie et Aménagement du Territoire,0,215,215,Classement,"A1, A2, B, C, D, DEAT",OK
+D,PUB-144,Université de Parakou,"Faculté des Lettres, Arts et Sciences Humaines (FLASH)",Géographie et Aménagement du Territoire,0,215,215,Classement,"A1, A2, B, C, D, DEAT",OK
+DEAT,PUB-144,Université de Parakou,"Faculté des Lettres, Arts et Sciences Humaines (FLASH)",Géographie et Aménagement du Territoire,0,215,215,Classement,"A1, A2, B, C, D, DEAT",OK
+Toutes séries,PUB-145,Université de Parakou,"Faculté des Lettres, Arts et Sciences Humaines (FLASH)",Langue Arabe,0,0,0,Classement,Toutes séries,OK
+A1,PUB-146,Université de Parakou,"Faculté des Lettres, Arts et Sciences Humaines (FLASH)",Lettres Modernes,20,220,240,Classement,"A1, A2",OK
+A2,PUB-146,Université de Parakou,"Faculté des Lettres, Arts et Sciences Humaines (FLASH)",Lettres Modernes,20,220,240,Classement,"A1, A2",OK
+A1,PUB-147,Université de Parakou,"Faculté des Lettres, Arts et Sciences Humaines (FLASH)",Sociologie Anthropologie,0,250,250,Classement,"A1, A2, B, C, D, DEAT",OK
+A2,PUB-147,Université de Parakou,"Faculté des Lettres, Arts et Sciences Humaines (FLASH)",Sociologie Anthropologie,0,250,250,Classement,"A1, A2, B, C, D, DEAT",OK
+B,PUB-147,Université de Parakou,"Faculté des Lettres, Arts et Sciences Humaines (FLASH)",Sociologie Anthropologie,0,250,250,Classement,"A1, A2, B, C, D, DEAT",OK
+C,PUB-147,Université de Parakou,"Faculté des Lettres, Arts et Sciences Humaines (FLASH)",Sociologie Anthropologie,0,250,250,Classement,"A1, A2, B, C, D, DEAT",OK
+D,PUB-147,Université de Parakou,"Faculté des Lettres, Arts et Sciences Humaines (FLASH)",Sociologie Anthropologie,0,250,250,Classement,"A1, A2, B, C, D, DEAT",OK
+DEAT,PUB-147,Université de Parakou,"Faculté des Lettres, Arts et Sciences Humaines (FLASH)",Sociologie Anthropologie,0,250,250,Classement,"A1, A2, B, C, D, DEAT",OK
+C,PUB-148,Université de Parakou,Institut de Formation en Soins Infirmiers et Obstétricaux (IFSIO),Soins Infirmiers,50,0,50,Concours,"C, D",OK
+D,PUB-148,Université de Parakou,Institut de Formation en Soins Infirmiers et Obstétricaux (IFSIO),Soins Infirmiers,50,0,50,Concours,"C, D",OK
+C,PUB-149,Université de Parakou,Institut de Formation en Soins Infirmiers et Obstétricaux (IFSIO),Soins obstétricaux,50,0,50,Concours,"C, D",Réparé - fusion OCR
+D,PUB-149,Université de Parakou,Institut de Formation en Soins Infirmiers et Obstétricaux (IFSIO),Soins obstétricaux,50,0,50,Concours,"C, D",Réparé - fusion OCR
+B,PUB-150,Université de Parakou,Institut Universitaire de Technologie (IUT),Gestion Commerciale,5,3,8,Classement,"B, C, D, G3, DT",Réparé - fusion OCR
+C,PUB-150,Université de Parakou,Institut Universitaire de Technologie (IUT),Gestion Commerciale,5,3,8,Classement,"B, C, D, G3, DT",Réparé - fusion OCR
+D,PUB-150,Université de Parakou,Institut Universitaire de Technologie (IUT),Gestion Commerciale,5,3,8,Classement,"B, C, D, G3, DT",Réparé - fusion OCR
+G3,PUB-150,Université de Parakou,Institut Universitaire de Technologie (IUT),Gestion Commerciale,5,3,8,Classement,"B, C, D, G3, DT",Réparé - fusion OCR
+DT,PUB-150,Université de Parakou,Institut Universitaire de Technologie (IUT),Gestion Commerciale,5,3,8,Classement,"B, C, D, G3, DT",Réparé - fusion OCR
+C,PUB-151,Université de Parakou,Institut Universitaire de Technologie (IUT),Gestion des Banques,5,6,11,Classement,"C, D, G2",OK
+D,PUB-151,Université de Parakou,Institut Universitaire de Technologie (IUT),Gestion des Banques,5,6,11,Classement,"C, D, G2",OK
+G2,PUB-151,Université de Parakou,Institut Universitaire de Technologie (IUT),Gestion des Banques,5,6,11,Classement,"C, D, G2",OK
+C,PUB-152,Université de Parakou,Institut Universitaire de Technologie (IUT),Gestion des Entreprises,5,3,8,Classement,"C, D, G2",OK
+D,PUB-152,Université de Parakou,Institut Universitaire de Technologie (IUT),Gestion des Entreprises,5,3,8,Classement,"C, D, G2",OK
+G2,PUB-152,Université de Parakou,Institut Universitaire de Technologie (IUT),Gestion des Entreprises,5,3,8,Classement,"C, D, G2",OK
+A2,PUB-153,Université de Parakou,Institut Universitaire de Technologie (IUT),Gestion des Ressources Humaines,4,3,7,Classement,"A2, B, C, D, G1, G2, G3",OK
+B,PUB-153,Université de Parakou,Institut Universitaire de Technologie (IUT),Gestion des Ressources Humaines,4,3,7,Classement,"A2, B, C, D, G1, G2, G3",OK
+C,PUB-153,Université de Parakou,Institut Universitaire de Technologie (IUT),Gestion des Ressources Humaines,4,3,7,Classement,"A2, B, C, D, G1, G2, G3",OK
+D,PUB-153,Université de Parakou,Institut Universitaire de Technologie (IUT),Gestion des Ressources Humaines,4,3,7,Classement,"A2, B, C, D, G1, G2, G3",OK
+G1,PUB-153,Université de Parakou,Institut Universitaire de Technologie (IUT),Gestion des Ressources Humaines,4,3,7,Classement,"A2, B, C, D, G1, G2, G3",OK
+G2,PUB-153,Université de Parakou,Institut Universitaire de Technologie (IUT),Gestion des Ressources Humaines,4,3,7,Classement,"A2, B, C, D, G1, G2, G3",OK
+G3,PUB-153,Université de Parakou,Institut Universitaire de Technologie (IUT),Gestion des Ressources Humaines,4,3,7,Classement,"A2, B, C, D, G1, G2, G3",OK
+B,PUB-154,Université de Parakou,Institut Universitaire de Technologie (IUT),Gestion des Transports et Logistiques,15,6,21,Classement,"B, C, D, G2",OK
+C,PUB-154,Université de Parakou,Institut Universitaire de Technologie (IUT),Gestion des Transports et Logistiques,15,6,21,Classement,"B, C, D, G2",OK
+D,PUB-154,Université de Parakou,Institut Universitaire de Technologie (IUT),Gestion des Transports et Logistiques,15,6,21,Classement,"B, C, D, G2",OK
+G2,PUB-154,Université de Parakou,Institut Universitaire de Technologie (IUT),Gestion des Transports et Logistiques,15,6,21,Classement,"B, C, D, G2",OK
+C,PUB-155,Université de Parakou,Institut Universitaire de Technologie (IUT),Informatique de Gestion,35,11,46,Classement,"C, D, G2",OK
+D,PUB-155,Université de Parakou,Institut Universitaire de Technologie (IUT),Informatique de Gestion,35,11,46,Classement,"C, D, G2",OK
+G2,PUB-155,Université de Parakou,Institut Universitaire de Technologie (IUT),Informatique de Gestion,35,11,46,Classement,"C, D, G2",OK
+C,PUB-156,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure de Génie Energétique et Procédés (ENSGEP),Equipements motorisés,19,3,22,Classement,"C, D, E, DT",OK
+D,PUB-156,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure de Génie Energétique et Procédés (ENSGEP),Equipements motorisés,19,3,22,Classement,"C, D, E, DT",OK
+E,PUB-156,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure de Génie Energétique et Procédés (ENSGEP),Equipements motorisés,19,3,22,Classement,"C, D, E, DT",OK
+DT,PUB-156,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure de Génie Energétique et Procédés (ENSGEP),Equipements motorisés,19,3,22,Classement,"C, D, E, DT",OK
+C,PUB-157,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure de Génie Energétique et Procédés (ENSGEP),Froid et Climatisation,19,3,22,Classement,"C, D, DT",OK
+D,PUB-157,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure de Génie Energétique et Procédés (ENSGEP),Froid et Climatisation,19,3,22,Classement,"C, D, DT",OK
+DT,PUB-157,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure de Génie Energétique et Procédés (ENSGEP),Froid et Climatisation,19,3,22,Classement,"C, D, DT",OK
+C,PUB-158,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure de Génie Energétique et Procédés (ENSGEP),Biotechnologie Médicale,18,10,28,Classement,"C, D",OK
+D,PUB-158,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure de Génie Energétique et Procédés (ENSGEP),Biotechnologie Médicale,18,10,28,Classement,"C, D",OK
+C,PUB-159,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Biosciences et Biotechnologies Appliquées (ENSBBA),Biotechnologie Pharmaceutique (BP),18,7,25,Classement,"C, D",OK
+D,PUB-159,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Biosciences et Biotechnologies Appliquées (ENSBBA),Biotechnologie Pharmaceutique (BP),18,7,25,Classement,"C, D",OK
+C,PUB-160,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Biosciences et Biotechnologies Appliquées (ENSBBA),Diététique des aliments et Nutrition,18,5,23,Classement,"C, D",OK
+D,PUB-160,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Biosciences et Biotechnologies Appliquées (ENSBBA),Diététique des aliments et Nutrition,18,5,23,Classement,"C, D",OK
+C,PUB-161,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Biosciences et Biotechnologies Appliquées (ENSBBA),Génétique Biotechnologies et Applications,35,5,40,Classement,"C, D",OK
+D,PUB-161,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Biosciences et Biotechnologies Appliquées (ENSBBA),Génétique Biotechnologies et Applications,35,5,40,Classement,"C, D",OK
+C,PUB-162,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Biosciences et Biotechnologies Appliquées (ENSBBA),Génie Biologique et Bioprocédés (GBB),35,7,42,Classement,"C, D",OK
+D,PUB-162,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Biosciences et Biotechnologies Appliquées (ENSBBA),Génie Biologique et Bioprocédés (GBB),35,7,42,Classement,"C, D",OK
+C,PUB-163,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Biosciences et Biotechnologies Appliquées (ENSBBA),Architecture et Urbanisme,39,6,45,Classement,"C, D, F4, DT",OK
+D,PUB-163,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Biosciences et Biotechnologies Appliquées (ENSBBA),Architecture et Urbanisme,39,6,45,Classement,"C, D, F4, DT",OK
+F4,PUB-163,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Biosciences et Biotechnologies Appliquées (ENSBBA),Architecture et Urbanisme,39,6,45,Classement,"C, D, F4, DT",OK
+DT,PUB-163,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Biosciences et Biotechnologies Appliquées (ENSBBA),Architecture et Urbanisme,39,6,45,Classement,"C, D, F4, DT",OK
+C,PUB-164,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Travaux Publics (ENSTP),Génie Civil,41,4,45,Classement,"C, D, E, EA, F4, DT",OK
+D,PUB-164,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Travaux Publics (ENSTP),Génie Civil,41,4,45,Classement,"C, D, E, EA, F4, DT",OK
+E,PUB-164,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Travaux Publics (ENSTP),Génie Civil,41,4,45,Classement,"C, D, E, EA, F4, DT",OK
+EA,PUB-164,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Travaux Publics (ENSTP),Génie Civil,41,4,45,Classement,"C, D, E, EA, F4, DT",OK
+F4,PUB-164,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Travaux Publics (ENSTP),Génie Civil,41,4,45,Classement,"C, D, E, EA, F4, DT",OK
+DT,PUB-164,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Travaux Publics (ENSTP),Génie Civil,41,4,45,Classement,"C, D, E, EA, F4, DT",OK
+C,PUB-165,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Travaux Publics (ENSTP),Génie Géomatique Appliquée,36,4,40,Classement,"C, D, F4, DT",OK
+D,PUB-165,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Travaux Publics (ENSTP),Génie Géomatique Appliquée,36,4,40,Classement,"C, D, F4, DT",OK
+F4,PUB-165,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Travaux Publics (ENSTP),Génie Géomatique Appliquée,36,4,40,Classement,"C, D, F4, DT",OK
+DT,PUB-165,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Travaux Publics (ENSTP),Génie Géomatique Appliquée,36,4,40,Classement,"C, D, F4, DT",OK
+C,PUB-166,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Travaux Publics (ENSTP),Hydraulique et Assainissement,39,6,45,Classement,"C, D, E, EA, F4",OK
+D,PUB-166,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Travaux Publics (ENSTP),Hydraulique et Assainissement,39,6,45,Classement,"C, D, E, EA, F4",OK
+E,PUB-166,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Travaux Publics (ENSTP),Hydraulique et Assainissement,39,6,45,Classement,"C, D, E, EA, F4",OK
+EA,PUB-166,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Travaux Publics (ENSTP),Hydraulique et Assainissement,39,6,45,Classement,"C, D, E, EA, F4",OK
+F4,PUB-166,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Nationale Supérieure des Travaux Publics (ENSTP),Hydraulique et Assainissement,39,6,45,Classement,"C, D, E, EA, F4",OK
+B,PUB-167,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Comptabilité,9,0,9,Concours,"B, C, D, G2, G3, DT",OK
+C,PUB-167,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Comptabilité,9,0,9,Concours,"B, C, D, G2, G3, DT",OK
+D,PUB-167,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Comptabilité,9,0,9,Concours,"B, C, D, G2, G3, DT",OK
+G2,PUB-167,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Comptabilité,9,0,9,Concours,"B, C, D, G2, G3, DT",OK
+G3,PUB-167,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Comptabilité,9,0,9,Concours,"B, C, D, G2, G3, DT",OK
+DT,PUB-167,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Comptabilité,9,0,9,Concours,"B, C, D, G2, G3, DT",OK
+B,PUB-168,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Economie,11,0,11,Concours,"B, C, D, G2, G3, DT",OK
+C,PUB-168,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Economie,11,0,11,Concours,"B, C, D, G2, G3, DT",OK
+D,PUB-168,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Economie,11,0,11,Concours,"B, C, D, G2, G3, DT",OK
+G2,PUB-168,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Economie,11,0,11,Concours,"B, C, D, G2, G3, DT",OK
+G3,PUB-168,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Economie,11,0,11,Concours,"B, C, D, G2, G3, DT",OK
+DT,PUB-168,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Economie,11,0,11,Concours,"B, C, D, G2, G3, DT",OK
+A1,PUB-169,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Economie Familiale et Sociale,2,0,2,Concours,"A1, A2, B, C, D, DT",OK
+A2,PUB-169,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Economie Familiale et Sociale,2,0,2,Concours,"A1, A2, B, C, D, DT",OK
+B,PUB-169,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Economie Familiale et Sociale,2,0,2,Concours,"A1, A2, B, C, D, DT",OK
+C,PUB-169,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Economie Familiale et Sociale,2,0,2,Concours,"A1, A2, B, C, D, DT",OK
+D,PUB-169,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Economie Familiale et Sociale,2,0,2,Concours,"A1, A2, B, C, D, DT",OK
+DT,PUB-169,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Economie Familiale et Sociale,2,0,2,Concours,"A1, A2, B, C, D, DT",OK
+C,PUB-170,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Electronique,7,0,7,Concours,"C, D, F2, DT",OK
+D,PUB-170,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Electronique,7,0,7,Concours,"C, D, F2, DT",OK
+F2,PUB-170,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Electronique,7,0,7,Concours,"C, D, F2, DT",OK
+DT,PUB-170,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Electronique,7,0,7,Concours,"C, D, F2, DT",OK
+C,PUB-171,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Electrotechnique,25,0,25,Concours,"C, D, F2, F3, DT",OK
+D,PUB-171,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Electrotechnique,25,0,25,Concours,"C, D, F2, F3, DT",OK
+F2,PUB-171,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Electrotechnique,25,0,25,Concours,"C, D, F2, F3, DT",OK
+F3,PUB-171,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Electrotechnique,25,0,25,Concours,"C, D, F2, F3, DT",OK
+DT,PUB-171,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Electrotechnique,25,0,25,Concours,"C, D, F2, F3, DT",OK
+C,PUB-172,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Energies Renouvelables,27,0,27,Concours,"C, D, F2, F3, DT",OK
+D,PUB-172,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Energies Renouvelables,27,0,27,Concours,"C, D, F2, F3, DT",OK
+F2,PUB-172,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Energies Renouvelables,27,0,27,Concours,"C, D, F2, F3, DT",OK
+F3,PUB-172,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Energies Renouvelables,27,0,27,Concours,"C, D, F2, F3, DT",OK
+DT,PUB-172,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Energies Renouvelables,27,0,27,Concours,"C, D, F2, F3, DT",OK
+C,PUB-173,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Fabrication Mécanique,21,0,21,Concours,"C, D, E, F1, DT",OK
+D,PUB-173,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Fabrication Mécanique,21,0,21,Concours,"C, D, E, F1, DT",OK
+E,PUB-173,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Fabrication Mécanique,21,0,21,Concours,"C, D, E, F1, DT",OK
+F1,PUB-173,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Fabrication Mécanique,21,0,21,Concours,"C, D, E, F1, DT",OK
+DT,PUB-173,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Fabrication Mécanique,21,0,21,Concours,"C, D, E, F1, DT",OK
+C,PUB-174,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Froid et Climatisation,21,0,21,Concours,"C, D, E, F3, DT",OK
+D,PUB-174,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Froid et Climatisation,21,0,21,Concours,"C, D, E, F3, DT",OK
+E,PUB-174,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Froid et Climatisation,21,0,21,Concours,"C, D, E, F3, DT",OK
+F3,PUB-174,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Froid et Climatisation,21,0,21,Concours,"C, D, E, F3, DT",OK
+DT,PUB-174,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Froid et Climatisation,21,0,21,Concours,"C, D, E, F3, DT",OK
+C,PUB-175,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Génie Civil,27,0,27,Concours,"C, D, F4, DT",OK
+D,PUB-175,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Génie Civil,27,0,27,Concours,"C, D, F4, DT",OK
+F4,PUB-175,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Génie Civil,27,0,27,Concours,"C, D, F4, DT",OK
+DT,PUB-175,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Génie Civil,27,0,27,Concours,"C, D, F4, DT",OK
+A1,PUB-176,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Hôtellerie-Restauration,28,0,28,Concours,"A1, A2, B, C, D, DT",OK
+A2,PUB-176,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Hôtellerie-Restauration,28,0,28,Concours,"A1, A2, B, C, D, DT",OK
+B,PUB-176,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Hôtellerie-Restauration,28,0,28,Concours,"A1, A2, B, C, D, DT",OK
+C,PUB-176,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Hôtellerie-Restauration,28,0,28,Concours,"A1, A2, B, C, D, DT",OK
+D,PUB-176,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Hôtellerie-Restauration,28,0,28,Concours,"A1, A2, B, C, D, DT",OK
+DT,PUB-176,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Hôtellerie-Restauration,28,0,28,Concours,"A1, A2, B, C, D, DT",OK
+C,PUB-177,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Mécanique Automobile,24,0,24,Concours,"C, D, F2, DT",OK
+D,PUB-177,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Mécanique Automobile,24,0,24,Concours,"C, D, F2, DT",OK
+F2,PUB-177,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Mécanique Automobile,24,0,24,Concours,"C, D, F2, DT",OK
+DT,PUB-177,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Mécanique Automobile,24,0,24,Concours,"C, D, F2, DT",OK
+C,PUB-178,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Production Animale,11,0,11,Concours,"C, D, DEAT",OK
+D,PUB-178,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Production Animale,11,0,11,Concours,"C, D, DEAT",OK
+DEAT,PUB-178,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Production Animale,11,0,11,Concours,"C, D, DEAT",OK
+C,PUB-179,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Production végétale,9,0,9,Concours,"C, D, DEAT",OK
+D,PUB-179,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Production végétale,9,0,9,Concours,"C, D, DEAT",OK
+DEAT,PUB-179,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Production végétale,9,0,9,Concours,"C, D, DEAT",OK
+A1,PUB-180,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Secrétariat,0,0,0,Concours,"A1, A2, B, G1",OK
+A2,PUB-180,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Secrétariat,0,0,0,Concours,"A1, A2, B, G1",OK
+B,PUB-180,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Secrétariat,0,0,0,Concours,"A1, A2, B, G1",OK
+G1,PUB-180,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de l'Enseignement technique (ENSET),Secrétariat,0,0,0,Concours,"A1, A2, B, G1",OK
+C,PUB-181,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de Natitingou (ENS/Nati),Mathématiques et Informatique (MI),41,0,41,Concours,"C, D",OK
+D,PUB-181,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de Natitingou (ENS/Nati),Mathématiques et Informatique (MI),41,0,41,Concours,"C, D",OK
+C,PUB-182,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de Natitingou (ENS/Nati),"Physique, Chimie et Technologie (PCT)",20,0,20,Concours,"C, D",OK
+D,PUB-182,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de Natitingou (ENS/Nati),"Physique, Chimie et Technologie (PCT)",20,0,20,Concours,"C, D",OK
+C,PUB-183,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de Natitingou (ENS/Nati),Sciences de la Vie et de la Terre (SVT),15,0,15,Concours,"C, D",OK
+D,PUB-183,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Ecole Normale Supérieure de Natitingou (ENS/Nati),Sciences de la Vie et de la Terre (SVT),15,0,15,Concours,"C, D",OK
+C,PUB-184,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou),Mathématiques Informatiques,63,43,106,Classement,"C, D",OK
+D,PUB-184,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou),Mathématiques Informatiques,63,43,106,Classement,"C, D",OK
+C,PUB-185,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou),Physique Chimie,47,28,75,Classement,"C, D",OK
+D,PUB-185,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou),Physique Chimie,47,28,75,Classement,"C, D",OK
+C,PUB-186,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou),Génie Civil,50,10,60,Classement,"C, D, E, F4, DT",OK
+D,PUB-186,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou),Génie Civil,50,10,60,Classement,"C, D, E, F4, DT",OK
+E,PUB-186,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou),Génie Civil,50,10,60,Classement,"C, D, E, F4, DT",OK
+F4,PUB-186,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou),Génie Civil,50,10,60,Classement,"C, D, E, F4, DT",OK
+DT,PUB-186,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou),Génie Civil,50,10,60,Classement,"C, D, E, F4, DT",OK
+C,PUB-187,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou),Génie Electrique et Informatique (Electronique et Electrotechnique),25,5,30,Classement,"C, D, E, F3, DT",OK
+D,PUB-187,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou),Génie Electrique et Informatique (Electronique et Electrotechnique),25,5,30,Classement,"C, D, E, F3, DT",OK
+E,PUB-187,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou),Génie Electrique et Informatique (Electronique et Electrotechnique),25,5,30,Classement,"C, D, E, F3, DT",OK
+F3,PUB-187,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou),Génie Electrique et Informatique (Electronique et Electrotechnique),25,5,30,Classement,"C, D, E, F3, DT",OK
+DT,PUB-187,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou),Génie Electrique et Informatique (Electronique et Electrotechnique),25,5,30,Classement,"C, D, E, F3, DT",OK
+C,PUB-188,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou),Génie Electrique et Informatique (Informatique et Télécommunications),25,5,30,Classement,"C, D, E, F3, DT",OK
+D,PUB-188,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou),Génie Electrique et Informatique (Informatique et Télécommunications),25,5,30,Classement,"C, D, E, F3, DT",OK
+E,PUB-188,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou),Génie Electrique et Informatique (Informatique et Télécommunications),25,5,30,Classement,"C, D, E, F3, DT",OK
+F3,PUB-188,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou),Génie Electrique et Informatique (Informatique et Télécommunications),25,5,30,Classement,"C, D, E, F3, DT",OK
+DT,PUB-188,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou),Génie Electrique et Informatique (Informatique et Télécommunications),25,5,30,Classement,"C, D, E, F3, DT",OK
+C,PUB-189,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur de Technologie Industrielle (INSTI),,24,5,29,Classement,"C, D, E, F2, F3, DT",À vérifier
+D,PUB-189,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur de Technologie Industrielle (INSTI),,24,5,29,Classement,"C, D, E, F2, F3, DT",À vérifier
+E,PUB-189,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur de Technologie Industrielle (INSTI),,24,5,29,Classement,"C, D, E, F2, F3, DT",À vérifier
+F2,PUB-189,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur de Technologie Industrielle (INSTI),,24,5,29,Classement,"C, D, E, F2, F3, DT",À vérifier
+F3,PUB-189,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur de Technologie Industrielle (INSTI),,24,5,29,Classement,"C, D, E, F2, F3, DT",À vérifier
+DT,PUB-189,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur de Technologie Industrielle (INSTI),,24,5,29,Classement,"C, D, E, F2, F3, DT",À vérifier
+C,PUB-190,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur de Technologie Industrielle (INSTI),Génie Energétique (Froid et climatisation),25,5,30,Classement,"C, D, E, F3, DT",OK
+D,PUB-190,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur de Technologie Industrielle (INSTI),Génie Energétique (Froid et climatisation),25,5,30,Classement,"C, D, E, F3, DT",OK
+E,PUB-190,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur de Technologie Industrielle (INSTI),Génie Energétique (Froid et climatisation),25,5,30,Classement,"C, D, E, F3, DT",OK
+F3,PUB-190,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur de Technologie Industrielle (INSTI),Génie Energétique (Froid et climatisation),25,5,30,Classement,"C, D, E, F3, DT",OK
+DT,PUB-190,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur de Technologie Industrielle (INSTI),Génie Energétique (Froid et climatisation),25,5,30,Classement,"C, D, E, F3, DT",OK
+C,PUB-191,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur de Technologie Industrielle (INSTI),Génie Mécanique et productique,52,10,62,Classement,"C, D, E, F1, DT",OK
+D,PUB-191,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur de Technologie Industrielle (INSTI),Génie Mécanique et productique,52,10,62,Classement,"C, D, E, F1, DT",OK
+E,PUB-191,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur de Technologie Industrielle (INSTI),Génie Mécanique et productique,52,10,62,Classement,"C, D, E, F1, DT",OK
+F1,PUB-191,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur de Technologie Industrielle (INSTI),Génie Mécanique et productique,52,10,62,Classement,"C, D, E, F1, DT",OK
+DT,PUB-191,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur de Technologie Industrielle (INSTI),Génie Mécanique et productique,52,10,62,Classement,"C, D, E, F1, DT",OK
+F1,PUB-192,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur de Technologie Industrielle (INSTI),Maintenance des Systèmes (Maintenance Automobile),38,5,43,Classement,"F1, F2, DT",OK
+F2,PUB-192,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur de Technologie Industrielle (INSTI),Maintenance des Systèmes (Maintenance Automobile),38,5,43,Classement,"F1, F2, DT",OK
+DT,PUB-192,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur de Technologie Industrielle (INSTI),Maintenance des Systèmes (Maintenance Automobile),38,5,43,Classement,"F1, F2, DT",OK
+F1,PUB-193,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur de Technologie Industrielle (INSTI),Maintenance des Systèmes (Maintenance Industrielle),26,5,31,Classement,"F1, F2, F3, DT",OK
+F2,PUB-193,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur de Technologie Industrielle (INSTI),Maintenance des Systèmes (Maintenance Industrielle),26,5,31,Classement,"F1, F2, F3, DT",OK
+F3,PUB-193,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur de Technologie Industrielle (INSTI),Maintenance des Systèmes (Maintenance Industrielle),26,5,31,Classement,"F1, F2, F3, DT",OK
+DT,PUB-193,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur de Technologie Industrielle (INSTI),Maintenance des Systèmes (Maintenance Industrielle),26,5,31,Classement,"F1, F2, F3, DT",OK
+C,PUB-194,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur des Classes Préparatoires aux Etudes d'Ingénieurs (INSPEI),Sciences et Techniques de l'Ingénieur,83,0,83,Concours,"C, D, E",OK
+D,PUB-194,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur des Classes Préparatoires aux Etudes d'Ingénieurs (INSPEI),Sciences et Techniques de l'Ingénieur,83,0,83,Concours,"C, D, E",OK
+E,PUB-194,"Université Nationale des Sciences, Technologies, Ingénierie et Mathématiques",Institut National Supérieur des Classes Préparatoires aux Etudes d'Ingénieurs (INSPEI),Sciences et Techniques de l'Ingénieur,83,0,83,Concours,"C, D, E",OK
+C,PUB-195,Université Nationale d'Agriculture,,Finance Agricole (FA),20,2,22,Classement,"C, D, DEAT",À vérifier
+D,PUB-195,Université Nationale d'Agriculture,,Finance Agricole (FA),20,2,22,Classement,"C, D, DEAT",À vérifier
+DEAT,PUB-195,Université Nationale d'Agriculture,,Finance Agricole (FA),20,2,22,Classement,"C, D, DEAT",À vérifier
+C,PUB-196,Université Nationale d'Agriculture,Ecole d'Agrobusiness et de Politiques Agricoles (EAPA),Gestion des Exploitations Agricoles et Entreprises Agroalimentaires (GEAEA),30,2,32,Classement,"C, D, DEAT",OK
+D,PUB-196,Université Nationale d'Agriculture,Ecole d'Agrobusiness et de Politiques Agricoles (EAPA),Gestion des Exploitations Agricoles et Entreprises Agroalimentaires (GEAEA),30,2,32,Classement,"C, D, DEAT",OK
+DEAT,PUB-196,Université Nationale d'Agriculture,Ecole d'Agrobusiness et de Politiques Agricoles (EAPA),Gestion des Exploitations Agricoles et Entreprises Agroalimentaires (GEAEA),30,2,32,Classement,"C, D, DEAT",OK
+C,PUB-197,Université Nationale d'Agriculture,Ecole d'Agrobusiness et de Politiques Agricoles (EAPA),Marketing des Intrants et Produits Agricoles (MIPA),30,2,32,Classement,"C, D, DEAT",OK
+D,PUB-197,Université Nationale d'Agriculture,Ecole d'Agrobusiness et de Politiques Agricoles (EAPA),Marketing des Intrants et Produits Agricoles (MIPA),30,2,32,Classement,"C, D, DEAT",OK
+DEAT,PUB-197,Université Nationale d'Agriculture,Ecole d'Agrobusiness et de Politiques Agricoles (EAPA),Marketing des Intrants et Produits Agricoles (MIPA),30,2,32,Classement,"C, D, DEAT",OK
+C,PUB-198,Université Nationale d'Agriculture,Ecole d'Aquaculture (EAq),Aquaculture,22,4,26,Classement,"C, D, DEAT",Texte continué
+D,PUB-198,Université Nationale d'Agriculture,Ecole d'Aquaculture (EAq),Aquaculture,22,4,26,Classement,"C, D, DEAT",Texte continué
+DEAT,PUB-198,Université Nationale d'Agriculture,Ecole d'Aquaculture (EAq),Aquaculture,22,4,26,Classement,"C, D, DEAT",Texte continué
+C,PUB-199,Université Nationale d'Agriculture,Ecole d'Horticulture et d'Aménagement des Espaces Verts (EHAEV),Horticulture et Aménagement des espaces Verts,31,3,34,Classement,"C, D, DEAT",OK
+D,PUB-199,Université Nationale d'Agriculture,Ecole d'Horticulture et d'Aménagement des Espaces Verts (EHAEV),Horticulture et Aménagement des espaces Verts,31,3,34,Classement,"C, D, DEAT",OK
+DEAT,PUB-199,Université Nationale d'Agriculture,Ecole d'Horticulture et d'Aménagement des Espaces Verts (EHAEV),Horticulture et Aménagement des espaces Verts,31,3,34,Classement,"C, D, DEAT",OK
+C,PUB-200,Université Nationale d'Agriculture,Ecole de Foresterie Tropicale (EFoT),Foresterie Tropicale,19,3,22,Classement,"C, D, DEAT",Texte continué
+D,PUB-200,Université Nationale d'Agriculture,Ecole de Foresterie Tropicale (EFoT),Foresterie Tropicale,19,3,22,Classement,"C, D, DEAT",Texte continué
+DEAT,PUB-200,Université Nationale d'Agriculture,Ecole de Foresterie Tropicale (EFoT),Foresterie Tropicale,19,3,22,Classement,"C, D, DEAT",Texte continué
+C,PUB-201,Université Nationale d'Agriculture,Ecole de Foresterie Tropicale (EFoT),Agroéquipement,21,4,25,Classement,"C, D, E, F1, F2, F3, DT, DEAT",OK
+D,PUB-201,Université Nationale d'Agriculture,Ecole de Foresterie Tropicale (EFoT),Agroéquipement,21,4,25,Classement,"C, D, E, F1, F2, F3, DT, DEAT",OK
+E,PUB-201,Université Nationale d'Agriculture,Ecole de Foresterie Tropicale (EFoT),Agroéquipement,21,4,25,Classement,"C, D, E, F1, F2, F3, DT, DEAT",OK
+F1,PUB-201,Université Nationale d'Agriculture,Ecole de Foresterie Tropicale (EFoT),Agroéquipement,21,4,25,Classement,"C, D, E, F1, F2, F3, DT, DEAT",OK
+F2,PUB-201,Université Nationale d'Agriculture,Ecole de Foresterie Tropicale (EFoT),Agroéquipement,21,4,25,Classement,"C, D, E, F1, F2, F3, DT, DEAT",OK
+F3,PUB-201,Université Nationale d'Agriculture,Ecole de Foresterie Tropicale (EFoT),Agroéquipement,21,4,25,Classement,"C, D, E, F1, F2, F3, DT, DEAT",OK
+DT,PUB-201,Université Nationale d'Agriculture,Ecole de Foresterie Tropicale (EFoT),Agroéquipement,21,4,25,Classement,"C, D, E, F1, F2, F3, DT, DEAT",OK
+DEAT,PUB-201,Université Nationale d'Agriculture,Ecole de Foresterie Tropicale (EFoT),Agroéquipement,21,4,25,Classement,"C, D, E, F1, F2, F3, DT, DEAT",OK
+C,PUB-202,Université Nationale d'Agriculture,Ecole de Génie Rural (EGR),Electrification Rurale et Energies Renouvelables (ERER),21,4,25,Classement,"C, D, E, F1, F2, F3, DT",OK
+D,PUB-202,Université Nationale d'Agriculture,Ecole de Génie Rural (EGR),Electrification Rurale et Energies Renouvelables (ERER),21,4,25,Classement,"C, D, E, F1, F2, F3, DT",OK
+E,PUB-202,Université Nationale d'Agriculture,Ecole de Génie Rural (EGR),Electrification Rurale et Energies Renouvelables (ERER),21,4,25,Classement,"C, D, E, F1, F2, F3, DT",OK
+F1,PUB-202,Université Nationale d'Agriculture,Ecole de Génie Rural (EGR),Electrification Rurale et Energies Renouvelables (ERER),21,4,25,Classement,"C, D, E, F1, F2, F3, DT",OK
+F2,PUB-202,Université Nationale d'Agriculture,Ecole de Génie Rural (EGR),Electrification Rurale et Energies Renouvelables (ERER),21,4,25,Classement,"C, D, E, F1, F2, F3, DT",OK
+F3,PUB-202,Université Nationale d'Agriculture,Ecole de Génie Rural (EGR),Electrification Rurale et Energies Renouvelables (ERER),21,4,25,Classement,"C, D, E, F1, F2, F3, DT",OK
+DT,PUB-202,Université Nationale d'Agriculture,Ecole de Génie Rural (EGR),Electrification Rurale et Energies Renouvelables (ERER),21,4,25,Classement,"C, D, E, F1, F2, F3, DT",OK
+C,PUB-203,Université Nationale d'Agriculture,Ecole de Génie Rural (EGR),Infrastructures Rurales et Assainissement,21,3,24,Classement,"C, D, E, EA, F1, F4, DT, DEAT",OK
+D,PUB-203,Université Nationale d'Agriculture,Ecole de Génie Rural (EGR),Infrastructures Rurales et Assainissement,21,3,24,Classement,"C, D, E, EA, F1, F4, DT, DEAT",OK
+E,PUB-203,Université Nationale d'Agriculture,Ecole de Génie Rural (EGR),Infrastructures Rurales et Assainissement,21,3,24,Classement,"C, D, E, EA, F1, F4, DT, DEAT",OK
+EA,PUB-203,Université Nationale d'Agriculture,Ecole de Génie Rural (EGR),Infrastructures Rurales et Assainissement,21,3,24,Classement,"C, D, E, EA, F1, F4, DT, DEAT",OK
+F1,PUB-203,Université Nationale d'Agriculture,Ecole de Génie Rural (EGR),Infrastructures Rurales et Assainissement,21,3,24,Classement,"C, D, E, EA, F1, F4, DT, DEAT",OK
+F4,PUB-203,Université Nationale d'Agriculture,Ecole de Génie Rural (EGR),Infrastructures Rurales et Assainissement,21,3,24,Classement,"C, D, E, EA, F1, F4, DT, DEAT",OK
+DT,PUB-203,Université Nationale d'Agriculture,Ecole de Génie Rural (EGR),Infrastructures Rurales et Assainissement,21,3,24,Classement,"C, D, E, EA, F1, F4, DT, DEAT",OK
+DEAT,PUB-203,Université Nationale d'Agriculture,Ecole de Génie Rural (EGR),Infrastructures Rurales et Assainissement,21,3,24,Classement,"C, D, E, EA, F1, F4, DT, DEAT",OK
+C,PUB-204,Université Nationale d'Agriculture,Ecole de Gestion et d'Exploitation des Systèmes d'Elevage (EGESE),Productions et santé animales,50,3,53,Classement,"C, D, DEAT",Texte continué
+D,PUB-204,Université Nationale d'Agriculture,Ecole de Gestion et d'Exploitation des Systèmes d'Elevage (EGESE),Productions et santé animales,50,3,53,Classement,"C, D, DEAT",Texte continué
+DEAT,PUB-204,Université Nationale d'Agriculture,Ecole de Gestion et d'Exploitation des Systèmes d'Elevage (EGESE),Productions et santé animales,50,3,53,Classement,"C, D, DEAT",Texte continué
+C,PUB-205,Université Nationale d'Agriculture,Ecole de Gestion et de Production Végétale et Semencière (EGPVS),Gestion et Production Végétale et Semencière,39,5,44,Classement,"C, D, DEAT",OK
+D,PUB-205,Université Nationale d'Agriculture,Ecole de Gestion et de Production Végétale et Semencière (EGPVS),Gestion et Production Végétale et Semencière,39,5,44,Classement,"C, D, DEAT",OK
+DEAT,PUB-205,Université Nationale d'Agriculture,Ecole de Gestion et de Production Végétale et Semencière (EGPVS),Gestion et Production Végétale et Semencière,39,5,44,Classement,"C, D, DEAT",OK
+C,PUB-206,Université Nationale d'Agriculture,Ecole de Sociologie rurale et de Vulgarisation Agricole (ESRVA),Sociologie rurale et Vulgarisation Agricole,47,5,52,Classement,"C, D, DEAT",Réparé - fusion OCR
+D,PUB-206,Université Nationale d'Agriculture,Ecole de Sociologie rurale et de Vulgarisation Agricole (ESRVA),Sociologie rurale et Vulgarisation Agricole,47,5,52,Classement,"C, D, DEAT",Réparé - fusion OCR
+DEAT,PUB-206,Université Nationale d'Agriculture,Ecole de Sociologie rurale et de Vulgarisation Agricole (ESRVA),Sociologie rurale et Vulgarisation Agricole,47,5,52,Classement,"C, D, DEAT",Réparé - fusion OCR
+C,PUB-207,Université Nationale d'Agriculture,Ecole des Sciences et Techniques de Conservation et de Transformation des Produits Agricoles (ESTCTPA),"Génie de Conditionnement, Emballage et Stockage des Produits Alimentaires (GCES)",30,3,33,Classement,"C, D, DEAT",Réparé - fusion OCR
+D,PUB-207,Université Nationale d'Agriculture,Ecole des Sciences et Techniques de Conservation et de Transformation des Produits Agricoles (ESTCTPA),"Génie de Conditionnement, Emballage et Stockage des Produits Alimentaires (GCES)",30,3,33,Classement,"C, D, DEAT",Réparé - fusion OCR
+DEAT,PUB-207,Université Nationale d'Agriculture,Ecole des Sciences et Techniques de Conservation et de Transformation des Produits Agricoles (ESTCTPA),"Génie de Conditionnement, Emballage et Stockage des Produits Alimentaires (GCES)",30,3,33,Classement,"C, D, DEAT",Réparé - fusion OCR
+C,PUB-208,Université Nationale d'Agriculture,Ecole des Sciences et Techniques de Conservation et de Transformation des Produits Agricoles (ESTCTPA),Industrie des Bio-Ressources (IBR),29,3,32,Classement,"C, D, DEAT",OK
+D,PUB-208,Université Nationale d'Agriculture,Ecole des Sciences et Techniques de Conservation et de Transformation des Produits Agricoles (ESTCTPA),Industrie des Bio-Ressources (IBR),29,3,32,Classement,"C, D, DEAT",OK
+DEAT,PUB-208,Université Nationale d'Agriculture,Ecole des Sciences et Techniques de Conservation et de Transformation des Produits Agricoles (ESTCTPA),Industrie des Bio-Ressources (IBR),29,3,32,Classement,"C, D, DEAT",OK
+C,PUB-209,Université Nationale d'Agriculture,Ecole des Sciences et Techniques de Conservation et de Transformation des Produits Agricoles (ESTCTPA),Industrie des Produits Agro-Alimentaires et Nutrition Humaine (IPA-NH),35,5,40,Classement,"C, D, DEAT",OK
+D,PUB-209,Université Nationale d'Agriculture,Ecole des Sciences et Techniques de Conservation et de Transformation des Produits Agricoles (ESTCTPA),Industrie des Produits Agro-Alimentaires et Nutrition Humaine (IPA-NH),35,5,40,Classement,"C, D, DEAT",OK
+DEAT,PUB-209,Université Nationale d'Agriculture,Ecole des Sciences et Techniques de Conservation et de Transformation des Produits Agricoles (ESTCTPA),Industrie des Produits Agro-Alimentaires et Nutrition Humaine (IPA-NH),35,5,40,Classement,"C, D, DEAT",OK
+B,PUB-210,Université Africaine de Développement Coopératif,,Economie et Gestion des Organisations Coopératives et Associatives,0,0,0,Classement,"B, C, D, G2, G3",À vérifier
+C,PUB-210,Université Africaine de Développement Coopératif,,Economie et Gestion des Organisations Coopératives et Associatives,0,0,0,Classement,"B, C, D, G2, G3",À vérifier
+D,PUB-210,Université Africaine de Développement Coopératif,,Economie et Gestion des Organisations Coopératives et Associatives,0,0,0,Classement,"B, C, D, G2, G3",À vérifier
+G2,PUB-210,Université Africaine de Développement Coopératif,,Economie et Gestion des Organisations Coopératives et Associatives,0,0,0,Classement,"B, C, D, G2, G3",À vérifier
+G3,PUB-210,Université Africaine de Développement Coopératif,,Economie et Gestion des Organisations Coopératives et Associatives,0,0,0,Classement,"B, C, D, G2, G3",À vérifier
+A1,PUB-211,Université Africaine de Développement Coopératif,UFR Economie et Gestion Coopératives (UFR/EGC),Entrepreneuriat et Gestion de Projets de l'Economie Sociale,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+A2,PUB-211,Université Africaine de Développement Coopératif,UFR Economie et Gestion Coopératives (UFR/EGC),Entrepreneuriat et Gestion de Projets de l'Economie Sociale,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+B,PUB-211,Université Africaine de Développement Coopératif,UFR Economie et Gestion Coopératives (UFR/EGC),Entrepreneuriat et Gestion de Projets de l'Economie Sociale,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+C,PUB-211,Université Africaine de Développement Coopératif,UFR Economie et Gestion Coopératives (UFR/EGC),Entrepreneuriat et Gestion de Projets de l'Economie Sociale,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+D,PUB-211,Université Africaine de Développement Coopératif,UFR Economie et Gestion Coopératives (UFR/EGC),Entrepreneuriat et Gestion de Projets de l'Economie Sociale,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+G2,PUB-211,Université Africaine de Développement Coopératif,UFR Economie et Gestion Coopératives (UFR/EGC),Entrepreneuriat et Gestion de Projets de l'Economie Sociale,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+G3,PUB-211,Université Africaine de Développement Coopératif,UFR Economie et Gestion Coopératives (UFR/EGC),Entrepreneuriat et Gestion de Projets de l'Economie Sociale,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+A1,PUB-212,Université Africaine de Développement Coopératif,UFR Financement et Micro financement (UFR/FMF),Gestion des structures de Micro Assurance Santé,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+A2,PUB-212,Université Africaine de Développement Coopératif,UFR Financement et Micro financement (UFR/FMF),Gestion des structures de Micro Assurance Santé,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+B,PUB-212,Université Africaine de Développement Coopératif,UFR Financement et Micro financement (UFR/FMF),Gestion des structures de Micro Assurance Santé,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+C,PUB-212,Université Africaine de Développement Coopératif,UFR Financement et Micro financement (UFR/FMF),Gestion des structures de Micro Assurance Santé,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+D,PUB-212,Université Africaine de Développement Coopératif,UFR Financement et Micro financement (UFR/FMF),Gestion des structures de Micro Assurance Santé,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+G2,PUB-212,Université Africaine de Développement Coopératif,UFR Financement et Micro financement (UFR/FMF),Gestion des structures de Micro Assurance Santé,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+G3,PUB-212,Université Africaine de Développement Coopératif,UFR Financement et Micro financement (UFR/FMF),Gestion des structures de Micro Assurance Santé,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+B,PUB-213,Université Africaine de Développement Coopératif,UFR Financement et Micro financement (UFR/FMF),Micro Finance,0,0,0,Classement,"B, C, D, G2, G3",OK
+C,PUB-213,Université Africaine de Développement Coopératif,UFR Financement et Micro financement (UFR/FMF),Micro Finance,0,0,0,Classement,"B, C, D, G2, G3",OK
+D,PUB-213,Université Africaine de Développement Coopératif,UFR Financement et Micro financement (UFR/FMF),Micro Finance,0,0,0,Classement,"B, C, D, G2, G3",OK
+G2,PUB-213,Université Africaine de Développement Coopératif,UFR Financement et Micro financement (UFR/FMF),Micro Finance,0,0,0,Classement,"B, C, D, G2, G3",OK
+G3,PUB-213,Université Africaine de Développement Coopératif,UFR Financement et Micro financement (UFR/FMF),Micro Finance,0,0,0,Classement,"B, C, D, G2, G3",OK
+A1,PUB-214,Université Africaine de Développement Coopératif,UFR Gestion du Développement (UFR/GD),Développement Local et Décentralisation,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+A2,PUB-214,Université Africaine de Développement Coopératif,UFR Gestion du Développement (UFR/GD),Développement Local et Décentralisation,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+B,PUB-214,Université Africaine de Développement Coopératif,UFR Gestion du Développement (UFR/GD),Développement Local et Décentralisation,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+C,PUB-214,Université Africaine de Développement Coopératif,UFR Gestion du Développement (UFR/GD),Développement Local et Décentralisation,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+D,PUB-214,Université Africaine de Développement Coopératif,UFR Gestion du Développement (UFR/GD),Développement Local et Décentralisation,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+G2,PUB-214,Université Africaine de Développement Coopératif,UFR Gestion du Développement (UFR/GD),Développement Local et Décentralisation,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+G3,PUB-214,Université Africaine de Développement Coopératif,UFR Gestion du Développement (UFR/GD),Développement Local et Décentralisation,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+A1,PUB-215,Université Africaine de Développement Coopératif,UFR Gestion du Développement (UFR/GD),Genre et Développement,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+A2,PUB-215,Université Africaine de Développement Coopératif,UFR Gestion du Développement (UFR/GD),Genre et Développement,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+B,PUB-215,Université Africaine de Développement Coopératif,UFR Gestion du Développement (UFR/GD),Genre et Développement,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+C,PUB-215,Université Africaine de Développement Coopératif,UFR Gestion du Développement (UFR/GD),Genre et Développement,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+D,PUB-215,Université Africaine de Développement Coopératif,UFR Gestion du Développement (UFR/GD),Genre et Développement,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+G2,PUB-215,Université Africaine de Développement Coopératif,UFR Gestion du Développement (UFR/GD),Genre et Développement,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+G3,PUB-215,Université Africaine de Développement Coopératif,UFR Gestion du Développement (UFR/GD),Genre et Développement,0,0,0,Classement,"A1, A2, B, C, D, G2, G3",OK
+C,PUB-216,Institut Universitaire d'Enseignement Professionnel,Métiers de l'agriculture,Toutes les filières,50,0,50,Concours,"C, D, DEAT",OK
+D,PUB-216,Institut Universitaire d'Enseignement Professionnel,Métiers de l'agriculture,Toutes les filières,50,0,50,Concours,"C, D, DEAT",OK
+DEAT,PUB-216,Institut Universitaire d'Enseignement Professionnel,Métiers de l'agriculture,Toutes les filières,50,0,50,Concours,"C, D, DEAT",OK
+Toutes séries,PUB-217,Établissements de Sèmè City,Africa Design School,Licence en Design,0,0,0,Dossier,Toutes séries,OK
+Toutes séries,PUB-218,Établissements de Sèmè City,Ecole de l’Innovation et de l’Expertise Informatique (EPITECH),Licence en Métier de l’Informatique,0,0,0,Dossier,Toutes séries,OK
+Toutes séries,PUB-219,Écoles Inter-États,Centre d'Appui aux Ecoles de Statistique Africaines (CAPESA),Toutes les filières,40,0,40,Concours,Toutes séries,OK
+C,PUB-220,Écoles Inter-États,Ecole Africaine des Métiers de l'Architecture et de l'Urbanisme (EAMAU),Toutes les filières,6,0,6,Concours,"C, D",OK
+D,PUB-220,Écoles Inter-États,Ecole Africaine des Métiers de l'Architecture et de l'Urbanisme (EAMAU),Toutes les filières,6,0,6,Concours,"C, D",OK
+Toutes séries,PUB-221,Écoles Inter-États,Ecole Centrale de Casablanca,Toutes les filières,10,0,10,Concours,Toutes séries,OK
+C,PUB-222,Écoles Inter-États,Ecole inter-Etats des Sciences et Médecine Vétérinaires (EISMV),Toutes les filières,10,0,10,Classement,"C, D",OK
+D,PUB-222,Écoles Inter-États,Ecole inter-Etats des Sciences et Médecine Vétérinaires (EISMV),Toutes les filières,10,0,10,Classement,"C, D",OK
+C,PUB-223,Écoles Inter-États,Ecole Supérieure Multinationale de Télécommunications (ESMT),Toutes les filières,15,0,15,Concours,"C, D, DT",OK
+D,PUB-223,Écoles Inter-États,Ecole Supérieure Multinationale de Télécommunications (ESMT),Toutes les filières,15,0,15,Concours,"C, D, DT",OK
+DT,PUB-223,Écoles Inter-États,Ecole Supérieure Multinationale de Télécommunications (ESMT),Toutes les filières,15,0,15,Concours,"C, D, DT",OK
+Toutes séries,PUB-224,Écoles Inter-États,Institut de Formation et de Recherche démographique,Toutes les filières,5,0,5,Concours,Toutes séries,OK

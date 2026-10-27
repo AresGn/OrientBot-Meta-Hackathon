@@ -1,0 +1,271 @@
+{
+  "source": "Office du Baccalauréat - Bénin, \"Liste des épreuves à l'examen du Baccalauréat\", tiré de l'arrêté interministériel N°016-2003/MESRS/MEPS/METFP/CAB/DC/SGM/DOB-BTS/SP (modifié) — https://www.officedubacbenin.bj/spip.php?article11 — recoupé avec le Guide d'Orientation Universitaire MESRS 2024-2025 (formule et exemple Médecine, page 9) — https://enseignementsuperieur.gouv.bj",
+  "annee_reference": "2024-2025",
+  "note_methodologique": "Les coefficients ci-dessous sont ceux de l'EXAMEN DU BACCALAURÉAT (tel que documenté par l'Office du Bac), et non la 'moyenne pondérée d'orientation' du MESRS qui, elle, ne retient que 2 à 3 matières principales par filière universitaire (voir exemple Médecine). Chaque matière est taguée 'groupe':1 (épreuves obligatoires : écrit + pratique) ou 'groupe':2 (épreuves orales, uniquement pour les candidats admissibles à l'oral de rattrapage, moyenne 1er groupe entre 8 et 10/20). Le total officiel du 1er groupe inclut l'EPS (coefficient 1, non noté à l'écrit mais comptabilisé dans le total).",
+  "series": [
+    {
+      "serie": "A1",
+      "nom_complet": "Lettres - Langues",
+      "matieres": [
+        { "matiere": "Français", "coefficient": 5, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Philosophie", "coefficient": 4, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Histoire-Géographie", "coefficient": 3, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Langue Vivante 1 (LV1)", "coefficient": 3, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Langue Vivante 2 (LV2)", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Mathématiques", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "SVT", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "EPS", "coefficient": 1, "type": "pratique", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Français (oral)", "coefficient": 2, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Langue Vivante 1 (oral)", "coefficient": 2, "type": "oral", "groupe": 2, "confiance": "officiel" }
+      ],
+      "somme_coefficients_groupe1": 22,
+      "somme_coefficients_totale_avec_oral": 26
+    },
+    {
+      "serie": "A2",
+      "nom_complet": "Lettres - Sciences Humaines",
+      "matieres": [
+        { "matiere": "Français", "coefficient": 4, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Philosophie", "coefficient": 3, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Histoire-Géographie", "coefficient": 5, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Langue Vivante 1 (LV1)", "coefficient": 3, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Langue Vivante 2 (LV2)", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Mathématiques", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "SVT", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "EPS", "coefficient": 1, "type": "pratique", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Français (oral)", "coefficient": 2, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Langue Vivante 1 (oral)", "coefficient": 2, "type": "oral", "groupe": 2, "confiance": "officiel" }
+      ],
+      "somme_coefficients_groupe1": 22,
+      "somme_coefficients_totale_avec_oral": 26
+    },
+    {
+      "serie": "B",
+      "nom_complet": "Économie / Sciences sociales",
+      "matieres": [
+        { "matiere": "Français", "coefficient": 4, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Philosophie", "coefficient": 3, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Histoire-Géographie", "coefficient": 4, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Langue Vivante 1 (Anglais/LV1)", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Économie", "coefficient": 4, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Mathématiques", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "SVT", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "EPS", "coefficient": 1, "type": "pratique", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Français (oral)", "coefficient": 2, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Langue Vivante 1 (oral)", "coefficient": 2, "type": "oral", "groupe": 2, "confiance": "officiel" }
+      ],
+      "somme_coefficients_groupe1": 22,
+      "somme_coefficients_totale_avec_oral": 26
+    },
+    {
+      "serie": "C",
+      "nom_complet": "Mathématiques / Sciences physiques",
+      "matieres": [
+        { "matiere": "Mathématiques", "coefficient": 6, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Sciences Physiques (PCT/SPCT)", "coefficient": 5, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Français", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Anglais", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "SVT", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Histoire-Géographie", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Philosophie", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "EPS", "coefficient": 1, "type": "pratique", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Français (oral)", "coefficient": 2, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Anglais (oral)", "coefficient": 2, "type": "oral", "groupe": 2, "confiance": "officiel" }
+      ],
+      "somme_coefficients_groupe1": 22,
+      "somme_coefficients_totale_avec_oral": 26
+    },
+    {
+      "serie": "D",
+      "nom_complet": "Sciences naturelles / Biologie",
+      "matieres": [
+        { "matiere": "SVT", "coefficient": 5, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Mathématiques", "coefficient": 4, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Sciences Physiques (PCT/SPCT)", "coefficient": 4, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Philosophie", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Français", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Anglais", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Histoire-Géographie", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "EPS", "coefficient": 1, "type": "pratique", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Français (oral)", "coefficient": 2, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Anglais (oral)", "coefficient": 2, "type": "oral", "groupe": 2, "confiance": "officiel" }
+      ],
+      "somme_coefficients_groupe1": 22,
+      "somme_coefficients_totale_avec_oral": 26
+    },
+    {
+      "serie": "E",
+      "nom_complet": "Mathématiques / Technologie",
+      "matieres": [
+        { "matiere": "Mathématiques", "coefficient": 5, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Sciences Physiques", "coefficient": 4, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Construction Mécanique", "coefficient": 3, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Manipulation (Travaux Pratiques)", "coefficient": 3, "type": "pratique", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Français", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Étude de Fabrication ou Technologie", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "EPS", "coefficient": 1, "type": "pratique", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Philosophie (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Anglais (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Étude de Fabrication ou Technologie (oral)", "coefficient": 2, "type": "oral", "groupe": 2, "confiance": "officiel" }
+      ],
+      "somme_coefficients_groupe1": 20,
+      "somme_coefficients_totale_avec_oral": 24
+    },
+    {
+      "serie": "F1",
+      "nom_complet": "Fabrication Mécanique (Construction Mécanique)",
+      "matieres": [
+        { "matiere": "Mathématiques", "coefficient": 3, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Construction Mécanique", "coefficient": 3, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Analyse de Fabrication", "coefficient": 3, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Travaux Pratiques", "coefficient": 3, "type": "pratique", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Sciences Physiques", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Mécanique", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Automatique", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Étude d'Outillage", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Français", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "EPS", "coefficient": 1, "type": "pratique", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Philosophie (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Anglais (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Technologie Générale (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Création/Gestion d'Entreprise ou Législation du Travail (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Gestion de Production (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" }
+      ],
+      "somme_coefficients_groupe1": 23,
+      "somme_coefficients_totale_avec_oral": 28
+    },
+    {
+      "serie": "F2",
+      "nom_complet": "Électronique",
+      "matieres": [
+        { "matiere": "Étude d'un Système Technique", "coefficient": 4, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Réalisation de Maquette (T.P.)", "coefficient": 4, "type": "pratique", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Mathématiques", "coefficient": 3, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Mesures et Essais de Laboratoire (T.P.)", "coefficient": 3, "type": "pratique", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Sciences Physiques", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Construction Mécanique", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Informatique (T.P.)", "coefficient": 2, "type": "pratique", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Français", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "EPS", "coefficient": 1, "type": "pratique", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Philosophie (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Anglais (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Schémas et Technologie (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Création, Gestion d'Entreprise (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Législation du Travail (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" }
+      ],
+      "somme_coefficients_groupe1": 23,
+      "somme_coefficients_totale_avec_oral": 28
+    },
+    {
+      "serie": "F3",
+      "nom_complet": "Électrotechnique",
+      "matieres": [
+        { "matiere": "Étude de Système Technique", "coefficient": 5, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Construction (T.P.)", "coefficient": 4, "type": "pratique", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Mesure et Essai de Laboratoire (T.P.)", "coefficient": 3, "type": "pratique", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Mathématiques", "coefficient": 3, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Électrotechnique", "coefficient": 3, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Sciences Physiques", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Français", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "EPS", "coefficient": 1, "type": "pratique", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Philosophie (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Anglais (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Schémas et Technologie (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Création, Gestion d'Entreprise (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Législation du Travail (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" }
+      ],
+      "somme_coefficients_groupe1": 23,
+      "somme_coefficients_totale_avec_oral": 28
+    },
+    {
+      "serie": "F4",
+      "nom_complet": "Génie Civil / Bâtiment",
+      "matieres": [
+        { "matiere": "Résistance des Matériaux", "coefficient": 3, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Mathématiques", "coefficient": 3, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Projet d'Exploitation (T.P.)", "coefficient": 3, "type": "pratique", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Dessin Technique (T.P.)", "coefficient": 3, "type": "pratique", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Sciences Physiques", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Béton Armé", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Métré et Étude de Prix", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Procédé de Construction", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Français", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "EPS", "coefficient": 1, "type": "pratique", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Philosophie (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Anglais (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Schémas et Technologie (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Création, Gestion d'Entreprise (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Législation du Travail (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" }
+      ],
+      "somme_coefficients_groupe1": 23,
+      "somme_coefficients_totale_avec_oral": 28
+    },
+    {
+      "serie": "G1",
+      "nom_complet": "Techniques Administratives / Secrétariat",
+      "matieres": [
+        { "matiere": "Étude de Cas", "coefficient": 4, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Français", "coefficient": 3, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Techniques de Base de Secrétariat", "coefficient": 3, "type": "pratique", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Économie", "coefficient": 3, "type": "écrit", "groupe": 1, "confiance": "à vérifier (source PDF: écart d'1 point dans le total officiel du groupe 1, ce chiffre ou celui de 'Compte-Rendu PV + Rapport' pourrait être 2 au lieu de 3)" },
+        { "matiere": "Compte-Rendu PV + Rapport", "coefficient": 3, "type": "écrit", "groupe": 1, "confiance": "à vérifier (voir note sur Économie ci-dessus)" },
+        { "matiere": "Anglais", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Droit Administratif et Droit du Travail", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "EPS", "coefficient": 1, "type": "pratique", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Français (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Géographie Économique (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Philosophie (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Anglais (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" }
+      ],
+      "somme_coefficients_groupe1_source_officielle": 20,
+      "somme_coefficients_groupe1_recalcul_brut": 21,
+      "somme_coefficients_totale_avec_oral": 24
+    },
+    {
+      "serie": "G2",
+      "nom_complet": "Techniques Quantitatives de Gestion / Comptabilité",
+      "matieres": [
+        { "matiere": "Étude de Cas", "coefficient": 6, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Français", "coefficient": 3, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Économie", "coefficient": 3, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Mathématiques Appliquées", "coefficient": 3, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Anglais", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Droit (TBAD - Finances Publiques)", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "EPS", "coefficient": 1, "type": "pratique", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Français (oral)", "coefficient": 2, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Philosophie (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Anglais (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" }
+      ],
+      "somme_coefficients_groupe1": 20,
+      "somme_coefficients_totale_avec_oral": 24
+    },
+    {
+      "serie": "G3",
+      "nom_complet": "Techniques Commerciales / Marketing",
+      "matieres": [
+        { "matiere": "Étude de Cas", "coefficient": 6, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Français", "coefficient": 3, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Économie", "coefficient": 3, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Mathématiques Appliquées", "coefficient": 3, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Anglais", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Droit (TBAD - Finances Publiques)", "coefficient": 2, "type": "écrit", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "EPS", "coefficient": 1, "type": "pratique", "groupe": 1, "confiance": "officiel" },
+        { "matiere": "Français (oral)", "coefficient": 2, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Philosophie (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" },
+        { "matiere": "Anglais (oral)", "coefficient": 1, "type": "oral", "groupe": 2, "confiance": "officiel" }
+      ],
+      "somme_coefficients_groupe1": 20,
+      "somme_coefficients_totale_avec_oral": 24
+    }
+  ],
+  "note_moyenne_ponderee_orientation_mesrs": {
+    "explication": "La moyenne pondérée utilisée par le MESRS pour le classement post-bac (plateforme apresmonbac.bj) ne retient PAS toutes les matières ci-dessus, mais seulement 2 à 3 'matières principales' par filière universitaire visée, avec LEURS coefficients du bac dans la série d'origine. Exemples tirés du Guide d'Orientation Universitaire 2024-2025 (MESRS) :",
+    "exemples": [
+      { "filiere": "Médecine Générale", "serie": "D", "formule": "(SVT×5 + Mathématiques×4 + Sciences Physiques×4) / 13" },
+      { "filiere": "Médecine Générale", "serie": "C", "formule": "(SVT×2 + Mathématiques×6 + Sciences Physiques×5) / 13" },
+      { "filiere": "Génie Civil (EPAC)", "serie": "D", "formule": "(Mathématiques×4 + Sciences Physiques×4 + Anglais×2) / 10, note: matière additionnelle variable selon série" },
+      { "filiere": "Droit (FADESP)", "serie": "toutes séries A1,A2,B,C,D,G1,G2,G3", "formule": "matières et coefficients variables selon la série d'origine du candidat (Français, Philosophie/Étude de cas, Histoire-Géo/Anglais)" }
+    ],
+    "recommandation": "Pour implémenter ce calcul dans votre chatbot, il faut coupler ce fichier (coefficients par série) avec une seconde table 'filière → matières retenues' extraite du Guide d'Orientation Universitaire MESRS (édition 2024-2025), disponible ici : https://enseignementsuperieur.gouv.bj/uploads/universite_directory/85b712cd25f07f6b8487f34bbd4a8659.pdf"
+  }
+}

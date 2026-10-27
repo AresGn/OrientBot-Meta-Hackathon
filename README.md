@@ -1,71 +1,89 @@
-# OrientBot Agent (Meta Hackathon)
+# PathProof (Meta Global AI Developer Hackathon)
 
-An agent that takes a post-BAC student's grade-sheet photo and voice message, chooses its own tools step by step, and produces a sourced orientation report for Benin.
+> **Every study path comes with its proof.**
 
-> **Status: early scaffold (build period 26 Oct - 3 Nov 2026).** The agent loop is a skeleton; `read_grade_sheet` and `transcribe_voice` are not implemented yet. The only tested part is a small tool-calling check (see below).
+An agent that takes a post-BAC student's grade-sheet photo and a short voice note, chooses its own tools step by step, and produces an orientation report in which every sentence points to its proof: a grade read on the photo, a quote from the transcript, a row of the official guide, or a calculation. It recommends only what it can prove, and it stops to ask the student instead of guessing.
+
+> **Status: early scaffold (build period 27 Oct - 3 Nov 2026).** The agent loop is a skeleton; `read_grade_sheet`, `transcribe_voice` and the tools listed below as "not implemented" do not exist yet. The only tested parts are a small tool-calling check against Muse Spark 1.3 and the data files added on 27 Oct. Nothing in this README describes behavior that does not run.
+
+**Track:** Indie Developer. **Theme:** Build for Your World. Full plan: [`docs/prd.md`](docs/prd.md).
 
 ## Problem
 
-- TODO: sourced figures on post-BAC orientation in Benin (see `docs/impact.md`). No number is stated until a source is added.
+A student in Benin often picks a program on vague grounds (the BAC series, family opinion, rumor) without seeing which programs are open to the real profile, or where the official information is.
+
+- Sourced figure on the number of BAC candidates: **TODO** (see `docs/impact.md`). No number is stated until an official source is added.
+
+## What PathProof does differently
+
+1. **The agent decides.** It picks the next tool from what it observes (blurry photo, missing grade, contradiction) and pauses to ask the student.
+2. **The model does not calculate.** The per-program ranking average (official formula, page 8 of the 2026-2027 guide) and the filtering of offers are deterministic code, called as tools.
+3. **Every sentence has proof.** A code-based verifier blocks any claim without a proof reference.
 
 ## What is new in this repository
 
-OrientBot already exists as a separate project. **No code from it is copied here.** Everything in this repository was written during the hackathon:
+Everything in this repository is written during the hackathon: the agent loop, the tools in `src/tools/`, the Meta API client, the evaluation cases in `evals/`, the demo web page and API stub (`web/`, `src/api/`).
 
-- the agentic loop (tool selection, execution, observation, next decision),
-- the tools in `src/tools/`,
-- the Meta API client,
-- the evaluation cases in `evals/`,
-- the demo web page and API stub (`web/`, `src/api/`),
-- the sourced programs dataset (`data/filieres.csv`, currently empty/TODO).
+**An earlier prototype** by the same author (OrientBot V1, a fixed WhatsApp workflow, 7 users, now paused) explored this problem. No code from it is reused here. PathProof is built from scratch during the hackathon. Only public official rules (the MESRS weighted-average formula, subject-name normalization) are re-implemented. See [`docs/v1-reuse.md`](docs/v1-reuse.md).
 
-Only business *rules* are re-specified from the earlier project (MESRS coefficient table to be re-typed by hand from the official source, subject-name normalization, "nothing without a source", "ask rather than guess"). No file or code is copied, and the earlier project's guides are not republished. See `docs/v1-reuse.md`.
+**Data** comes from the official public *Guide d'information 2026-2027* (MESRS). Its CSV extraction was done before the event; it is data, not code. The guide PDF itself is not republished here. Every recommendation is meant to link back to the guide page it comes from (`data/pages_offres.csv` is a first draft of that mapping: 19 rows to check by hand, 2 not found).
 
-Project documents: `docs/prd.md` (scope, requirements, 9-day plan), `docs/architecture.md`, `docs/impact.md`, `docs/demo-script.md`.
+| File | Content |
+|---|---|
+| `data/offres_publiques_2026_2027.csv` | 224 public offers: series, entry mode, subjects, careers, grant quotas, quality status |
+| `data/series_et_offres_2026_2027.csv` | 897 series-to-offer pairs |
+| `data/controle_qualite_2026_2027.csv` | 39 extraction anomalies (quality-control log) |
+| `data/pages_offres.csv` | Offer to PDF page mapping (draft) |
+| `data/coefficients_bac_benin.json` | BAC coefficients per series (Office du Baccalaureat, official list) |
 
-Out of scope for this event: WhatsApp, payment, landing page, database, text-to-speech, parents' report, scholarship calculation, full RIASEC questionnaire.
+Private-institution offers (753) are not used: the guide gives no series, subjects or careers for them.
 
 ## Demo
 
-Video: TODO
+Video: TODO. Public demo URL: TODO.
 
 ## How the agent decides
 
 ```mermaid
 flowchart TD
-    IN([Student input: grade-sheet photo and/or voice message]) --> AGENT
+    IN([Student input: grade-sheet photo and voice note]) --> AGENT
 
-    subgraph LOOP [Agent loop - max 10 steps]
+    subgraph LOOP [Agent loop - max 12 steps]
         AGENT{{"Muse Spark 1.3<br/>chooses next action"}}
-        AGENT -->|audio received| T1[transcribe_voice<br/>Muse Voice Transcribe]
-        AGENT -->|image received| T2[read_grade_sheet<br/>Muse Spark vision]
-        AGENT -->|profile complete| T3[lookup_filieres<br/>data/filieres.csv]
-        T1 --> OBS[Observation]
-        T2 --> OBS
-        T3 --> OBS
-        OBS --> CHECK{Usable result?}
-        CHECK -->|"unreadable / low confidence / missing grade"| ASK[Ask the student to resend or confirm]
+        AGENT -->|audio| T1[transcribe_voice]
+        T1 --> T2[extract_profile]
+        AGENT -->|image| T3[read_grade_sheet]
+        T3 -.->|doubtful cell| T4[zoom_cell<br/>SAM 3.1, if test passes]
+        AGENT -->|grades and profile known| T5[compute_ranking_average<br/>deterministic]
+        T5 --> T6[lookup_filieres<br/>deterministic]
+        AGENT -->|unreadable, missing, contradiction| ASK[ask_student<br/>pauses the loop]
         ASK --> AGENT
-        CHECK -->|yes| AGENT
+        T2 --> AGENT
+        T3 --> AGENT
+        T4 --> AGENT
+        T6 --> AGENT
     end
 
-    AGENT -->|enough verified info| T4[build_report<br/>every recommendation cites its source]
+    AGENT -->|draft report with proofs| V[verify_report<br/>deterministic]
+    V -->|problems found| AGENT
+    V -->|all proven| B[build_report]
     AGENT -->|step limit reached| STOP([Stop: no report])
-    T4 --> OUT([Sourced orientation report])
+    B --> OUT([Report with proofs])
 ```
 
-Design intent (the loop is a skeleton and has not been run end to end yet).
-
-Tools:
+Design intent: the loop is a skeleton and has not been run end to end yet.
 
 | Tool | Purpose | State |
 |---|---|---|
-| `transcribe_voice` | Transcribe a voice message | not implemented |
-| `read_grade_sheet` | Read grades from a sheet photo | not implemented |
-| `lookup_filieres` | Look up programs in `data/filieres.csv` (only `source_status = verifie` rows) | implemented, dataset TODO |
-| `build_report` | Report where each recommendation cites its source | skeleton |
-
-If an input is unreadable or a grade is missing, the agent is designed to ask rather than guess (not yet evaluated).
+| `transcribe_voice` | Transcribe the voice note (Muse Voice Transcribe) | not implemented |
+| `extract_profile` | Extract series, declared average, interests, target job, constraints, each with its exact quote | not implemented |
+| `read_grade_sheet` | Read grades from the sheet photo (Muse Spark 1.3, vision) | not implemented |
+| `zoom_cell` | Isolate and re-read a doubtful cell (SAM 3.1) | conditional on a day-1 test |
+| `compute_ranking_average` | Ranking average of one offer from the guide's formula | not implemented (data ready) |
+| `lookup_filieres` | Filter accessible offers, then rank them | stub on an older schema, to rewrite on the new data |
+| `ask_student` | Ask a question and pause the loop | not implemented |
+| `verify_report` | Check every proof of the draft | not implemented |
+| `build_report` | Format the verified report | skeleton |
 
 ## Meta models used
 
@@ -73,33 +91,36 @@ If an input is unreadable or a grade is missing, the agent is designed to ask ra
 |---|---|---|
 | Reasoning, tool choice, text | Muse Spark 1.3 | Agent brain |
 | Grade-sheet reading | Muse Spark 1.3 (vision) | Extract grades from photos |
-| Voice message transcription | Muse Voice Transcribe | Speech to text |
+| Voice note transcription | Muse Voice Transcribe | Speech to text |
+| Doubtful cell zoom | SAM 3.1 | Planned, only if the day-1 test succeeds |
 
-Tool calling in Muse Spark 1.3 was observed working in a small test (1 tool, 5/5 runs, see `docs/muse-spark-tool-call-results.md`); multi-tool choice and vision are not tested yet. There is no text-to-speech.
+Tool calling in Muse Spark 1.3 was observed working in a small test (1 tool, 5/5 runs, see [`docs/muse-spark-tool-call-results.md`](docs/muse-spark-tool-call-results.md)); multi-tool choice, vision, voice and SAM 3.1 are not tested yet. There is no text-to-speech.
 
 ## Quick start
 
 ```bash
 pip install -r requirements.txt
-cp .env.example .env   # then set MUSE_API_KEY
+cp .env.example .env   # then set MUSE_API_KEY (the file must be named .env)
 python -m src.main     # currently exits: not implemented
 uvicorn src.api.server:app --reload --port 8000   # demo UI at http://127.0.0.1:8000/
+python -m pytest       # 2 tests (the stub lookup tool)
 ```
 
-Tool-calling check (Muse Spark 1.3): `python scripts/test_muse_tool_call.py` — see `docs/muse-spark-tool-call-results.md`.
+Tool-calling check (Muse Spark 1.3): `python scripts/test_muse_tool_call.py`.
 
 ## Evaluation
 
-Five cases in `evals/cases.jsonl`: blurry photo, missing grade, noisy voice message, clear sheet (series C), no matching program. Target: 4 of 5 compliant and zero invented grades or programs. Sample files are not created yet. Results (to be committed in `evals/results/`): TODO (nothing measured).
+Ten cases are planned in `evals/cases.jsonl`, four of them adversarial (unverified row, false-friend job, contest-entry program, voice contradicting the sheet). Target: 9 of 10 compliant and zero claims without proof. Sample files are not created yet. Results (to be committed in `evals/results/`): TODO (nothing measured).
 
 ## Limitations
 
-- Agent is not functional end to end yet.
-- Tool calling was only checked on one tool and one question (5/5 runs); multi-tool choice and vision are untested.
-- `data/filieres.csv` has no verified entries yet, so no recommendation can be produced. The target is about 15 verified programs for series C and D, to illustrate the loop. It will not be a national database.
+- The agent is not functional end to end yet.
+- Tool calling was only checked on one tool and one question (5/5 runs); multi-tool choice, vision, voice and SAM 3.1 are untested.
+- Target scope: public offers for series C and D of the 2026-2027 guide whose row passed the quality check (206 of 224 rows are `OK`; the others are listed under "what I could not verify"). The guide gives no city, no admission threshold and no cost, so the agent never states them and never speaks of admission chances.
+- OCR extraction errors may remain in `OK` rows; a hand audit of 20 rows against the PDF is planned (`docs/data-audit.md`, not written yet).
 - Only fictional sample data; no real-student testing.
-- No voice output.
 - Handwritten grade sheets will likely be unreliable; the first tests use printed fictional sheets.
+- No voice output.
 
 ## Team
 
