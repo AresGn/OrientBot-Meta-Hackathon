@@ -52,7 +52,7 @@ E1.4 format des preuves ─► E2.4 verify_report ──────────
   *Acceptation :* tests : chaque alias retenu se résout ; une matière inconnue lève une erreur explicite.
 - [x] **E1.2 (M)** [#11](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/11) `compute_ranking_average` : `M = Σ(mi·ci) / Σci`, avec détail et provenance de chaque coefficient. *Dép. :* E1.1.
   *Acceptation :* **les deux exemples de la page 8 écrits en dur dans les tests** (Médecine D : SVT 5, Maths 4, PCT 4 ; Médecine C : SVT 2, Maths 6, PCT 5 ; sur 13) ; SVT 15, Maths 12, PCT 12 en série D → 13,15 (2 décimales, demi vers le haut) ; coefficient manquant → « non calculé » avec la raison.
-- [ ] **E1.3 (M)** [#12](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/12) `read_grade_sheet` : JSON strict `[{matiere, note, lisible}]`, `null` si illisible. *Dép. :* E0.3, E0.4, E1.1.
+- [x] **E1.3 (M)** [#12](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/12) `read_grade_sheet` : JSON strict `[{matiere, note, lisible}]`, `null` si illisible. *Dép. :* E0.3, E0.4, E1.1.
   *Acceptation :* sortie validée par schéma sur 2 relevés fictifs ; note hors 0–20 ou matière invalide pour la série signalée (FR-3), jamais de valeur par défaut.
 - [ ] **E1.4 (S)** [#13](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/13) Format des preuves figé (`grade`, `transcript`, `filiere`, `calc`), documenté dans `docs/architecture.md`.
   *Acceptation :* schéma versionné ; 4 exemples valides et 4 invalides en tests.
