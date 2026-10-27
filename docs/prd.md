@@ -74,7 +74,7 @@ Un bachelier béninois choisit sa filière souvent sur des critères flous (la s
 
 Le relevé fictif associé indique une moyenne générale de 11,2. C'est le moment fort de la vidéo : l'agent repère l'écart et demande à l'élève avant de continuer.
 
-Le deuxième moment fort vient du guide lui-même (page 8) : le classement ne se fait pas sur la moyenne générale, mais sur une **moyenne de classement propre à chaque filière**, calculée sur trois matières avec les coefficients de la série. Pour Médecine en série D, c'est (SVT × 5 + Maths × 4 + PCT × 4) / 13. L'agent peut donc dire : « Ta moyenne au Bac est 11,2, mais ta moyenne de classement pour Médecine est 13,2, parce que la SVT y compte 5 fois. » Peu d'élèves le savent, c'est le cœur de l'impact.
+Le deuxième moment fort vient du guide lui-même (page 8) : le classement ne se fait pas sur la moyenne générale, mais sur une **moyenne de classement propre à chaque filière**, calculée sur trois matières avec les coefficients de la série. Pour Médecine en série D, c'est (SVT × 5 + Maths × 4 + PCT × 4) / 13. L'agent peut donc dire : « Ta moyenne au Bac est 11,20, mais ta moyenne de classement pour Médecine est 13,15, parce que la SVT y compte 5 fois. » Peu d'élèves le savent, c'est le cœur de l'impact.
 
 Avec les vraies données, la suite de la démo est déjà écrite par le guide : « médecin » correspond aux débouchés de Médecine Générale (FSS, `PUB-062`) et de Médecine Humaine (FM, `PUB-133`). Pharmacie (`PUB-064`) est exclue, car sa ligne est marquée « Réparé - fusion OCR », et le rapport la range dans « Ce que je n'ai pas pu vérifier ». Ce n'est pas un piège inventé pour la démo : c'est le contrôle qualité réel du guide.
 
@@ -111,7 +111,7 @@ Le guide ne publie ni seuil ni moyenne du dernier admis. Le rapport ne parle don
 Parmi les offres accessibles, l'agent classe selon trois signaux, tous lisibles dans le guide :
 - **Le métier visé**, rapproché de `Débouchés_Métiers`. Le rapprochement se fait sur des mots entiers, puis le modèle confirme en citant les deux textes. Exemple de piège réel : une recherche naïve de « pilote » renvoie Foresterie Tropicale.
 - **Les intérêts dits dans la note vocale**, rapprochés de `Filière` et de `Débouchés_Métiers`.
-- **La moyenne de classement de l'élève pour chaque offre**, calculée par `compute_ranking_average` avec les trois matières de l'offre. Exemple pour Médecine Générale, série D : « SVT 15 × 5, Maths 12 × 4, PCT 12 × 4 : 13,2 / 20 ». C'est un fait calculé, pas une prédiction : le guide ne publie pas les moyennes des autres candidats.
+- **La moyenne de classement de l'élève pour chaque offre**, calculée par `compute_ranking_average` avec les trois matières de l'offre. Exemple pour Médecine Générale, série D : « SVT 15 × 5, Maths 12 × 4, PCT 12 × 4 : 13,15 / 20 ». C'est un fait calculé, pas une prédiction : le guide ne publie pas les moyennes des autres candidats.
 
 Le rapport montre au maximum 5 offres.
 

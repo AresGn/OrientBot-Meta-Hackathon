@@ -39,7 +39,7 @@ Limite de pas : 12 (`MAX_STEPS`, encore à 10 dans `src/agent/loop.py`, à align
 | `extract_profile` | Série, moyenne déclarée, intérêts, métier, contraintes, avec citation exacte | Muse Spark 1.3 (JSON strict) | non implémenté |
 | `read_grade_sheet` | Lire le relevé en `[{matiere, note, lisible}]` | Muse Spark 1.3 (vision) | non implémenté |
 | `zoom_cell` | Isoler une cellule douteuse et la relire | SAM 3.1 + Muse Spark 1.3 | **abandonné** : NO GO au spike E0.6 (`docs/decisions.md`) ; l'agent demande une nouvelle photo |
-| `compute_ranking_average` | Moyenne de classement d'une offre (formule page 8) | code | non implémenté (données prêtes) |
+| `compute_ranking_average` | Moyenne de classement d'une offre (formule page 8) | code | implémenté (`src/tools/compute_ranking_average.py`) |
 | `lookup_filieres` | Filtrer les offres accessibles puis les classer | code | stub sur l'ancien schéma `filieres.csv`, à réécrire |
 | `ask_student` | Poser une question, suspendre la boucle | interface | non implémenté |
 | `verify_report` | Contrôler chaque preuve du brouillon | code | non implémenté |
