@@ -29,8 +29,8 @@ E1.4 format des preuves ─► E2.4 verify_report ──────────
 
 ## E0 — Fondations et spikes (J1, mar 27 oct)
 
-- [ ] **E0.1 (S)** Secrets et marque : renommer le fichier `env` en `.env` (action de l'équipe) ; remplacer OrientBot par PathProof dans `web/index.html`, `src/api/server.py`, `LICENSE` ; `MAX_STEPS = 12` dans `src/agent/loop.py`.
-  *Acceptation :* `grep -ri orientbot --exclude-dir=.git --exclude-dir=.agents --exclude-dir=.claude .` ne renvoie que le README (section V1) et `docs/v1-reuse.md` ; `git check-ignore .env` répond ; `git ls-files env` est vide.
+- [x] **E0.1 (S)** Secrets et marque : renommer le fichier `env` en `.env` (action de l'équipe) ; remplacer OrientBot par PathProof dans `web/index.html`, `src/api/server.py`, `LICENSE` ; `MAX_STEPS = 12` dans `src/agent/loop.py`. *Fait le 27 oct.*
+  *Acceptation :* `grep -ri orientbot --exclude-dir=.git --exclude-dir=.agents --exclude-dir=.claude .` ne renvoie que le README (section V1), `docs/v1-reuse.md`, `docs/prd.md` (section 14) et ce backlog ; `git check-ignore .env` répond ; `git ls-files env` est vide. *Vérifié, et un appel à `muse-spark-1.3` avec la clé de `.env` réussit.*
 - [ ] **E0.2 (S)** Chaque membre réclame ses 150 $ de crédits et active l'alerte de dépense (action de l'équipe).
   *Acceptation :* la page Billing affiche les crédits et l'alerte.
 - [ ] **E0.3 (M)** Jeu d'exemples fictifs : relevé net série D (moyenne générale 11,2 ; SVT 15, Maths 12, PCT 12), relevé net série C, relevé flou, note vocale « 14 de moyenne ».
@@ -150,4 +150,6 @@ E1.4 format des preuves ─► E2.4 verify_report ──────────
 
 ## Points de vigilance
 - **J4 et J5 sont chargés.** E3.5 et E4.1 sont les deux stories L les plus risquées ; le checkpoint B protège le J5.
+- **`muse-spark-1.3` raisonne avant de répondre, et ces tokens comptent dans `max_tokens`.** Mesuré le 27 oct : une réponse d'un mot (« ok ») a consommé 228 tokens de raisonnement ; avec `max_tokens=20`, le contenu revient vide (`finish_reason = length`). Prévoir une limite large dans la boucle et les outils, et suivre la dépense réelle (budget de 150 $).
+- Environnement : `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt` (`.venv/` est ignoré par git).
 - `pytest` seul échoue à la collecte (le paquet `src` n'est pas dans le chemin) : utiliser `python -m pytest`.

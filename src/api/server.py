@@ -1,4 +1,4 @@
-"""FastAPI stub for the OrientBot demo (agent loop not wired yet)."""
+"""FastAPI stub for the PathProof demo (agent loop not wired yet)."""
 from pathlib import Path
 
 from fastapi import FastAPI
@@ -8,7 +8,7 @@ from fastapi.staticfiles import StaticFiles
 
 WEB_DIR = Path(__file__).resolve().parents[2] / "web"
 
-app = FastAPI(title="OrientBot Demo API", version="0.1.0")
+app = FastAPI(title="PathProof Demo API", version="0.1.0")
 
 app.add_middleware(
     CORSMiddleware,

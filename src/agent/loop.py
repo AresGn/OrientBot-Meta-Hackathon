@@ -13,7 +13,7 @@ TOOLS = {
     "lookup_filieres": lookup_filieres,
     "build_report": build_report,
 }
-MAX_STEPS = 10
+MAX_STEPS = 12
 
 
 def run(client, model: str, tool_schemas: list[dict], user_input: str) -> str:
