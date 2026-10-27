@@ -24,7 +24,7 @@ A student in Benin often picks a program on vague grounds (the BAC series, famil
 
 ## What is new in this repository
 
-Everything in this repository is written during the hackathon: the agent loop, the tools in `src/tools/`, the Meta API client, the evaluation cases in `evals/`, the demo web page and API stub (`web/`, `src/api/`).
+All the code in this repository is written during the hackathon: the agent loop, the tools in `src/tools/`, the Meta API client, the evaluation cases in `evals/`, the demo web page and API stub (`web/`, `src/api/`). The one exception is the data in `data/`, extracted from the official guide before the event (see **Data** below).
 
 **An earlier prototype** by the same author (OrientBot V1, a fixed WhatsApp workflow, 7 users, now paused) explored this problem. No code from it is reused here. PathProof is built from scratch during the hackathon. Only public official rules (the MESRS weighted-average formula, subject-name normalization) are re-implemented. See [`docs/v1-reuse.md`](docs/v1-reuse.md).
 
