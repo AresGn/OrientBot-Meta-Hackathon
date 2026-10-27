@@ -90,7 +90,7 @@ E1.4 format des preuves ─► E2.4 verify_report ──────────
 - [ ] **E3.5 (L)** [#24](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/24) `lookup_filieres` réécrit : accès strict (ligne `OK`, série dans `Bac_recommandé`, mode d'entrée affiché), classement par mots entiers, lignes exclues renvoyées avec leur statut. *Dép. :* E3.1, E3.2.
   *Acceptation :* « pilote » ne renvoie pas Foresterie Tropicale ; `PUB-064` figure dans les lignes non vérifiées ; une offre Concours porte « les notes du Bac ne suffisent pas » ; l'ancien `tests/test_lookup_filieres.py` et `data/filieres.csv` sont remplacés/supprimés.
 - [ ] ~~**E3.6 (M)** [#25](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/25) `zoom_cell` — **seulement si E0.6 = go**. *Dép. :* E0.6.~~ **Abandonné : E0.6 = NO GO** (`docs/decisions.md`).
-  *Acceptation :* une cellule floue est relue, ou renvoyée `null`.
+  ~~*Acceptation :* une cellule floue est relue, ou renvoyée `null`.~~
 
 > **Checkpoint C (fin J4) :** audit publié ; `lookup_filieres` testé sur les cas `false_friend`, `unverified_trap` et `concours_entry`.
 
@@ -147,9 +147,8 @@ E1.4 format des preuves ─► E2.4 verify_report ──────────
 ---
 
 ## Coupes si le retard s'installe (dans l'ordre)
-1. `zoom_cell` (E3.6), déjà conditionnel.
-2. Post X et prix Viral (E7.3).
-3. Cas d'évaluation réduits à 7, en gardant `voice_contradicts_sheet`, `unverified_trap` et `false_friend`.
+1. Post X et prix Viral (E7.3).
+2. Cas d'évaluation réduits à 7, en gardant `voice_contradicts_sheet`, `unverified_trap` et `false_friend`.
 
 **Ne se coupe pas :** l'audit des 20 lignes (sinon retirer le mot « vérifié »), `verify_report`, le mode dégradé.
 
