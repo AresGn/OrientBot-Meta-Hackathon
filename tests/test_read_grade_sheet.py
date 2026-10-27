@@ -119,6 +119,43 @@ def test_image_is_sent_as_data_url_with_wide_token_limit(image):
     assert call["messages"][0]["content"][1]["image_url"]["url"].startswith("data:image/jpeg;base64,")
 
 
+def test_displayed_average_is_returned(image):
+    result = read(image, [row("MATHEMATIQUES", 12)])
+    assert result["moyenne_affichee"] == 11.2
+    assert result["flags"] == []
+
+
+def test_null_displayed_average_is_kept_null(image):
+    content = json.dumps({"serie": "D", "matieres": [row("MATHEMATIQUES", 12)], "moyenne_affichee": None})
+    result = read_grade_sheet(image, client=FakeClient(content))
+    assert result["moyenne_affichee"] is None
+
+
+def test_out_of_range_displayed_average_is_flagged_not_corrected(image):
+    content = json.dumps({"serie": "D", "matieres": [row("MATHEMATIQUES", 12)], "moyenne_affichee": 112})
+    result = read_grade_sheet(image, client=FakeClient(content))
+    assert result["moyenne_affichee"] == 112
+    assert result["flags"] == ["moyenne_hors_plage"]
+
+
+def test_non_numeric_displayed_average_raises_typed_error(image):
+    content = json.dumps({"serie": "D", "matieres": [row("MATHEMATIQUES", 12)], "moyenne_affichee": "onze"})
+    with pytest.raises(GradeSheetError, match="moyenne_affichee"):
+        read_grade_sheet(image, client=FakeClient(content))
+
+
+def test_truncated_json_with_length_signals_token_limit(image):
+    with pytest.raises(GradeSheetError, match="max_tokens"):
+        read_grade_sheet(image, client=FakeClient('{"serie": "D", "matie', finish_reason="length"))
+
+
+def test_unsupported_image_type_raises_typed_error(tmp_path):
+    path = tmp_path / "sheet.heic"
+    path.write_bytes(b"x")
+    with pytest.raises(GradeSheetError, match="unsupported image type"):
+        read_grade_sheet(str(path), client=FakeClient("{}"))
+
+
 def test_missing_image_raises_typed_error():
     with pytest.raises(GradeSheetError, match="image"):
         read_grade_sheet("nope.jpg", client=FakeClient("{}"))

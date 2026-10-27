@@ -6,7 +6,7 @@
 
 An agent that takes a post-BAC student's grade-sheet photo and a short voice note, chooses its own tools step by step, and produces an orientation report in which every sentence points to its proof: a grade read on the photo, a quote from the transcript, a row of the official guide, or a calculation. It recommends only what it can prove, and it stops to ask the student instead of guessing.
 
-> **Status: early scaffold (build period 27 Oct - 3 Nov 2026).** The agent loop is a skeleton; `read_grade_sheet`, `transcribe_voice` and the tools listed below as "not implemented" do not exist yet. The only tested parts are a small tool-calling check against Muse Spark 1.3 and the data files added on 27 Oct. Nothing in this README describes behavior that does not run.
+> **Status: early scaffold (build period 27 Oct - 3 Nov 2026).** The agent loop is a skeleton; `transcribe_voice` and the tools listed below as "not implemented" do not exist yet. The only tested parts are a small tool-calling check against Muse Spark 1.3 and the data files added on 27 Oct. Nothing in this README describes behavior that does not run.
 
 **Track:** Indie Developer. **Theme:** Build for Your World. Full plan: [`docs/prd.md`](docs/prd.md).
 
@@ -77,7 +77,7 @@ Design intent: the loop is a skeleton and has not been run end to end yet.
 |---|---|---|
 | `transcribe_voice` | Transcribe the voice note (Muse Voice Transcribe) | not implemented |
 | `extract_profile` | Extract series, declared average, interests, target job, constraints, each with its exact quote | not implemented |
-| `read_grade_sheet` | Read grades from the sheet photo (Muse Spark 1.3, vision) | not implemented |
+| `read_grade_sheet` | Read grades from the sheet photo (Muse Spark 1.3, vision) | implemented (manual real-API check only, never in CI) |
 | `zoom_cell` | Isolate and re-read a doubtful cell (SAM 3.1) | dropped: SAM 3.1 did not locate a cell in the day-1 test |
 | `compute_ranking_average` | Ranking average of one offer from the guide's formula | implemented |
 | `lookup_filieres` | Filter accessible offers, then rank them | stub on an older schema, to rewrite on the new data |

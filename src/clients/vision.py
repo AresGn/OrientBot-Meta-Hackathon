@@ -4,7 +4,7 @@ from pathlib import Path
 
 VISION_MODEL = "muse-spark-1.3"
 VISION_MAX_TOKENS = 8000  # docs/decisions.md E0.4: reasoning tokens count, 8000 suffices (finish_reason = stop)
-MEDIA_TYPES = {".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png"}
+MEDIA_TYPES = {".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png"}  # only JPEG is tested (E0.4)
 
 GRADE_SHEET_INSTRUCTION = """Tu lis un relevé de notes du Bac. Recopie uniquement ce qui est imprimé, sans rien calculer.
 Réponds avec un seul objet JSON, sans texte autour, sans bloc de code, exactement de cette forme :
@@ -15,7 +15,9 @@ si une valeur ne se lit pas, mets null et "lisible": false. Ne devine jamais."""
 
 def request_grade_sheet(client, image_path: Path) -> tuple[str, str]:
     """Send the sheet photo to the model; return (raw answer text, finish_reason)."""
-    media_type = MEDIA_TYPES.get(image_path.suffix.lower(), "image/jpeg")
+    media_type = MEDIA_TYPES.get(image_path.suffix.lower())
+    if media_type is None:
+        raise ValueError(f"unsupported image type: {image_path.suffix!r} (use .jpg, .jpeg or .png)")
     encoded = base64.b64encode(image_path.read_bytes()).decode()
     messages = [{
         "role": "user",

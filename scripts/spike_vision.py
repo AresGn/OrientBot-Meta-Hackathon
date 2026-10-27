@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from src.clients.meta_client import get_client  # noqa: E402
+from src.clients.vision import GRADE_SHEET_INSTRUCTION  # noqa: E402
 
 MODEL = "muse-spark-1.3"
 RUNS = 3  # issue #6
