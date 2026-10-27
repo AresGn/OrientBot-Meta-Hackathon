@@ -88,7 +88,7 @@ evals/         cas d'évaluation et résultats bruts ; lancés à la main
 - `main` reste toujours exécutable. Tests locaux verts avant tout push.
 - **À partir du 2 novembre (J7)** : aucun push sur `main` sans `python -m pytest` vert en local, et aucun nouveau déploiement après le gel du 3 novembre au soir (un déploiement automatique cassé la veille de la soumission est le pire scénario).
 - Pas de `--force` sur `main`.
-- **Aucune mention d'agent IA** dans les commits et les PR : pas de ligne `Co-authored-by` d'un assistant (Claude, Cursor, Copilot, Codex...), pas de « Generated with ... », pas de lien de session. L'auteur d'un commit est la personne qui le pousse. Le job `no-ai-attribution` de la CI fait échouer tout commit qui en contient.
+- **Aucune mention d'agent IA** dans les commits et les PR : pas de ligne `Co-authored-by` d'un assistant (Claude, Cursor, Copilot, Codex...), pas de « Generated with ... », pas de lien de session. L'auteur d'un commit est la personne qui le pousse.
 
 ## Définition de « terminé » (une story)
 - [ ] Critère d'acceptation du backlog vérifié, pas seulement « ça marche chez moi »
