@@ -19,7 +19,7 @@ def test_medecine_serie_d_uses_page_8_coefficients():
     assert coefficients_of(result) == {"SVT": 5, "Mathématiques": 4, "Sciences Physiques (PCT/SPCT)": 4}
     assert result["somme_coefficients"] == 13
     assert result["moyenne"] == pytest.approx(171 / 13)
-    assert round(result["moyenne"], 1) == 13.2
+    assert result["moyenne_arrondie"] == 13.15
 
 
 def test_medecine_serie_c_uses_page_8_coefficients():
@@ -87,3 +87,9 @@ def test_grade_flagged_unreadable_is_not_computed_even_with_a_note():
 @pytest.mark.parametrize("sheet", [None, [None], [{"note": 12}]])
 def test_malformed_grades_are_not_computed(sheet):
     assert compute_ranking_average("D", MEDECINE_SUBJECTS, sheet)["status"] == "non calculé"
+
+
+def test_display_rounding_is_two_decimals_half_up():
+    sheet = [{"matiere": "Philosophie", "note": 10.01}, {"matiere": "Français", "note": 10}]
+    result = compute_ranking_average("D", ["Philosophie", "Français"], sheet)
+    assert result["moyenne_arrondie"] == 10.01  # exact value 10.005

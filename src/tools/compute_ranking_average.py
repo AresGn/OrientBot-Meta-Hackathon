@@ -1,9 +1,12 @@
+from decimal import ROUND_HALF_UP, Decimal
+
 from src.domain.coefficients import COEFFICIENTS_PATH, load_coefficients
 from src.domain.subjects import UnknownSubjectError, normalize_subject
 
 MIN_GRADE = 0  # grade scale of the Bac
 MAX_GRADE = 20
 FORMULA = "M = Σ(mi·ci) / Σci"  # Guide d'information 2026-2027, page 8
+DISPLAY_DECIMALS = Decimal("0.01")  # docs/decisions.md: 2 decimals, half up
 COEFFICIENT_SOURCE = COEFFICIENTS_PATH.name
 
 
@@ -27,6 +30,7 @@ def compute_ranking_average(serie: str, offer_subjects: list[str], grades: list[
     return {
         "status": "calculé",
         "moyenne": total_points / total_coefficients,
+        "moyenne_arrondie": _round_for_display(total_points, total_coefficients),
         "formule": FORMULA,
         "somme_coefficients": total_coefficients,
         "details": details,
@@ -76,3 +80,9 @@ def _find_grade(subject: str, grades: list[dict]) -> float:
 
 def _not_computed(reason: str) -> dict:
     return {"status": "non calculé", "reason": reason}
+
+
+def _round_for_display(total_points: float, total_coefficients: int) -> float:
+    # Decimal on the repr of the points avoids float artefacts (13.145 must give 13.15).
+    exact = Decimal(repr(total_points)) / Decimal(total_coefficients)
+    return float(exact.quantize(DISPLAY_DECIMALS, rounding=ROUND_HALF_UP))
