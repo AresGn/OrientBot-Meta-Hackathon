@@ -30,7 +30,7 @@ def compute_ranking_average(serie: str, offer_subjects: list[str], grades: list[
     return {
         "status": "calculé",
         "moyenne": total_points / total_coefficients,
-        "moyenne_arrondie": _round_for_display(total_points, total_coefficients),
+        "moyenne_arrondie": _round_for_display(details),
         "formule": FORMULA,
         "somme_coefficients": total_coefficients,
         "details": details,
@@ -82,7 +82,8 @@ def _not_computed(reason: str) -> dict:
     return {"status": "non calculé", "reason": reason}
 
 
-def _round_for_display(total_points: float, total_coefficients: int) -> float:
-    # Decimal on the repr of the points avoids float artefacts (13.145 must give 13.15).
-    exact = Decimal(repr(total_points)) / Decimal(total_coefficients)
+def _round_for_display(details: list[dict]) -> float:
+    # Decimal built from each grade's text avoids float artefacts (10.005 must give 10.01).
+    points = sum(Decimal(repr(d["note"])) * d["coefficient"] for d in details)
+    exact = points / sum(d["coefficient"] for d in details)
     return float(exact.quantize(DISPLAY_DECIMALS, rounding=ROUND_HALF_UP))
