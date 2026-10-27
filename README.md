@@ -79,7 +79,7 @@ Design intent: the loop is a skeleton and has not been run end to end yet.
 | `extract_profile` | Extract series, declared average, interests, target job, constraints, each with its exact quote | not implemented |
 | `read_grade_sheet` | Read grades from the sheet photo (Muse Spark 1.3, vision) | not implemented |
 | `zoom_cell` | Isolate and re-read a doubtful cell (SAM 3.1) | dropped: SAM 3.1 did not locate a cell in the day-1 test |
-| `compute_ranking_average` | Ranking average of one offer from the guide's formula | not implemented (data ready) |
+| `compute_ranking_average` | Ranking average of one offer from the guide's formula | implemented |
 | `lookup_filieres` | Filter accessible offers, then rank them | stub on an older schema, to rewrite on the new data |
 | `ask_student` | Ask a question and pause the loop | not implemented |
 | `verify_report` | Check every proof of the draft | not implemented |
