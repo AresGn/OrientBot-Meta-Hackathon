@@ -7,11 +7,11 @@ SUBJECT_ALIASES: dict[str, tuple[str, ...]] = {
     "Mathématiques": ("mathematiques", "mathematique", "maths", "math"),
     "Sciences Physiques (PCT/SPCT)": (
         "sciences physiques", "science physique", "pct", "spct", "pct spct", "physique chimie",
-        "physique chimie technologie", "sciences physiques pct", "sciences physiques spct",
+        "physique chimie technologie", "physique chimie et technologie", "sciences physiques pct", "sciences physiques spct",
     ),
     "Français": ("francais", "fr"),
-    "Anglais": ("anglais", "anglais lv1", "lv1 anglais", "langue vivante 1 anglais", "langue vivante 1"),
-    "SVT": ("svt", "sciences de la vie et de la terre", "sciences naturelles"),
+    "Anglais": ("anglais", "anglais lv1", "lv1 anglais", "langue vivante 1 anglais"),
+    "SVT": ("svt", "sciences de la vie et de la terre"),
     "Histoire-Géographie": ("histoire geographie", "hist geo", "histgeo", "hg", "histoire geo"),
     "Philosophie": ("philosophie", "philo"),
 }

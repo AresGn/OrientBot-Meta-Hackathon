@@ -45,6 +45,8 @@ Limite de pas : 12 (`MAX_STEPS`, encore à 10 dans `src/agent/loop.py`, à align
 | `verify_report` | Contrôler chaque preuve du brouillon | code | non implémenté |
 | `build_report` | Mettre en forme le rapport validé | code | squelette |
 
+Briques du domaine (code pur, sans réseau) : `src/domain/coefficients.py` (`load_coefficients(serie)` : séries C et D, groupe 1, sans EPS) et `src/domain/subjects.py` (`normalize_subject(raw)` : `UnknownSubjectError` si la matière est inconnue).
+
 ## Preuves et vérificateur
 
 Le rapport est d'abord un JSON où chaque affirmation porte une preuve de type `grade`, `transcript`, `filiere` ou `calc`, avec sa référence :
@@ -65,7 +67,6 @@ Le rapport est d'abord un JSON où chaque affirmation porte une preuve de type `
 | `data/controle_qualite_2026_2027.csv` | 39 anomalies ; section « Ce que je n'ai pas pu vérifier » |
 | `data/pages_offres.csv` | offre → page du PDF officiel (brouillon : 19 à vérifier, 2 introuvables) |
 | `data/coefficients_bac_benin.json` | coefficients du Bac par série (groupe 1) ; entrée de `compute_ranking_average` |
-| `src/domain/coefficients.py`, `src/domain/subjects.py` | `load_coefficients(serie)` (séries C et D, groupe 1, sans EPS) et `normalize_subject(raw)` (`UnknownSubjectError` si inconnue) |
 | `data/filieres.csv` | ancien gabarit vide, remplacé par les fichiers ci-dessus ; à supprimer avec la réécriture de `lookup_filieres` |
 
 Le PDF du guide n'est pas versionné (`data/source/`, ignoré par git).

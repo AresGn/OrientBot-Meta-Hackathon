@@ -44,3 +44,22 @@ def test_unknown_subject_raises_explicit_error(raw):
 def test_non_string_subject_raises_explicit_error():
     with pytest.raises(UnknownSubjectError):
         normalize_subject(None)
+
+
+SHEET_LABELS = [
+    "ANGLAIS", "FRANCAIS", "HISTOIRE & GEOGRAPHIE", "MATHEMATIQUES", "PHILOSOPHIE",
+    "PHYSIQUE, CHIMIE ET TECHNOLOGIE", "SCIENCES DE LA VIE ET DE LA TERRE",
+]  # labels printed on data/samples/releve_serie_c.jpg and releve_serie_d.jpg
+
+
+@pytest.mark.parametrize("serie", ["C", "D"])
+def test_printed_sheet_labels_resolve_to_ranking_subjects(serie):
+    from src.domain.coefficients import load_coefficients
+
+    assert {normalize_subject(label) for label in SHEET_LABELS} == set(load_coefficients(serie))
+
+
+@pytest.mark.parametrize("raw", ["Langue vivante 1", "Sciences naturelles"])
+def test_ambiguous_names_are_not_guessed(raw):
+    with pytest.raises(UnknownSubjectError):
+        normalize_subject(raw)
