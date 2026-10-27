@@ -2,7 +2,7 @@
 
 Vérifie que le modèle choisit le bon outil, reçoit son résultat en message `tool`, puis l'utilise dans sa réponse finale. Complète `docs/muse-spark-tool-call-results.md` (premier appel seulement). Les valeurs renvoyées sont fictives et impossibles à deviner.
 
-- **Date d'exécution :** 2026-10-27 18:53 UTC
+- **Date d'exécution :** 2026-10-27 19:31 UTC
 - **Modèle :** `muse-spark-1.3` — `max_tokens` = 4000
 - **Outils exposés :** `get_filiere_cutoff` (renvoie 13.87), `get_bursary_amount` (renvoie 417)
 
@@ -17,7 +17,7 @@ Vérifie que le modèle choisit le bon outil, reçoit son résultat en message `
 
 ## Coût
 
-Tokens consommés au total : 10466 en entrée, 3780 en sortie (8 conversations). Le tarif en crédits n'est pas relevé par ce script : le coût en crédits n'est donc pas chiffré ici.
+Tokens consommés au total : 10465 en entrée, 3777 en sortie (8 conversations). Le tarif en crédits n'est pas relevé par ce script : le coût en crédits n'est donc pas chiffré ici.
 
 ## Limites de ce test
 
@@ -31,14 +31,14 @@ Tokens consommés au total : 10466 en entrée, 3780 en sortie (8 conversations).
 
 - Question : Quel est le seuil de moyenne de classement pour la filière Médecine ?
 - Outils appelés : ['get_filiere_cutoff']
-- Tokens : 1391 en entrée, 516 en sortie
+- Tokens : 1394 en entrée, 638 en sortie
 - Résultat : ✅
 
 ```json
 [
   {
     "finish_reason": "tool_calls",
-    "content": "Je recherche le seuil pour la filière Médecine.",
+    "content": "Je récupère le seuil de classement pour la filière Médecine.",
     "tool_calls": [
       {
         "name": "get_filiere_cutoff",
@@ -58,14 +58,14 @@ Tokens consommés au total : 10466 en entrée, 3780 en sortie (8 conversations).
 
 - Question : Quel est le seuil de moyenne de classement pour la filière Médecine ?
 - Outils appelés : ['get_filiere_cutoff']
-- Tokens : 1391 en entrée, 448 en sortie
+- Tokens : 1389 en entrée, 355 en sortie
 - Résultat : ✅
 
 ```json
 [
   {
     "finish_reason": "tool_calls",
-    "content": "Je recherche le seuil pour la filière Médecine.",
+    "content": "Je recherche le seuil pour la Médecine.",
     "tool_calls": [
       {
         "name": "get_filiere_cutoff",
@@ -75,7 +75,7 @@ Tokens consommés au total : 10466 en entrée, 3780 en sortie (8 conversations).
   },
   {
     "finish_reason": "stop",
-    "content": "Le seuil de moyenne de classement pour la filière **Médecine** est de **13.87**.\n",
+    "content": "Le seuil de moyenne de classement pour la filière **Médecine** est de **13.87**.",
     "tool_calls": []
   }
 ]
@@ -85,14 +85,14 @@ Tokens consommés au total : 10466 en entrée, 3780 en sortie (8 conversations).
 
 - Question : Quel est le seuil de moyenne de classement pour la filière Médecine ?
 - Outils appelés : ['get_filiere_cutoff']
-- Tokens : 1394 en entrée, 512 en sortie
+- Tokens : 1388 en entrée, 407 en sortie
 - Résultat : ✅
 
 ```json
 [
   {
     "finish_reason": "tool_calls",
-    "content": "Je récupère le seuil de moyenne pour la filière Médecine.",
+    "content": "Je recherche le seuil pour Médecine.",
     "tool_calls": [
       {
         "name": "get_filiere_cutoff",
@@ -112,14 +112,14 @@ Tokens consommés au total : 10466 en entrée, 3780 en sortie (8 conversations).
 
 - Question : Quel est le seuil de moyenne de classement pour la filière Médecine ?
 - Outils appelés : ['get_filiere_cutoff']
-- Tokens : 1391 en entrée, 482 en sortie
+- Tokens : 1392 en entrée, 455 en sortie
 - Résultat : ✅
 
 ```json
 [
   {
     "finish_reason": "tool_calls",
-    "content": "Je recherche le seuil de la filière Médecine.",
+    "content": "Je récupère le seuil pour la filière Médecine.",
     "tool_calls": [
       {
         "name": "get_filiere_cutoff",
@@ -139,7 +139,7 @@ Tokens consommés au total : 10466 en entrée, 3780 en sortie (8 conversations).
 
 - Question : Quel est le seuil de moyenne de classement pour la filière Médecine ?
 - Outils appelés : ['get_filiere_cutoff']
-- Tokens : 1392 en entrée, 438 en sortie
+- Tokens : 1392 en entrée, 383 en sortie
 - Résultat : ✅
 
 ```json
@@ -166,14 +166,14 @@ Tokens consommés au total : 10466 en entrée, 3780 en sortie (8 conversations).
 
 - Question : Quel est le montant mensuel de la bourse pour la série D ?
 - Outils appelés : ['get_bursary_amount']
-- Tokens : 1372 en entrée, 493 en sortie
+- Tokens : 1373 en entrée, 658 en sortie
 - Résultat : ✅
 
 ```json
 [
   {
     "finish_reason": "tool_calls",
-    "content": "Je recherche le montant pour la série D.",
+    "content": "Je vérifie le montant pour la série D.",
     "tool_calls": [
       {
         "name": "get_bursary_amount",
@@ -193,14 +193,14 @@ Tokens consommés au total : 10466 en entrée, 3780 en sortie (8 conversations).
 
 - Question : Combien font 7 fois 8 ?
 - Outils appelés : aucun
-- Tokens : 622 en entrée, 301 en sortie
+- Tokens : 622 en entrée, 326 en sortie
 - Résultat : ✅
 
 ```json
 [
   {
     "finish_reason": "stop",
-    "content": "7 fois 8 font **56**.",
+    "content": "7 fois 8 font **56**.\n",
     "tool_calls": []
   }
 ]
@@ -210,14 +210,14 @@ Tokens consommés au total : 10466 en entrée, 3780 en sortie (8 conversations).
 
 - Question : Donne-moi le seuil de moyenne de classement de Médecine ET le montant mensuel de la bourse pour la série D.
 - Outils appelés : ['get_filiere_cutoff', 'get_bursary_amount']
-- Tokens : 1513 en entrée, 590 en sortie
+- Tokens : 1515 en entrée, 555 en sortie
 - Résultat : ✅
 
 ```json
 [
   {
     "finish_reason": "tool_calls",
-    "content": "Je récupère le seuil Médecine et la bourse série D.",
+    "content": "Je récupère pour vous le seuil Médecine et la bourse série D.",
     "tool_calls": [
       {
         "name": "get_filiere_cutoff",
@@ -231,7 +231,7 @@ Tokens consommés au total : 10466 en entrée, 3780 en sortie (8 conversations).
   },
   {
     "finish_reason": "stop",
-    "content": "- **Seuil de moyenne de classement de Médecine :** **13.87**\n- **Montant mensuel de la bourse pour la série D :** **417 FCFA**",
+    "content": "Voici les informations demandées :\n\n* **Seuil de moyenne de classement de Médecine :** **13.87**\n* **Montant mensuel de la bourse pour la série D :** **417 FCFA**",
     "tool_calls": []
   }
 ]

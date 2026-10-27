@@ -6,19 +6,20 @@ Usage: python scripts/test_muse_roundtrip.py
 from __future__ import annotations
 
 import json
-import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-from dotenv import load_dotenv
 from openai import OpenAI
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))  # run as a script: make `src` importable
+
+from src.clients.meta_client import get_client  # noqa: E402
 OUT_PATH = ROOT / "docs" / "muse-spark-roundtrip-results.md"
 MODEL = "muse-spark-1.3"
 MAX_TOKENS = 4000  # reasoning tokens count against the limit (AGENTS.md, section Modèle et API)
-MAX_STEPS = 5
+MAX_STEPS = 5  # spike only: bounds the loop; the agent loop limit is docs/prd.md FR-1
 ROUNDTRIP_RUNS = 5  # docs/backlog.md E0.7
 
 # Fictional values, deliberately odd so the model cannot guess them.
@@ -232,14 +233,7 @@ def render_report(results: dict) -> str:
 
 
 def main() -> int:
-    load_dotenv(ROOT / ".env")
-    if not os.environ.get("MUSE_API_KEY"):
-        raise SystemExit("MUSE_API_KEY is not set (see .env)")
-    client = OpenAI(
-        api_key=os.environ["MUSE_API_KEY"],
-        base_url=os.environ.get("MUSE_BASE_URL", "https://api.meta.ai/v1"),
-    )
-    results = evaluate(client)
+    results = evaluate(get_client())
     OUT_PATH.write_text(render_report(results), encoding="utf-8")
     passed = sum(1 for t in results["roundtrip"] if t["ok"])
     print(f"Round trip: {passed}/{ROUNDTRIP_RUNS}; report: {OUT_PATH}")

@@ -13,14 +13,12 @@ flowchart TD
         AGENT -->|audio| T1[transcribe_voice]
         T1 --> T2[extract_profile]
         AGENT -->|image| T3[read_grade_sheet]
-        T3 -.->|doubtful cell| T4[zoom_cell<br/>SAM 3.1, if test passes]
         AGENT -->|grades and profile known| T5[compute_ranking_average<br/>deterministic]
         T5 --> T6[lookup_filieres<br/>deterministic]
         AGENT -->|unreadable, missing, contradiction| ASK[ask_student<br/>pauses the loop]
         ASK --> AGENT
         T2 --> AGENT
         T3 --> AGENT
-        T4 --> AGENT
         T6 --> AGENT
     end
 
@@ -40,7 +38,7 @@ Limite de pas : 12 (`MAX_STEPS`, encore à 10 dans `src/agent/loop.py`, à align
 | `transcribe_voice` | Transcrire la note vocale | Muse Voice Transcribe | non implémenté |
 | `extract_profile` | Série, moyenne déclarée, intérêts, métier, contraintes, avec citation exacte | Muse Spark 1.3 (JSON strict) | non implémenté |
 | `read_grade_sheet` | Lire le relevé en `[{matiere, note, lisible}]` | Muse Spark 1.3 (vision) | non implémenté |
-| `zoom_cell` | Isoler une cellule douteuse et la relire | SAM 3.1 + Muse Spark 1.3 | conditionnel au test du J1 |
+| `zoom_cell` | Isoler une cellule douteuse et la relire | SAM 3.1 + Muse Spark 1.3 | **abandonné** : NO GO au spike E0.6 (`docs/decisions.md`) ; l'agent demande une nouvelle photo |
 | `compute_ranking_average` | Moyenne de classement d'une offre (formule page 8) | code | non implémenté (données prêtes) |
 | `lookup_filieres` | Filtrer les offres accessibles puis les classer | code | stub sur l'ancien schéma `filieres.csv`, à réécrire |
 | `ask_student` | Poser une question, suspendre la boucle | interface | non implémenté |
@@ -82,7 +80,7 @@ Le PDF du guide n'est pas versionné (`data/source/`, ignoré par git).
 
 ## Points à confirmer
 
-- **Appel d'outils (function calling) de Muse Spark 1.3 : observé, non documenté.** `scripts/test_muse_tool_call.py` (rapport : `docs/muse-spark-tool-call-results.md`) montre 5 réussites sur 5 avec un seul outil `lookup_filieres` et une seule question. Ni le choix entre plusieurs outils, ni les appels enchaînés, ni la vision ne sont testés. Résultats rapportés, non rejoués par nous.
+- **Appel d'outils (function calling) de Muse Spark 1.3 : observé, non documenté.** `scripts/test_muse_tool_call.py` (rapport : `docs/muse-spark-tool-call-results.md`) montre 5 réussites sur 5 avec un seul outil `lookup_filieres` et une seule question. Le choix entre deux outils et le renvoi du résultat sont testés dans `docs/muse-spark-roundtrip-results.md` (5 sur 5) ; les appels enchaînés ne sont pas observés : le modèle demande les deux outils en parallèle dans un même tour, donc la boucle (E4.1) doit renvoyer un message `tool` par appel. La vision est testée dans le spike E0.4 (`docs/decisions.md`). Résultats rapportés, non rejoués par nous.
 - **Muse Voice Transcribe** : relevé dans la doc officielle et testé en français (spike E0.5, voir `docs/decisions.md`). `muse-voice-transcribe-1.0`, `POST https://api.meta.ai/v1/asr/transcribe` en `multipart/form-data` (parties `request` JSON et `audio`), WAV mono PCM 16 bits à 16 ou 24 kHz uniquement, 10 min et 32 Mo au plus, aucun score de confiance.
 - **Format d'envoi des images** : data URL base64 `image/jpeg` dans un message `image_url`, observé avec `muse-spark-1.3` (spike E0.4, `docs/spikes/vision/`). Taille maximale acceptée non trouvée dans la doc et non testée.
-- **SAM 3.1** : localise-t-il une cellule de tableau avec un prompt texte ? Décision go / no go sur `zoom_cell` au J1.
+- **SAM 3.1** : testé (spike E0.6, `docs/spikes/sam/`). `sam-3.1` via `POST https://api.meta.ai/v1/responses` trouve le tableau (prompt « table »), jamais la cellule visée (0 sur 3, net et flou). NO GO : pas de `zoom_cell`.

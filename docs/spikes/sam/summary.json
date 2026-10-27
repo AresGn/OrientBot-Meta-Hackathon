@@ -1,0 +1,220 @@
+{
+  "model": "sam-3.1",
+  "cell_prompt": "SVT grade",
+  "control_prompt": "table",
+  "tolerance_pixels": 4,
+  "cases": {
+    "net": {
+      "image": "releve_serie_d.jpg",
+      "target_cell": [
+        590,
+        872,
+        730,
+        918
+      ],
+      "runs": [
+        {
+          "run": 1,
+          "prompt": "SVT grade",
+          "boxes": [],
+          "contains_target": false
+        },
+        {
+          "run": 1,
+          "prompt": "table",
+          "boxes": [
+            {
+              "box": [
+                91,
+                550,
+                1148,
+                964
+              ],
+              "c": 0.6995305418968201
+            },
+            {
+              "box": [
+                92,
+                1013,
+                1149,
+                1152
+              ],
+              "c": 0.6717948913574219
+            }
+          ],
+          "contains_target": true
+        },
+        {
+          "run": 2,
+          "prompt": "SVT grade",
+          "boxes": [],
+          "contains_target": false
+        },
+        {
+          "run": 2,
+          "prompt": "table",
+          "boxes": [
+            {
+              "box": [
+                91,
+                550,
+                1148,
+                964
+              ],
+              "c": 0.6995305418968201
+            },
+            {
+              "box": [
+                92,
+                1013,
+                1149,
+                1152
+              ],
+              "c": 0.6717948913574219
+            }
+          ],
+          "contains_target": true
+        },
+        {
+          "run": 3,
+          "prompt": "SVT grade",
+          "boxes": [],
+          "contains_target": false
+        },
+        {
+          "run": 3,
+          "prompt": "table",
+          "boxes": [
+            {
+              "box": [
+                91,
+                550,
+                1148,
+                964
+              ],
+              "c": 0.6995305418968201
+            },
+            {
+              "box": [
+                92,
+                1013,
+                1149,
+                1152
+              ],
+              "c": 0.6717948913574219
+            }
+          ],
+          "contains_target": true
+        }
+      ],
+      "cell_hits": 0,
+      "is_go": false
+    },
+    "flou": {
+      "image": "releve_serie_d_flou.jpg",
+      "target_cell": [
+        589,
+        871,
+        730,
+        921
+      ],
+      "runs": [
+        {
+          "run": 1,
+          "prompt": "SVT grade",
+          "boxes": [],
+          "contains_target": false
+        },
+        {
+          "run": 1,
+          "prompt": "table",
+          "boxes": [
+            {
+              "box": [
+                90,
+                537,
+                1157,
+                975
+              ],
+              "c": 0.7500000596046448
+            },
+            {
+              "box": [
+                83,
+                1001,
+                1145,
+                1165
+              ],
+              "c": 0.7299578189849854
+            }
+          ],
+          "contains_target": true
+        },
+        {
+          "run": 2,
+          "prompt": "SVT grade",
+          "boxes": [],
+          "contains_target": false
+        },
+        {
+          "run": 2,
+          "prompt": "table",
+          "boxes": [
+            {
+              "box": [
+                90,
+                537,
+                1157,
+                975
+              ],
+              "c": 0.7500000596046448
+            },
+            {
+              "box": [
+                83,
+                1001,
+                1145,
+                1165
+              ],
+              "c": 0.7299578189849854
+            }
+          ],
+          "contains_target": true
+        },
+        {
+          "run": 3,
+          "prompt": "SVT grade",
+          "boxes": [],
+          "contains_target": false
+        },
+        {
+          "run": 3,
+          "prompt": "table",
+          "boxes": [
+            {
+              "box": [
+                90,
+                537,
+                1157,
+                975
+              ],
+              "c": 0.7500000596046448
+            },
+            {
+              "box": [
+                83,
+                1001,
+                1145,
+                1165
+              ],
+              "c": 0.7299578189849854
+            }
+          ],
+          "contains_target": true
+        }
+      ],
+      "cell_hits": 0,
+      "is_go": false
+    }
+  }
+}
