@@ -94,7 +94,7 @@ Design intent: the loop is a skeleton and has not been run end to end yet.
 | Voice note transcription | Muse Voice Transcribe | Speech to text |
 | Doubtful cell zoom | SAM 3.1 | Dropped: tested, finds the table but not a single cell (0/3) |
 
-Tool calling in Muse Spark 1.3 was observed working in a small test (1 tool, 5/5 runs, see [`docs/muse-spark-tool-call-results.md`](docs/muse-spark-tool-call-results.md)); choosing between several tools is not tested yet. Vision and voice were tested on day 1 (see [`docs/decisions.md`](docs/decisions.md)). SAM 3.1 was tested on day 1: it finds the table but never the single cell asked for (0/3 on the sharp and the blurry sheet), so `zoom_cell` is dropped and the agent asks for a new photo instead. There is no text-to-speech.
+Tool calling in Muse Spark 1.3 was observed working in a small test (1 tool, 5/5 runs, see [`docs/muse-spark-tool-call-results.md`](docs/muse-spark-tool-call-results.md)); a second test with 2 tools and the tool result sent back gave 5/5 correct final answers, one turn at a time, with chained calls not observed (see [`docs/muse-spark-roundtrip-results.md`](docs/muse-spark-roundtrip-results.md)). Vision and voice were tested on day 1 (see [`docs/decisions.md`](docs/decisions.md)). SAM 3.1 was tested on day 1: it finds the table but never the single cell asked for (0/3 on the sharp and the blurry sheet), so `zoom_cell` is dropped and the agent asks for a new photo instead. There is no text-to-speech.
 
 ## Quick start
 
@@ -115,7 +115,7 @@ Ten cases are planned in `evals/cases.jsonl`, four of them adversarial (unverifi
 ## Limitations
 
 - The agent is not functional end to end yet.
-- Tool calling was only checked on one tool and one question (5/5 runs); choosing between several tools is untested. SAM 3.1 cannot locate a single table cell from a text prompt (day-1 test), so there is no cell zoom.
+- Tool calling was checked on one tool (5/5 runs) and on 2 tools with the result returned (5/5 runs, one question per tool); chained calls were not observed and the test is small. SAM 3.1 cannot locate a single table cell from a text prompt (day-1 test), so there is no cell zoom.
 - Target scope: public offers for series C and D of the 2026-2027 guide whose row passed the quality check (206 of 224 rows are `OK`; the others are listed under "what I could not verify"). The guide gives no city, no admission threshold and no cost, so the agent never states them and never speaks of admission chances.
 - OCR extraction errors may remain in `OK` rows; a hand audit of 20 rows against the PDF is planned (`docs/data-audit.md`, not written yet).
 - Only fictional sample data; no real-student testing.
