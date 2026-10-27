@@ -276,6 +276,9 @@ Toute idée hors périmètre va dans `docs/decisions.md` et n'est pas implément
 - **Secrets :** `MUSE_API_KEY` dans `.env`, côté serveur uniquement, jamais versionnée.
 - **Coût :** les tests et la démo publique restent sous les 150 $ de crédits. Limite d'usage sur la démo publique ; alerte de dépense activée dans Billing.
 - **Accessibilité du dépôt :** dépôt public, README lisible sans connexion, aucun lien vers un dépôt privé.
+- **Tests et CI minimale :** un seul workflow GitHub Actions (`.github/workflows/tests.yml`) lance `python -m pytest` à chaque push ; badge dans le README. Il ne teste que du code déterministe (`compute_ranking_average` avec les deux exemples de la page 8, découpage des matières, `lookup_filieres`, `verify_report`), sans clé ni appel à l'API. Les 10 évaluations ne tournent **jamais** en CI : elles consomment les crédits, elles se lancent à la main et leurs résultats sont commités dans `evals/results/`.
+- **Déploiement :** celui de l'hébergeur choisi, déclenché par un push sur `main`. À partir du J7, aucun push sur `main` sans tests locaux verts ; aucun déploiement après le gel du 3 novembre au soir. Pas de staging, pas de Docker.
+- **Règles de code :** `AGENTS.md` à la racine (nommage, structure, tests, git).
 
 ---
 
@@ -304,7 +307,7 @@ Toute idée hors périmètre va dans `docs/decisions.md` et n'est pas implément
 | Jour | Date | Livrable |
 |---|---|---|
 | J1 | Mar 27 oct | PRD final ; dépôt renommé PathProof ; crédits réclamés. Tests : vision sur un relevé fictif, Muse Voice Transcribe en français, SAM 3.1 avec un prompt texte. Décision « go / no go » sur `zoom_cell`. |
-| J2 | Mer 28 oct | `read_grade_sheet` et `compute_ranking_average` (table de coefficients prête, testée contre les deux exemples de la page 8). Session « Agents 102 : Verifiable Agents » à 12 h ET, soit 17 h à Porto-Novo. |
+| J2 | Mer 28 oct | `read_grade_sheet` et `compute_ranking_average` (table de coefficients prête, testée contre les deux exemples de la page 8). Session « Agents 102 : Verifiable Agents » à 12 h ET, soit 17 h à Porto-Novo. CI minimale (workflow + badge, environ 30 minutes). |
 | J3 | Jeu 29 oct | `transcribe_voice`, `extract_profile`, `ask_student`. Format JSON des preuves figé. |
 | J4 | Ven 30 oct | Données : `page_pdf`, découpage de `Matières`, audit de 20 lignes. `lookup_filieres`. `zoom_cell` si le test est concluant. |
 | J5 | Sam 31 oct | Boucle complète en ligne de commande, `verify_report`, `build_report`. |

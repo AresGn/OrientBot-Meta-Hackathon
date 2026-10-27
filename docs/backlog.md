@@ -4,7 +4,7 @@ Découpage de `docs/prd.md` (version du 27 oct) en epics et stories. Le calendri
 
 **Tailles :** S ≤ 2 h, M ≈ demi-journée, L ≈ journée. **Jours :** J1 = mar 27 oct, J2 = mer 28, J3 = jeu 29, J4 = ven 30, J5 = sam 31, J6 = dim 1er nov, J7 = lun 2, J8 = mar 3 (gel au soir), J9 = mer 4 (marge ; limite 21 h ET = 03 h à Porto-Novo).
 
-**Règles :** hors périmètre = pas de RIASEC, TTS, WhatsApp, calcul de bourse (voir PRD section 8) ; toute idée nouvelle va dans `docs/decisions.md`. Aucun chiffre d'impact sans source officielle.
+**Règles de code :** voir `AGENTS.md` (nommage, structure, tests, définition de « terminé »). **Règles :** hors périmètre = pas de RIASEC, TTS, WhatsApp, calcul de bourse (voir PRD section 8) ; toute idée nouvelle va dans `docs/decisions.md`. Aucun chiffre d'impact sans source officielle.
 
 ## Graphe de dépendances
 
@@ -55,7 +55,10 @@ E1.4 format des preuves ─► E2.4 verify_report ──────────
 - [ ] **E1.4 (S)** Format des preuves figé (`grade`, `transcript`, `filiere`, `calc`), documenté dans `docs/architecture.md`.
   *Acceptation :* schéma versionné ; 4 exemples valides et 4 invalides en tests.
 
-> **Checkpoint A (fin J2) :** `python -m pytest` vert, dont les deux exemples de la page 8 ; `read_grade_sheet` fonctionne sur 2 relevés ; décision `zoom_cell` prise.
+- [ ] **E1.5 (S)** CI minimale : workflow GitHub Actions `.github/workflows/tests.yml` + badge dans le README. *Dép. :* E1.2 (pour qu'un test significatif tourne).
+  *Acceptation :* le workflow est vert sur `main` ; le badge du README s'affiche ; le workflow n'utilise aucun secret et n'appelle pas l'API (les 10 évaluations ne tournent jamais en CI).
+
+> **Checkpoint A (fin J2) :** `python -m pytest` vert, dont les deux exemples de la page 8, **et le workflow vert sur GitHub** ; `read_grade_sheet` fonctionne sur 2 relevés ; décision `zoom_cell` prise.
 
 ## E2 — Voix, profil, questions, vérificateur (J3, jeu 29 oct)
 
@@ -111,7 +114,7 @@ E1.4 format des preuves ─► E2.4 verify_report ──────────
 - [ ] **E5.3 (M)** Mode dégradé : la dernière exécution réussie est rejouée avec la mention « exécution enregistrée » (FR-11). *Dép. :* E5.1.
   *Acceptation :* réseau coupé, la page affiche l'enregistrement et la mention.
 - [ ] **E5.4 (M)** Déploiement public, limite d'usage, clé côté serveur. *Dép. :* E5.2.
-  *Acceptation :* URL publique ; la clé n'apparaît dans aucun fichier servi (`curl` puis `grep`) ; le quota par IP est testé.
+  *Acceptation :* URL publique, redéployée par l'hébergeur à chaque push sur `main` ; la clé n'apparaît dans aucun fichier servi (`curl` puis `grep`) ; le quota par IP est testé. À partir du J7, aucun push sur `main` sans tests locaux verts.
 
 ## E6 — Évaluation (J7, lun 2 nov)
 

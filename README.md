@@ -1,5 +1,7 @@
 # PathProof (Meta Global AI Developer Hackathon)
 
+[![tests](https://github.com/AresGn/PathProof-Meta-Hackathon/actions/workflows/tests.yml/badge.svg)](https://github.com/AresGn/PathProof-Meta-Hackathon/actions/workflows/tests.yml)
+
 > **Every study path comes with its proof.**
 
 An agent that takes a post-BAC student's grade-sheet photo and a short voice note, chooses its own tools step by step, and produces an orientation report in which every sentence points to its proof: a grade read on the photo, a quote from the transcript, a row of the official guide, or a calculation. It recommends only what it can prove, and it stops to ask the student instead of guessing.
