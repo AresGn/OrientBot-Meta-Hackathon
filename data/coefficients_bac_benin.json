@@ -265,7 +265,6 @@
       { "filiere": "Médecine Générale", "serie": "C", "formule": "(SVT×2 + Mathématiques×6 + Sciences Physiques×5) / 13" },
       { "filiere": "Génie Civil (EPAC)", "serie": "D", "formule": "(Mathématiques×4 + Sciences Physiques×4 + Anglais×2) / 10, note: matière additionnelle variable selon série" },
       { "filiere": "Droit (FADESP)", "serie": "toutes séries A1,A2,B,C,D,G1,G2,G3", "formule": "matières et coefficients variables selon la série d'origine du candidat (Français, Philosophie/Étude de cas, Histoire-Géo/Anglais)" }
-    ],
-    "recommandation": "Pour implémenter ce calcul dans votre chatbot, il faut coupler ce fichier (coefficients par série) avec une seconde table 'filière → matières retenues' extraite du Guide d'Orientation Universitaire MESRS (édition 2024-2025), disponible ici : https://enseignementsuperieur.gouv.bj/uploads/universite_directory/85b712cd25f07f6b8487f34bbd4a8659.pdf"
+    ]
   }
 }
