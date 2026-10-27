@@ -39,8 +39,8 @@ E1.4 format des preuves ─► E2.4 verify_report ──────────
   *Acceptation :* les 3 JSON sont identiques (`diff`) ; résultat noté dans `docs/decisions.md`. *Dép. :* E0.3.
 - [x] **E0.5 (S)** [#7](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/7) Spike voix : identifiant du modèle et format audio relevés dans la documentation officielle ; transcription française de la note vocale.
   *Acceptation :* URL de la doc citée ; texte transcrit ; présence ou non d'un score de confiance notée. *Dép. :* E0.3.
-- [ ] **E0.6 (S)** [#8](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/8) Spike SAM 3.1 : localiser une cellule de tableau avec un prompt texte.
-  *Acceptation :* décision **go / no go** pour `zoom_cell` écrite dans `docs/decisions.md`. *Dép. :* E0.3.
+- [x] **E0.6 (S)** [#8](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/8) Spike SAM 3.1 : localiser une cellule de tableau avec un prompt texte.
+  *Acceptation :* décision **go / no go** pour `zoom_cell` écrite dans `docs/decisions.md`. *Dép. :* E0.3. *Résultat :* **NO GO** (0 essai sur 3, net et flou).
 - [ ] **E0.7 (M)** [#9](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/9) Spike aller-retour : deux outils, le modèle choisit, le résultat lui est renvoyé, sa réponse finale l'utilise (extension de `scripts/test_muse_tool_call.py`).
   *Acceptation :* 5 exécutions sur 5 dont la réponse finale contient la valeur renvoyée par l'outil ; rapport commité dans `docs/`.
 - [ ] **E0.8 (S)** [#46](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/46) Expérience image : tester la génération d'image de Meta sur un rapport pour les parents. *Expérience hors chemin critique, à couper en premier si le retard s'installe.* Script jetable qui envoie à l'API de génération d'image (doc officielle `dev.meta.ai/docs/image-generation`) le contenu du relevé D (moyenne 11,2 ; moyenne de classement Médecine 13,15 ; 3 filières ; bourses) et demande une carte récapitulative pour les parents, 3 exécutions. Contrôle manuel de chaque image : chiffres, noms de filières, accents, orthographe. Comparaison avec un rendu par code (HTML vers PNG) à partir des mêmes données.
@@ -89,7 +89,7 @@ E1.4 format des preuves ─► E2.4 verify_report ──────────
   *Acceptation :* règle « le nom commence par Faculté » appliquée, puis relue à la main.
 - [ ] **E3.5 (L)** [#24](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/24) `lookup_filieres` réécrit : accès strict (ligne `OK`, série dans `Bac_recommandé`, mode d'entrée affiché), classement par mots entiers, lignes exclues renvoyées avec leur statut. *Dép. :* E3.1, E3.2.
   *Acceptation :* « pilote » ne renvoie pas Foresterie Tropicale ; `PUB-064` figure dans les lignes non vérifiées ; une offre Concours porte « les notes du Bac ne suffisent pas » ; l'ancien `tests/test_lookup_filieres.py` et `data/filieres.csv` sont remplacés/supprimés.
-- [ ] **E3.6 (M)** [#25](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/25) `zoom_cell` — **seulement si E0.6 = go**. *Dép. :* E0.6.
+- [ ] ~~**E3.6 (M)** [#25](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/25) `zoom_cell` — **seulement si E0.6 = go**. *Dép. :* E0.6.~~ **Abandonné : E0.6 = NO GO** (`docs/decisions.md`).
   *Acceptation :* une cellule floue est relue, ou renvoyée `null`.
 
 > **Checkpoint C (fin J4) :** audit publié ; `lookup_filieres` testé sur les cas `false_friend`, `unverified_trap` et `concours_entry`.
