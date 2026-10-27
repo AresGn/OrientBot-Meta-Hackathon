@@ -1,0 +1,36 @@
+{
+  "model": "muse-image-1.0",
+  "size": "1024x1536",
+  "runs": [
+    {
+      "run": 1,
+      "usage": {
+        "input_tokens": 11067,
+        "input_tokens_details": null,
+        "output_tokens": 1360,
+        "total_tokens": 12427,
+        "output_tokens_details": null
+      }
+    },
+    {
+      "run": 2,
+      "usage": {
+        "input_tokens": 21156,
+        "input_tokens_details": null,
+        "output_tokens": 3136,
+        "total_tokens": 24292,
+        "output_tokens_details": null
+      }
+    },
+    {
+      "run": 3,
+      "usage": {
+        "input_tokens": 19986,
+        "input_tokens_details": null,
+        "output_tokens": 2451,
+        "total_tokens": 22437,
+        "output_tokens_details": null
+      }
+    }
+  ]
+}
