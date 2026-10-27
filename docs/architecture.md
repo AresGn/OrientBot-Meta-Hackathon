@@ -45,6 +45,8 @@ Limite de pas : 12 (`MAX_STEPS`, encore à 10 dans `src/agent/loop.py`, à align
 | `verify_report` | Contrôler chaque preuve du brouillon | code | non implémenté |
 | `build_report` | Mettre en forme le rapport validé | code | squelette |
 
+Briques du domaine (code pur, sans réseau) : `src/domain/coefficients.py` (`load_coefficients(serie)` : séries C et D, groupe 1, sans EPS) et `src/domain/subjects.py` (`normalize_subject(raw)` : `UnknownSubjectError` si la matière est inconnue).
+
 ## Preuves et vérificateur
 
 Le rapport est d'abord un JSON où chaque affirmation porte une preuve de type `grade`, `transcript`, `filiere` ou `calc`, avec sa référence :
