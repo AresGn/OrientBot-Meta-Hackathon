@@ -1,0 +1,9 @@
+Crée une carte récapitulative vertical en français pour les parents d'une élève du Bac série D.
+Écris EXACTEMENT ces textes et ces chiffres, sans rien ajouter ni modifier :
+- Moyenne au Bac : 11,2 / 20
+- Moyenne de classement pour Médecine : 13,15 / 20 (SVT × 5 + Maths × 4 + PCT × 4) / 13
+- Trois filières :
+  * Médecine Générale — Faculté des Sciences de la Santé (FSS) — Bourse 95, Aide FPP 20, Total 115
+  * Médecine Humaine — Faculté de Médecine (FM) — Bourse 100, Aide FPP 30, Total 130
+  * Kinésithérapie — Faculté des Sciences de la Santé (FSS) — Bourse 20, Aide FPP 15, Total 35
+Mise en page : une infographie colorée et chaleureuse, pensée pour des parents, avec un titre, des cartes arrondies distinctes pour chaque filière, une jauge ou barre de progression pour la moyenne (11,2 puis 13,15 sur 20), des icônes simples (stéthoscope, livre, diplôme, pièces), des couleurs contrastées et une hiérarchie visuelle claire. Les textes et chiffres ci-dessus doivent rester EXACTS et lisibles ; n'invente aucun autre chiffre ni aucun autre nom.

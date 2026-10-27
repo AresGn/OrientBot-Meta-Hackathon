@@ -5,7 +5,7 @@ the raw images to docs/spikes/image/runN.png, and renders the same data with cod
 (HTML to PNG through a local headless Chrome or Edge) to docs/spikes/image/code_render.png.
 The generated image is never a verified report (it does not go through verify_report).
 
-Usage: python scripts/spike_image.py
+Usage: python scripts/spike_image.py [simple|riche]   (riche = infographic prompt, files *_riche.*)
 """
 
 import base64
@@ -62,6 +62,18 @@ def build_prompt(card: dict) -> str:
     return "\n".join(lines)
 
 
+def build_rich_prompt(card: dict) -> str:
+    """Same figures as build_prompt, but asks for a designed infographic instead of plain text."""
+    base = build_prompt(card).rsplit("\n", 1)[0]
+    return base + (
+        "\nMise en page : une infographie colorée et chaleureuse, pensée pour des parents, avec un titre, "
+        "des cartes arrondies distinctes pour chaque filière, une jauge ou barre de progression pour la moyenne "
+        "(11,2 puis 13,15 sur 20), des icônes simples (stéthoscope, livre, diplôme, pièces), des couleurs "
+        "contrastées et une hiérarchie visuelle claire. Les textes et chiffres ci-dessus doivent rester EXACTS "
+        "et lisibles ; n'invente aucun autre chiffre ni aucun autre nom."
+    )
+
+
 def render_html(card: dict) -> str:
     rows = "".join(
         f"<tr><td><b>{i['nom']}</b><br><small>{i['etablissement']}</small></td>"
@@ -95,22 +107,25 @@ def render_with_code(card: dict) -> bool:
 def main() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     client = get_client()
-    prompt = build_prompt(CARD)
-    (OUT_DIR / "prompt.txt").write_text(prompt + "\n", encoding="utf-8")
+    style = sys.argv[1] if len(sys.argv) > 1 else "simple"  # "simple" or "riche"
+    prompt = build_rich_prompt(CARD) if style == "riche" else build_prompt(CARD)
+    suffix = "_riche" if style == "riche" else ""
+    (OUT_DIR / f"prompt{suffix}.txt").write_text(prompt + "\n", encoding="utf-8")
     runs = []
     for run in range(1, RUNS + 1):
         response = client.images.generate(
             model=MODEL, prompt=prompt, n=1, size=SIZE, output_format=OUTPUT_FORMAT,
         )
-        (OUT_DIR / f"run{run}.png").write_bytes(base64.b64decode(response.data[0].b64_json))
+        (OUT_DIR / f"run{run}{suffix}.png").write_bytes(base64.b64decode(response.data[0].b64_json))
         usage = response.usage.model_dump() if getattr(response, "usage", None) else {}
         runs.append({"run": run, "usage": usage})
-        print(f"run {run}: saved run{run}.png usage={usage}")
-    (OUT_DIR / "usage.json").write_text(
+        print(f"run {run}: saved run{run}{suffix}.png usage={usage}")
+    (OUT_DIR / f"usage{suffix}.json").write_text(
         json.dumps({"model": MODEL, "size": SIZE, "runs": runs}, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
-    print("code render:", render_with_code(CARD))
+    if style == "simple":
+        print("code render:", render_with_code(CARD))
 
 
 if __name__ == "__main__":
