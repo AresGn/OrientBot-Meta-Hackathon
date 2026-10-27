@@ -55,14 +55,12 @@ flowchart TD
         AGENT -->|audio| T1[transcribe_voice]
         T1 --> T2[extract_profile]
         AGENT -->|image| T3[read_grade_sheet]
-        T3 -.->|doubtful cell| T4[zoom_cell<br/>SAM 3.1, if test passes]
         AGENT -->|grades and profile known| T5[compute_ranking_average<br/>deterministic]
         T5 --> T6[lookup_filieres<br/>deterministic]
         AGENT -->|unreadable, missing, contradiction| ASK[ask_student<br/>pauses the loop]
         ASK --> AGENT
         T2 --> AGENT
         T3 --> AGENT
-        T4 --> AGENT
         T6 --> AGENT
     end
 
@@ -80,7 +78,7 @@ Design intent: the loop is a skeleton and has not been run end to end yet.
 | `transcribe_voice` | Transcribe the voice note (Muse Voice Transcribe) | not implemented |
 | `extract_profile` | Extract series, declared average, interests, target job, constraints, each with its exact quote | not implemented |
 | `read_grade_sheet` | Read grades from the sheet photo (Muse Spark 1.3, vision) | not implemented |
-| `zoom_cell` | Isolate and re-read a doubtful cell (SAM 3.1) | conditional on a day-1 test |
+| `zoom_cell` | Isolate and re-read a doubtful cell (SAM 3.1) | dropped: SAM 3.1 did not locate a cell in the day-1 test |
 | `compute_ranking_average` | Ranking average of one offer from the guide's formula | not implemented (data ready) |
 | `lookup_filieres` | Filter accessible offers, then rank them | stub on an older schema, to rewrite on the new data |
 | `ask_student` | Ask a question and pause the loop | not implemented |
@@ -94,9 +92,9 @@ Design intent: the loop is a skeleton and has not been run end to end yet.
 | Reasoning, tool choice, text | Muse Spark 1.3 | Agent brain |
 | Grade-sheet reading | Muse Spark 1.3 (vision) | Extract grades from photos |
 | Voice note transcription | Muse Voice Transcribe | Speech to text |
-| Doubtful cell zoom | SAM 3.1 | Planned, only if the day-1 test succeeds |
+| Doubtful cell zoom | SAM 3.1 | Dropped: tested, finds the table but not a single cell (0/3) |
 
-Tool calling in Muse Spark 1.3 was observed working in a small test (1 tool, 5/5 runs, see [`docs/muse-spark-tool-call-results.md`](docs/muse-spark-tool-call-results.md)); multi-tool choice, vision, voice and SAM 3.1 are not tested yet. There is no text-to-speech.
+Tool calling in Muse Spark 1.3 was observed working in a small test (1 tool, 5/5 runs, see [`docs/muse-spark-tool-call-results.md`](docs/muse-spark-tool-call-results.md)); choosing between several tools is not tested yet. Vision and voice were tested on day 1 (see [`docs/decisions.md`](docs/decisions.md)). SAM 3.1 was tested on day 1: it finds the table but never the single cell asked for (0/3 on the sharp and the blurry sheet), so `zoom_cell` is dropped and the agent asks for a new photo instead. There is no text-to-speech.
 
 ## Quick start
 
@@ -117,7 +115,7 @@ Ten cases are planned in `evals/cases.jsonl`, four of them adversarial (unverifi
 ## Limitations
 
 - The agent is not functional end to end yet.
-- Tool calling was only checked on one tool and one question (5/5 runs); multi-tool choice, vision, voice and SAM 3.1 are untested.
+- Tool calling was only checked on one tool and one question (5/5 runs); choosing between several tools is untested. SAM 3.1 cannot locate a single table cell from a text prompt (day-1 test), so there is no cell zoom.
 - Target scope: public offers for series C and D of the 2026-2027 guide whose row passed the quality check (206 of 224 rows are `OK`; the others are listed under "what I could not verify"). The guide gives no city, no admission threshold and no cost, so the agent never states them and never speaks of admission chances.
 - OCR extraction errors may remain in `OK` rows; a hand audit of 20 rows against the PDF is planned (`docs/data-audit.md`, not written yet).
 - Only fictional sample data; no real-student testing.
