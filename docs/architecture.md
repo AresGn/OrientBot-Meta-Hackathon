@@ -37,7 +37,7 @@ Limite de pas : 12 (`MAX_STEPS`, encore à 10 dans `src/agent/loop.py`, à align
 |---|---|---|---|
 | `transcribe_voice` | Transcrire la note vocale | Muse Voice Transcribe | non implémenté |
 | `extract_profile` | Série, moyenne déclarée, intérêts, métier, contraintes, avec citation exacte | Muse Spark 1.3 (JSON strict) | non implémenté |
-| `read_grade_sheet` | Lire le relevé en `[{matiere, note, lisible}]` | Muse Spark 1.3 (vision) | non implémenté |
+| `read_grade_sheet` | Lire le relevé en `[{matiere, note, lisible}]` | Muse Spark 1.3 (vision) | implémenté (`src/tools/read_grade_sheet.py`) ; sortie `{serie, matieres: [{matiere, note, lisible, flags}], moyenne_affichee, flags}` (moyenne imprimée sur le relevé, copiée, jamais calculée), drapeaux `note_hors_plage`, `matiere_inconnue`, `serie_non_prise_en_charge`, `moyenne_hors_plage` ; `GradeSheetError` si le JSON est invalide, tronqué ou d'un type d'image non géré |
 | `zoom_cell` | Isoler une cellule douteuse et la relire | SAM 3.1 + Muse Spark 1.3 | **abandonné** : NO GO au spike E0.6 (`docs/decisions.md`) ; l'agent demande une nouvelle photo |
 | `compute_ranking_average` | Moyenne de classement d'une offre (formule page 8) | code | implémenté (`src/tools/compute_ranking_average.py`) |
 | `lookup_filieres` | Filtrer les offres accessibles puis les classer | code | stub sur l'ancien schéma `filieres.csv`, à réécrire |
