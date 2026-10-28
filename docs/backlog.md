@@ -66,7 +66,7 @@ E1.4 format des preuves ─► E2.4 verify_report ──────────
 
 - [x] **E2.1 (M)** [#15](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/15) `transcribe_voice`. *Dép. :* E0.5. *Fait le 28 oct : 2 appels réels sur la note contradictoire, sorties brutes dans `docs/spikes/voice/transcribe_voice/` (« série D » dans `text`, « 14 » dans `text_normalized`, confiance None).*
   *Acceptation :* texte obtenu pour l'échantillon français ; échec réseau → erreur typée, jamais de texte inventé.
-- [ ] **E2.2 (M)** [#16](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/16) `extract_profile` : série, moyenne déclarée, intérêts, métier visé, contraintes, chacun avec sa citation exacte. *Dép. :* E2.1.
+- [x] **E2.2 (M)** [#16](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/16) `extract_profile` : série, moyenne déclarée, intérêts, métier visé, contraintes, chacun avec sa citation exacte. *Dép. :* E2.1. *Fait le 28 oct : appel réel sur la note vocale cohérente → série D, moyenne déclarée 11,2, médecin, Cotonou en contrainte (résultat dans l'issue #16).*
   *Acceptation :* test : chaque citation est une sous-chaîne exacte de la transcription ; champ absent → `null`.
 - [ ] **E2.3 (S)** [#17](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/17) `ask_student` : suspend la boucle et reprend avec la réponse.
   *Acceptation :* test : la boucle renvoie une question puis reprend à la réponse ; sans réponse, aucun appel d'outil suivant.

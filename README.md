@@ -76,7 +76,7 @@ Design intent: the loop is a skeleton and has not been run end to end yet.
 | Tool | Purpose | State |
 |---|---|---|
 | `transcribe_voice` | Transcribe the voice note (Muse Voice Transcribe) | implemented (manual real-API check only, never in CI) |
-| `extract_profile` | Extract series, declared average, interests, target job, constraints, each with its exact quote | not implemented |
+| `extract_profile` | Extract series, declared average, interests, target job, constraints, each with its exact quote | implemented (manual real-API check only, never in CI) |
 | `read_grade_sheet` | Read grades from the sheet photo (Muse Spark 1.3, vision) | implemented (manual real-API check only, never in CI) |
 | `zoom_cell` | Isolate and re-read a doubtful cell (SAM 3.1) | dropped: SAM 3.1 did not locate a cell in the day-1 test |
 | `compute_ranking_average` | Ranking average of one offer from the guide's formula | implemented |
