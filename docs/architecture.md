@@ -45,18 +45,52 @@ Limite de pas : 12 (`MAX_STEPS`, encore à 10 dans `src/agent/loop.py`, à align
 | `verify_report` | Contrôler chaque preuve du brouillon | code | non implémenté |
 | `build_report` | Mettre en forme le rapport validé | code | squelette |
 
-Briques du domaine (code pur, sans réseau) : `src/domain/coefficients.py` (`load_coefficients(serie)` : séries C et D, groupe 1, sans EPS) et `src/domain/subjects.py` (`normalize_subject(raw)` : `UnknownSubjectError` si la matière est inconnue).
+Briques du domaine (code pur, sans réseau) : `src/domain/coefficients.py` (`load_coefficients(serie)` : séries C et D, groupe 1, sans EPS), `src/domain/subjects.py` (`normalize_subject(raw)` : `UnknownSubjectError` si la matière est inconnue) et `src/domain/proofs.py` (`SCHEMA_VERSION = 1`, `validate_proof`, `validate_report` : format des preuves figé au J2).
 
 ## Preuves et vérificateur
 
-Le rapport est d'abord un JSON où chaque affirmation porte une preuve de type `grade`, `transcript`, `filiere` ou `calc`, avec sa référence :
+Le rapport est d'abord un JSON où chaque affirmation (`claim`) porte au moins une preuve. Le format est **figé** (E1.4, `SCHEMA_VERSION = 1` dans `src/domain/proofs.py`) : après le J2, il ne change plus sans une entrée dans `docs/decisions.md`.
 
-- `grade` : une note lue sur la photo (matière, valeur) ;
-- `transcript` : une citation, qui doit exister mot pour mot dans la transcription ;
-- `filiere` : un `Offre_ID` d'une ligne `Statut_qualité = OK` et sa page du PDF (`data/pages_offres.csv`) ;
-- `calc` : un résultat de `compute_ranking_average` avec la formule et la provenance de chaque coefficient.
+| Type | Champs obligatoires | Référence contrôlée par `verify_report` |
+|---|---|---|
+| `grade` | `matiere` (texte), `note` (nombre) | la note lue sur la photo |
+| `transcript` | `quote` (texte) | la citation existe mot pour mot dans la transcription |
+| `filiere` | `offre_id` (texte), `page_pdf` (entier ≥ 1), `champ` (texte : colonne du CSV), `valeur` (texte ou nombre) | l'`Offre_ID` d'une ligne `Statut_qualité = OK`, sa page du PDF (`data/pages_offres.csv`) et la valeur annoncée dans la colonne |
+| `calc` | `formula` (texte), `inputs` (liste non vide), `result` (nombre) | le résultat de `compute_ranking_average` (`moyenne_arrondie`), recalculé |
 
-`verify_report` est du **code**, pas un second appel au modèle : il contrôle que chaque référence existe et correspond. Tant qu'il renvoie un problème, aucun rapport n'est affiché (FR-8). Le format JSON des preuves est figé au J3.
+Chaque affirmation porte un `claim_id` (texte non vide, unique dans le rapport), un `text` et au moins une preuve. `validate_report` contrôle la forme (version du schéma, `claim_id`, texte, preuves, champs et types, entrées de `calc.inputs`, aucune clé inconnue (rapport, affirmation ou preuve) ni nombre non fini) et renvoie la liste des problèmes `{claim_id, type, reason}`, vide si tout est en règle (`type = structure` pour ces problèmes de forme, `claim_id` nul pour ceux du rapport entier). `verify_report` (E2.4) réutilise ces problèmes tels quels, puis vérifie que chaque référence existe et correspond : c'est du **code**, pas un second appel au modèle. Tant qu'il renvoie un problème, aucun rapport n'est affiché (FR-8).
+
+Exemple de rapport complet :
+
+```json
+{
+  "schema_version": 1,
+  "claims": [
+    {
+      "claim_id": "svt-grade",
+      "text": "SVT : 15/20 au relevé.",
+      "proofs": [{"type": "grade", "matiere": "SVT", "note": 15}]
+    },
+    {
+      "claim_id": "doctor-goal",
+      "text": "Tu as dit vouloir être médecin (« peut-être médecin »).",
+      "proofs": [{"type": "transcript", "quote": "peut-être médecin"}]
+    },
+    {
+      "claim_id": "medecine-access",
+      "text": "Médecine Générale (FSS) : 95 bourses prévues, moyenne de classement 13,15.",
+      "proofs": [
+        {"type": "filiere", "offre_id": "PUB-062", "page_pdf": 36, "champ": "Bourse", "valeur": 95},
+        {"type": "calc", "formula": "M = Σ(mi·ci) / Σci",
+         "inputs": [{"matiere": "SVT", "note": 15, "coefficient": 5},
+                    {"matiere": "Mathématiques", "note": 12, "coefficient": 4},
+                    {"matiere": "Sciences Physiques (PCT/SPCT)", "note": 12, "coefficient": 4}],
+         "result": 13.15}
+      ]
+    }
+  ]
+}
+```
 
 ## Données
 
