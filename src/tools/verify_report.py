@@ -3,18 +3,13 @@
 No model call, no network: this is the code verifier of docs/prd.md section 4.
 """
 
-import csv
 from decimal import Decimal, InvalidOperation
-from pathlib import Path
 
+from src.domain.guide import OK_STATUS, load_offer_rows, load_pages_by_id
 from src.domain.proofs import STRUCTURE, validate_report
 from src.domain.subjects import UnknownSubjectError, normalize_subject
 from src.tools.compute_ranking_average import FORMULA, compute_ranking_average
 
-DATA_DIR = Path(__file__).resolve().parents[2] / "data"
-OFFERS_PATH = DATA_DIR / "offres_publiques_2026_2027.csv"  # guide rows, Statut_qualité included
-PAGES_PATH = DATA_DIR / "pages_offres.csv"  # Offre_ID -> page of the official PDF
-OK_STATUS = "OK"  # docs/prd.md section 3.1: only Statut_qualité = OK rows are recommended
 
 
 def verify_report(report: object, context: object) -> list[dict]:
@@ -162,10 +157,7 @@ def _guide_for(report: dict) -> object:
     if not has_filiere:
         return None
     try:
-        with OFFERS_PATH.open(newline="", encoding="utf-8-sig") as stream:
-            rows = list(csv.DictReader(stream))
-        with PAGES_PATH.open(newline="", encoding="utf-8-sig") as stream:
-            return rows, _pages_by_id(list(csv.DictReader(stream)))
+        return load_offer_rows(), load_pages_by_id()
     except Exception as error:
         return error
 
@@ -177,10 +169,6 @@ def _offer_reference(offre_id: str, guide: object) -> tuple[dict | None, object]
     row = next((candidate for candidate in rows if candidate.get("Offre_ID") == offre_id), None)
     return row, pages.get(offre_id)
 
-
-def _pages_by_id(pages: list[dict]) -> dict:
-    return {row["Offre_ID"]: row["page_pdf"] for row in pages
-            if isinstance(row, dict) and row.get("Offre_ID") is not None}
 
 
 def _numbers_equal(left: object, right: object) -> bool:

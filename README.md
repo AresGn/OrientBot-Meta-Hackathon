@@ -108,6 +108,8 @@ python -m pytest       # deterministic tests only, no API key needed
 
 Tool-calling check (Muse Spark 1.3): `python scripts/test_muse_tool_call.py`.
 
+Vertical slice without vision or voice (E2.5, no API key): `python scripts/run_vertical_slice.py data/samples/vertical_slice_serie_d.json` prints the verified report for the fictional serie D fixture (see `scripts/README.md`).
+
 ## Evaluation
 
 Ten cases are planned in `evals/cases.jsonl`, four of them adversarial (unverified row, false-friend job, contest-entry program, voice contradicting the sheet). Target: 9 of 10 compliant and zero claims without proof. Sample files are not created yet. Results (to be committed in `evals/results/`): TODO (nothing measured).
