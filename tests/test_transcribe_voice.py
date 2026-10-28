@@ -1,4 +1,6 @@
+import io
 import json
+import subprocess
 import wave
 from types import SimpleNamespace
 
@@ -38,6 +40,16 @@ class FakePost:
         return self.response
 
 
+def wav_bytes(channels=1, sample_width=2, frame_rate=24000, frames=2400):
+    buffer = io.BytesIO()
+    with wave.open(buffer, "wb") as wav:
+        wav.setnchannels(channels)
+        wav.setsampwidth(sample_width)
+        wav.setframerate(frame_rate)
+        wav.writeframes(b"\x00" * frames * channels * sample_width)
+    return buffer.getvalue()
+
+
 @pytest.fixture
 def client():
     return SimpleNamespace(base_url="https://test.invalid/v1/", api_key="fake")
@@ -50,33 +62,48 @@ def post(monkeypatch):
     return fake
 
 
-def write_wav(path, channels=1, sample_width=2, frame_rate=24000, frames=2400):
-    with wave.open(str(path), "wb") as wav:
-        wav.setnchannels(channels)
-        wav.setsampwidth(sample_width)
-        wav.setframerate(frame_rate)
-        wav.writeframes(b"\x00" * frames * channels * sample_width)
+@pytest.fixture(autouse=True)
+def converted(monkeypatch):
+    """Fake ffmpeg conversion: every input becomes a valid 24 kHz mono WAV."""
+    calls = []
+    valid = wav_bytes()
+
+    def fake_convert(source, target):
+        calls.append((source, target))
+        target.write_bytes(valid)
+
+    monkeypatch.setattr("src.tools.transcribe_voice.convert_to_wav", fake_convert)
+    return calls
 
 
 @pytest.fixture
 def wav_file(tmp_path):
     path = tmp_path / "note.wav"
-    write_wav(path)
+    path.write_bytes(wav_bytes())
     return str(path)
 
 
-def transcribe(path, client, response=None):
+def transcribe(path, client):
     return transcribe_voice(path, client=client)
 
 
-def test_success_returns_text_and_none_confidence(wav_file, client, post):
-    post.response = FakeResponse(body={"transcript": "je suis en série D", "audioDurationMs": 100})
-    assert transcribe(wav_file, client) == {"text": "je suis en série D", "confidence": None}
+def test_success_returns_heard_text_plus_normalized(wav_file, client, post):
+    post.response = FakeResponse(body={"transcript": "j'ai eu quatorze de moyenne"})
+    assert transcribe(wav_file, client) == {
+        "text": "j'ai eu quatorze de moyenne",
+        "text_normalized": "j'ai eu 14 de moyenne",
+        "confidence": None,
+    }
 
 
 def test_present_confidence_is_returned(wav_file, client, post):
     post.response = FakeResponse(body={"transcript": "bonjour", "confidence": 0.9})
     assert transcribe(wav_file, client)["confidence"] == 0.9
+
+
+def test_hyphenated_compounds_are_untouched(wav_file, client, post):
+    post.response = FakeResponse(body={"transcript": "quatre-vingt-dix élèves, dix-sept en SVT"})
+    assert transcribe(wav_file, client)["text_normalized"] == "quatre-vingt-dix élèves, 17 en SVT"
 
 
 def test_api_error_raises_typed_error(wav_file, client, post):
@@ -111,65 +138,104 @@ def test_request_sends_model_language_and_keywords(wav_file, client, post):
     assert request["model"] == "muse-voice-transcribe-1.0"
     assert request["audioEncoding"] == "WAV"
     assert request["languageBias"] == ["French"]
-    assert "série D" in request["keywords"]
+    assert request["keywords"] == ["série C", "série D", "SVT"]
     assert kwargs["files"]["audio"][2] == "audio/wav"
 
 
-def test_number_words_are_normalized_to_digits(wav_file, client, post):
-    post.response = FakeResponse(body={"transcript": "j'ai eu quatorze de moyenne"})
-    assert transcribe(wav_file, client)["text"] == "j'ai eu 14 de moyenne"
+def test_ogg_is_converted_before_transcribing(tmp_path, client, post, converted):
+    path = tmp_path / "note.ogg"
+    path.write_bytes(b"fake ogg bytes")
+    assert transcribe(str(path), client)["text"] == "bonjour"
+    assert len(converted) == 1
+    assert converted[0][0].suffix == ".ogg"
 
 
-def test_number_word_variants_are_normalized(wav_file, client, post):
-    post.response = FakeResponse(body={"transcript": "Dix-sept en SVT et vingt en EPS"})
-    assert transcribe(wav_file, client)["text"] == "17 en SVT et 20 en EPS"
+def test_high_sample_rate_wav_is_reconverted(tmp_path, client, post, converted):
+    path = tmp_path / "note.wav"
+    path.write_bytes(wav_bytes(frame_rate=44100))
+    assert transcribe(str(path), client)["text"] == "bonjour"
+    assert len(converted) == 1
 
 
-def test_empty_audio_file_raises_before_any_call(tmp_path, client, post):
-    path = tmp_path / "empty.wav"
-    path.write_bytes(b"")
-    with pytest.raises(TranscriptionError, match="empty"):
-        transcribe(str(path), client)
-    assert post.calls == []
+def test_stereo_wav_is_converted_not_refused(tmp_path, client, post):
+    path = tmp_path / "stereo.wav"
+    path.write_bytes(wav_bytes(channels=2))
+    assert transcribe(str(path), client)["text"] == "bonjour"
 
 
-def test_unsupported_format_raises_before_any_call(tmp_path, client, post):
+def test_unsupported_format_raises_before_conversion_or_call(tmp_path, client, post, converted):
     path = tmp_path / "note.txt"
     path.write_bytes(b"not audio")
     with pytest.raises(TranscriptionError, match="unsupported audio type"):
         transcribe(str(path), client)
+    assert converted == []
     assert post.calls == []
 
 
-def test_oversize_audio_raises_before_any_call(tmp_path, client, post):
+def test_empty_audio_file_raises_before_conversion_or_call(tmp_path, client, post, converted):
+    path = tmp_path / "empty.wav"
+    path.write_bytes(b"")
+    with pytest.raises(TranscriptionError, match="empty"):
+        transcribe(str(path), client)
+    assert converted == []
+    assert post.calls == []
+
+
+def test_oversize_audio_raises_before_conversion_or_call(tmp_path, client, post, converted):
     path = tmp_path / "huge.wav"
     with open(path, "wb") as handle:
         handle.seek(MAX_AUDIO_BYTES)
         handle.write(b"x")
     with pytest.raises(TranscriptionError, match="too large"):
         transcribe(str(path), client)
+    assert converted == []
     assert post.calls == []
 
 
-def test_missing_file_raises_typed_error(client, post):
+def test_missing_file_raises_typed_error(client, post, converted):
     with pytest.raises(TranscriptionError, match="not found"):
         transcribe("nope.wav", client)
+    assert converted == []
     assert post.calls == []
 
 
-def test_invalid_wav_content_raises_before_any_call(tmp_path, client, post):
-    path = tmp_path / "fake.wav"
-    path.write_bytes(b"this is not a wav file")
-    with pytest.raises(TranscriptionError, match="WAV"):
-        transcribe(str(path), client)
+def test_garbage_conversion_output_raises_before_any_call(wav_file, client, post, monkeypatch):
+    def broken_convert(source, target):
+        target.write_bytes(b"not a wav file")
+
+    monkeypatch.setattr("src.tools.transcribe_voice.convert_to_wav", broken_convert)
+    with pytest.raises(TranscriptionError, match="unreadable WAV"):
+        transcribe(wav_file, client)
     assert post.calls == []
 
 
-def test_stereo_wav_raises_before_any_call(tmp_path, client, post):
-    path = tmp_path / "stereo.wav"
-    write_wav(path, channels=2)
-    with pytest.raises(TranscriptionError, match="mono"):
-        transcribe(str(path), client)
+def test_conversion_failure_raises_typed_error(wav_file, client, post, monkeypatch):
+    def failing_convert(source, target):
+        raise subprocess.CalledProcessError(1, "ffmpeg")
+
+    monkeypatch.setattr("src.tools.transcribe_voice.convert_to_wav", failing_convert)
+    with pytest.raises(TranscriptionError, match="conversion failed"):
+        transcribe(wav_file, client)
+    assert post.calls == []
+
+
+def test_conversion_timeout_raises_typed_error(wav_file, client, post, monkeypatch):
+    def slow_convert(source, target):
+        raise subprocess.TimeoutExpired("ffmpeg", 120)
+
+    monkeypatch.setattr("src.tools.transcribe_voice.convert_to_wav", slow_convert)
+    with pytest.raises(TranscriptionError, match="conversion failed"):
+        transcribe(wav_file, client)
+    assert post.calls == []
+
+
+def test_missing_converter_raises_typed_error(wav_file, client, post, monkeypatch):
+    def no_ffmpeg(source, target):
+        raise FileNotFoundError("ffmpeg")
+
+    monkeypatch.setattr("src.tools.transcribe_voice.convert_to_wav", no_ffmpeg)
+    with pytest.raises(TranscriptionError, match="ffmpeg is not installed"):
+        transcribe(wav_file, client)
     assert post.calls == []
 
 
@@ -182,21 +248,12 @@ def test_too_long_audio_raises_before_any_call(wav_file, client, post, monkeypat
     assert post.calls == []
 
 
-def test_mp3_is_converted_before_transcribing(tmp_path, client, post, monkeypatch):
-    import src.clients.voice as voice
+def test_oversize_converted_audio_raises_before_any_call(tmp_path, client, post, monkeypatch):
+    import src.tools.transcribe_voice as tool
 
-    wav_path = tmp_path / "note.wav"
-    write_wav(wav_path)
-    wav_bytes = wav_path.read_bytes()
-    converted = []
-
-    def fake_convert(source, target):
-        converted.append((source, target))
-        target.write_bytes(wav_bytes)
-
-    monkeypatch.setattr("src.tools.transcribe_voice.convert_to_wav", fake_convert)
-    mp3_path = tmp_path / "note.mp3"
-    mp3_path.write_bytes(b"fake mp3 bytes")
-    assert transcribe(str(mp3_path), client)["text"] == "bonjour"
-    assert len(converted) == 1
-    assert post.calls != []
+    monkeypatch.setattr(tool, "MAX_AUDIO_BYTES", 1000)
+    path = tmp_path / "note.ogg"
+    path.write_bytes(b"tiny")
+    with pytest.raises(TranscriptionError, match="converted audio too large"):
+        transcribe(str(path), client)
+    assert post.calls == []
