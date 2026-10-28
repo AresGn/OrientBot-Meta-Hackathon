@@ -1,0 +1,15 @@
+{
+  "source_file": "data\\samples\\note_vocale_contradictoire.mp3",
+  "date": "2026-10-28",
+  "model": "muse-voice-transcribe-1.0",
+  "keywords": [
+    "série C",
+    "série D",
+    "SVT"
+  ],
+  "result": {
+    "text": "Oui, bonjour. Bonjour, je suis en série D. J'ai eu quatorze de moyenne. Voilà. J'aime beaucoup la biologie et j'aimerais travailler dans la santé peut-être médecin. Au lycée, ce que je préférais c'était les travaux pratiques en SVT. Avec le microscope. Je préfère rester à Cotonou et j'aurais besoin d'une bourse. Mes parents parents m'ont dit de bien chercher les filières où il y a des bourses. Donc euh je compte sur vous pour m'aider à choisir. Merci beaucoup",
+    "text_normalized": "Oui, bonjour. Bonjour, je suis en série D. J'ai eu 14 de moyenne. Voilà. J'aime beaucoup la biologie et j'aimerais travailler dans la santé peut-être médecin. Au lycée, ce que je préférais c'était les travaux pratiques en SVT. Avec le microscope. Je préfère rester à Cotonou et j'aurais besoin d'une bourse. Mes parents parents m'ont dit de bien chercher les filières où il y a des bourses. Donc euh je compte sur vous pour m'aider à choisir. Merci beaucoup",
+    "confidence": null
+  }
+}
