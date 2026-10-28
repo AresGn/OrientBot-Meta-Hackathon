@@ -120,3 +120,39 @@ def test_check_exception_blocks_the_report(monkeypatch):
 def test_malformed_context_is_blocked_never_an_empty_list():
     assert verify_report(valid_report(), None)
     assert verify_report(valid_report(), {"serie": "D", "grades": 42, "transcript": TRANSCRIPT})
+
+
+def calc_only_report():
+    return {"schema_version": 1,
+            "claims": [{"claim_id": "medecine-calc", "text": "Moyenne de classement pour Médecine.",
+                        "proofs": [{"type": "calc", "formula": "M = Σ(mi·ci) / Σci",
+                                    "inputs": copy.deepcopy(CALC_INPUTS), "result": 13.15}]}]}
+
+
+@pytest.mark.parametrize("context", [{"serie": "D", "transcript": TRANSCRIPT},
+                                     {"serie": "D", "grades": 42, "transcript": TRANSCRIPT},
+                                     {"serie": "D", "grades": None, "transcript": TRANSCRIPT}])
+def test_calc_only_report_without_valid_grades_is_blocked(context):
+    problems = verify_report(calc_only_report(), context)
+    assert [(p["claim_id"], p["type"]) for p in problems] == [("medecine-calc", "calc")]
+
+
+def test_context_cannot_replace_the_official_guide():
+    report = {"schema_version": 1,
+              "claims": [{"claim_id": "invented-offer", "text": "Offre inventée.",
+                          "proofs": [{"type": "filiere", "offre_id": "X-1", "page_pdf": 1,
+                                      "champ": "Bourse", "valeur": 999}]}]}
+    context = {**CONTEXT,
+               "offres": [{"Offre_ID": "X-1", "Statut_qualité": "OK", "Bourse": "999"}],
+               "pages_offres": [{"Offre_ID": "X-1", "page_pdf": 1}]}
+    problems = verify_report(report, context)
+    assert [(p["claim_id"], p["type"]) for p in problems] == [("invented-offer", "filiere")]
+
+
+def test_grade_entry_without_lisible_flag_is_not_a_proof():
+    context = {**CONTEXT, "grades": [{"matiere": "SVT", "note": 15}]}
+    report = {"schema_version": 1,
+              "claims": [{"claim_id": "svt-grade", "text": "SVT : 15/20 au relevé.",
+                          "proofs": [{"type": "grade", "matiere": "SVT", "note": 15}]}]}
+    problems = verify_report(report, context)
+    assert [(p["claim_id"], p["type"]) for p in problems] == [("svt-grade", "grade")]

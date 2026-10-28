@@ -8,7 +8,7 @@ from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
 from src.domain.proofs import STRUCTURE, validate_report
-from src.domain.subjects import normalize_subject
+from src.domain.subjects import UnknownSubjectError, normalize_subject
 from src.tools.compute_ranking_average import FORMULA, compute_ranking_average
 
 DATA_DIR = Path(__file__).resolve().parents[2] / "data"
@@ -22,10 +22,9 @@ def verify_report(report: object, context: object) -> list[dict]:
 
     `context` is {"serie", "grades", "transcript"}: the serie and the grades as
     returned in `read_grade_sheet(...)["matieres"]` ([{"matiere", "note", "lisible"}]),
-    plus the voice-note transcript. Filiere proofs are checked against the guide
-    CSVs in `data/`; a test or a caller with its own rows may pass them as
-    `context["offres"]` (same columns as the CSV) and `context["pages_offres"]`
-    ([{"Offre_ID", "page_pdf"}] or {offre_id: page}). Each problem is
+    plus the voice-note transcript. That is the only accepted context shape.
+    Filiere proofs are always checked against the guide CSVs in `data/`, loaded
+    once per call; the context can never replace the official guide. Each problem is
     {"claim_id", "type", "reason"}; `type` is the refused proof type (or
     `structure` for the shape problems of `validate_report`, reused as they are).
 
@@ -41,9 +40,10 @@ def verify_report(report: object, context: object) -> list[dict]:
     if problems:
         return problems
     refused = []
+    guide = _guide_for(report)
     for claim in report["claims"]:
         for proof in claim["proofs"]:
-            refused.extend(_verify_proof(claim["claim_id"], proof, context))
+            refused.extend(_verify_proof(claim["claim_id"], proof, context, guide))
     return refused
 
 
@@ -51,11 +51,13 @@ def _problem(claim_id: str | None, proof_type: str, reason: str) -> dict:
     return {"claim_id": claim_id, "type": proof_type, "reason": reason}
 
 
-def _verify_proof(claim_id: str, proof: dict, context: object) -> list[dict]:
+def _verify_proof(claim_id: str, proof: dict, context: object, guide: object) -> list[dict]:
     proof_type = proof["type"]
-    check = {"grade": _verify_grade, "transcript": _verify_transcript,
-             "filiere": _verify_filiere, "calc": _verify_calc}[proof_type]
     try:
+        if proof_type == "filiere":
+            return _verify_filiere(claim_id, proof, guide)
+        check = {"grade": _verify_grade, "transcript": _verify_transcript,
+                 "calc": _verify_calc}[proof_type]
         return check(claim_id, proof, context)
     except Exception:
         return [_problem(claim_id, proof_type, f"{proof_type} proof could not be verified")]
@@ -64,7 +66,7 @@ def _verify_proof(claim_id: str, proof: dict, context: object) -> list[dict]:
 def _verify_grade(claim_id: str, proof: dict, context: object) -> list[dict]:
     subject = normalize_subject(proof["matiere"])
     notes = [entry["note"] for entry in _context_grades(context)
-             if _entry_subject(entry) == subject and entry.get("lisible", True)
+             if _entry_subject(entry) == subject and entry.get("lisible") is True
              and entry.get("note") is not None]
     if len(set(notes)) != 1 or not _numbers_equal(notes[0], proof["note"]):
         return [_problem(claim_id, "grade",
@@ -81,8 +83,8 @@ def _verify_transcript(claim_id: str, proof: dict, context: object) -> list[dict
     return []
 
 
-def _verify_filiere(claim_id: str, proof: dict, context: object) -> list[dict]:
-    row, page = _offer_reference(proof["offre_id"], context)
+def _verify_filiere(claim_id: str, proof: dict, guide: object) -> list[dict]:
+    row, page = _offer_reference(proof["offre_id"], guide)
     if row is None or row.get("Statut_qualité") != OK_STATUS:
         return [_problem(claim_id, "filiere",
                          "filiere proof does not reference an offer row with Statut_qualité = OK")]
@@ -104,7 +106,7 @@ def _verify_calc(claim_id: str, proof: dict, context: object) -> list[dict]:
         return [refused]
     result = compute_ranking_average(_context_serie(context),
                                      [entry["matiere"] for entry in proof["inputs"]],
-                                     _calc_grades(context, proof))
+                                     _context_grades(context))
     if result.get("status") != "calculé" or not _numbers_equal(result["moyenne_arrondie"],
                                                                proof["result"]):
         return [refused]
@@ -128,10 +130,6 @@ def _context_grades(context: object) -> list[dict]:
     if not isinstance(context, dict):
         raise TypeError("context is missing")
     grades = context.get("grades")
-    if grades is None and isinstance(context.get("grade_sheet"), dict):
-        grades = context["grade_sheet"].get("matieres")
-    if grades is None:
-        grades = context.get("matieres")
     if not isinstance(grades, list) or not all(isinstance(entry, dict) for entry in grades):
         raise TypeError("context grades are missing")
     return grades
@@ -141,47 +139,46 @@ def _context_serie(context: object) -> str:
     if not isinstance(context, dict):
         raise TypeError("context is missing")
     serie = context.get("serie")
-    if serie is None and isinstance(context.get("grade_sheet"), dict):
-        serie = context["grade_sheet"].get("serie")
     if not isinstance(serie, str) or not serie.strip():
         raise TypeError("context serie is missing")
     return serie
 
 
-def _calc_grades(context: object, proof: dict) -> list[dict]:
-    try:
-        return _context_grades(context)
-    except TypeError:
-        return [{"matiere": entry["matiere"], "note": entry["note"]} for entry in proof["inputs"]]
-
-
 def _entry_subject(entry: dict) -> str | None:
     try:
         return normalize_subject(entry["matiere"])
-    except Exception:
+    except UnknownSubjectError:
         return None
 
 
-def _offer_reference(offre_id: str, context: object) -> tuple[dict | None, object]:
-    rows, pages = _guide_rows(context)
+def _guide_for(report: dict) -> object:
+    """Load the official guide once per call, only if a filiere proof needs it.
+
+    Returns (rows, pages) or the exception the load raised, so a filiere check
+    turns it into its own problem instead of letting verify_report crash.
+    """
+    has_filiere = any(proof.get("type") == "filiere"
+                      for claim in report["claims"] for proof in claim["proofs"])
+    if not has_filiere:
+        return None
+    try:
+        with OFFERS_PATH.open(newline="", encoding="utf-8-sig") as stream:
+            rows = list(csv.DictReader(stream))
+        with PAGES_PATH.open(newline="", encoding="utf-8-sig") as stream:
+            return rows, _pages_by_id(list(csv.DictReader(stream)))
+    except Exception as error:
+        return error
+
+
+def _offer_reference(offre_id: str, guide: object) -> tuple[dict | None, object]:
+    if isinstance(guide, Exception):
+        raise guide
+    rows, pages = guide
     row = next((candidate for candidate in rows if candidate.get("Offre_ID") == offre_id), None)
     return row, pages.get(offre_id)
 
 
-def _guide_rows(context: object) -> tuple[list[dict], dict]:
-    if isinstance(context, dict) and isinstance(context.get("offres"), list):
-        return context["offres"], _pages_by_id(context.get("pages_offres"))
-    with OFFERS_PATH.open(newline="", encoding="utf-8-sig") as stream:
-        rows = list(csv.DictReader(stream))
-    with PAGES_PATH.open(newline="", encoding="utf-8-sig") as stream:
-        return rows, _pages_by_id(list(csv.DictReader(stream)))
-
-
-def _pages_by_id(pages: object) -> dict:
-    if isinstance(pages, dict):
-        return dict(pages)
-    if not isinstance(pages, list):
-        return {}
+def _pages_by_id(pages: list[dict]) -> dict:
     return {row["Offre_ID"]: row["page_pdf"] for row in pages
             if isinstance(row, dict) and row.get("Offre_ID") is not None}
 
@@ -192,8 +189,9 @@ def _numbers_equal(left: object, right: object) -> bool:
 
 
 def _values_equal(csv_value: object, proof_value: object) -> bool:
-    if _numbers_equal(_as_number(csv_value), _as_number(proof_value)):
-        return _as_number(csv_value) is not None
+    csv_number, proof_number = _as_number(csv_value), _as_number(proof_value)
+    if csv_number is not None and proof_number is not None:
+        return csv_number == proof_number
     return str(csv_value).strip() == str(proof_value).strip()
 
 
