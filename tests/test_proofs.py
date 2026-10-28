@@ -134,3 +134,21 @@ def test_calc_inputs_entry_is_typed(entry, reason):
 ])
 def test_non_finite_number_is_invalid(proof, reason):
     assert validate_proof(proof) == [reason]
+
+
+def test_report_with_unknown_field_is_invalid():
+    report = {"schema_version": SCHEMA_VERSION,
+              "claims": [{"claim_id": "svt-grade", "text": "SVT : 15/20.",
+                          "proofs": [{"type": "grade", "matiere": "SVT", "note": 15}]}],
+              "source": "model"}
+    assert validate_report(report) == [
+        {"claim_id": None, "type": "structure", "reason": "unknown field 'source'"}]
+
+
+def test_claim_with_unknown_field_is_invalid():
+    report = {"schema_version": SCHEMA_VERSION,
+              "claims": [{"claim_id": "svt-grade", "text": "SVT : 15/20.",
+                          "proofs": [{"type": "grade", "matiere": "SVT", "note": 15}],
+                          "source": "model"}]}
+    assert validate_report(report) == [
+        {"claim_id": "svt-grade", "type": "structure", "reason": "unknown field 'source'"}]

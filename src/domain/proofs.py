@@ -40,17 +40,21 @@ def validate_report(report: object) -> list[dict[str, str | None]]:
     A report is {"schema_version": 1, "claims": [{"claim_id", "text", "proofs": [...]}]}
     where every claim carries a unique id and at least one proof. Each problem is
     {"claim_id", "type", "reason"} so verify_report (E2.4) reuses them as they are;
-    report-level problems carry a null claim_id.
+    report-level problems carry a null claim_id. Unknown keys are refused at every
+    level (report, claim, proof).
     """
     if not isinstance(report, dict):
         return [_problem(None, "report must be an object")]
     if report.get("schema_version") != SCHEMA_VERSION:
         return [_problem(None, f"unsupported schema_version: {report.get('schema_version')!r} "
                                f"(want {SCHEMA_VERSION})")]
+    problems = []
+    for key in report:
+        if key not in ("schema_version", "claims"):
+            problems.append(_problem(None, f"unknown field {key!r}"))
     claims = report.get("claims")
     if not isinstance(claims, list) or not claims:
-        return [_problem(None, "report has no claim")]
-    problems = []
+        return [*problems, _problem(None, "report has no claim")]
     seen: set[str] = set()
     for claim in claims:
         problems.extend(_validate_claim(claim, seen))
@@ -67,6 +71,9 @@ def _validate_claim(claim: object, seen: set[str]) -> list[dict[str, str | None]
     raw_id = claim.get("claim_id")
     claim_id = raw_id if isinstance(raw_id, str) and raw_id.strip() else None
     problems = []
+    for key in claim:
+        if key not in ("claim_id", "text", "proofs"):
+            problems.append(_problem(claim_id, f"unknown field {key!r}"))
     if raw_id is None:
         problems.append(_problem(None, "missing claim_id"))
     elif claim_id is None:
