@@ -64,7 +64,7 @@ E1.4 format des preuves ─► E2.4 verify_report ──────────
 
 ## E2 — Voix, profil, questions, vérificateur (J3, jeu 29 oct)
 
-- [ ] **E2.1 (M)** [#15](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/15) `transcribe_voice`. *Dép. :* E0.5.
+- [x] **E2.1 (M)** [#15](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/15) `transcribe_voice`. *Dép. :* E0.5. *Fait le 28 oct : appel réel sur la note contradictoire (« 14 », « série D », confiance None).*
   *Acceptation :* texte obtenu pour l'échantillon français ; échec réseau → erreur typée, jamais de texte inventé.
 - [ ] **E2.2 (M)** [#16](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/16) `extract_profile` : série, moyenne déclarée, intérêts, métier visé, contraintes, chacun avec sa citation exacte. *Dép. :* E2.1.
   *Acceptation :* test : chaque citation est une sous-chaîne exacte de la transcription ; champ absent → `null`.

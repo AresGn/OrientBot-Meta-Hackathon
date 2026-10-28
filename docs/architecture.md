@@ -35,7 +35,7 @@ Limite de pas : 12 (`MAX_STEPS`, encore à 10 dans `src/agent/loop.py`, à align
 
 | Outil | Rôle | Moteur | État |
 |---|---|---|---|
-| `transcribe_voice` | Transcrire la note vocale | Muse Voice Transcribe | non implémenté |
+| `transcribe_voice` | Transcrire la note vocale | Muse Voice Transcribe | implémenté (`src/tools/transcribe_voice.py`) ; sortie `{text, confidence}` (`confidence` toujours `None` : l'API n'en fournit pas, donc FR-4 s'applique) ; MP3 converti en WAV 24 kHz mono via ffmpeg, WAV vérifié (mono 16 bits, 16 ou 24 kHz, 10 min et 32 Mo au plus) avant tout appel ; biais `["série C", "série D", "SVT", "Cotonou"]` ; nombres en lettres normalisés en chiffres (`quatorze` → `14`) ; `TranscriptionError` en cas d'échec, jamais un texte vide |
 | `extract_profile` | Série, moyenne déclarée, intérêts, métier, contraintes, avec citation exacte | Muse Spark 1.3 (JSON strict) | non implémenté |
 | `read_grade_sheet` | Lire le relevé en `[{matiere, note, lisible}]` | Muse Spark 1.3 (vision) | implémenté (`src/tools/read_grade_sheet.py`) ; sortie `{serie, matieres: [{matiere, note, lisible, flags}], moyenne_affichee, flags}` (moyenne imprimée sur le relevé, copiée, jamais calculée), drapeaux `note_hors_plage`, `matiere_inconnue`, `serie_non_prise_en_charge`, `moyenne_hors_plage` ; `GradeSheetError` si le JSON est invalide, tronqué ou d'un type d'image non géré |
 | `zoom_cell` | Isoler une cellule douteuse et la relire | SAM 3.1 + Muse Spark 1.3 | **abandonné** : NO GO au spike E0.6 (`docs/decisions.md`) ; l'agent demande une nouvelle photo |
