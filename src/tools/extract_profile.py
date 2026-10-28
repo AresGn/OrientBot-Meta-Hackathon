@@ -1,11 +1,9 @@
-import json
-
 from src.clients.meta_client import get_client
+from src.clients.muse_spark import decode_json_answer
 from src.clients.profile import request_profile
 from src.domain.coefficients import SUPPORTED_SERIES
+from src.domain.grade_scale import is_on_grade_scale
 
-MIN_DECLARED_AVERAGE = 0  # grade scale of the Bac
-MAX_DECLARED_AVERAGE = 20
 # The model may copy a quote with a typographic apostrophe where the transcript
 # has a straight one; matching ignores that difference, but the returned quote
 # is always cut from the transcript itself.
@@ -49,14 +47,7 @@ def extract_profile(transcript: str, client=None) -> dict:
 
 
 def _parse_profile(raw: str, finish_reason: str) -> dict:
-    if not raw.strip() and finish_reason == "length":
-        raise ProfileError("empty answer, finish_reason=length: max_tokens too low")
-    try:
-        data = json.loads(raw)
-    except json.JSONDecodeError as error:
-        if finish_reason == "length":
-            raise ProfileError("answer cut off, finish_reason=length: max_tokens too low") from error
-        raise ProfileError(f"model answer is not valid JSON: {error}") from error
+    data = decode_json_answer(raw, finish_reason, ProfileError)
     if not isinstance(data, dict):
         raise ProfileError("schema: the profile must be a JSON object")
     return data
@@ -121,7 +112,7 @@ def _profile_flags(profile: dict) -> list[str]:
     if serie is not None and serie["value"] not in SUPPORTED_SERIES:
         flags.append("serie_non_prise_en_charge")
     average = profile["moyenne_declaree"]
-    if average is not None and not MIN_DECLARED_AVERAGE <= average["value"] <= MAX_DECLARED_AVERAGE:
+    if average is not None and not is_on_grade_scale(average["value"]):
         flags.append("moyenne_declaree_hors_plage")
     return flags
 

@@ -1,23 +1,10 @@
 import json
-from types import SimpleNamespace
 
 import pytest
 
+from src.clients.muse_spark import MUSE_SPARK_MAX_TOKENS
 from src.tools.read_grade_sheet import GradeSheetError, read_grade_sheet
-
-
-class FakeClient:
-    """Mimics client.chat.completions.create; never touches the network."""
-
-    def __init__(self, content, finish_reason="stop"):
-        choice = SimpleNamespace(message=SimpleNamespace(content=content), finish_reason=finish_reason)
-        self.calls = []
-        self.chat = SimpleNamespace(completions=SimpleNamespace(create=self._create))
-        self._response = SimpleNamespace(choices=[choice])
-
-    def _create(self, **kwargs):
-        self.calls.append(kwargs)
-        return self._response
+from tests.fake_client import FakeClient
 
 
 def sheet_json(rows, serie="D"):
@@ -115,7 +102,7 @@ def test_image_is_sent_as_data_url_with_wide_token_limit(image):
     client = FakeClient(sheet_json([row("MATHEMATIQUES", 12)]))
     read_grade_sheet(image, client=client)
     call = client.calls[0]
-    assert call["max_tokens"] >= 8000
+    assert call["max_tokens"] == MUSE_SPARK_MAX_TOKENS
     assert call["messages"][0]["content"][1]["image_url"]["url"].startswith("data:image/jpeg;base64,")
 
 

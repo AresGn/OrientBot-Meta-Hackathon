@@ -1,24 +1,10 @@
 import json
-from types import SimpleNamespace
 
 import pytest
 
-from src.clients.profile import PROFILE_MAX_TOKENS
+from src.clients.muse_spark import MUSE_SPARK_MAX_TOKENS
 from src.tools.extract_profile import ProfileError, extract_profile
-
-
-class FakeClient:
-    """Mimics client.chat.completions.create; never touches the network."""
-
-    def __init__(self, content, finish_reason="stop"):
-        choice = SimpleNamespace(message=SimpleNamespace(content=content), finish_reason=finish_reason)
-        self.calls = []
-        self.chat = SimpleNamespace(completions=SimpleNamespace(create=self._create))
-        self._response = SimpleNamespace(choices=[choice])
-
-    def _create(self, **kwargs):
-        self.calls.append(kwargs)
-        return self._response
+from tests.fake_client import FakeClient
 
 
 # The demo sentence of docs/prd.md section 2.1, declared average 14 (contradicts the sheet).
@@ -177,7 +163,7 @@ def test_transcript_is_sent_with_wide_token_limit():
     client = FakeClient(profile_json())
     extract_profile(TRANSCRIPT, client=client)
     call = client.calls[0]
-    assert call["max_tokens"] == PROFILE_MAX_TOKENS
+    assert call["max_tokens"] == MUSE_SPARK_MAX_TOKENS
     assert TRANSCRIPT in json.dumps(call["messages"], ensure_ascii=False)
 
 
