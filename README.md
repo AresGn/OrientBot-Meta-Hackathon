@@ -82,7 +82,7 @@ Design intent: the loop is a skeleton and has not been run end to end yet.
 | `compute_ranking_average` | Ranking average of one offer from the guide's formula | implemented |
 | `lookup_filieres` | Filter accessible offers, then rank them | stub on an older schema, to rewrite on the new data |
 | `ask_student` | Ask a question and pause the loop | implemented (`src/tools/ask_student.py`, loop suspension/resume in `src/agent/loop.py`) |
-| `verify_report` | Check every proof of the draft | not implemented |
+| `verify_report` | Check every proof of the draft | implemented (`src/tools/verify_report.py`) |
 | `build_report` | Format the verified report | skeleton |
 
 ## Meta models used
