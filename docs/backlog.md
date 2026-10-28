@@ -71,7 +71,7 @@ E1.4 format des preuves ─► E2.4 verify_report ──────────
 - [ ] **E2.3 (S)** [#17](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/17) `ask_student` : suspend la boucle et reprend avec la réponse.
   *Acceptation :* test : la boucle renvoie une question puis reprend à la réponse ; sans réponse, aucun appel d'outil suivant.
 - [ ] **E2.4 (M)** [#18](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/18) `verify_report` : contrôle que chaque preuve existe et correspond. *Dép. :* E1.4.
-  *Acceptation :* 4 tests de falsification (une note modifiée, une citation inventée, un `Offre_ID` absent, un calcul faux) échouent tous ; un rapport correct renvoie une liste vide.
+  *Acceptation :* 4 tests de falsification (une note modifiée, une citation inventée, un `Offre_ID` absent, un calcul faux) échouent tous ; un rapport correct renvoie une liste vide ; échec fermé (un rapport `None`, sans `claims`, ou une exception bloque le rapport) ; le message de refus donne `type` et `claim_id`, jamais la valeur attendue.
 - [ ] **E2.5 (M)** [#19](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/19) **Tranche verticale** sans vision ni voix : entrée JSON → `compute_ranking_average` → recherche provisoire → brouillon avec preuves → `verify_report`. *Dép. :* E1.2, E2.4.
   *Acceptation :* une exécution scriptée imprime un rapport vérifié pour la série D.
 
@@ -97,9 +97,9 @@ E1.4 format des preuves ─► E2.4 verify_report ──────────
 ## E4 — Boucle complète en ligne de commande (J5, sam 31 oct)
 
 - [ ] **E4.1 (L)** [#26](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/26) Schémas des outils et boucle réécrite (12 pas, journal des étapes réutilisable par le web). *Dép. :* E2.3, E3.5.
-  *Acceptation :* test avec un faux modèle : arrêt exact au pas 12 ; `ask_student` suspend la boucle ; une erreur d'outil devient une observation, sans plantage.
+  *Acceptation :* test avec un faux modèle : arrêt exact au pas 12 ; `ask_student` suspend la boucle ; une erreur d'outil devient une observation, sans plantage ; après 3 refus consécutifs de `verify_report`, arrêt avec le statut `unverified` (au 3e refus, pas au 12e pas).
 - [ ] **E4.2 (M)** [#27](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/27) `build_report` : accessibilité, correspondance, quotas du guide, moyenne de classement, 3 choix pour apresmonbac.bj, « Ce que je n'ai pas pu vérifier ». *Dép. :* E2.4.
-  *Acceptation :* refuse de produire un rapport si `verify_report` renvoie un problème ; aucune phrase d'admission ni de ville (test sur le texte produit).
+  *Acceptation :* refuse de produire un rapport si `verify_report` renvoie un problème ; aucune phrase d'admission ni de ville (test sur le texte produit) ; en statut `unverified`, les affirmations refusées vont sous « Ce que je n'ai pas pu vérifier », jamais présentées comme des faits.
 - [ ] **E4.3 (S)** [#28](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/28) Prompt système : décider, demander, ne pas calculer, ne pas inventer. *Dép. :* E4.1.
   *Acceptation :* relu contre la section 0 du PRD.
 - [ ] **E4.4 (L)** [#29](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/29) Exécution en ligne de commande de `clear_sheet_d_medecin` (relevé + audio → rapport). *Dép. :* E4.1, E4.2, E4.3, E1.3, E2.2.
@@ -121,9 +121,9 @@ E1.4 format des preuves ─► E2.4 verify_report ──────────
 ## E6 — Évaluation (J7, lun 2 nov)
 
 - [ ] **E6.1 (M)** [#34](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/34) Fichiers d'exemple des 10 cas de `evals/cases.jsonl`. *Dép. :* E0.3.
-  *Acceptation :* plus aucune ligne « sample file TODO ».
+  *Acceptation :* plus aucune ligne « sample file TODO » ; les assertions des cas ne sont jamais chargées dans le prompt, les outils ou le contexte de l'agent (aucun module de `src/` ne lit `evals/`).
 - [ ] **E6.2 (M)** [#35](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/35) Lanceur d'évaluation. *Dép. :* E4.4.
-  *Acceptation :* `evals/results/` contient une sortie brute par cas et un tableau (conformité, appels d'outils, questions posées, durée).
+  *Acceptation :* `evals/results/` contient une sortie brute par cas et un tableau (conformité, appels d'outils, questions posées, durée). *Facultatif :* `verify_report` rejouable sur un résultat enregistré, sans relancer l'agent.
 - [ ] **E6.3 (L)** [#36](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/36) Corrections jusqu'à 9 cas sur 10 conformes et 0 affirmation sans preuve. *Dép. :* E6.2.
   *Acceptation (O2 à O5) :* tableau commité, échecs expliqués.
 - [ ] **E6.4 (S)** [#37](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/37) Démo testée depuis un autre appareil ; équipe inscrite sur la plateforme CV. *Dép. :* E5.4.
