@@ -74,6 +74,8 @@ E1.4 format des preuves ─► E2.4 verify_report ──────────
   *Acceptation :* 4 tests de falsification (une note modifiée, une citation inventée, un `Offre_ID` absent, un calcul faux) échouent tous ; un rapport correct renvoie une liste vide ; échec fermé (un rapport `None`, sans `claims`, ou une exception bloque le rapport) ; le message de refus donne `type` et `claim_id`, jamais la valeur attendue.
 - [ ] **E2.5 (M)** [#19](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/19) **Tranche verticale** sans vision ni voix : entrée JSON → `compute_ranking_average` → recherche provisoire → brouillon avec preuves → `verify_report`. *Dép. :* E1.2, E2.4.
   *Acceptation :* une exécution scriptée imprime un rapport vérifié pour la série D.
+- [x] **E2.6 (S)** Mise en commun de ce que `read_grade_sheet` et `extract_profile` dupliquent (reporté par la review de #61) : appel Muse Spark 1.3 et décodage de sa réponse JSON dans un seul module de `src/clients/`, bornes 0–20 dans `src/domain/`, faux client des tests dans un seul fichier. *Dép. :* E1.3, E2.2. *Fait le 28 oct : `src/clients/muse_spark.py` (`request_answer`, `decode_json_answer`), `src/domain/grade_scale.py`, `tests/fake_client.py`.*
+  *Acceptation :* nom du modèle, `max_tokens` et bornes 0–20 définis une seule fois ; comportement des outils inchangé (tests existants verts, seule la limite de tokens attendue pointe vers la constante partagée).
 
 > **Checkpoint B (fin J3) :** la tranche verticale tourne. Sinon, on ne commence pas E3.
 
