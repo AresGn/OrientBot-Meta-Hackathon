@@ -3,6 +3,7 @@ from types import SimpleNamespace
 
 import pytest
 
+from src.clients.profile import PROFILE_MAX_TOKENS
 from src.tools.extract_profile import ProfileError, extract_profile
 
 
@@ -46,8 +47,8 @@ def profile_json(**overrides):
     return json.dumps(profile, ensure_ascii=False)
 
 
-def extract(content):
-    return extract_profile(TRANSCRIPT, client=FakeClient(content))
+def extract(content, transcript=TRANSCRIPT):
+    return extract_profile(transcript, client=FakeClient(content))
 
 
 def all_quotes(profile):
@@ -65,6 +66,7 @@ def test_full_profile_is_extracted_with_values():
     assert [item["value"] for item in profile["interets"]] == ["biologie", "travailler dans la santé"]
     assert profile["metier_vise"]["value"] == "médecin"
     assert [item["value"] for item in profile["contraintes"]] == ["Cotonou", "bourse"]
+    assert profile["flags"] == []
 
 
 def test_every_quote_is_an_exact_substring_of_the_transcript():
@@ -112,8 +114,9 @@ def test_quote_is_checked_for_existence_not_meaning():
 
 def test_undisclosed_fields_are_null_and_lists_empty():
     empty = {"serie_declaree": None, "moyenne_declaree": None,
-             "interets": [], "metier_vise": None, "contraintes": []}
-    assert extract(json.dumps(empty, ensure_ascii=False)) == empty
+             "interets": [], "metier_vise": None, "contraintes": [], "flags": []}
+    model_answer = {key: value for key, value in empty.items() if key != "flags"}
+    assert extract(json.dumps(model_answer, ensure_ascii=False)) == empty
 
 
 def test_missing_keys_are_treated_as_undisclosed():
@@ -174,5 +177,69 @@ def test_transcript_is_sent_with_wide_token_limit():
     client = FakeClient(profile_json())
     extract_profile(TRANSCRIPT, client=client)
     call = client.calls[0]
-    assert call["max_tokens"] >= 8000
+    assert call["max_tokens"] == PROFILE_MAX_TOKENS
     assert TRANSCRIPT in json.dumps(call["messages"], ensure_ascii=False)
+
+
+# Real `text` returned by transcribe_voice on the coherent note (2026-10-28,
+# issue #16): numbers in words, hesitations, repeated words, no punctuation
+# runs. Quotes below are cut from it unchanged.
+REAL_TRANSCRIPT = (
+    "Bonjour, alors euh je suis en terminale série D D comme Daniel au bac "
+    "j'ai eu onze virgule deux de moyenne ce que j'aime le plus c'est la biologie "
+    "les SVT vraiment c'est ma matière préférée plus tard j'aimerais travailler "
+    "dans la santé peut-être médecin depuis petite je veux soigner les gens "
+    "aider ma famille mon quartier pour la ville euh Je préfère rester à Cotonou, "
+    "près de mes parents, parents et honnêtement, j'aurais besoin d'une bourse "
+    "parce que les études euh ça coûte cher chez nous. Voilà. Merci de m'écouter"
+)
+
+
+def test_real_transcript_with_numbers_in_words():
+    content = json.dumps({
+        "serie_declaree": {"value": "D", "quote": "série D"},
+        "moyenne_declaree": {"value": 11.2, "quote": "onze virgule deux de moyenne"},
+        "interets": [
+            {"value": "la biologie", "quote": "la biologie"},
+            {"value": "les SVT", "quote": "les SVT"},
+        ],
+        "metier_vise": {"value": "médecin", "quote": "peut-être médecin"},
+        "contraintes": [
+            {"value": "Cotonou", "quote": "Je préfère rester à Cotonou, près de mes parents, parents"},
+            {"value": "bourse", "quote": "j'aurais besoin d'une bourse"},
+        ],
+    }, ensure_ascii=False)
+    profile = extract(content, transcript=REAL_TRANSCRIPT)
+    assert profile["serie_declaree"]["value"] == "D"
+    assert profile["moyenne_declaree"]["value"] == 11.2
+    assert profile["metier_vise"]["value"] == "médecin"
+    assert [item["value"] for item in profile["contraintes"]] == ["Cotonou", "bourse"]
+    for quote in all_quotes(profile):
+        assert quote in REAL_TRANSCRIPT
+
+
+def test_typographic_apostrophe_quote_is_matched_back_to_the_transcript():
+    profile = extract(profile_json(interets=[
+        {"value": "travailler dans la santé", "quote": "j’aimerais travailler dans la santé"},
+    ]))
+    assert profile["interets"] == [
+        {"value": "travailler dans la santé", "quote": "j'aimerais travailler dans la santé"}]
+    assert profile["interets"][0]["quote"] in TRANSCRIPT
+
+
+def test_out_of_range_declared_average_is_kept_and_flagged():
+    profile = extract(profile_json(
+        moyenne_declaree={"value": 25, "quote": "j'ai eu 14 de moyenne"}))
+    assert profile["moyenne_declaree"]["value"] == 25
+    assert profile["flags"] == ["moyenne_declaree_hors_plage"]
+
+
+def test_unsupported_declared_serie_is_kept_and_flagged():
+    transcript = "Bonjour, je suis en série Z, j'ai eu 12 de moyenne."
+    content = json.dumps({
+        "serie_declaree": {"value": "Z", "quote": "je suis en série Z"},
+        "moyenne_declaree": {"value": 12, "quote": "j'ai eu 12 de moyenne"},
+    }, ensure_ascii=False)
+    profile = extract(content, transcript=transcript)
+    assert profile["serie_declaree"]["value"] == "Z"
+    assert profile["flags"] == ["serie_non_prise_en_charge"]
