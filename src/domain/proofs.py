@@ -5,14 +5,17 @@ docs/decisions.md. Only the shape is validated here; whether a referenced
 grade, quote, offer or result really exists is verify_report's job (E2.4).
 """
 
+import math
+
 SCHEMA_VERSION = 1  # docs/architecture.md: frozen proof schema, J2
 REQUIRED_FIELDS: dict[str, tuple[str, ...]] = {
     "grade": ("matiere", "note"),
     "transcript": ("quote",),
-    "filiere": ("offre_id", "page_pdf"),
+    "filiere": ("offre_id", "page_pdf", "champ", "valeur"),
     "calc": ("formula", "inputs", "result"),
 }
 PROOF_TYPES = tuple(REQUIRED_FIELDS)  # docs/prd.md section 4: grade, transcript, filiere, calc
+STRUCTURE = "structure"  # problem type for shape problems, reused by verify_report (E2.4)
 
 
 def validate_proof(proof: object) -> list[str]:
@@ -25,62 +28,111 @@ def validate_proof(proof: object) -> list[str]:
     problems = []
     for field in REQUIRED_FIELDS[proof_type]:
         problems.extend(_check_field(proof_type, field, proof.get(field)))
+    for field in proof:
+        if field != "type" and field not in REQUIRED_FIELDS[proof_type]:
+            problems.append(f"{proof_type}: unknown field {field!r}")
     return problems
 
 
-def validate_report(report: object) -> list[str]:
+def validate_report(report: object) -> list[dict[str, str | None]]:
     """Return the structural problems of a draft report; an empty list means valid.
 
-    A report is {"schema_version": 1, "claims": [{"text", "proofs": [...]}]}
-    where every claim carries at least one proof.
+    A report is {"schema_version": 1, "claims": [{"claim_id", "text", "proofs": [...]}]}
+    where every claim carries a unique id and at least one proof. Each problem is
+    {"claim_id", "type", "reason"} so verify_report (E2.4) reuses them as they are;
+    report-level problems carry a null claim_id.
     """
     if not isinstance(report, dict):
-        return ["report must be an object"]
+        return [_problem(None, "report must be an object")]
     if report.get("schema_version") != SCHEMA_VERSION:
-        return [f"unsupported schema_version: {report.get('schema_version')!r} (want {SCHEMA_VERSION})"]
+        return [_problem(None, f"unsupported schema_version: {report.get('schema_version')!r} "
+                               f"(want {SCHEMA_VERSION})")]
     claims = report.get("claims")
     if not isinstance(claims, list) or not claims:
-        return ["report has no claim"]
+        return [_problem(None, "report has no claim")]
     problems = []
-    for index, claim in enumerate(claims):
-        problems.extend(_validate_claim(claim, index))
+    seen: set[str] = set()
+    for claim in claims:
+        problems.extend(_validate_claim(claim, seen))
     return problems
 
 
-def _validate_claim(claim: object, index: int) -> list[str]:
+def _problem(claim_id: str | None, reason: str) -> dict[str, str | None]:
+    return {"claim_id": claim_id, "type": STRUCTURE, "reason": reason}
+
+
+def _validate_claim(claim: object, seen: set[str]) -> list[dict[str, str | None]]:
     if not isinstance(claim, dict):
-        return [f"claim {index}: must be an object"]
+        return [_problem(None, "claim must be an object")]
+    raw_id = claim.get("claim_id")
+    claim_id = raw_id if isinstance(raw_id, str) and raw_id.strip() else None
     problems = []
+    if raw_id is None:
+        problems.append(_problem(None, "missing claim_id"))
+    elif claim_id is None:
+        problems.append(_problem(None, "'claim_id' must be a non-empty string"))
+    elif claim_id in seen:
+        problems.append(_problem(claim_id, "duplicate claim_id"))
+    else:
+        seen.add(claim_id)
     if not isinstance(claim.get("text"), str) or not claim["text"].strip():
-        problems.append(f"claim {index}: missing text")
+        problems.append(_problem(claim_id, "missing text"))
     proofs = claim.get("proofs")
     if not isinstance(proofs, list) or not proofs:
-        return [*problems, f"claim {index}: carries no proof"]
+        return [*problems, _problem(claim_id, "carries no proof")]
     for proof in proofs:
-        problems.extend(f"claim {index}: {problem}" for problem in validate_proof(proof))
+        problems.extend(_problem(claim_id, reason) for reason in validate_proof(proof))
     return problems
 
 
-def _check_field(proof_type: str, field: str, value: object) -> list[str]:
+def _check_field(label: str, field: str, value: object) -> list[str]:
+    """Check one field; label is the proof type or an inputs entry ('calc: inputs[0]')."""
     if value is None:
-        return [f"{proof_type}: missing field {field!r}"]
-    if field in ("matiere", "quote", "offre_id", "formula"):
+        return [f"{label}: missing field {field!r}"]
+    if field in ("matiere", "quote", "offre_id", "formula", "champ"):
         if not isinstance(value, str) or not value.strip():
-            return [f"{proof_type}: {field!r} must be a non-empty string"]
+            return [f"{label}: {field!r} must be a non-empty string"]
     elif field in ("note", "result"):
         if not _is_number(value):
-            return [f"{proof_type}: {field!r} must be a number"]
-    elif field == "page_pdf":
+            return [f"{label}: {field!r} must be a finite number"]
+    elif field in ("page_pdf", "coefficient"):
         if not _is_positive_int(value):
-            return [f"{proof_type}: {field!r} must be a positive integer"]
+            return [f"{label}: {field!r} must be a positive integer"]
+    elif field == "valeur":
+        if not _is_valeur(value):
+            return [f"{label}: {field!r} must be a non-empty string or a finite number"]
     elif field == "inputs":
-        if not isinstance(value, list) or not value:
-            return [f"{proof_type}: {field!r} must be a non-empty list"]
+        return _check_inputs(value)
     return []
 
 
+def _check_inputs(value: object) -> list[str]:
+    if not isinstance(value, list) or not value:
+        return ["calc: 'inputs' must be a non-empty list"]
+    problems = []
+    for index, entry in enumerate(value):
+        problems.extend(_check_inputs_entry(index, entry))
+    return problems
+
+
+def _check_inputs_entry(index: int, entry: object) -> list[str]:
+    if not isinstance(entry, dict):
+        return [f"calc: inputs[{index}] must be an object"]
+    # Only the fields verify_report recomputes with are required: an entry mirrors a
+    # compute_ranking_average detail, which also carries provenance.
+    label = f"calc: inputs[{index}]"
+    problems = []
+    for field in ("matiere", "note", "coefficient"):
+        problems.extend(_check_field(label, field, entry.get(field)))
+    return problems
+
+
 def _is_number(value: object) -> bool:
-    return isinstance(value, (int, float)) and not isinstance(value, bool)
+    return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
+
+
+def _is_valeur(value: object) -> bool:
+    return _is_number(value) or (isinstance(value, str) and bool(value.strip()))
 
 
 def _is_positive_int(value: object) -> bool:

@@ -55,10 +55,10 @@ Le rapport est d'abord un JSON où chaque affirmation (`claim`) porte au moins u
 |---|---|---|
 | `grade` | `matiere` (texte), `note` (nombre) | la note lue sur la photo |
 | `transcript` | `quote` (texte) | la citation existe mot pour mot dans la transcription |
-| `filiere` | `offre_id` (texte), `page_pdf` (entier ≥ 1) | l'`Offre_ID` d'une ligne `Statut_qualité = OK` et sa page du PDF (`data/pages_offres.csv`) |
+| `filiere` | `offre_id` (texte), `page_pdf` (entier ≥ 1), `champ` (texte : colonne du CSV), `valeur` (texte ou nombre) | l'`Offre_ID` d'une ligne `Statut_qualité = OK`, sa page du PDF (`data/pages_offres.csv`) et la valeur annoncée dans la colonne |
 | `calc` | `formula` (texte), `inputs` (liste non vide), `result` (nombre) | le résultat de `compute_ranking_average` (`moyenne_arrondie`), recalculé |
 
-`validate_report` contrôle la forme (version du schéma, texte de chaque affirmation, au moins une preuve par affirmation, champs et types de chaque preuve) et renvoie la liste des problèmes, vide si tout est en règle. `verify_report` (E2.4) réutilise ce contrôle, puis vérifie que chaque référence existe et correspond : c'est du **code**, pas un second appel au modèle. Tant qu'il renvoie un problème, aucun rapport n'est affiché (FR-8).
+Chaque affirmation porte un `claim_id` (texte non vide, unique dans le rapport), un `text` et au moins une preuve. `validate_report` contrôle la forme (version du schéma, `claim_id`, texte, preuves, champs et types, entrées de `calc.inputs`, pas de champ inconnu ni de nombre non fini) et renvoie la liste des problèmes `{claim_id, type, reason}`, vide si tout est en règle (`type = structure` pour ces problèmes de forme, `claim_id` nul pour ceux du rapport entier). `verify_report` (E2.4) réutilise ces problèmes tels quels, puis vérifie que chaque référence existe et correspond : c'est du **code**, pas un second appel au modèle. Tant qu'il renvoie un problème, aucun rapport n'est affiché (FR-8).
 
 Exemple de rapport complet :
 
@@ -67,17 +67,20 @@ Exemple de rapport complet :
   "schema_version": 1,
   "claims": [
     {
+      "claim_id": "svt-grade",
       "text": "SVT : 15/20 au relevé.",
       "proofs": [{"type": "grade", "matiere": "SVT", "note": 15}]
     },
     {
+      "claim_id": "doctor-goal",
       "text": "Tu as dit vouloir être médecin (« peut-être médecin »).",
       "proofs": [{"type": "transcript", "quote": "peut-être médecin"}]
     },
     {
-      "text": "Médecine Générale (FSS) est accessible en série D, moyenne de classement 13,15.",
+      "claim_id": "medecine-access",
+      "text": "Médecine Générale (FSS) : 95 bourses prévues, moyenne de classement 13,15.",
       "proofs": [
-        {"type": "filiere", "offre_id": "PUB-062", "page_pdf": 36},
+        {"type": "filiere", "offre_id": "PUB-062", "page_pdf": 36, "champ": "Bourse", "valeur": 95},
         {"type": "calc", "formula": "M = Σ(mi·ci) / Σci",
          "inputs": [{"matiere": "SVT", "note": 15, "coefficient": 5},
                     {"matiere": "Mathématiques", "note": 12, "coefficient": 4},
