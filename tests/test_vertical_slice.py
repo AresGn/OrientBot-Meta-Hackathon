@@ -4,7 +4,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from src.tools.run_vertical_slice import run_vertical_slice, search_offers_provisional
+from src.vertical_slice import run_vertical_slice, search_offers_provisional
 from src.tools.verify_report import verify_report
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -41,6 +41,10 @@ def test_provisional_search_only_keeps_ok_rows_for_the_serie():
 
 
 def test_changed_grade_in_fixture_makes_verify_report_fail():
+    # Tamper with the verifier context, not a re-run of the slice: re-running
+    # would rebuild a draft coherent with the new grade and pass again. The
+    # falsification is that the already-built report no longer matches the
+    # (changed) grades it claims to prove.
     fixture = load_fixture()
     result = run_vertical_slice(fixture)
     assert result["problems"] == []

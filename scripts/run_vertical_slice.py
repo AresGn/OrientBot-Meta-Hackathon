@@ -16,7 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from src.tools.run_vertical_slice import run_vertical_slice  # noqa: E402
+from src.vertical_slice import run_vertical_slice  # noqa: E402
 
 DEFAULT_FIXTURE = ROOT / "data" / "samples" / "vertical_slice_serie_d.json"
 

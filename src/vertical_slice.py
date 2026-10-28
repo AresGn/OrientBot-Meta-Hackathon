@@ -1,5 +1,6 @@
 """Deterministic vertical slice: JSON input, calculation, provisional search,
 draft report with proofs, then verify_report. No model, no network, no API key.
+Not a tool: neither the model nor the loop calls this module.
 
 The search is provisional (E2.5): it only keeps guide rows with
 Statut_qualité = OK whose Bac_recommandé lists the serie, and only reads the
@@ -8,26 +9,18 @@ segment for that serie. E3.1/E3.5 replace it with the real per-serie parser
 and the rewritten lookup_filieres.
 """
 
-import csv
 import unicodedata
-from pathlib import Path
 
+from src.domain.guide import OK_STATUS, load_offer_rows, load_pages_by_id
 from src.domain.proofs import SCHEMA_VERSION
 from src.domain.subjects import UnknownSubjectError, normalize_subject
 from src.tools.compute_ranking_average import FORMULA, compute_ranking_average
 from src.tools.verify_report import verify_report
 
-DATA_DIR = Path(__file__).resolve().parents[2] / "data"
-OFFERS_PATH = DATA_DIR / "offres_publiques_2026_2027.csv"  # guide rows, Statut_qualité included
-PAGES_PATH = DATA_DIR / "pages_offres.csv"  # Offre_ID -> page of the official PDF
-OK_STATUS = "OK"  # docs/prd.md section 3.1: only Statut_qualité = OK rows are recommended
-
 
 def search_offers_provisional(serie: str) -> list[dict]:
     """Return guide rows with Statut_qualité = OK open to `serie` (provisional, E2.5)."""
-    with OFFERS_PATH.open(newline="", encoding="utf-8-sig") as stream:
-        rows = list(csv.DictReader(stream))
-    return [row for row in rows
+    return [row for row in load_offer_rows()
             if row.get("Statut_qualité") == OK_STATUS
             and serie in _split_values(row.get("Bac_recommandé", ""))]
 
@@ -43,7 +36,7 @@ def run_vertical_slice(fixture: dict) -> dict:
     incoherent fixture raises ValueError: nothing is guessed.
     """
     serie, grades, transcript, metier = _read_fixture(fixture)
-    pages = _load_pages()
+    pages = load_pages_by_id()
     kept = _calculable_offers(serie, grades, metier["value"], pages)
     if not kept:
         return {"status": "unverified", "report": None, "text": "",
@@ -149,11 +142,6 @@ def _offer_claim(row: dict, result: dict, page: str) -> dict:
                      f"{_format_number(result['moyenne_arrondie'])}."),
             "proofs": proofs}
 
-
-def _load_pages() -> dict:
-    with PAGES_PATH.open(newline="", encoding="utf-8-sig") as stream:
-        return {row["Offre_ID"]: row["page_pdf"] for row in csv.DictReader(stream)
-                if row.get("Offre_ID") and row.get("page_pdf")}
 
 
 def _split_values(raw: str) -> list[str]:
