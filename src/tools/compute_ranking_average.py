@@ -1,10 +1,9 @@
 from decimal import ROUND_HALF_UP, Decimal
 
 from src.domain.coefficients import COEFFICIENTS_PATH, load_coefficients
+from src.domain.grade_scale import MAX_GRADE, MIN_GRADE, is_on_grade_scale
 from src.domain.subjects import UnknownSubjectError, normalize_subject
 
-MIN_GRADE = 0  # grade scale of the Bac
-MAX_GRADE = 20
 FORMULA = "M = Σ(mi·ci) / Σci"  # Guide d'information 2026-2027, page 8
 DISPLAY_DECIMALS = Decimal("0.01")  # docs/decisions.md: 2 decimals, half up
 COEFFICIENT_SOURCE = COEFFICIENTS_PATH.name
@@ -73,7 +72,7 @@ def _find_grade(subject: str, grades: list[dict]) -> float:
     note = notes[0]
     if isinstance(note, bool) or not isinstance(note, (int, float)):
         raise ValueError(f"note illisible: {subject}")
-    if not MIN_GRADE <= note <= MAX_GRADE:
+    if not is_on_grade_scale(note):
         raise ValueError(f"note hors de {MIN_GRADE}-{MAX_GRADE}: {subject} = {note}")
     return note
 

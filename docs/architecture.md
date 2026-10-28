@@ -45,7 +45,7 @@ Limite de pas : 12 (`MAX_STEPS` dans `src/agent/loop.py`, PRD FR-1). `ask_studen
 | `verify_report` | Contrôler chaque preuve du brouillon | code | non implémenté |
 | `build_report` | Mettre en forme le rapport validé | code | squelette |
 
-Briques du domaine (code pur, sans réseau) : `src/domain/coefficients.py` (`load_coefficients(serie)` : séries C et D, groupe 1, sans EPS), `src/domain/subjects.py` (`normalize_subject(raw)` : `UnknownSubjectError` si la matière est inconnue) et `src/domain/proofs.py` (`SCHEMA_VERSION = 1`, `validate_proof`, `validate_report` : format des preuves figé au J2).
+Briques du domaine (code pur, sans réseau) : `src/domain/coefficients.py` (`load_coefficients(serie)` : séries C et D, groupe 1, sans EPS), `src/domain/grade_scale.py` (`MIN_GRADE`, `MAX_GRADE`, `is_on_grade_scale` : échelle 0–20 partagée par `compute_ranking_average`, `read_grade_sheet` et `extract_profile`), `src/domain/subjects.py` (`normalize_subject(raw)` : `UnknownSubjectError` si la matière est inconnue) et `src/domain/proofs.py` (`SCHEMA_VERSION = 1`, `validate_proof`, `validate_report` : format des preuves figé au J2).
 
 ## Preuves et vérificateur
 
