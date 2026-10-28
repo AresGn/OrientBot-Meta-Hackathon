@@ -29,7 +29,7 @@ flowchart TD
     B --> OUT([Report with proofs])
 ```
 
-Limite de pas : 12 (`MAX_STEPS`, encore à 10 dans `src/agent/loop.py`, à aligner). `ask_student` suspend la boucle jusqu'à la réponse de l'élève.
+Limite de pas : 12 (`MAX_STEPS` dans `src/agent/loop.py`, PRD FR-1). `ask_student` suspend la boucle : `run` renvoie `{status: needs_input, question, messages, tool_call_id}` sans aucun appel de modèle ni d'outil supplémentaire, puis `resume(client, model, tool_schemas, suspended, student_answer)` réinjecte la réponse comme message `tool` lié au `tool_call_id` en attente et relance la boucle ; une réponse vide renvoie le même état `needs_input` sans rien appeler. Même mécanisme pour la CLI (stdin) et le web (événement `needs_input`, E5.1).
 
 ## Outils
 
@@ -41,7 +41,7 @@ Limite de pas : 12 (`MAX_STEPS`, encore à 10 dans `src/agent/loop.py`, à align
 | `zoom_cell` | Isoler une cellule douteuse et la relire | SAM 3.1 + Muse Spark 1.3 | **abandonné** : NO GO au spike E0.6 (`docs/decisions.md`) ; l'agent demande une nouvelle photo |
 | `compute_ranking_average` | Moyenne de classement d'une offre (formule page 8) | code | implémenté (`src/tools/compute_ranking_average.py`) |
 | `lookup_filieres` | Filtrer les offres accessibles puis les classer | code | stub sur l'ancien schéma `filieres.csv`, à réécrire |
-| `ask_student` | Poser une question, suspendre la boucle | interface | non implémenté |
+| `ask_student` | Poser une question, suspendre la boucle | interface | implémenté (`src/tools/ask_student.py` + suspension/reprise dans `src/agent/loop.py`) ; `ask_student(question)` valide par code (texte non vide, une seule question — un second « ? » est refusé, `AskStudentError`) et renvoie `{status: needs_input, question}` ; la question est rédigée en français par le modèle (prompt système), une question invalide du modèle devient une observation d'erreur et ne suspend pas ; tests sans réseau avec un faux modèle (`tests/test_ask_student.py`) |
 | `verify_report` | Contrôler chaque preuve du brouillon | code | non implémenté |
 | `build_report` | Mettre en forme le rapport validé | code | squelette |
 

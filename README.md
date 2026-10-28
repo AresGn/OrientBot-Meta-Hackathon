@@ -81,7 +81,7 @@ Design intent: the loop is a skeleton and has not been run end to end yet.
 | `zoom_cell` | Isolate and re-read a doubtful cell (SAM 3.1) | dropped: SAM 3.1 did not locate a cell in the day-1 test |
 | `compute_ranking_average` | Ranking average of one offer from the guide's formula | implemented |
 | `lookup_filieres` | Filter accessible offers, then rank them | stub on an older schema, to rewrite on the new data |
-| `ask_student` | Ask a question and pause the loop | not implemented |
+| `ask_student` | Ask a question and pause the loop | implemented (`src/tools/ask_student.py`, loop suspension/resume in `src/agent/loop.py`) |
 | `verify_report` | Check every proof of the draft | not implemented |
 | `build_report` | Format the verified report | skeleton |
 
