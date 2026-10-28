@@ -1,0 +1,16 @@
+{
+  "serie": "D",
+  "grades": [
+    {"matiere": "Anglais", "note": 8, "lisible": true},
+    {"matiere": "Français", "note": 9.5, "lisible": true},
+    {"matiere": "Histoire-Géographie", "note": 7, "lisible": true},
+    {"matiere": "Mathématiques", "note": 12, "lisible": true},
+    {"matiere": "Philosophie", "note": 8, "lisible": true},
+    {"matiere": "Sciences Physiques (PCT/SPCT)", "note": 12, "lisible": true},
+    {"matiere": "SVT", "note": 15, "lisible": true}
+  ],
+  "transcript": "je suis en série D, peut-être médecin, je préfère rester à Cotonou",
+  "profile": {
+    "metier_vise": {"value": "médecin", "quote": "peut-être médecin"}
+  }
+}
