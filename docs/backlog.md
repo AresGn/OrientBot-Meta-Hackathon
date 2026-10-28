@@ -57,7 +57,7 @@ E1.4 format des preuves ─► E2.4 verify_report ──────────
 - [x] **E1.4 (S)** [#13](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/13) Format des preuves figé (`grade`, `transcript`, `filiere`, `calc`), documenté dans `docs/architecture.md`.
   *Acceptation :* schéma versionné ; 4 exemples valides et 4 invalides en tests.
 
-- [ ] **E1.5 (S)** [#14](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/14) CI minimale : workflow GitHub Actions `.github/workflows/tests.yml` + badge dans le README. *Dép. :* E1.2 (pour qu'un test significatif tourne).
+- [x] **E1.5 (S)** [#14](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/14) CI minimale : workflow GitHub Actions `.github/workflows/tests.yml` + badge dans le README. *Dép. :* E1.2 (pour qu'un test significatif tourne).
   *Acceptation :* le workflow est vert sur `main` ; le badge du README s'affiche ; le workflow n'utilise aucun secret et n'appelle pas l'API (les 10 évaluations ne tournent jamais en CI).
 
 > **Checkpoint A (fin J2) :** `python -m pytest` vert, dont les deux exemples de la page 8, **et le workflow vert sur GitHub** ; `read_grade_sheet` fonctionne sur 2 relevés ; décision `zoom_cell` prise.

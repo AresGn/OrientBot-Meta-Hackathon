@@ -103,7 +103,7 @@ pip install -r requirements.txt
 cp .env.example .env   # then set MUSE_API_KEY (the file must be named .env)
 python -m src.main     # currently exits: not implemented
 uvicorn src.api.server:app --reload --port 8000   # demo UI at http://127.0.0.1:8000/
-python -m pytest       # 2 tests (the stub lookup tool)
+python -m pytest       # deterministic tests only, no API key needed
 ```
 
 Tool-calling check (Muse Spark 1.3): `python scripts/test_muse_tool_call.py`.
