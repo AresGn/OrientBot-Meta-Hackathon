@@ -16,3 +16,14 @@ renvoie une liste vide. Code de sortie 1, sans rapport imprimé, si le
 vérificateur refuse le brouillon.
 
 Test d'intégration associé : `python -m pytest -q tests/test_vertical_slice.py`.
+
+## Tirage de l'audit de données (E3.3)
+
+```bash
+python scripts/sample_audit.py --seed 2026
+```
+
+Affiche 20 `Offre_ID` de lignes `Statut_qualité = OK`, un par ligne, dans
+l'ordre du tirage. Relancer avec la même graine donne les mêmes 20 lignes
+(test : `tests/test_sample_audit.py`). L'audit comparant ces lignes au PDF
+est publié dans `docs/data-audit.md`.
