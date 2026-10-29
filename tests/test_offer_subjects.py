@@ -49,6 +49,17 @@ def test_concours_offer_without_published_subjects_is_concours_not_unpublished(o
     assert "notes du Bac ne suffisent pas" in result["reason"]
 
 
+@pytest.mark.parametrize("serie", ["C", "D"])
+def test_concours_offer_closed_to_the_serie_is_not_calculable(serie):
+    row = ROWS["PUB-180"]  # Concours, segments G1 / A1, A2 / B only
+    assert row["Mode_entrée"] == "Concours"
+
+    result = subjects_for_serie(row, serie)
+
+    assert result["status"] == STATUS_NOT_CALCULABLE
+    assert serie in result["reason"]
+
+
 def test_classement_offer_without_published_subjects_is_unpublished():
     result = subjects_for_serie(ROWS["PUB-145"], "D")  # Classement, Matières = "—"
 

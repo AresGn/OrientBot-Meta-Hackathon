@@ -74,23 +74,28 @@ def subjects_for_serie(row: dict, serie: str) -> dict:
     `matières non publiées` or `concours`, with an explicit `reason`.
     """
     raw = row.get("Matières", "")
-    # Concours first: even with nothing published, the entry mode is the
-    # information the student needs (E3.5), not a missing ranking subject.
-    if row.get("Mode_entrée") == "Concours":
-        epreuves: list[str] = []
-        if isinstance(raw, str) and raw.strip() not in _EMPTY_CELLS:
-            verbatim = _parse_segments(raw, normalize=False)
-            epreuves = verbatim.get(serie, verbatim.get(ALL_SERIES_HEADER, []))
-        return _result(STATUS_CONCOURS, epreuves=epreuves,
-                       reason="Concours : les notes du Bac ne suffisent pas, "
-                              "admission par épreuve séparée")
+    is_concours = row.get("Mode_entrée") == "Concours"
+    # Empty cell: the entry mode is the information the student needs
+    # (Concours, E3.5), not a missing ranking subject.
     if not isinstance(raw, str) or raw.strip() in _EMPTY_CELLS:
+        if is_concours:
+            return _result(STATUS_CONCOURS,
+                           reason="Concours : les notes du Bac ne suffisent pas, "
+                                  "admission par épreuve séparée")
         return _result(SUBJECTS_NOT_PUBLISHED, reason=SUBJECTS_NOT_PUBLISHED)
     parsed = parse_subjects_by_series(raw)
     subjects_raw = parsed.get(serie, parsed.get(ALL_SERIES_HEADER))
+    # A published cell with no segment for the serie means the offer is
+    # closed to it, whatever the entry mode: never present it as open.
     if subjects_raw is None:
         return _result(STATUS_NOT_CALCULABLE,
                        reason=f"série {serie} absente des matières de l'offre")
+    if is_concours:
+        verbatim = _parse_segments(raw, normalize=False)
+        epreuves = verbatim.get(serie, verbatim.get(ALL_SERIES_HEADER, []))
+        return _result(STATUS_CONCOURS, epreuves=epreuves,
+                       reason="Concours : les notes du Bac ne suffisent pas, "
+                              "admission par épreuve séparée")
     return _calculable_result(serie, subjects_raw)
 
 
