@@ -9,6 +9,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from src.domain.guide import OK_STATUS, load_offer_rows
+
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "sample_audit.py"
 
@@ -35,8 +37,6 @@ def test_same_seed_gives_same_twenty_offers():
 
 
 def test_sample_holds_twenty_unique_ok_offers():
-    from src.domain.guide import OK_STATUS, load_offer_rows
-
     ok_ids = {row["Offre_ID"] for row in load_offer_rows()
               if row["Statut_qualité"] == OK_STATUS}
     sampled = run_sample(2026)

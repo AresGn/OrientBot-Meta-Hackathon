@@ -119,7 +119,7 @@ Ten cases are planned in `evals/cases.jsonl`, four of them adversarial (unverifi
 - The agent is not functional end to end yet.
 - Tool calling was checked on one tool (5/5 runs) and on 2 tools with the result returned (5/5 runs, one question per tool); chained calls were not observed and the test is small. SAM 3.1 cannot locate a single table cell from a text prompt (day-1 test), so there is no cell zoom.
 - Target scope: public offers for series C and D of the 2026-2027 guide whose row passed the quality check (206 of 224 rows are `OK`; the others are listed under "what I could not verify"). The guide gives no city, no admission threshold and no cost, so the agent never states them and never speaks of admission chances.
-- OCR extraction errors may remain in `OK` rows; a hand audit of 20 rows against the PDF is published (`docs/data-audit.md`): 2 minor gaps in 20 rows (missing spaces in one careers cell, two series omitted on one UADC row), below the 3-line threshold, plus documented extraction conventions for dash cells.
+- OCR extraction errors may remain in `OK` rows; a hand audit of 20 rows against the PDF is published (`docs/data-audit.md`): 5 gaps in 20 rows (missing spaces, omitted series, values inferred from dash cells), above the 3-line threshold, so the extraction is being fixed and restricted (see `docs/decisions.md`). Verified, except the guide's dash cells, which are reported as "not published in the guide", never asserted.
 - Only fictional sample data; no real-student testing.
 - Handwritten grade sheets will likely be unreliable; the first tests use printed fictional sheets.
 - No voice output.

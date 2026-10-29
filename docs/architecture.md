@@ -105,7 +105,7 @@ Exemple de rapport complet :
 | `data/coefficients_bac_benin.json` | coefficients du Bac par série (groupe 1) ; entrée de `compute_ranking_average` |
 | `data/filieres.csv` | ancien gabarit vide, remplacé par les fichiers ci-dessus ; à supprimer avec la réécriture de `lookup_filieres` |
 
-Le PDF du guide n'est pas versionné (`data/source/`, ignoré par git). Contrôle qualité : `docs/data-audit.md` (E3.3) compare 20 lignes `OK` tirées au hasard (graine 2026, `scripts/sample_audit.py`) au PDF : 2 écarts sur 20, sous le seuil de 3.
+Le PDF du guide n'est pas versionné (`data/source/`, ignoré par git). Contrôle qualité : `docs/data-audit.md` (E3.3) compare 20 lignes `OK` tirées au hasard (graine 2026, `scripts/sample_audit.py`) au PDF : 5 écarts sur 20, seuil franchi → décision dans `docs/decisions.md` (corriger + restreindre, en E3.5).
 
 ## Décisions
 
