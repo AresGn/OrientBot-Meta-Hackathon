@@ -33,10 +33,25 @@ def test_pub_077_glued_svt_deat_header_is_corrected():
 
 @pytest.mark.parametrize("offre_id", ["PUB-220", "PUB-223"])
 def test_unpublished_subjects_return_empty_parse(offre_id):
-    row = ROWS[offre_id]
+    assert parse_subjects_by_series(ROWS[offre_id]["Matières"]) == {}
 
-    assert parse_subjects_by_series(row["Matières"]) == {}
+
+@pytest.mark.parametrize("offre_id", ["PUB-219", "PUB-220", "PUB-221", "PUB-223", "PUB-224"])
+def test_concours_offer_without_published_subjects_is_concours_not_unpublished(offre_id):
+    row = ROWS[offre_id]
+    assert row["Mode_entrée"] == "Concours"
+
     result = subjects_for_serie(row, "D")
+
+    assert result["status"] == STATUS_CONCOURS
+    assert result["subjects"] == []
+    assert result["epreuves"] == []
+    assert "notes du Bac ne suffisent pas" in result["reason"]
+
+
+def test_classement_offer_without_published_subjects_is_unpublished():
+    result = subjects_for_serie(ROWS["PUB-145"], "D")  # Classement, Matières = "—"
+
     assert result["status"] == SUBJECTS_NOT_PUBLISHED
     assert result["subjects"] == []
     assert result["reason"] == SUBJECTS_NOT_PUBLISHED
