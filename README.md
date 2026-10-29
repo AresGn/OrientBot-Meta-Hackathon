@@ -28,7 +28,7 @@ All the code in this repository is written during the hackathon: the agent loop,
 
 **An earlier prototype** by the same author (OrientBot V1, a fixed WhatsApp workflow, 7 users, now paused) explored this problem. No code from it is reused here. PathProof is built from scratch during the hackathon. Only public official rules (the MESRS weighted-average formula, subject-name normalization) are re-implemented. See [`docs/v1-reuse.md`](docs/v1-reuse.md).
 
-**Data** comes from the official public *Guide d'information 2026-2027* (MESRS). Its CSV extraction was done before the event; it is data, not code. The guide PDF itself is not republished here. Every recommendation is meant to link back to the guide page it comes from (`data/pages_offres.csv` is a first draft of that mapping: 19 rows to check by hand, 2 not found).
+**Data** comes from the official public *Guide d'information 2026-2027* (MESRS). Its CSV extraction was done before the event; it is data, not code. The guide PDF itself is not republished here. Every recommendation is meant to link back to the guide page it comes from (`data/pages_offres.csv` maps 217 of 224 offers to their PDF page: 180 matched without ambiguity, 23 disambiguated by establishment sigle, 14 checked by hand against the local PDF; 7 whose establishment the PDF contradicts await the E3.3 audit).
 
 | File | Content |
 |---|---|
