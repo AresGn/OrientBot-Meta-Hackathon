@@ -81,8 +81,8 @@ E1.4 format des preuves ─► E2.4 verify_report ──────────
 
 ## E3 — Données et recherche (J4, ven 30 oct)
 
-- [ ] **E3.1 (M)** [#20](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/20) Découpage de la colonne `Matières` par série. *Dép. :* E1.1.
-  *Acceptation :* 222 offres sur 224 ; `PUB-062` → Maths, PCT, SVT ; `PUB-077` corrigé ; `PUB-220` et `PUB-223` = « matières non publiées » ; couverture des offres `OK` en mode Classement reproduite : C 146 sur 149, D 147 sur 150.
+- [x] **E3.1 (M)** [#20](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/20) Découpage de la colonne `Matières` par série. *Dép. :* E1.1.
+  *Acceptation :* 222 offres sur 224 ; `PUB-062` → Maths, PCT, SVT ; `PUB-077` corrigé ; `PUB-220` et `PUB-223` = « matières non publiées » ; couverture des offres `OK` en mode Classement reproduite : C 146 sur 149, D 147 sur 150. *Fait le 29 oct : `src/domain/offer_subjects.py`, tests dans `tests/test_offer_subjects.py`. Écart noté dans `docs/decisions.md` : après correction de `PUB-077`, la couverture recalculée est C 147 sur 149, D 148 sur 150, et 8 cellules portent « — » (6 lignes « Toutes séries » en plus de `PUB-220`, `PUB-223`).*
 - [ ] **E3.2 (M)** [#21](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/21) Terminer `data/pages_offres.csv` (19 lignes `a_verifier`, 2 `introuvable`).
   *Acceptation :* plus aucun `a_verifier` ; `PUB-064` → page 36 ; `PUB-122` et `PUB-210` résolus ou marqués « page non établie ».
 - [ ] **E3.3 (M)** [#22](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/22) Audit de 20 lignes `OK` tirées au hasard (graine fixée) contre le PDF local. *Dép. :* E3.2.
