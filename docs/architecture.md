@@ -101,7 +101,7 @@ Exemple de rapport complet :
 | `data/offres_publiques_2026_2027.csv` | 224 offres ; source principale de `lookup_filieres` |
 | `data/series_et_offres_2026_2027.csv` | 897 couples série–offre ; index par série |
 | `data/controle_qualite_2026_2027.csv` | 39 anomalies ; section « Ce que je n'ai pas pu vérifier » |
-| `data/pages_offres.csv` | offre → page du PDF officiel (terminé E3.2 : 180 `unique`, 23 `sigle`, 21 `verifie_main`, 0 `page_non_etablie`) |
+| `data/pages_offres.csv` | offre → page du PDF officiel (terminé E3.2 : 180 `unique`, 23 `sigle`, 14 `verifie_main`, 7 `page_non_etablie` en quarantaine jusqu'à E3.3) |
 | `data/coefficients_bac_benin.json` | coefficients du Bac par série (groupe 1) ; entrée de `compute_ranking_average` |
 | `data/filieres.csv` | ancien gabarit vide, remplacé par les fichiers ci-dessus ; à supprimer avec la réécriture de `lookup_filieres` |
 

@@ -23,7 +23,7 @@ PUB-021,30,unique
 PUB-022,30,unique
 PUB-023,32,sigle
 PUB-024,32,unique
-PUB-025,42,verifie_main
+PUB-025,,page_non_etablie
 PUB-026,32,sigle
 PUB-027,42,verifie_main
 PUB-028,42,verifie_main
@@ -43,10 +43,10 @@ PUB-041,39,unique
 PUB-042,37,unique
 PUB-043,42,verifie_main
 PUB-044,43,unique
-PUB-045,23,verifie_main
+PUB-045,,page_non_etablie
 PUB-046,23,sigle
 PUB-047,23,sigle
-PUB-048,24,verifie_main
+PUB-048,,page_non_etablie
 PUB-049,23,sigle
 PUB-050,24,sigle
 PUB-051,24,unique
@@ -140,7 +140,7 @@ PUB-138,52,unique
 PUB-139,52,unique
 PUB-140,52,unique
 PUB-141,53,unique
-PUB-142,53,verifie_main
+PUB-142,,page_non_etablie
 PUB-143,54,unique
 PUB-144,54,unique
 PUB-145,54,unique
@@ -184,9 +184,9 @@ PUB-182,60,unique
 PUB-183,60,unique
 PUB-184,63,unique
 PUB-185,64,sigle
-PUB-186,57,verifie_main
-PUB-187,59,verifie_main
-PUB-188,58,verifie_main
+PUB-186,,page_non_etablie
+PUB-187,,page_non_etablie
+PUB-188,,page_non_etablie
 PUB-189,58,verifie_main
 PUB-190,58,unique
 PUB-191,60,unique

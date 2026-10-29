@@ -11,8 +11,6 @@ DATA_DIR = Path(__file__).resolve().parents[2] / "data"
 OFFERS_PATH = DATA_DIR / "offres_publiques_2026_2027.csv"  # guide rows, Statut_qualité included
 PAGES_PATH = DATA_DIR / "pages_offres.csv"  # Offre_ID -> page of the official PDF
 OK_STATUS = "OK"  # docs/prd.md section 3.1: only Statut_qualité = OK rows are recommended
-PAGE_STATUSES = frozenset({"unique", "sigle", "verifie_main",
-                           "page_non_etablie"})  # issue #21: finished page_statut values
 PAGE_NON_ETABLIE = "page_non_etablie"  # issue #21: page not established, offer not recommendable
 
 
