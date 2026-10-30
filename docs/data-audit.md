@@ -129,6 +129,45 @@ après correction des libellés : `PUB-025` → 42, `PUB-045` → 23,
 Soupçons non vérifiés : `PUB-026` (homologue probable page 42), `PUB-049`
 (homologue probable page 24). Correction et rétablissement : E3.5.
 
+## Suivi E3.4 : relecture faculte_classique (issue #23)
+
+Colonne produite par `python scripts/make_faculte_classique.py --output
+data/faculte_classique.csv` (règle : `Établissement` commence par
+« Faculté » → `oui`, sinon `non` ; 3 exceptions relues ci-dessous).
+224 lignes : 62 `oui`, 162 `non`. Consigne source, guide page 9 : « Il
+est fortement recommandé de choisir au moins une formation dans une
+Faculté Classique parmi les trois choix à opérer sur la plateforme. »
+
+Relecture : les 65 lignes marquées `oui` par la règle (59 ouvertes à
+C/D selon `series_et_offres_2026_2027.csv`, plus `PUB-145`
+« Toutes séries » sans couple C/D dans l'index), regroupées en
+14 libellés, tous de vraies facultés universitaires (FA, FADESP, FASHS,
+FASEG ×2, FLLAC, FLASH, FLASH-Adjarra, FM, FSA, FAST,
+FAST/Natitingou, FDSP, FSS).
+
+Exceptions (`oui` → `non`, dans `REVIEWED_EXCEPTIONS` du script) :
+`PUB-186`, `PUB-187`, `PUB-188` — le PDF montre l'Institut National
+Supérieur de Technologie Industrielle (INSTI) aux pages 57, 59 et 58
+(Génie Civil 50/10 ; Génie Électrique et Informatique 25/5, les deux
+options) alors que le CSV porte encore le libellé FAST/Natitingou mis
+en quarantaine en E3.2. E3.5 corrige les libellés, après quoi ces
+exceptions rejoignent la règle : régénérer le fichier.
+
+Lignes en quarantaine (E3.2) restant `oui`, l'établissement vrai étant
+toujours une faculté : `PUB-045` (FLASH-Adjarra, page 23), `PUB-048`
+(FLLAC, page 24), `PUB-142` (FLASH-Parakou, page 53). `PUB-025`
+(ENSTIC, vrai ENS) reste `non`.
+
+Pièges vérifiés `non` : `PUB-002` (CIFRED, « Facultaire » dans le nom
+mais un centre), `PUB-211` à `PUB-215` (UFR de l'UADC, pas des
+facultés), `PUB-195`/`PUB-210` (établissement vide), `PUB-216`
+(libellé de filière décalé, « Métiers de l'agriculture »).
+
+Soupçons hors périmètre, non touchés (filière improbable pour la
+faculté, sans effet sur cette colonne) : `PUB-130` (Droit Privé, FA),
+`PUB-053`/`054`/`055` (filières agricoles, FLLAC), `PUB-141`
+(Allemand, FASEG). À signaler en E3.5.
+
 ## Conclusion
 
 Échantillon graine 2026 : 15 lignes sur 20 intégralement conformes,

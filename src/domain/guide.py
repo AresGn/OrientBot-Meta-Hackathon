@@ -10,6 +10,7 @@ from pathlib import Path
 DATA_DIR = Path(__file__).resolve().parents[2] / "data"
 OFFERS_PATH = DATA_DIR / "offres_publiques_2026_2027.csv"  # guide rows, Statut_qualité included
 PAGES_PATH = DATA_DIR / "pages_offres.csv"  # Offre_ID -> page of the official PDF
+FACULTE_PATH = DATA_DIR / "faculte_classique.csv"  # Offre_ID -> oui/non (page-9 consigne)
 OK_STATUS = "OK"  # docs/prd.md section 3.1: only Statut_qualité = OK rows are recommended
 PAGE_NON_ETABLIE = "page_non_etablie"  # issue #21: page not established, offer not recommendable
 
@@ -30,3 +31,15 @@ def load_pages_by_id() -> dict[str, str]:
     with PAGES_PATH.open(newline="", encoding="utf-8-sig") as stream:
         return {row["Offre_ID"]: row["page_pdf"] for row in csv.DictReader(stream)
                 if row.get("Offre_ID") and row.get("page_pdf")}
+
+
+def load_faculte_classique_by_id() -> dict[str, str]:
+    """Return {Offre_ID: faculte_classique} from data/faculte_classique.csv.
+
+    Values are oui/non (docs/prd.md section 6, point 5); build_report reads
+    this column to apply the page-9 consigne (at least one choice in a
+    Faculte Classique). Pure file reading: no network, no SDK.
+    """
+    with FACULTE_PATH.open(newline="", encoding="utf-8-sig") as stream:
+        return {row["Offre_ID"]: row["faculte_classique"]
+                for row in csv.DictReader(stream) if row.get("Offre_ID")}
