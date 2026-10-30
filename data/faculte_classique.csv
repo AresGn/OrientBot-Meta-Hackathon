@@ -22,6 +22,7 @@ PUB-021,non
 PUB-022,non
 PUB-023,non
 PUB-024,non
+PUB-025,non
 PUB-026,non
 PUB-027,non
 PUB-028,non
@@ -41,8 +42,10 @@ PUB-041,non
 PUB-042,non
 PUB-043,oui
 PUB-044,oui
+PUB-045,oui
 PUB-046,oui
 PUB-047,oui
+PUB-048,oui
 PUB-049,oui
 PUB-050,oui
 PUB-051,oui
@@ -129,6 +132,7 @@ PUB-137,oui
 PUB-138,oui
 PUB-139,oui
 PUB-141,oui
+PUB-142,oui
 PUB-143,oui
 PUB-144,oui
 PUB-145,oui
@@ -170,6 +174,9 @@ PUB-182,non
 PUB-183,non
 PUB-184,oui
 PUB-185,oui
+PUB-186,non
+PUB-187,non
+PUB-188,non
 PUB-190,non
 PUB-191,non
 PUB-192,non

@@ -11,7 +11,7 @@ and the rewritten lookup_filieres.
 
 import unicodedata
 
-from src.domain.guide import OK_STATUS, load_offer_rows, load_pages_by_id
+from src.domain.guide import NOT_PUBLISHED, OK_STATUS, load_offer_rows, load_pages_by_id
 from src.domain.proofs import SCHEMA_VERSION
 from src.domain.subjects import UnknownSubjectError, normalize_subject
 from src.tools.compute_ranking_average import FORMULA, compute_ranking_average
@@ -129,16 +129,21 @@ def _grade_claims(kept: list) -> list[dict]:
 
 def _offer_claim(row: dict, result: dict, page: str) -> dict:
     offre_id = row["Offre_ID"]
+    # A "non publié" quota is never a filiere proof (E3.5): it is said, not proven.
+    champs = ("Filière", "Établissement") if row["Bourse"].strip() == NOT_PUBLISHED \
+        else ("Filière", "Établissement", "Bourse")
     proofs = [{"type": "filiere", "offre_id": offre_id, "page_pdf": int(page),
                "champ": champ, "valeur": _csv_value(row[champ])}
-              for champ in ("Filière", "Établissement", "Bourse")]
+              for champ in champs]
     proofs.append({"type": "calc", "formula": FORMULA,
                    "inputs": [{"matiere": d["matiere"], "note": d["note"],
                                "coefficient": d["coefficient"]} for d in result["details"]],
                    "result": result["moyenne_arrondie"]})
+    quota = "quotas non publiés par le guide" if row["Bourse"].strip() == NOT_PUBLISHED \
+        else f"{row['Bourse']} bourses prévues"
     return {"claim_id": f"offre-{offre_id.lower()}",
             "text": (f"{row['Filière']} ({row['Établissement']}) — {offre_id} : "
-                     f"{row['Bourse']} bourses prévues, moyenne de classement "
+                     f"{quota}, moyenne de classement "
                      f"{_format_number(result['moyenne_arrondie'])}."),
             "proofs": proofs}
 

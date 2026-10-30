@@ -28,7 +28,7 @@ All the code in this repository is written during the hackathon: the agent loop,
 
 **An earlier prototype** by the same author (OrientBot V1, a fixed WhatsApp workflow, 7 users, now paused) explored this problem. No code from it is reused here. PathProof is built from scratch during the hackathon. Only public official rules (the MESRS weighted-average formula, subject-name normalization) are re-implemented. See [`docs/v1-reuse.md`](docs/v1-reuse.md).
 
-**Data** comes from the official public *Guide d'information 2026-2027* (MESRS). Its CSV extraction was done before the event; it is data, not code. The guide PDF itself is not republished here. Every recommendation is meant to link back to the guide page it comes from (`data/pages_offres.csv` maps 217 of 224 offers to their PDF page: 180 matched without ambiguity, 23 disambiguated by establishment sigle, 14 checked by hand against the local PDF; 7 whose establishment the PDF contradicts await the E3.3 audit).
+**Data** comes from the official public *Guide d'information 2026-2027* (MESRS). Its CSV extraction was done before the event; it is data, not code. The guide PDF itself is not republished here. Every recommendation is meant to link back to the guide page it comes from (`data/pages_offres.csv` maps all 224 offers to their PDF page: 180 matched without ambiguity, 23 disambiguated by establishment sigle, the rest checked by hand against the local PDF, including the 7 formerly quarantined rows whose labels E3.5 repaired).
 
 | File | Content |
 |---|---|
@@ -80,7 +80,7 @@ Design intent: the loop is a skeleton and has not been run end to end yet.
 | `read_grade_sheet` | Read grades from the sheet photo (Muse Spark 1.3, vision) | implemented (manual real-API check only, never in CI) |
 | `zoom_cell` | Isolate and re-read a doubtful cell (SAM 3.1) | dropped: SAM 3.1 did not locate a cell in the day-1 test |
 | `compute_ranking_average` | Ranking average of one offer from the guide's formula | implemented |
-| `lookup_filieres` | Filter accessible offers, then rank them | stub on an older schema, to rewrite on the new data |
+| `lookup_filieres` | Filter accessible offers, then rank them | implemented (strict access, whole-word ranking, excluded rows returned) |
 | `ask_student` | Ask a question and pause the loop | implemented (`src/tools/ask_student.py`, loop suspension/resume in `src/agent/loop.py`) |
 | `verify_report` | Check every proof of the draft | implemented (`src/tools/verify_report.py`) |
 | `build_report` | Format the verified report | skeleton |
@@ -119,7 +119,7 @@ Ten cases are planned in `evals/cases.jsonl`, four of them adversarial (unverifi
 - The agent is not functional end to end yet.
 - Tool calling was checked on one tool (5/5 runs) and on 2 tools with the result returned (5/5 runs, one question per tool); chained calls were not observed and the test is small. SAM 3.1 cannot locate a single table cell from a text prompt (day-1 test), so there is no cell zoom.
 - Target scope: public offers for series C and D of the 2026-2027 guide whose row passed the quality check (206 of 224 rows are `OK`; the others are listed under "what I could not verify"). The guide gives no city, no admission threshold and no cost, so the agent never states them and never speaks of admission chances.
-- OCR extraction errors may remain in `OK` rows; a hand audit of 20 rows against the PDF is published (`docs/data-audit.md`): 5 gaps in 20 rows (missing spaces, omitted series, values inferred from dash cells), above the 3-line threshold, so the extraction is being fixed and restricted (see `docs/decisions.md`). Verified, except the guide's dash cells, which are reported as "not published in the guide", never asserted.
+- OCR extraction errors may remain in `OK` rows; a hand audit of 20 rows against the PDF is published (`docs/data-audit.md`): 5 gaps in 20 rows (missing spaces, omitted series, values inferred from dash cells), above the 3-line threshold, so the extraction was fixed by a traced script and restricted in E3.5 (see `docs/decisions.md`). Verified, except the guide's dash cells, which are reported as "not published in the guide", never asserted.
 - Only fictional sample data; no real-student testing.
 - Handwritten grade sheets will likely be unreliable; the first tests use printed fictional sheets.
 - No voice output.

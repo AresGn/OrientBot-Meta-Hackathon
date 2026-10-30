@@ -27,12 +27,12 @@ MANUALLY_VERIFIED_PAGES = {
     "PUB-110": 40, "PUB-171": 56, "PUB-175": 56, "PUB-189": 58,
 }
 
-# The 7 a_verifier rows whose PDF row contradicts the CSV establishment:
-# quarantined as page_non_etablie until E3.3 fixes the labels. The pages
-# found (025: 42, 045: 23, 048: 24, 142: 53, 186: 57, 187: 59, 188: 58)
-# are recorded in docs/decisions.md for restoration after E3.3.
-NON_ETABLIE_OFFERS = ("PUB-025", "PUB-045", "PUB-048", "PUB-142",
-                      "PUB-186", "PUB-187", "PUB-188")
+# The 7 rows whose PDF row contradicted the CSV establishment (E3.2
+# quarantine): E3.5 (issue #24) repaired the labels and restored their
+# pages as verifie_main (025: 42, 045: 23, 048: 24, 142: 53, 186: 57,
+# 187: 59, 188: 58); no page_non_etablie row is left.
+RESTORED_PAGES = {"PUB-025": 42, "PUB-045": 23, "PUB-048": 24, "PUB-142": 53,
+                  "PUB-186": 57, "PUB-187": 59, "PUB-188": 58}
 
 # The 2 introuvable rows, both found in the PDF: ENATSE on page 48,
 # the UADC cooperative row on page 86.
@@ -84,14 +84,14 @@ def test_formerly_missing_offers_are_resolved_with_a_page():
         assert rows[offre_id]["page_pdf"] == str(page), offre_id
 
 
-def test_offers_with_unconfirmed_etablissement_are_page_non_etablie():
+def test_restored_offers_have_their_page_back():
     rows = {row["Offre_ID"]: row for row in load_page_rows()}
-    assert len(NON_ETABLIE_OFFERS) == 7
-    for offre_id in NON_ETABLIE_OFFERS:
-        assert rows[offre_id]["page_statut"] == PAGE_NON_ETABLIE, offre_id
-        assert rows[offre_id]["page_pdf"] == "", offre_id
-    assert [offre_id for offre_id, row in rows.items()
-            if row["page_statut"] == PAGE_NON_ETABLIE] == list(NON_ETABLIE_OFFERS)
+    assert len(RESTORED_PAGES) == 7
+    for offre_id, page in RESTORED_PAGES.items():
+        assert rows[offre_id]["page_statut"] == "verifie_main", offre_id
+        assert rows[offre_id]["page_pdf"] == str(page), offre_id
+    assert [row for row in rows.values()
+            if row["page_statut"] == PAGE_NON_ETABLIE] == []
 
 
 def test_every_offer_has_a_page_row():
@@ -133,19 +133,31 @@ def test_page_index_lists_exactly_the_offers_with_a_page():
     assert all(pages[offre_id] == rows[offre_id]["page_pdf"] for offre_id in pages)
     assert pages["PUB-062"] == "36"
     assert pages["PUB-122"] == "48"
-    for offre_id in NON_ETABLIE_OFFERS:
-        assert offre_id not in pages, offre_id
+    for offre_id, page in RESTORED_PAGES.items():
+        assert pages[offre_id] == str(page), offre_id
 
 
-def test_offer_without_page_cannot_produce_a_filiere_proof():
-    # PUB-186 is Statut_qualité = OK with Bourse = 50: champ and valeur are
-    # right and 57 is the page found, so only the missing index entry,
-    # quarantined until E3.3 fixes the établissement, can refuse this proof.
+def test_restored_offer_can_produce_a_filiere_proof():
+    # PUB-186 was quarantined without a page (E3.2); E3.5 repaired its
+    # INSTI label and restored page 57, so its proof is now accepted.
     report = {"schema_version": 1,
               "claims": [{"claim_id": "genie-civil",
                           "text": "Génie Civil : bourses prévues.",
                           "proofs": [{"type": "filiere", "offre_id": "PUB-186",
                                       "page_pdf": 57, "champ": "Bourse",
+                                      "valeur": 50}]}]}
+    context = {"serie": "D", "grades": [], "transcript": ""}
+    assert verify_report(report, context) == []
+
+
+def test_offer_without_page_cannot_produce_a_filiere_proof():
+    # A proof whose page does not match the established page is refused:
+    # without the right page, an offer is not recommendable (issue #21).
+    report = {"schema_version": 1,
+              "claims": [{"claim_id": "genie-civil",
+                          "text": "Génie Civil : bourses prévues.",
+                          "proofs": [{"type": "filiere", "offre_id": "PUB-186",
+                                      "page_pdf": 58, "champ": "Bourse",
                                       "valeur": 50}]}]}
     context = {"serie": "D", "grades": [], "transcript": ""}
     problems = verify_report(report, context)
