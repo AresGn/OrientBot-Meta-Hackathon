@@ -16,8 +16,9 @@ import unicodedata
 FACULTE_PREFIX = "Faculté"  # docs/prd.md section 6, point 5: the name starts with "Faculté"
 
 # The PDF truth behind REVIEWED_EXCEPTIONS (pages 57, 59, 58): a repaired
-# label only retires an exception when it still points at INSTI.
-INSTI_PREFIX = "Institut"
+# label only retires an exception when it carries the INSTI sigle (any
+# other institut, IUT or IFRI for instance, is not what the PDF shows).
+INSTI_SIGLE = "(INSTI)"
 
 # Offre_ID -> CSV label seen at review time. The PDF shows INSTI (an
 # institut, not a faculte) while the CSV still carries the quarantined
@@ -83,7 +84,7 @@ def _resolve(row: dict) -> tuple[str, str | None]:
     label = row["Établissement"]
     if label == REVIEWED_EXCEPTIONS[offre_id]:
         return "non", None  # reviewed truth: the PDF shows INSTI, not a faculte
-    if rule_value == "non" and _fold(label).startswith(_fold(INSTI_PREFIX)):
+    if rule_value == "non" and _fold(INSTI_SIGLE) in _fold(label):
         return rule_value, (f"{offre_id}: label repaired to INSTI, exception redundant, "
                             f"remove it (was {REVIEWED_EXCEPTIONS[offre_id]!r})")
     raise ValueError(f"{offre_id}: label changed ({REVIEWED_EXCEPTIONS[offre_id]!r} -> "

@@ -63,7 +63,8 @@ LABEL_CASES = [
     ("", False),
 ]
 
-UNRECOGNIZED_LABELS = ["", "École de Commerce (EC)"]
+UNRECOGNIZED_LABELS = ["", "École de Commerce (EC)",
+                       "Institut Universitaire de Technologie (IUT)"]  # an institut, not INSTI
 
 
 def load_ok_offer_rows():
