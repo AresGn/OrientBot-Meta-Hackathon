@@ -1,11 +1,11 @@
 """Produce data/faculte_classique.csv from the guide offers (E3.4, issue #23).
 
-Rule (docs/prd.md section 6, point 5): an offer is "oui" when its
-Etablissement starts with "Faculte". REVIEWED_EXCEPTIONS holds the
-hand-review overrides: the only C/D offers marked oui whose CSV label
-is wrong (PDF-checked, see docs/data-audit.md). Rerunning with the same
-data/ gives the same file. Regenerate after E3.5 repairs the 7
-quarantined labels (the INSTI overrides then agree with the rule).
+One row per Statut_qualité = OK offer: a non-OK offer must never be
+picked as the page-9 "Faculté classique" choice (PR #69 review). Rule
+and hand-reviewed exceptions in src/domain/faculte_classique.py.
+Rerunning with the same data/ gives the same file. Regenerate after
+E3.5 repairs the quarantined labels, then drop the redundant exceptions
+the script warns about on stderr.
 
 Usage (from the repository root):
 
@@ -22,27 +22,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from src.domain.guide import load_offer_rows  # noqa: E402
-
-# Offre_ID -> faculte_classique override. The PDF shows INSTI (an
-# institut, not a faculte) on pages 57, 59 and 58 while the CSV still
-# carries the quarantined FAST/Natitingou label (E3.2); E3.5 repairs it.
-REVIEWED_EXCEPTIONS = {
-    "PUB-186": "non",
-    "PUB-187": "non",
-    "PUB-188": "non",
-}
-
-
-def build_column() -> list[dict]:
-    """Return [{Offre_ID, faculte_classique}] in source order."""
-    rows = []
-    for row in load_offer_rows():
-        offre_id = row["Offre_ID"]
-        value = "oui" if row["Établissement"].startswith("Faculté") else "non"
-        rows.append({"Offre_ID": offre_id,
-                     "faculte_classique": REVIEWED_EXCEPTIONS.get(offre_id, value)})
-    return rows
+from src.domain.faculte_classique import build_faculte_column  # noqa: E402
+from src.domain.guide import OK_STATUS, load_offer_rows  # noqa: E402
 
 
 def render_csv(rows: list[dict]) -> str:
@@ -58,7 +39,11 @@ def main(argv: list[str]) -> int:
     parser = argparse.ArgumentParser(description="Produce the faculte_classique column.")
     parser.add_argument("--output", type=Path, default=None)
     args = parser.parse_args(argv[1:])
-    text = render_csv(build_column())
+    ok_rows = [row for row in load_offer_rows() if row["Statut_qualité"] == OK_STATUS]
+    column, warnings = build_faculte_column(ok_rows)
+    for warning in warnings:
+        print(warning, file=sys.stderr)
+    text = render_csv(column)
     if args.output is None:
         sys.stdout.buffer.write(text.encode("utf-8"))
     else:
