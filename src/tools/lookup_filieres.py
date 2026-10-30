@@ -19,13 +19,16 @@ import re
 import unicodedata
 
 from src.domain.guide import NOT_PUBLISHED, OK_STATUS, load_offer_rows, load_pages_by_id
-from src.domain.offer_subjects import STATUS_CONCOURS, subjects_for_serie
+from src.domain.offer_subjects import ALL_SERIES_HEADER, STATUS_CONCOURS, subjects_for_serie
 from src.tools.compute_ranking_average import compute_ranking_average
 
 MAX_ACCESSIBLE = 5  # docs/prd.md section 3.2: the report shows at most 5 offers
-ALL_SERIES = "Toutes séries"  # Bac_recommandé value open to every serie
 CONCOURS_NOTE = "les notes du Bac ne suffisent pas"  # docs/prd.md section 3.1, Concours entry
+MODE_NOT_PUBLISHED_REASON = "mode d'entrée non publié par le guide"  # dash cell, page 86/87/89
 _STOPWORDS = {"de", "des", "du", "la", "le", "les", "en", "et", "d", "au", "aux", "un", "une"}
+# Ranking weights only order the accessible offers (PRD section 3.2 lists
+# metier, then interets, then the average): a metier match in the careers
+# outweighs one in the program name, which outweighs a single interest.
 _SCORE_METIER_DEBOUCHES = 100
 _SCORE_METIER_FILIERE = 50
 _SCORE_INTERET = 20
@@ -78,7 +81,7 @@ def _access_failures(row: dict, serie: str, pages: dict) -> list[str]:
 
 def _is_open_to_serie(row: dict, serie: str) -> bool:
     values = [value.strip() for value in row.get("Bac_recommandé", "").split(",")]
-    return serie in values or any(value.startswith(ALL_SERIES) for value in values)
+    return serie in values or any(value.startswith(ALL_SERIES_HEADER) for value in values)
 
 
 def _bac_is_unpublished(row: dict) -> bool:
@@ -103,6 +106,11 @@ def _average_fields(row: dict, serie: str, grades: list[dict] | None, entry: dic
         entry["raisons"].append(f"Concours : {CONCOURS_NOTE}, admission par épreuve séparée")
         return {"moyenne_classement": None, "calcul": None,
                 "epreuves": subjects["epreuves"]}
+    if row.get("Mode_entrée", "").strip() == NOT_PUBLISHED:
+        # A ranking average would imply admission by ranking, which the
+        # guide does not state for these rows (dash cell, audit E3.3).
+        return {"moyenne_classement": None, "calcul": None, "epreuves": [],
+                "calcul_non_fait": MODE_NOT_PUBLISHED_REASON}
     if grades is None:
         return {"moyenne_classement": None, "calcul": None, "epreuves": []}
     if subjects["status"] != "calculable":

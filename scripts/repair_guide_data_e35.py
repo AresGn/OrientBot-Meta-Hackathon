@@ -58,9 +58,48 @@ MODE_NOT_PUBLISHED = ("PUB-085", "PUB-086", "PUB-096", "PUB-097", "PUB-098", "PU
 BAC_NOT_PUBLISHED = ("PUB-217", "PUB-218", "PUB-219")  # pages 89 and 84: dash, not Toutes séries
 
 
-def _set(row: dict, champ: str, new: str, changes: list[str]) -> None:
+# The value each repaired etablissement carried before E3.5 (main, before
+# this script): _set aborts on anything else, so a new extraction with a
+# different label is never overwritten silently.
+ETABLISSEMENT_OLD = {
+    "PUB-025": "Ecole Nationale des Sciences et Techniques de l'Information et de la Communication (ENSTIC)",
+    "PUB-045": "Faculté de Droit et de Science Politique (FADESP)",
+    "PUB-048": "Faculté des Lettres, Arts et Sciences Humaines-Adjarra (FLASH-Adjarra)",
+    "PUB-053": "Faculté des Lettres, Langues, Arts et Communications (FLLAC)",
+    "PUB-054": "Faculté des Lettres, Langues, Arts et Communications (FLLAC)",
+    "PUB-055": "Faculté des Lettres, Langues, Arts et Communications (FLLAC)",
+    "PUB-130": "Faculté d'Agronomie(FA)",
+    "PUB-141": "Faculté de Sciences Economiques et de Gestion (FASEG)",
+    "PUB-142": "Faculté de Sciences Economiques et de Gestion (FASEG)",
+    "PUB-186": "Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou)",
+    "PUB-187": "Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou)",
+    "PUB-188": "Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou)",
+}
+PUB_032_OLD = ("Technicien de laboratoire des centres de santé,Maintenance hospitalière et "
+               "contrôle deséquipements de laboratoires médicaux etvétérinaires, "
+               "Maintenance des équipementsélectroniques")
+PUB_211_BAC_OLD = "A1, A2, B, C, D, G2, G3"
+PUB_211_MATIERES_OLD = ("A1, A2, B : Anglais, Français, Hist-GéoC, D : Anglais, Français, "
+                        "MathsG2, G3 : Anglais, Etude de Cas, Français")
+QUOTA_OLD = {"Bourse": "0", "Aide_FPP": "0", "Total_allocations": "0"}
+MODE_OLD = {**{offre_id: "Classement" for offre_id in
+               ("PUB-211", "PUB-212", "PUB-213", "PUB-214", "PUB-215")},
+            **{offre_id: "Dossier" for offre_id in ("PUB-217", "PUB-218")}}
+
+
+def _set(row: dict, champ: str, new: str, changes: list[str],
+         expected_old: str | None = None) -> None:
+    """Set one repaired value, aborting on an unexpected current value.
+
+    Already repaired: left alone. Equal to `expected_old` (when given):
+    repaired and logged. Anything else: ValueError, nothing is masked.
+    """
     if row[champ] == new:
         return
+    if expected_old is not None and row[champ] != expected_old:
+        raise ValueError(f"{row['Offre_ID']} {champ}: unexpected value {row[champ]!r}, "
+                         f"expected the known old value {expected_old!r} or {new!r}; "
+                         f"aborting, nothing overwritten")
     changes.append(f"{row['Offre_ID']} {champ}: {row[champ]!r} -> {new!r}")
     row[champ] = new
 
@@ -70,23 +109,30 @@ def repair_offer_rows(rows: list[dict]) -> list[str]:
     changes: list[str] = []
     by_id = {row["Offre_ID"]: row for row in rows}
     for offre_id, label in ETABLISSEMENT_REPAIRS.items():
-        _set(by_id[offre_id], "Établissement", label, changes)
+        _set(by_id[offre_id], "Établissement", label, changes,
+             expected_old=ETABLISSEMENT_OLD[offre_id])
     debouches = by_id["PUB-032"]["Débouchés_Métiers"]
     for glued, fixed in PUB_032_FIXES.items():
         debouches = debouches.replace(glued, fixed)
-    _set(by_id["PUB-032"], "Débouchés_Métiers", debouches, changes)
-    _set(by_id["PUB-189"], "Filière", PUB_189_FILIERE, changes)
-    _set(by_id["PUB-211"], "Bac_recommandé", PUB_211_BAC, changes)
-    if "DEAT" not in by_id["PUB-211"]["Matières"]:
-        _set(by_id["PUB-211"], "Matières",
-             by_id["PUB-211"]["Matières"] + PUB_211_MATIERES_SUFFIX, changes)
+    _set(by_id["PUB-032"], "Débouchés_Métiers", debouches, changes,
+         expected_old=PUB_032_OLD)
+    _set(by_id["PUB-189"], "Filière", PUB_189_FILIERE, changes, expected_old="")
+    _set(by_id["PUB-211"], "Bac_recommandé", PUB_211_BAC, changes,
+         expected_old=PUB_211_BAC_OLD)
+    _set(by_id["PUB-211"], "Matières", PUB_211_MATIERES_OLD + PUB_211_MATIERES_SUFFIX,
+         changes, expected_old=PUB_211_MATIERES_OLD)
     for offre_id in QUOTA_NOT_PUBLISHED:
-        for champ in ("Bourse", "Aide_FPP", "Total_allocations", "Mode_entrée"):
-            _set(by_id[offre_id], champ, NOT_PUBLISHED, changes)
+        for champ in ("Bourse", "Aide_FPP", "Total_allocations"):
+            _set(by_id[offre_id], champ, NOT_PUBLISHED, changes,
+                 expected_old=QUOTA_OLD[champ])
+        _set(by_id[offre_id], "Mode_entrée", NOT_PUBLISHED, changes,
+             expected_old=MODE_OLD[offre_id])
     for offre_id in MODE_NOT_PUBLISHED:
-        _set(by_id[offre_id], "Mode_entrée", NOT_PUBLISHED, changes)
+        _set(by_id[offre_id], "Mode_entrée", NOT_PUBLISHED, changes,
+             expected_old="Classement")
     for offre_id in BAC_NOT_PUBLISHED:
-        _set(by_id[offre_id], "Bac_recommandé", NOT_PUBLISHED, changes)
+        _set(by_id[offre_id], "Bac_recommandé", NOT_PUBLISHED, changes,
+             expected_old="Toutes séries")
     return changes
 
 
@@ -95,8 +141,9 @@ def repair_page_rows(rows: list[dict]) -> list[str]:
     changes: list[str] = []
     by_id = {row["Offre_ID"]: row for row in rows}
     for offre_id, page in PAGE_REPAIRS.items():
-        _set(by_id[offre_id], "page_pdf", page, changes)
-        _set(by_id[offre_id], "page_statut", "verifie_main", changes)
+        _set(by_id[offre_id], "page_pdf", page, changes, expected_old="")
+        _set(by_id[offre_id], "page_statut", "verifie_main", changes,
+             expected_old="page_non_etablie")
     return changes
 
 
@@ -106,10 +153,13 @@ def _read(path: Path) -> tuple[list[str], list[dict]]:
         return list(reader.fieldnames or []), list(reader)
 
 
-def _write(path: Path, fieldnames: list[str], rows: list[dict], bom: bool) -> None:
+def _write(path: Path, fieldnames: list[str], rows: list[dict], bom: bool,
+           lineterminator: str) -> None:
     encoding = "utf-8-sig" if bom else "utf-8"  # offres carries a BOM, pages_offres does not
+    # Each file keeps its committed line terminator (offres CRLF, pages LF):
+    # writing CRLF into pages_offres rewrote all 225 lines on a no-op rerun.
     with path.open("w", newline="", encoding=encoding) as stream:
-        writer = csv.DictWriter(stream, fieldnames=fieldnames, lineterminator="\r\n")
+        writer = csv.DictWriter(stream, fieldnames=fieldnames, lineterminator=lineterminator)
         writer.writeheader()
         writer.writerows(rows)
 
@@ -118,8 +168,8 @@ def main() -> int:
     offer_fields, offer_rows = _read(OFFERS_PATH)
     page_fields, page_rows = _read(PAGES_PATH)
     changes = repair_offer_rows(offer_rows) + repair_page_rows(page_rows)
-    _write(OFFERS_PATH, offer_fields, offer_rows, bom=True)
-    _write(PAGES_PATH, page_fields, page_rows, bom=False)
+    _write(OFFERS_PATH, offer_fields, offer_rows, bom=True, lineterminator="\r\n")
+    _write(PAGES_PATH, page_fields, page_rows, bom=False, lineterminator="\n")
     for change in changes:
         print(change)
     print(f"{len(changes)} repair(s) applied")

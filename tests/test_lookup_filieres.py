@@ -117,6 +117,40 @@ def test_missing_serie_asks_rather_than_guesses():
         lookup_filieres(serie=None)
 
 
+def test_no_average_when_entry_mode_is_not_published():
+    # PUB-212 (UADC): the guide publishes neither quotas nor entry mode
+    # (page 86), so a ranking average would imply a Classement admission
+    # the guide never states. No average, with the reason.
+    result = lookup_filieres(serie="D", metier_vise="micro assurance", grades=GRADES_D)
+    by_id = {offer["Offre_ID"]: offer for offer in result["accessible"]}
+    assert "PUB-212" in by_id
+    offer = by_id["PUB-212"]
+    assert offer["Mode_entrée"] == NOT_PUBLISHED
+    assert offer["moyenne_classement"] is None
+    assert offer["calcul"] is None
+    assert offer["calcul_non_fait"] == "mode d'entrée non publié par le guide"
+
+
+def test_repair_script_aborts_on_an_unexpected_value():
+    # The repair script must not silently overwrite a new extraction:
+    # a value that is neither the known old one nor the repaired one
+    # aborts it (scripts/repair_guide_data_e35.py docstring).
+    import copy
+    import importlib.util
+    from pathlib import Path
+
+    script = Path(__file__).resolve().parents[1] / "scripts" / "repair_guide_data_e35.py"
+    spec = importlib.util.spec_from_file_location("repair_guide_data_e35", script)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    rows = copy.deepcopy(load_offer_rows())
+    for row in rows:
+        if row["Offre_ID"] == "PUB-025":
+            row["Établissement"] = "Un libellé jamais vu"
+    with pytest.raises(ValueError, match="PUB-025"):
+        module.repair_offer_rows(rows)
+
+
 def test_non_published_quotas_are_never_presented_as_zero():
     result = lookup_filieres(serie="D", metier_vise="entrepreneur")
     for offer in result["accessible"]:
