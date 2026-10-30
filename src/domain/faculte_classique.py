@@ -20,16 +20,12 @@ FACULTE_PREFIX = "Faculté"  # docs/prd.md section 6, point 5: the name starts w
 # other institut, IUT or IFRI for instance, is not what the PDF shows).
 INSTI_SIGLE = "(INSTI)"
 
-# Offre_ID -> CSV label seen at review time. The PDF shows INSTI (an
-# institut, not a faculte) while the CSV still carries the quarantined
-# FAST/Natitingou label (E3.2); E3.5 repairs the label and restores the
-# page. Keyed on (id, label): the override applies only while the label
-# is unchanged, so a repaired label is never masked.
-REVIEWED_EXCEPTIONS = types.MappingProxyType({
-    "PUB-186": "Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou)",
-    "PUB-187": "Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou)",
-    "PUB-188": "Faculté des Sciences et Techniques de Natitingou (FAST/Natitingou)",
-})
+# Retired in E3.5 (issue #24): PUB-186/187/188 carried the quarantined
+# FAST/Natitingou label while the PDF shows INSTI; the repair script
+# fixed the labels and restored their pages, so the rule gives "non"
+# on its own and no exception remains. Kept empty so a future exception
+# keyed here still goes through the stale-label checks below.
+REVIEWED_EXCEPTIONS = types.MappingProxyType({})
 
 
 def _fold(text: str) -> str:

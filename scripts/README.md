@@ -36,11 +36,20 @@ python scripts/make_faculte_classique.py --output data/faculte_classique.csv
 
 Produit `data/faculte_classique.csv` (`Offre_ID`, `faculte_classique`
 `oui`/`non`) depuis les offres recommandables du guide (`OK` à page
-établie) : `oui` quand l'établissement commence par « Faculté »,
-3 exceptions relues à la main (`PUB-186`, `PUB-187`, `PUB-188`, vrai
-établissement INSTI, pages 57/59/58 du PDF). Sans `--output`, le CSV
-part sur la sortie standard (le test `tests/test_faculte_classique.py`
-le compare au fichier commité). À régénérer après la réparation des
-libellés en E3.5, puis retirer les exceptions devenues redondantes
-(avertissement sur stderr ; un libellé réparé qui contredirait la revue
-fait échouer le script).
+établie) : `oui` quand l'établissement commence par « Faculté ».
+Sans `--output`, le CSV part sur la sortie standard (le test
+`tests/test_faculte_classique.py` le compare au fichier commité, et
+exige stderr vide). E3.5 a réparé les libellés et rétabli les pages :
+plus aucune exception relue à la main ne subsiste.
+
+## Réparation des données du guide (E3.5)
+
+```bash
+python scripts/repair_guide_data_e35.py
+```
+
+Applique aux CSV du guide les réparations vérifiées au PDF et tracées
+dans `docs/data-audit.md` (libellés en quarantaine, pages rétablies,
+espaces de `PUB-032`, séries `DEAT`/`EA` de `PUB-211`, filière de
+`PUB-189`, marqueur « non publié » sur les cellules « – »). Idempotent ;
+à ne relancer que sur une nouvelle extraction.

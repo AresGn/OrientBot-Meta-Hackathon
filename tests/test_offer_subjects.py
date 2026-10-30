@@ -123,12 +123,12 @@ def test_coverage_of_ok_classement_offers_is_reproducible():
             else:
                 missing[serie].add(row["Offre_ID"])
 
-    assert denominators == {"C": 149, "D": 150}
-    # After the PUB-077 correction, only PUB-085/PUB-086 are not calculable.
-    # The 146/149 and 147/150 figures in docs/prd.md predate that correction
-    # (they counted PUB-077 as a manque); see docs/decisions.md.
-    assert calculable == {"C": 147, "D": 148}
-    assert missing == {"C": {"PUB-085", "PUB-086"}, "D": {"PUB-085", "PUB-086"}}
+    # E3.5 (issue #24): PUB-085/086 and PUB-211..215 no longer carry an
+    # invented Classement mode (the guide publishes a dash), so they leave
+    # this Classement-only denominator; every remaining row is calculable.
+    assert denominators == {"C": 142, "D": 143}
+    assert calculable == {"C": 142, "D": 143}
+    assert missing == {"C": set(), "D": set()}
 
 
 def test_glued_and_semicolon_separated_headers_are_split():

@@ -191,6 +191,46 @@ Les 5 libellés CSV sont faux mais restent des facultés : `oui`
 confirmé, sans nouvelle exception. Ces 5 erreurs de libellé (hors des
 7 quarantaines E3.2) sont à corriger en E3.5.
 
+## Réparations E3.5 (issue #24)
+
+Appliquées par `python scripts/repair_guide_data_e35.py` (idempotent,
+chaque valeur vérifiée au PDF local à la page citée ; le script affiche
+la liste des changements, 67 lors de la première application) :
+
+- **7 libellés en quarantaine (E3.2) corrigés, pages rétablies** en
+  `verifie_main` : `PUB-025` → École Normale Supérieure /Porto-Novo
+  (p. 42), `PUB-045` → FLASH-Adjarra (p. 23), `PUB-048` → FLLAC (p. 24),
+  `PUB-142` → FLASH Parakou (p. 53), `PUB-186`/`187`/`188` → INSTI
+  (p. 57/59/58). Régénération de `data/faculte_classique.csv`
+  (206 lignes : 57 `oui`, 149 `non`) et retrait des exceptions INSTI de
+  `REVIEWED_EXCEPTIONS` : le script signale leur redondance sur stderr
+  à la première régénération, puis stderr est vide.
+- **5 libellés E3.4 corrigés** : `PUB-053`/`054`/`055` → Faculté des
+  Sciences Agronomiques (FSA) (p. 35/36), `PUB-130` → Faculté de Droit
+  et Sciences Politiques (FDSP) (p. 53), `PUB-141` → Faculté des
+  Lettres, Arts et Sciences Humaines (FLASH) (p. 53). Toujours des
+  facultés : `oui` confirmé, aucune exception nouvelle.
+- **`PUB-032`** (p. 39) : trois espaces rétablies dans
+  `Débouchés_Métiers` (« des équipements », « et vétérinaires »,
+  « équipements électroniques »).
+- **`PUB-211`** (p. 86) : `DEAT` et `EA` rétablis dans
+  `Bac_recommandé`, segment `DEAT : Les trois (03) matières écrites`
+  ajouté à `Matières`.
+- **`PUB-189`** (p. 58) : filière renseignée, « Génie Énergétique
+  (Énergies Renouvelables et Systèmes Énergétiques) ». La ligne reste
+  `À vérifier` : elle n'est pas recommandée.
+- **Marqueur « non publié »** distinct du 0, départagé au PDF sur les
+  15 lignes `OK` à `0`/`0` : vrais zéros publiés conservés
+  (`PUB-085`/`086`, `PUB-096`–`099`, `PUB-145`, `PUB-180` ; leur mode
+  « – » de la page 45 devient « non publié » pour `PUB-085`/`086` et
+  `PUB-096`–`099`), tirets remplacés par « non publié » sur `Bourse`,
+  `Aide_FPP`, `Total_allocations` et `Mode_entrée` pour
+  `PUB-211`–`215` (p. 86/87) et `PUB-217`/`218` (p. 89, ni quotas ni
+  mode ni séries publiés), et sur `Bac_recommandé` pour `PUB-217`,
+  `PUB-218` et `PUB-219` (p. 84). Ces valeurs ne sont jamais affirmées
+  comme des faits : `verify_report` refuse toute preuve `filiere` sur
+  un champ « non publié », et la recherche les affiche comme telles.
+
 ## Conclusion
 
 Échantillon graine 2026 : 15 lignes sur 20 intégralement conformes,

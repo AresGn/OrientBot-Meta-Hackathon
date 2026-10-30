@@ -66,6 +66,18 @@ def test_offre_with_status_not_ok_is_rejected():
     assert [(p["claim_id"], p["type"]) for p in problems] == [("medecine-bourse", "filiere")]
 
 
+def test_non_published_field_is_refused_even_when_the_value_matches():
+    # PUB-211 is OK, page 86, but its Bourse cell is a dash in the guide:
+    # "non publié" is never a proven fact (E3.5, docs/data-audit.md).
+    report = {"schema_version": 1,
+              "claims": [{"claim_id": "uadc-bourse", "text": "Bourses non publiées.",
+                          "proofs": [{"type": "filiere", "offre_id": "PUB-211",
+                                      "page_pdf": 86, "champ": "Bourse",
+                                      "valeur": "non publié"}]}]}
+    problems = verify_report(report, CONTEXT)
+    assert [(p["claim_id"], p["type"]) for p in problems] == [("uadc-bourse", "filiere")]
+
+
 def test_wrong_filiere_page_or_value_is_rejected():
     for field, wrong in (("page_pdf", 37), ("valeur", 96)):
         report = valid_report()

@@ -13,6 +13,7 @@ PAGES_PATH = DATA_DIR / "pages_offres.csv"  # Offre_ID -> page of the official P
 FACULTE_PATH = DATA_DIR / "faculte_classique.csv"  # Offre_ID -> oui/non (page-9 consigne)
 OK_STATUS = "OK"  # docs/prd.md section 3.1: only Statut_qualité = OK rows are recommended
 PAGE_NON_ETABLIE = "page_non_etablie"  # issue #21: page not established, offer not recommendable
+NOT_PUBLISHED = "non publié"  # issue #24: guide cell is a dash, distinct from a published 0
 
 
 def load_offer_rows() -> list[dict]:

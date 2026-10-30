@@ -45,9 +45,9 @@ KNOWN_OUI = ("PUB-062", "PUB-078", "PUB-133", "PUB-184")
 # label (PUB-216) and an interstate school (PUB-220 EAMAU).
 KNOWN_NON = ("PUB-001", "PUB-002", "PUB-211", "PUB-216", "PUB-220")
 
-# Quarantined offers (E3.2) excluded from the file until E3.5 restores
-# their page; the true etablissement stays a faculte for these three
-# (FLASH-Adjarra page 23, FLLAC page 24, FLASH-Parakou page 53).
+# Restored in E3.5 (issue #24): labels repaired and pages back
+# (FLASH-Adjarra page 23, FLLAC page 24, FLASH page 53), so these three
+# faculte offers are in the file again, marked oui by the rule.
 QUARANTINED_FACULTE = ("PUB-045", "PUB-048", "PUB-142")
 
 LABEL_CASES = [
@@ -63,20 +63,8 @@ LABEL_CASES = [
     ("", False),
 ]
 
-UNRECOGNIZED_LABELS = ["", "École de Commerce (EC)",
-                       "Institut Universitaire de Technologie (IUT)"]  # an institut, not INSTI
-
-
 def load_ok_offer_rows():
     return [row for row in load_offer_rows() if row["Statut_qualité"] == OK_STATUS]
-
-
-def exception_rows(overrides=None):
-    """One row per reviewed exception, labels replaced by overrides."""
-    overrides = overrides or {}
-    return [{"Offre_ID": offre_id,
-             "Établissement": overrides.get(offre_id, REVIEWED_EXCEPTIONS[offre_id])}
-            for offre_id in REVIEWED_EXCEPTIONS]
 
 
 def run_script():
@@ -105,14 +93,17 @@ def test_known_non_faculte_offers_are_non():
         assert COLUMN_BY_ID[offre_id] == "non", offre_id
 
 
-def test_quarantined_faculte_offers_are_excluded():
+def test_restored_faculte_offers_are_included_as_oui():
     for offre_id in QUARANTINED_FACULTE:
-        assert offre_id not in COLUMN_BY_ID, offre_id
+        assert COLUMN_BY_ID[offre_id] == "oui", offre_id
 
 
-def test_reviewed_insti_offers_are_excluded():
-    for offre_id in REVIEWED_EXCEPTIONS:
-        assert offre_id not in COLUMN_BY_ID, offre_id
+def test_restored_insti_offers_are_included_as_non():
+    # PUB-186/187/188: INSTI label repaired in E3.5, pages 57/59/58 back,
+    # so the rule marks them non without any exception left.
+    assert REVIEWED_EXCEPTIONS == {}
+    for offre_id in ("PUB-186", "PUB-187", "PUB-188"):
+        assert COLUMN_BY_ID[offre_id] == "non", offre_id
 
 
 def test_non_exception_rows_follow_the_rule():
@@ -139,39 +130,12 @@ def test_label_variants_follow_the_rule_intent(label, expected):
     assert is_faculte_label(label) == expected
 
 
-def test_exceptions_apply_while_labels_are_quarantined():
-    column, warnings = build_faculte_column(exception_rows())
-    assert [row["faculte_classique"] for row in column] == ["non"] * len(column)
-    assert len(column) == len(REVIEWED_EXCEPTIONS)
-    assert warnings == []
-
-
-def test_insti_repair_warns_and_follows_rule():
-    rows = exception_rows({"PUB-186":
-                           "Institut National Supérieur de Technologie Industrielle (INSTI)"})
+def test_insti_label_is_non_by_the_rule_without_exception():
+    rows = [{"Offre_ID": "PUB-186",
+             "Établissement": "Institut National Supérieur de Technologie Industrielle (INSTI)"}]
     column, warnings = build_faculte_column(rows)
-    assert [row["faculte_classique"] for row in column] == ["non"] * len(column)
-    assert len(warnings) == 1
-    assert "PUB-186" in warnings[0] and "redundant" in warnings[0]
-
-
-def test_repaired_label_contradicting_review_raises():
-    rows = exception_rows({"PUB-186": "Faculté des Sciences (FS)"})
-    with pytest.raises(ValueError, match="PUB-186"):
-        build_faculte_column(rows)
-
-
-@pytest.mark.parametrize("label", UNRECOGNIZED_LABELS)
-def test_unrecognized_repaired_label_raises(label):
-    rows = exception_rows({"PUB-186": label})
-    with pytest.raises(ValueError, match="PUB-186"):
-        build_faculte_column(rows)
-
-
-def test_missing_exception_id_raises():
-    rows = [{"Offre_ID": "PUB-062", "Établissement": "Faculté des Sciences de la Santé (FSS)"}]
-    with pytest.raises(ValueError, match="stale"):
-        build_faculte_column(rows)
+    assert column == [{"Offre_ID": "PUB-186", "faculte_classique": "non"}]
+    assert warnings == []
 
 
 def test_reviewed_exceptions_is_immutable():
@@ -181,8 +145,7 @@ def test_reviewed_exceptions_is_immutable():
 
 def test_script_output_matches_the_committed_file():
     completed = run_script()
-    # Every exception still diverges from the rule; E3.5 must drop the
-    # redundant ones when it regenerates this file (see its criterion).
+    # No reviewed exception is left since E3.5 repaired the labels.
     assert completed.stderr == ""
     assert [(row["Offre_ID"], row["faculte_classique"])
             for row in csv.DictReader(completed.stdout.splitlines())] == list(COLUMN_BY_ID.items())

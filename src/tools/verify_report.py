@@ -5,7 +5,7 @@ No model call, no network: this is the code verifier of docs/prd.md section 4.
 
 from decimal import Decimal, InvalidOperation
 
-from src.domain.guide import OK_STATUS, load_offer_rows, load_pages_by_id
+from src.domain.guide import NOT_PUBLISHED, OK_STATUS, load_offer_rows, load_pages_by_id
 from src.domain.proofs import STRUCTURE, validate_report
 from src.domain.subjects import UnknownSubjectError, normalize_subject
 from src.tools.compute_ranking_average import FORMULA, compute_ranking_average
@@ -84,6 +84,10 @@ def _verify_filiere(claim_id: str, proof: dict, guide: object) -> list[dict]:
         return [_problem(claim_id, "filiere",
                          "filiere proof does not reference an offer row with Statut_qualité = OK")]
     champ = proof["champ"]
+    if champ in row and (str(row[champ]).strip() == NOT_PUBLISHED
+                         or str(proof["valeur"]).strip() == NOT_PUBLISHED):
+        return [_problem(claim_id, "filiere",
+                         "filiere proof references a field the guide does not publish")]
     if champ not in row or not _values_equal(row[champ], proof["valeur"]):
         return [_problem(claim_id, "filiere",
                          "filiere proof does not match the guide row for the stated field")]
