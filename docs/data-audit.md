@@ -134,46 +134,53 @@ Soupçons non vérifiés : `PUB-026` (homologue probable page 42), `PUB-049`
 Colonne produite par `python scripts/make_faculte_classique.py --output
 data/faculte_classique.csv` (règle : `Établissement` commence par
 « Faculté » → `oui`, sinon `non` ; 3 exceptions relues ci-dessous).
-206 lignes `OK` : 57 `oui`, 149 `non`. Les 5 lignes non `OK` marquées
-`oui` par la règle (`PUB-064`, `065`, `074`, `075`, `140`) sont exclues
-du fichier : une offre non `OK` ne doit jamais être choisie comme choix
-« Faculté classique », par construction plutôt que par filtre de chaque
-appelant (revue PR #69). Consigne source, guide page 9 : « Il est
+199 offres recommandables (`OK` à page établie) : 54 `oui`,
+145 `non`. Sont exclues du fichier : les 5 lignes non `OK` marquées
+`oui` par la règle (`PUB-064`, `065`, `074`, `075`, `140`) et les
+7 lignes sans page (`PUB-025`, `045`, `048`, `142`, `186`, `187`,
+`188`, quarantaine E3.2) : une offre non recommandable ne doit jamais
+être choisie comme choix « Faculté classique », par construction
+plutôt que par filtre de chaque appelant. Consigne source, guide
+page 9 : « Il est
 fortement recommandé de choisir au moins une formation dans une
 Faculté Classique parmi les trois choix à opérer sur la plateforme. »
 
-Relecture : les 60 lignes `OK` marquées `oui` par la règle (54 ouvertes
-à C/D selon `series_et_offres_2026_2027.csv`, plus 6 hors index : cinq
-offres A/B seules — `PUB-048`, `050`, `141`, `143` en A1/A2/B,
-`PUB-146` en A1/A2 — et `PUB-145` « Toutes séries » sans couple C/D
-dans l'index), regroupées en 14 libellés, tous de vraies facultés
-universitaires (FA, FADESP, FASHS, FASEG ×2, FLLAC, FLASH,
-FLASH-Adjarra, FM, FSA, FAST, FAST/Natitingou, FDSP, FSS). Chaque ligne
-au couple filière/établissement suspect a de plus été vérifiée au PDF
-une par une (ci-dessous) : le `oui` repose sur le recensement des
-libellés plus le contrôle des anomalies, pas sur les libellés seuls.
+Revue des 60 lignes `OK` marquées `oui` (54 ouvertes à C/D selon
+`series_et_offres_2026_2027.csv`, plus 6 hors index : cinq offres A/B
+seules — `PUB-048`, `050`, `141`, `143` en A1/A2/B, `PUB-146` en A1/A2 —
+et `PUB-145` « Toutes séries » sans couple C/D dans l'index) :
+recensement en 14 libellés, tous de vraies facultés universitaires
+(FA, FADESP, FASHS, FASEG ×2, FLLAC, FLASH, FLASH-Adjarra, FM, FSA,
+FAST, FAST/Natitingou, FDSP, FSS) ; contrôle au PDF des 5 couples
+suspects et des 3 exceptions, détaillés ci-dessous. Pour les autres
+lignes, le `oui` repose sur le libellé CSV. Le fichier retient 54 `oui`
+(49 C/D + 5 hors index) : hors les 3 quarantinés à rétablir en E3.5
+(`PUB-045`, `048`, `142`) et les 3 INSTI (`PUB-186`, `187`, `188`).
 
-Exceptions (`oui` → `non`, dans `REVIEWED_EXCEPTIONS` du script) :
-`PUB-186`, `PUB-187`, `PUB-188` — le PDF montre l'Institut National
-Supérieur de Technologie Industrielle (INSTI) aux pages 57, 59 et 58
-(Génie Civil 50/10 ; Génie Électrique et Informatique 25/5, les deux
-options) alors que le CSV porte encore le libellé FAST/Natitingou mis
-en quarantaine en E3.2. E3.5 corrige les libellés, après quoi ces
-exceptions rejoignent la règle : régénérer le fichier, puis retirer
-les exceptions devenues redondantes (le script les signale sur stderr ;
-un libellé réparé qui contredirait la revue fait échouer le script).
+Exceptions (`oui` → `non`, dans `REVIEWED_EXCEPTIONS` de
+`src/domain/faculte_classique.py`) : `PUB-186`, `PUB-187`, `PUB-188` —
+le PDF montre l'Institut National Supérieur de Technologie Industrielle
+(INSTI) aux pages 57, 59 et 58 (Génie Civil 50/10 ; Génie Électrique et
+Informatique 25/5, les deux options) alors que le CSV porte encore le
+libellé FAST/Natitingou mis en quarantaine en E3.2. Les 3 lignes étant
+aussi sans page, elles sont absentes du fichier jusqu'à E3.5 (libellés
+corrigés + pages rétablies), après quoi ces exceptions rejoignent la
+règle : régénérer le fichier, puis retirer les exceptions devenues
+redondantes (le script les signale sur stderr ; un libellé réparé qui
+contredirait la revue fait échouer le script).
 
-Lignes en quarantaine (E3.2) restant `oui`, l'établissement vrai étant
-toujours une faculté : `PUB-045` (FLASH-Adjarra, page 23), `PUB-048`
-(FLLAC, page 24), `PUB-142` (FLASH-Parakou, page 53). `PUB-025`
-(ENSTIC, vrai ENS) reste `non`.
+Lignes en quarantaine (E3.2) exclues du fichier jusqu'au rétablissement
+E3.5 ; l'établissement vrai reste une faculté pour `PUB-045`
+(FLASH-Adjarra, page 23), `PUB-048` (FLLAC, page 24) et `PUB-142`
+(FLASH-Parakou, page 53). `PUB-025` (ENSTIC, vrai ENS) est exclu de même.
 
 Pièges vérifiés `non` : `PUB-002` (CIFRED, « Facultaire » dans le nom
 mais un centre), `PUB-211` à `PUB-215` (UFR de l'UADC, pas des
-facultés), `PUB-195`/`PUB-210` (établissement vide), `PUB-216`
-(libellé de filière décalé, « Métiers de l'agriculture »).
+facultés), `PUB-216` (libellé de filière décalé, « Métiers de
+l'agriculture »). Hors fichier car non `OK` : `PUB-195`/`PUB-210`
+(établissement vide, `À vérifier`), comme les 5 `oui` non `OK` ci-dessus.
 
-Lignes suspectes vérifiées au PDF une par une (revue PR #69),
+Lignes suspectes vérifiées au PDF une par une,
 filière + quotas + séries concordants : `PUB-053` (Agroéconomie 25/2,
 page 36), `PUB-054` (Forêts 23/5, page 35) et `PUB-055` (Entreprenariat
 Agricole 25/5, page 36) sont sous « Faculté des Sciences Agronomiques

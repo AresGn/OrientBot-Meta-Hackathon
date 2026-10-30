@@ -35,7 +35,7 @@ python scripts/make_faculte_classique.py --output data/faculte_classique.csv
 ```
 
 Produit `data/faculte_classique.csv` (`Offre_ID`, `faculte_classique`
-`oui`/`non`) depuis les offres `OK` du guide : `oui` quand l'établissement
+`oui`/`non`) depuis les offres recommandables du guide (`OK` à page établie) : `oui` quand l'établissement
 commence par « Faculté », 3 exceptions relues à la main (`PUB-186`,
 `PUB-187`, `PUB-188`, vrai établissement INSTI, pages 57/59/58 du PDF).
 Sans `--output`, le CSV part sur la sortie standard (le test

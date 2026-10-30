@@ -1,11 +1,12 @@
 """Produce data/faculte_classique.csv from the guide offers (E3.4, issue #23).
 
-One row per Statut_qualité = OK offer: a non-OK offer must never be
-picked as the page-9 "Faculté classique" choice (PR #69 review). Rule
-and hand-reviewed exceptions in src/domain/faculte_classique.py.
-Rerunning with the same data/ gives the same file. Regenerate after
-E3.5 repairs the quarantined labels, then drop the redundant exceptions
-the script warns about on stderr.
+One row per recommendable offer (Statut_qualité = OK with an established
+page): a non-OK or page-less offer must never be picked as the page-9
+"Faculté classique" choice. Rule and hand-reviewed exceptions in
+src/domain/faculte_classique.py. Rerunning with the same data/ gives the
+same file. Regenerate after E3.5 repairs the quarantined labels and
+restores their pages, then drop the redundant exceptions the script
+warns about on stderr.
 
 Usage (from the repository root):
 
@@ -23,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from src.domain.faculte_classique import build_faculte_column  # noqa: E402
-from src.domain.guide import OK_STATUS, load_offer_rows  # noqa: E402
+from src.domain.guide import OK_STATUS, load_offer_rows, load_pages_by_id  # noqa: E402
 
 
 def render_csv(rows: list[dict]) -> str:
@@ -41,6 +42,8 @@ def main(argv: list[str]) -> int:
     args = parser.parse_args(argv[1:])
     ok_rows = [row for row in load_offer_rows() if row["Statut_qualité"] == OK_STATUS]
     column, warnings = build_faculte_column(ok_rows)
+    pages = load_pages_by_id()
+    column = [row for row in column if row["Offre_ID"] in pages]
     for warning in warnings:
         print(warning, file=sys.stderr)
     text = render_csv(column)
