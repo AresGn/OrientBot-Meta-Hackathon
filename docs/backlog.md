@@ -98,7 +98,7 @@ E1.4 format des preuves ─► E2.4 verify_report ──────────
 
 ## E4 — Boucle complète en ligne de commande (J5, sam 31 oct)
 
-- [ ] **E4.1 (L)** [#26](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/26) Schémas des outils et boucle réécrite (12 pas, journal des étapes réutilisable par le web). *Dép. :* E2.3, E3.5.
+- [x] **E4.1 (L)** [#26](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/26) Schémas des outils et boucle réécrite (12 pas, journal des étapes réutilisable par le web). *Dép. :* E2.3, E3.5. *Fait le 31 oct : schémas dans `src/agent/tool_schemas.py` (endroit unique), boucle sur les 8 outils réels, journal `{step, tool, args, result, decision}`, arrêt `unverified` au 3e refus consécutif de `verify_report` avec `refused_claims` transmis pour `build_report` (#27) ; tests sans réseau dans `tests/test_loop.py` et `tests/test_tool_schemas.py`.*
   *Acceptation :* test avec un faux modèle : arrêt exact au pas 12 ; `ask_student` suspend la boucle ; une erreur d'outil devient une observation, sans plantage ; après 3 refus consécutifs de `verify_report`, arrêt avec le statut `unverified` (au 3e refus, pas au 12e pas).
 - [ ] **E4.2 (M)** [#27](https://github.com/AresGn/PathProof-Meta-Hackathon/issues/27) `build_report` : accessibilité, correspondance, quotas du guide, moyenne de classement, 3 choix pour apresmonbac.bj, « Ce que je n'ai pas pu vérifier ». *Dép. :* E2.4.
   *Acceptation :* refuse de produire un rapport si `verify_report` renvoie un problème ; aucune phrase d'admission ni de ville (test sur le texte produit) ; en statut `unverified`, les affirmations refusées vont sous « Ce que je n'ai pas pu vérifier », jamais présentées comme des faits.
