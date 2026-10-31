@@ -6,7 +6,7 @@
 
 An agent that takes a post-BAC student's grade-sheet photo and a short voice note, chooses its own tools step by step, and produces an orientation report in which every sentence points to its proof: a grade read on the photo, a quote from the transcript, a row of the official guide, or a calculation. It recommends only what it can prove, and it stops to ask the student instead of guessing.
 
-> **Status: early scaffold (build period 27 Oct - 3 Nov 2026).** The agent loop is a skeleton; the tools listed below as "not implemented" do not exist yet. The only tested parts are a small tool-calling check against Muse Spark 1.3 and the data files added on 27 Oct. Nothing in this README describes behavior that does not run.
+> **Status: build period 27 Oct - 3 Nov 2026.** The agent loop is implemented and unit-tested with a fake model (12-step limit, tool journal, stop after 3 consecutive `verify_report` refusals); it has not been run end to end yet (CLI wiring is E4.4). `build_report` is still a skeleton (E4.2). Nothing in this README describes behavior that does not run.
 
 **Track:** Indie Developer. **Theme:** Build for Your World. Full plan: [`docs/prd.md`](docs/prd.md).
 
@@ -71,7 +71,7 @@ flowchart TD
     B --> OUT([Report with proofs])
 ```
 
-Design intent: the loop is a skeleton and has not been run end to end yet.
+Design intent: the loop is implemented (tool schemas in `src/agent/tool_schemas.py`, journal of `{step, tool, args, result, decision}` events) and has not been run end to end yet.
 
 | Tool | Purpose | State |
 |---|---|---|
