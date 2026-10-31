@@ -32,3 +32,15 @@ def load_pages_by_id() -> dict[str, str]:
     with PAGES_PATH.open(newline="", encoding="utf-8-sig") as stream:
         return {row["Offre_ID"]: row["page_pdf"] for row in csv.DictReader(stream)
                 if row.get("Offre_ID") and row.get("page_pdf")}
+
+
+def load_faculte_classique_by_id() -> dict[str, str]:
+    """Return {Offre_ID: oui/non} from data/faculte_classique.csv (E4.2).
+
+    First caller of the column file: build_report applies the page-9
+    consigne from these values (at least one faculte classique among the
+    3 apresmonbac.bj choices). Pure file reading: no network, no SDK.
+    """
+    with FACULTE_PATH.open(newline="", encoding="utf-8-sig") as stream:
+        return {row["Offre_ID"]: row["faculte_classique"]
+                for row in csv.DictReader(stream) if row.get("Offre_ID")}
