@@ -135,10 +135,11 @@ TOOL_SCHEMAS: list[dict] = [
             "parameters": {
                 "type": "object",
                 "properties": {
-                    "profile": {"type": "object"},
-                    "filieres": {"type": "array", "items": {"type": "object"}},
+                    "report": {"type": "object"},
+                    "context": {"type": "object"},
+                    "refused_claims": {"type": "array", "items": {"type": "object"}},
                 },
-                "required": ["profile", "filieres"],
+                "required": ["report", "context"],
                 "additionalProperties": False,
             },
         },
