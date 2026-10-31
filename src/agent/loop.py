@@ -26,10 +26,15 @@ at the 12th step, which cannot suspend and stops instead).
 
 Model arguments are filtered to the keys declared in `TOOL_SCHEMAS`
 (single source of truth): an extra key such as `client` never reaches the
-function. A malformed JSON payload never calls the tool: the observation
-is `invalid arguments: ...` so the model can fix its JSON. A
-`verify_report` exception (tool error) is an observation like any other:
-it neither resets nor increments the consecutive-refusal counter.
+function, and filtering happens in `_execute_tool` only (the ask path
+filters once via the same `_filter_arguments` helper). An empty schema
+list means the shared schemas: `tool_schemas=[]` filters like `None`.
+A malformed JSON payload never calls the tool: the observation
+is `invalid arguments: ...` so the model can fix its JSON, and the
+journal keeps the truncated raw payload under `_raw_arguments` for
+debugging. A `verify_report` exception (tool error) is an observation
+like any other: it neither resets nor increments the
+consecutive-refusal counter.
 
 After `MAX_VERIFY_REFUSALS` consecutive refusals of `verify_report` (a
 non-empty problems list; a proven draft resets the counter), the loop
@@ -75,11 +80,17 @@ TOOLS = {
 }
 MAX_STEPS = 12  # docs/prd.md FR-1
 MAX_VERIFY_REFUSALS = 3  # docs/decisions.md 2026-10-28: stop at the 3rd consecutive refusal
+MAX_RAW_ARGUMENTS = 500  # docs/decisions.md 2026-10-31: raw payload kept truncated in the journal
+
+
+def _resolve_schemas(tool_schemas: list[dict] | None) -> list[dict]:
+    """Return the schemas to filter against; an empty list means the shared ones."""
+    return TOOL_SCHEMAS if not tool_schemas else tool_schemas
 
 
 def _schema_properties(tool_schemas: list[dict] | None = None) -> dict[str, set[str]]:
     """Map each tool name to the argument keys its schema declares."""
-    schemas = TOOL_SCHEMAS if tool_schemas is None else tool_schemas
+    schemas = _resolve_schemas(tool_schemas)
     mapping: dict[str, set[str]] = {}
     for schema in schemas or []:
         function = schema.get("function", {}) if isinstance(schema, dict) else {}
@@ -107,7 +118,8 @@ def run(client, model: str, tool_schemas: list[dict] | None, user_input: str,
     Returns the model's final text, the `needs_input` dict of `ask_student`
     when the loop suspends (see `resume`), the `unverified` dict after 3
     consecutive `verify_report` refusals, or the step-limit sentence.
-    `tool_schemas` defaults to `TOOL_SCHEMAS` (single declaration place).
+    `tool_schemas` defaults to `TOOL_SCHEMAS` (single declaration place);
+    an empty list is treated like `None`.
     """
     messages = [{"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": user_input}]
@@ -151,8 +163,7 @@ def resume(client, model: str, tool_schemas: list[dict] | None, suspended: dict,
 def _continue_loop(client, model: str, tool_schemas: list[dict] | None,
                    messages: list, steps_used: int, journal: list,
                    verify_refusals: int) -> str | dict:
-    if tool_schemas is None:
-        tool_schemas = TOOL_SCHEMAS
+    tool_schemas = _resolve_schemas(tool_schemas)
     while steps_used < MAX_STEPS:
         msg = client.chat.completions.create(
             model=model, messages=messages, tools=tool_schemas).choices[0].message
@@ -180,14 +191,13 @@ def _execute_calls(tool_calls: list, messages: list, steps_used: int, journal: l
             if outcome is not None:
                 return outcome, verify_refusals
             continue
-        args, parse_error = _parse_arguments(call)
+        args, parse_error, journal_args = _parse_arguments(call)
         if parse_error is not None:
             messages.append(_tool_observation(call, None, parse_error))
-            _record(journal, steps_used, call.function.name, args, None,
+            _record(journal, steps_used, call.function.name, journal_args, None,
                     parse_error, DECISION_CONTINUE)
             continue
-        filtered = _filter_arguments(call.function.name, args, tool_schemas)
-        result, error = _execute_tool(call.function.name, filtered, tool_schemas)
+        result, error, filtered = _execute_tool(call.function.name, args, tool_schemas)
         messages.append(_tool_observation(call, result, error))
         if call.function.name == VERIFY_REPORT_TOOL and error is None:
             verify_refusals, outcome = _verify_outcome(
@@ -255,10 +265,10 @@ def _ask_student_outcome(call, remaining_calls: list, messages: list, steps_used
     At the step limit there is nothing to resume, so the loop stops instead
     (journaled as `stop_step_limit`, never as a misleading `suspend`).
     """
-    args, parse_error = _parse_arguments(call)
+    args, parse_error, journal_args = _parse_arguments(call)
     if parse_error is not None:
         messages.append(_tool_observation(call, None, parse_error))
-        _record(journal, steps_used, ASK_STUDENT_TOOL, args, None, parse_error,
+        _record(journal, steps_used, ASK_STUDENT_TOOL, journal_args, None, parse_error,
                 DECISION_CONTINUE)
         return None
     filtered = _filter_arguments(ASK_STUDENT_TOOL, args, tool_schemas)
@@ -281,40 +291,46 @@ def _ask_student_outcome(call, remaining_calls: list, messages: list, steps_used
             "consecutive_verify_refusals": verify_refusals}
 
 
-def _parse_arguments(call) -> tuple[dict, str | None]:
-    """Parse the model's JSON arguments; return (args, error).
+def _parse_arguments(call) -> tuple[dict, str | None, dict]:
+    """Parse the model's JSON arguments; return (args, error, journal_args).
 
     A malformed payload or a non-object stays visible as
     `invalid arguments: ...` so the model knows its JSON was broken
     instead of seeing a misleading "missing required argument".
+    `journal_args` is what the journal records: the parsed dict on
+    success, the truncated raw payload under `_raw_arguments` on error.
     """
+    raw = call.function.arguments if isinstance(call.function.arguments, str) else ""
     try:
         parsed = json.loads(call.function.arguments)
     except (ValueError, TypeError) as error:
-        return {}, f"{INVALID_ARGUMENTS_ERROR}: {error}"
+        return {}, f"{INVALID_ARGUMENTS_ERROR}: {error}", {
+            "_raw_arguments": raw[:MAX_RAW_ARGUMENTS]}
     if not isinstance(parsed, dict):
         return {}, (f"{INVALID_ARGUMENTS_ERROR}: expected an object, "
-                     f"got {type(parsed).__name__}")
-    return parsed, None
+                     f"got {type(parsed).__name__}"), {
+            "_raw_arguments": raw[:MAX_RAW_ARGUMENTS]}
+    return parsed, None, parsed
 
 
 def _execute_tool(name: str, args: dict,
-                  tool_schemas: list[dict] | None = None) -> tuple[object, str | None]:
-    """Run one registered tool; return (result, error) with exactly one set.
+                  tool_schemas: list[dict] | None = None) -> tuple[object, str | None, dict]:
+    """Run one registered tool; return (result, error, filtered_args).
 
-    Only the keys declared in the tool schema reach the function, so the
-    model can never inject `client` or another off-schema argument. A tool
-    exception (including `verify_report`) becomes an observation: it neither
-    resets nor increments the consecutive-refusal counter.
+    The single filtering place for tool calls: only the keys declared in
+    the tool schema reach the function, so the model can never inject
+    `client` or another off-schema argument. A tool exception (including
+    `verify_report`) becomes an observation: it neither resets nor
+    increments the consecutive-refusal counter.
     """
     tool = TOOLS.get(name)
     if tool is None:
-        return None, f"unknown tool: {name}"
+        return None, f"unknown tool: {name}", dict(args)
     filtered = _filter_arguments(name, args, tool_schemas)
     try:
-        return tool(**filtered), None
+        return tool(**filtered), None, filtered
     except Exception as error:  # tool error becomes an observation, not a crash
-        return None, str(error)
+        return None, str(error), filtered
 
 
 def _tool_observation(call, result: object, error: str | None) -> dict:

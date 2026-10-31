@@ -306,6 +306,7 @@ def test_malformed_json_arguments_become_an_invalid_arguments_observation():
     assert observations and "invalid arguments" in observations[-1]["content"]
     assert journal[0]["decision"] == "continue"
     assert "invalid arguments" in journal[0]["result"]["error"]
+    assert journal[0]["args"] == {"_raw_arguments": "{bad json"}
 
 
 def test_non_object_json_arguments_become_an_invalid_arguments_observation():
@@ -316,6 +317,29 @@ def test_non_object_json_arguments_become_an_invalid_arguments_observation():
     assert result == "Reformule."
     observations = tool_observations(client.calls[1])
     assert observations and "invalid arguments" in observations[-1]["content"]
+    assert journal[0]["args"] == {"_raw_arguments": "[1, 2]"}
+
+
+def test_empty_schema_list_still_filters_like_the_shared_schemas(monkeypatch):
+    seen = {}
+    monkeypatch.setitem(loop.TOOLS, "lookup_filieres",
+                        lambda **kwargs: seen.update(kwargs) or {"accessible": [], "excluded": []})
+    journal = []
+    lookup = assistant_message(tool_calls=[
+        tool_call("call-lookup", "lookup_filieres", {"serie": "D", "client": "injected"})])
+    client = ScriptedFakeClient([lookup, assistant_message(content="Termine.")])
+    result = loop.run(client, "fake-model", [], "Je veux etre medecin.", journal=journal)
+    assert result == "Termine."
+    assert seen == {"serie": "D"}
+    assert journal[0]["args"] == {"serie": "D"}
+
+
+def test_execute_tool_filters_once_and_returns_filtered_args():
+    result, error, filtered = loop._execute_tool(
+        "lookup_filieres", {"serie": "D", "client": "injected"}, None)
+    assert error is None
+    assert filtered == {"serie": "D"}
+    assert result == {"accessible": [], "excluded": []} or isinstance(result, dict)
 
 
 def test_refused_claims_ignores_problems_without_claim_id():
