@@ -30,6 +30,20 @@ def test_every_tool_schema_is_a_function_schema_with_object_parameters():
     assert json.loads(json.dumps(TOOL_SCHEMAS)) == TOOL_SCHEMAS
 
 
+def test_tool_schemas_match_function_signatures():
+    import inspect
+    by_name = {schema["function"]["name"]: schema["function"]["parameters"]
+               for schema in TOOL_SCHEMAS}
+    assert set(by_name) == set(loop.TOOLS)
+    for name, tool in loop.TOOLS.items():
+        parameters = inspect.signature(tool).parameters
+        expected = {param for param in parameters if param != "client"}
+        declared = set(by_name[name]["properties"])
+        assert declared == expected, name
+        for required in by_name[name].get("required", []):
+            assert required in declared, (name, required)
+
+
 def test_loop_defaults_to_the_shared_tool_schemas(monkeypatch):
     seen = {}
 

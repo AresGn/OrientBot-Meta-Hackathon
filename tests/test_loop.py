@@ -274,3 +274,115 @@ def test_journal_travels_with_the_suspended_state_and_resume():
     assert journal[-1]["decision"] == "suspend"
     result = loop.resume(client, "fake-model", [], suspended, ANSWER)
     assert result == "Merci, je continue."
+
+
+def test_extra_schema_keys_are_filtered_before_the_tool_runs(monkeypatch):
+    seen = {}
+    monkeypatch.setitem(loop.TOOLS, "lookup_filieres",
+                        lambda **kwargs: seen.update(kwargs) or {"accessible": [], "excluded": []})
+    journal = []
+    lookup = assistant_message(tool_calls=[
+        tool_call("call-lookup", "lookup_filieres", {"serie": "D", "client": "injected"})])
+    client = ScriptedFakeClient([lookup, assistant_message(content="Termine.")])
+    result = loop.run(client, "fake-model", None, "Je veux etre medecin.", journal=journal)
+    assert result == "Termine."
+    assert seen == {"serie": "D"}
+    assert journal[0]["args"] == {"serie": "D"}
+
+
+def raw_tool_call(call_id, name, raw_arguments):
+    return SimpleNamespace(
+        id=call_id, function=SimpleNamespace(name=name, arguments=raw_arguments))
+
+
+def test_malformed_json_arguments_become_an_invalid_arguments_observation():
+    journal = []
+    bad = assistant_message(tool_calls=[raw_tool_call("call-bad", "lookup_filieres", "{bad json")])
+    client = ScriptedFakeClient([bad, assistant_message(content="Reformule.")])
+    result = loop.run(client, "fake-model", [], "Bonjour.", journal=journal)
+    assert result == "Reformule."
+    assert len(client.calls) == 2
+    observations = tool_observations(client.calls[1])
+    assert observations and "invalid arguments" in observations[-1]["content"]
+    assert journal[0]["decision"] == "continue"
+    assert "invalid arguments" in journal[0]["result"]["error"]
+
+
+def test_non_object_json_arguments_become_an_invalid_arguments_observation():
+    journal = []
+    bad = assistant_message(tool_calls=[raw_tool_call("call-bad", "lookup_filieres", "[1, 2]")])
+    client = ScriptedFakeClient([bad, assistant_message(content="Reformule.")])
+    result = loop.run(client, "fake-model", [], "Bonjour.", journal=journal)
+    assert result == "Reformule."
+    observations = tool_observations(client.calls[1])
+    assert observations and "invalid arguments" in observations[-1]["content"]
+
+
+def test_refused_claims_ignores_problems_without_claim_id():
+    report = {"claims": [{"claim_id": "kept", "text": "Gardee."},
+                         {"text": "Sans identifiant."}]}
+    problems = [{"type": "structure", "reason": "forme"}]
+    assert loop._refused_claims(report, problems) == []
+
+
+def test_ask_at_the_step_limit_is_journaled_as_a_stop_not_a_suspend():
+    journal = []
+    scripted = [assistant_message(tool_calls=[
+        tool_call(f"call-ask-{step}", "ask_student", {"question": QUESTION})])
+        for step in range(loop.MAX_STEPS)]
+    client = ScriptedFakeClient(scripted)
+    result = loop.run(client, "fake-model", [], "Mon relevé est flou.", journal=journal)
+    while isinstance(result, dict) and result.get("status") == "needs_input":
+        result = loop.resume(client, "fake-model", [], result, ANSWER)
+    assert result == "Stopped: step limit reached."
+    assert journal[-1]["tool"] == "ask_student"
+    assert journal[-1]["decision"] == "stop_step_limit"
+
+
+def test_verify_exception_leaves_the_refusal_counter_unchanged(monkeypatch):
+    def raising_verify(**kwargs):
+        raise RuntimeError("verifier crashed")
+    monkeypatch.setitem(loop.TOOLS, "verify_report", raising_verify)
+    journal = []
+    failing = assistant_message(tool_calls=[
+        tool_call("call-verify", "verify_report", VERIFY_ARGS)])
+    client = ScriptedFakeClient([failing, assistant_message(content="Je continue.")])
+    result = loop.run(client, "fake-model", [], "Voici mon brouillon.", journal=journal)
+    assert result == "Je continue."
+    observations = tool_observations(client.calls[1])
+    assert observations and "verifier crashed" in observations[-1]["content"]
+    assert journal[0]["decision"] == "continue"
+
+
+def test_verify_exception_does_not_consume_a_refusal(monkeypatch):
+    calls = {"count": 0}
+
+    def flaky_verify(**kwargs):
+        calls["count"] += 1
+        if calls["count"] == 1:
+            raise RuntimeError("verifier crashed")
+        return VERIFY_PROBLEMS
+    monkeypatch.setitem(loop.TOOLS, "verify_report", flaky_verify)
+    client = verify_client(5)
+    result = loop.run(client, "fake-model", [], "Voici mon brouillon.")
+    assert result["status"] == "unverified"
+    assert len(client.calls) == 4
+
+
+def test_multiple_calls_in_one_message_keep_counting_verify_in_the_middle(monkeypatch):
+    seen = []
+    monkeypatch.setitem(loop.TOOLS, "lookup_filieres",
+                        lambda **kwargs: seen.append(kwargs) or {"accessible": [], "excluded": []})
+    stub_verify_report(monkeypatch, [VERIFY_PROBLEMS])
+    journal = []
+    both = assistant_message(tool_calls=[
+        tool_call("call-lookup-1", "lookup_filieres", {"serie": "D"}),
+        tool_call("call-verify", "verify_report", VERIFY_ARGS),
+        tool_call("call-lookup-2", "lookup_filieres", {"serie": "D"}),
+    ])
+    client = ScriptedFakeClient([both, assistant_message(content="Termine.")])
+    result = loop.run(client, "fake-model", [], "Voici mon brouillon.", journal=journal)
+    assert result == "Termine."
+    assert seen == [{"serie": "D"}, {"serie": "D"}]
+    assert [entry["tool"] for entry in journal] == ["lookup_filieres", "verify_report",
+                                                   "lookup_filieres"]
